@@ -1842,14 +1842,94 @@ body.menu-open .menu-socials li { opacity: 1; translate: none; transition-delay:
 .format-card:hover { transform: translateY(-6px); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 50%, transparent); }
 .format-card .support-ico { margin-bottom: 22px; }
 
+/* ==========================================================================
+   Page Setup
+   ========================================================================== */
+.kpi-grid.is-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.kpi-grid.is-4 .kpi b { font-size: clamp(36px, 3.8vw, 54px); white-space: nowrap; }
+.parts { padding: clamp(100px, 12vw, 150px) 0; }
+.parts-group {
+  margin: clamp(48px, 6vw, 72px) 0 18px;
+  color: var(--c-text-2);
+  font-family: var(--f-display);
+  font-size: 19px;
+  font-weight: 600;
+}
+.parts .section-head + .parts-group { margin-top: 0; }
+.parts-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+.parts-grid.is-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.part {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 26px;
+  overflow: hidden;
+  border-radius: 22px;
+  background: var(--c-surface);
+  box-shadow: inset 0 0 0 1px var(--c-line);
+  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+}
+.part::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: radial-gradient(360px circle at var(--mx, 0%) var(--my, 0%), color-mix(in srgb, var(--brand) 18%, transparent), transparent 65%);
+  opacity: .6;
+  transition: opacity .5s var(--ease);
+}
+.part:hover { box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 55%, transparent); }
+.part:hover::before { opacity: 1; }
+.part-ico {
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 22px;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--brand) 16%, transparent);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 40%, transparent);
+  color: var(--brand);
+  transition: transform .6s var(--spring);
+}
+.part:hover .part-ico { transform: rotate(-8deg) scale(1.08); }
+.part-ico svg { width: 26px; height: 26px; }
+.part-kind { color: var(--brand); font-size: 12px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.part h4 { margin-top: 6px; font-family: var(--f-display); font-size: 21px; font-weight: 700; line-height: 1.18; letter-spacing: -.02em; }
+.part-spec { margin: 6px 0 18px; color: var(--c-text-2); font-size: 15px; }
+.part .link-arrow { margin-top: auto; font-size: 15px; }
+.part-list { grid-column: 1 / -1; }
+.part-list ul { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; width: 100%; margin-top: 12px; }
+.part-list a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  height: 100%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--c-surface-2);
+  color: var(--c-text);
+  text-decoration: none;
+  transition: background-color .3s var(--ease);
+}
+.part-list a:hover { background: color-mix(in srgb, var(--brand) 20%, var(--c-surface-2)); }
+.part-list b { font-size: 15px; font-weight: 600; }
+.part-list span { color: var(--c-text-2); font-size: 14px; }
+.cta.cta-compact { min-height: 0; padding-bottom: clamp(220px, 28vw, 320px); }
+
 @media (max-width: 1068px) {
+  .kpi-grid.is-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .parts-grid, .parts-grid.is-3 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .part-list ul { grid-template-columns: minmax(0, 1fr); }
   .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .format-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .proof-grid { grid-template-columns: minmax(0, 1fr); }
   .support-free { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 600px) {
-  .kpi-grid, .format-grid { grid-template-columns: minmax(0, 1fr); }
+  .kpi-grid, .kpi-grid.is-4, .format-grid, .parts-grid, .parts-grid.is-3 { grid-template-columns: minmax(0, 1fr); }
   .free-actions a { flex: 1 1 100%; }
 }
 

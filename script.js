@@ -10,7 +10,7 @@ const CONFIG = {
   twitch: 'landers2k',
   discordInvite: 'uGGmDmts8Y',
   // ✎ Lien de ta page de dons (Tipeee, Ko-fi, PayPal…). Vide = bouton « Faire un don » caché.
-  donate: '',
+  donate: 'https://streamlabs.com/landers2k/tip',
 };
 
 (() => {
@@ -362,6 +362,9 @@ const CONFIG = {
     partner: { colors: ['blue', 'purple', 'red', 'gold', 'green', 'blue'], a: '#2997ff', b: '#bf5af2', free: [9, 5], top: 74 },
     proof: { colors: ['blue', 'orange', 'red', 'gold'], a: '#2997ff', b: '#ff9f0a' },
     formats: { colors: ['red', 'purple', 'blue', 'green'], a: '#fe2c55', b: '#5865f2' },
+    // Page Setup
+    setup: { colors: ['red', 'green', 'purple', 'blue', 'gold', 'orange'], a: '#ff375f', b: '#30d158', free: [9, 5], top: 74 },
+    parts: { colors: ['red', 'green', 'blue', 'purple', 'gold'], a: '#2997ff', b: '#ff9f0a' },
   };
 
   // Tirage pseudo-aléatoire reproductible : les cubes gardent leur place d'une visite à l'autre
