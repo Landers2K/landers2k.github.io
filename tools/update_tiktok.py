@@ -3,7 +3,7 @@
 Lit la page publique d'intégration TikTok du compte, repère la vidéo la plus
 récente (les vidéos épinglées, plus anciennes, sont ignorées : l'identifiant
 d'une vidéo TikTok contient sa date de publication), puis écrit :
-  - assets/data/tiktok.json      (vidéo, légende, abonnés, j'aime)
+  - assets/data/tiktok.json      (vidéo, légende, abonnés, j'aime, vues)
   - assets/img/tiktok-latest.jpg (miniature, hébergée par le site lui-même)
 
 Usage : python tools/update_tiktok.py
@@ -64,10 +64,15 @@ def main() -> int:
             COVER_FILE.parent.mkdir(parents=True, exist_ok=True)
             COVER_FILE.write_bytes(fetch(cover_url))
 
+    plays = [v.get("playCount") or 0 for v in videos]
     data = {
         "account": ACCOUNT,
         "followers": user.get("followerCount"),
         "likes": user.get("heartCount"),
+        # Vues cumulées des vidéos visibles sur le profil (épinglées + récentes)
+        "recentVideos": len(videos),
+        "recentViews": sum(plays),
+        "bestViews": max(plays),
         "latest": {
             "id": video_id,
             "url": f"https://www.tiktok.com/@{ACCOUNT}/video/{video_id}",

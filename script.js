@@ -9,6 +9,8 @@ const CONFIG = {
   youtubeChannelId: 'UCo0V0OxkmIJ9MgkuLxN_ukg',
   twitch: 'landers2k',
   discordInvite: 'uGGmDmts8Y',
+  // ✎ Lien de ta page de dons (Tipeee, Ko-fi, PayPal…). Vide = bouton « Faire un don » caché.
+  donate: '',
 };
 
 (() => {
@@ -82,12 +84,12 @@ const CONFIG = {
   }
 
   /* Compteur animé */
-  function countUp(el, to, dur = 1800) {
-    if (reduced) { el.textContent = fmt.format(to); return; }
+  function countUp(el, to, dur = 1800, format = n => fmt.format(n)) {
+    if (reduced) { el.textContent = format(to); return; }
     const t0 = performance.now();
     const tick = now => {
       const t = clamp((now - t0) / dur);
-      el.textContent = fmt.format(Math.round(t === 1 ? to : to * (1 - Math.pow(2, -10 * t))));
+      el.textContent = format(Math.round(t === 1 ? to : to * (1 - Math.pow(2, -10 * t))));
       if (t < 1) requestAnimationFrame(tick);
     };
     requestAnimationFrame(tick);
@@ -169,7 +171,7 @@ const CONFIG = {
   const tapCube = c => {
     if (c.busy) return;
     clearTimeout(hintTimer);
-    hero.classList.remove('show-hint');
+    hero?.classList.remove('show-hint');
     const [color, points] = CUBE_COLORS[c.color];
     c.busy = true;
 
@@ -237,61 +239,104 @@ const CONFIG = {
      Accueil : les cubes flottent autour du titre. Au scroll, ils s'envolent
      vers l'écran et laissent place à « Création. Innovation. Communauté. »
      ------------------------------------------------------------------------ */
-  const heroSticky = $('.hero-sticky');
-  const heroContent = $('.hero-content');
-  const heroStatement = $('.hero-statement');
-  const statementKicker = $('.kicker', heroStatement);
-  const statementWords = $$('.st-word', heroStatement);
-  const dock = $('.dock');
-  const heroLayer = $('.hero-cubes');
-
-  // [x %, y %, taille px, couleur, profondeur 0 (loin) → 1 (proche), bulle « Tape-moi »]
-  const HERO_LAYOUTS = {
-    wide: [
-      [9, 26, 120, 'blue', .9], [20, 13, 56, 'purple', .35], [5, 52, 70, 'red', .5], [17, 45, 46, 'gold', .25],
-      [90, 22, 112, 'red', .85], [80, 12, 52, 'blue', .3], [95, 47, 64, 'green', .45], [85, 41, 44, 'blue', .2],
-      [11, 79, 96, 'blue', .7], [26, 68, 58, 'orange', .4], [29, 87, 128, 'blue', 1], [50, 75, 56, 'red', .35],
-      [71, 88, 100, 'gold', .75], [74, 68, 72, 'blue', .5, true], [89, 81, 124, 'red', .95], [97, 64, 48, 'purple', .3],
-    ],
-    narrow: [
-      [13, 71, 66, 'blue', .75, true], [38, 81, 50, 'red', .5], [62, 70, 56, 'gold', .6],
-      [87, 78, 74, 'blue', .9], [6, 86, 38, 'purple', .3], [94, 64, 38, 'green', .35],
-    ],
-  };
-
-  let heroCubes = [];
-  let heroLayout = '';
   let heroP = 0;
   let mx = 0, my = 0, tmx = 0, tmy = 0, parallaxRaf = 0;
+  let placeHero = () => {};
+  let buildHero = () => {};
 
-  const placeHero = () => {
-    const W = heroSticky.clientWidth, H = heroSticky.clientHeight;
-    const fly = reduced ? 0 : easeInOut(clamp(heroP / .6));
-    for (const c of heroCubes) {
-      const bx = c.x / 100 * W, by = c.y / 100 * H;
-      const k = fly * c.z * 2.2;
-      const x = bx + (bx - W / 2) * k + mx * c.z * 40;
-      const y = by + (by - H / 2) * k + my * c.z * 28;
-      const scale = 1 + fly * c.z * 1.5;
-      const rot = fly * c.z * 50 * c.sign;
-      // Les cubes proches disparaissent en s'envolant, les lointains restent en fond
-      const fade = c.z >= .4 ? 1 - clamp((heroP - .15) / .35) : lerp(1, .45, clamp(heroP / .5));
-      c.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)}) rotate(${rot.toFixed(1)}deg)`;
-      c.el.style.opacity = fade.toFixed(3);
-      c.el.style.visibility = fade < .02 ? 'hidden' : '';
+  if (hero) {
+    const heroSticky = $('.hero-sticky');
+    const heroContent = $('.hero-content');
+    const heroStatement = $('.hero-statement');
+    const statementKicker = $('.kicker', heroStatement);
+    const statementWords = $$('.st-word', heroStatement);
+    const dock = $('.dock');
+    const heroLayer = $('.hero-cubes');
+
+    // [x %, y %, taille px, couleur, profondeur 0 (loin) → 1 (proche), bulle « Tape-moi »]
+    const HERO_LAYOUTS = {
+      wide: [
+        [9, 26, 120, 'blue', .9], [20, 13, 56, 'purple', .35], [5, 52, 70, 'red', .5], [17, 45, 46, 'gold', .25],
+        [90, 22, 112, 'red', .85], [80, 12, 52, 'blue', .3], [95, 47, 64, 'green', .45], [85, 41, 44, 'blue', .2],
+        [11, 79, 96, 'blue', .7], [26, 68, 58, 'orange', .4], [29, 87, 128, 'blue', 1], [50, 75, 56, 'red', .35],
+        [71, 88, 100, 'gold', .75], [74, 68, 72, 'blue', .5, true], [89, 81, 124, 'red', .95], [97, 64, 48, 'purple', .3],
+      ],
+      narrow: [
+        [13, 71, 66, 'blue', .75, true], [38, 81, 50, 'red', .5], [62, 70, 56, 'gold', .6],
+        [87, 78, 74, 'blue', .9], [6, 86, 38, 'purple', .3], [94, 64, 38, 'green', .35],
+      ],
+    };
+
+    let heroCubes = [];
+    let heroLayout = '';
+
+    placeHero = () => {
+      const W = heroSticky.clientWidth, H = heroSticky.clientHeight;
+      const fly = reduced ? 0 : easeInOut(clamp(heroP / .6));
+      for (const c of heroCubes) {
+        const bx = c.x / 100 * W, by = c.y / 100 * H;
+        const k = fly * c.z * 2.2;
+        const x = bx + (bx - W / 2) * k + mx * c.z * 40;
+        const y = by + (by - H / 2) * k + my * c.z * 28;
+        const scale = 1 + fly * c.z * 1.5;
+        const rot = fly * c.z * 50 * c.sign;
+        // Les cubes proches disparaissent en s'envolant, les lointains restent en fond
+        const fade = c.z >= .4 ? 1 - clamp((heroP - .15) / .35) : lerp(1, .45, clamp(heroP / .5));
+        c.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) scale(${scale.toFixed(3)}) rotate(${rot.toFixed(1)}deg)`;
+        c.el.style.opacity = fade.toFixed(3);
+        c.el.style.visibility = fade < .02 ? 'hidden' : '';
+      }
+    };
+
+    buildHero = () => {
+      const name = vw < 735 ? 'narrow' : 'wide';
+      if (name === heroLayout) return;
+      heroLayout = name;
+      heroCubes = makeCubes(heroLayer, hero, HERO_LAYOUTS[name].map(([x, y, s, color, z, hint]) => ({ x, y, s, color, z, hint })));
+    };
+
+    buildHero();
+    placeHero();
+    watch(heroSticky, $('.hero-bg'), heroLayer);
+
+    let heroStickyH = heroSticky.offsetHeight;
+    resizeTasks.push(() => {
+      heroStickyH = heroSticky.offsetHeight;
+      buildHero();
+      placeHero();
+    });
+
+    if (!reduced) {
+      scrollTasks.push(() => {
+        const r = hero.getBoundingClientRect();
+        if (r.bottom < 0) return;
+        const total = r.height - heroStickyH;
+        const p = total > 0 ? clamp(-r.top / total) : 0;
+
+        heroContent.style.transform = `translate3d(0, ${(-p * 180).toFixed(1)}px, 0) scale(${(1 - p * .06).toFixed(4)})`;
+        heroContent.style.opacity = clamp(1 - p * 2.6).toFixed(3);
+        heroContent.style.visibility = p > .42 ? 'hidden' : '';
+
+        dock.style.opacity = clamp(1 - p * 5).toFixed(3);
+        dock.style.transform = `translate3d(-50%, ${(p * 90).toFixed(1)}px, 0)`;
+        dock.style.visibility = p > .22 ? 'hidden' : '';
+        if (p > .08) hero.classList.remove('show-hint');
+
+        const q = clamp((p - .45) / .4);
+        heroStatement.style.opacity = q > 0 ? '1' : '0';
+        statementKicker.style.opacity = easeOut(clamp(q * 3)).toFixed(3);
+        statementWords.forEach((w, i) => {
+          const k = easeOut(clamp(q * 3.2 - i * .8));
+          w.style.opacity = k.toFixed(3);
+          w.style.transform = `translateY(${((1 - k) * 30).toFixed(1)}px) scale(${(.94 + k * .06).toFixed(4)})`;
+          w.style.filter = k < .999 ? `blur(${((1 - k) * 10).toFixed(2)}px)` : 'none';
+        });
+
+        heroP = p;
+        placeHero();
+      });
     }
-  };
-
-  const buildHero = () => {
-    const name = vw < 735 ? 'narrow' : 'wide';
-    if (name === heroLayout) return;
-    heroLayout = name;
-    heroCubes = makeCubes(heroLayer, hero, HERO_LAYOUTS[name].map(([x, y, s, color, z, hint]) => ({ x, y, s, color, z, hint })));
-  };
-
-  buildHero();
-  placeHero();
-  watch(heroSticky, $('.hero-bg'), heroLayer);
+  }
 
   /* ------------------------------------------------------------------------
      Les autres sections : chacune a ses cubes aux couleurs de son réseau,
@@ -312,6 +357,11 @@ const CONFIG = {
     download: { colors: ['blue', 'red', 'gold', 'purple'], a: '#2997ff', b: '#ff375f' },
     // Contact : comme l'accueil, les cubes occupent tout le bas de l'écran
     contact: { colors: ['blue', 'purple', 'red', 'gold', 'blue', 'green'], a: '#5865f2', b: '#ff375f', free: [9, 5] },
+    support: { colors: ['purple', 'gold', 'red', 'blue'], a: '#9146ff', b: '#ffb300' },
+    // Page Partenariats
+    partner: { colors: ['blue', 'purple', 'red', 'gold', 'green', 'blue'], a: '#2997ff', b: '#bf5af2', free: [9, 5], top: 74 },
+    proof: { colors: ['blue', 'orange', 'red', 'gold'], a: '#2997ff', b: '#ff9f0a' },
+    formats: { colors: ['red', 'purple', 'blue', 'green'], a: '#fe2c55', b: '#5865f2' },
   };
 
   // Tirage pseudo-aléatoire reproductible : les cubes gardent leur place d'une visite à l'autre
@@ -356,7 +406,8 @@ const CONFIG = {
       if (free) {
         // Répartis sur toute la largeur, sous le texte
         cube.x = clamp(((i + .5) / n) * 92 + 4 + (rnd() - .5) * 6, 3, 97);
-        cube.y = 62 + rnd() * 30;
+        const top = sc.conf.top || 62;
+        cube.y = top + rnd() * (94 - top);
       } else {
         // Dans les marges, à gauche et à droite en alternance
         cube.side = (i + sc.seed) % 2 ? 1 : -1;
@@ -402,44 +453,8 @@ const CONFIG = {
     }, { passive: true });
   }
 
-  let heroStickyH = heroSticky.offsetHeight;
-  resizeTasks.push(() => {
-    heroStickyH = heroSticky.offsetHeight;
-    buildHero();
-    placeHero();
-    scenes.forEach(sc => { buildScene(sc); placeScene(sc); });
-  });
+  resizeTasks.push(() => scenes.forEach(sc => { buildScene(sc); placeScene(sc); }));
 
-  if (!reduced) {
-    scrollTasks.push(() => {
-      const r = hero.getBoundingClientRect();
-      if (r.bottom < 0) return;
-      const total = r.height - heroStickyH;
-      const p = total > 0 ? clamp(-r.top / total) : 0;
-
-      heroContent.style.transform = `translate3d(0, ${(-p * 180).toFixed(1)}px, 0) scale(${(1 - p * .06).toFixed(4)})`;
-      heroContent.style.opacity = clamp(1 - p * 2.6).toFixed(3);
-      heroContent.style.visibility = p > .42 ? 'hidden' : '';
-
-      dock.style.opacity = clamp(1 - p * 5).toFixed(3);
-      dock.style.transform = `translate3d(-50%, ${(p * 90).toFixed(1)}px, 0)`;
-      dock.style.visibility = p > .22 ? 'hidden' : '';
-      if (p > .08) hero.classList.remove('show-hint');
-
-      const q = clamp((p - .45) / .4);
-      heroStatement.style.opacity = q > 0 ? '1' : '0';
-      statementKicker.style.opacity = easeOut(clamp(q * 3)).toFixed(3);
-      statementWords.forEach((w, i) => {
-        const k = easeOut(clamp(q * 3.2 - i * .8));
-        w.style.opacity = k.toFixed(3);
-        w.style.transform = `translateY(${((1 - k) * 30).toFixed(1)}px) scale(${(.94 + k * .06).toFixed(4)})`;
-        w.style.filter = k < .999 ? `blur(${((1 - k) * 10).toFixed(2)}px)` : 'none';
-      });
-
-      heroP = p;
-      placeHero();
-    });
-  }
 
   /* ------------------------------------------------------------------------
      Barre de navigation : état au scroll, masquage, progression,
@@ -450,7 +465,10 @@ const CONFIG = {
     const links = $$('.nav-links a');
     const pill = $('.nav-pill');
     const progress = $('.nav-progress');
-    const targets = links.map(a => $(a.getAttribute('href')));
+    // Les liens vers une autre page n'ont pas de section à suivre ; celui de la page en cours reste actif
+    const samePage = a => a.pathname.replace(/index\.html$/, '') === location.pathname.replace(/index\.html$/, '');
+    const targets = links.map(a => (a.hash && samePage(a) ? $(a.hash) : null));
+    const here = links.find(a => !a.hash && samePage(a)) || null;
     let active = null;
     let hovering = false;
     let lastY = scrollY;
@@ -479,7 +497,7 @@ const CONFIG = {
       const max = root.scrollHeight - vh;
       progress.style.transform = `scaleX(${max > 0 ? clamp(y / max).toFixed(4) : 0})`;
 
-      let current = null;
+      let current = here;
       targets.forEach((t, i) => {
         if (t && t.getBoundingClientRect().top <= vh * .4) current = links[i];
       });
@@ -651,34 +669,70 @@ const CONFIG = {
   setInterval(refreshLive, 120000);
 
   /* ------------------------------------------------------------------------
-     Discord : nom, icône et membres du serveur, en direct
+     Chiffres en direct : chaque élément [data-stat="…"] de la page est rempli,
+     avec un compteur animé quand il arrive à l'écran. TikTok depuis
+     assets/data/tiktok.json, Twitch via decapi.me, Discord via l'invitation
+     du serveur (qui donne aussi le nom et l'icône pour la carte Discord).
+     Sans réseau, les valeurs écrites dans le HTML restent affichées.
      ------------------------------------------------------------------------ */
-  (function discord() {
-    const section = $('#discord');
-    if (!section) return;
-    const io = new IntersectionObserver(async ([entry]) => {
+  (function liveStats() {
+    const compact = new Intl.NumberFormat('fr-FR', { notation: 'compact', maximumFractionDigits: 1 });
+    const statIO = new IntersectionObserver(entries => entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-      io.disconnect();
-      try {
-        const res = await fetch(`https://discord.com/api/v10/invites/${encodeURIComponent(CONFIG.discordInvite)}?with_counts=true`);
-        if (!res.ok) return;
-        const data = await res.json();
+      statIO.unobserve(entry.target);
+      const el = entry.target;
+      countUp(el, Number(el.dataset.value), 1800, el.dataset.format === 'compact' ? n => compact.format(n) : undefined);
+    }), { threshold: .5 });
+    const put = (name, value) => {
+      if (typeof value !== 'number' || !Number.isFinite(value)) return;
+      $$(`[data-stat="${name}"]`).forEach(el => {
+        el.dataset.value = value;
+        statIO.observe(el);
+      });
+    };
+    const needs = prefix => !!$(`[data-stat^="${prefix}"]`);
+    const getJSON = url => fetch(url, { cache: 'no-cache' }).then(r => (r.ok ? r.json() : null)).catch(() => null);
+
+    if (needs('tiktok-')) {
+      getJSON('assets/data/tiktok.json').then(d => {
+        if (!d) return;
+        put('tiktok-followers', d.followers);
+        put('tiktok-likes', d.likes);
+        put('tiktok-views', d.recentViews);
+        put('tiktok-best', d.bestViews);
+      });
+    }
+
+    if (needs('twitch-')) {
+      fetch(`https://decapi.me/twitch/followcount/${encodeURIComponent(CONFIG.twitch)}`)
+        .then(r => (r.ok ? r.text() : ''))
+        .then(text => { if (/^\d+$/.test(text.trim())) put('twitch-followers', Number(text.trim())); })
+        .catch(() => {});
+    }
+
+    const card = $('.discord-card');
+    if (needs('discord-') || card) {
+      getJSON(`https://discord.com/api/v10/invites/${encodeURIComponent(CONFIG.discordInvite)}?with_counts=true`).then(data => {
+        if (!data) return;
         const guild = data.guild || {};
-        if (guild.name) $('[data-discord="name"]', section).textContent = guild.name;
-        if (guild.icon && /^\d+$/.test(guild.id) && /^\w+$/.test(guild.icon)) {
-          const img = $('.discord-icon img', section);
+        if (card && guild.name) $('[data-discord="name"]', card).textContent = guild.name;
+        if (card && guild.icon && /^\d+$/.test(guild.id) && /^\w+$/.test(guild.icon)) {
+          const img = $('.discord-icon img', card);
           img.onload = () => { img.hidden = false; };
           img.src = `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256`;
         }
-        if (typeof data.approximate_member_count === 'number') {
-          $('.discord-stats', section).hidden = false;
-          countUp($('[data-discord="members"]', section), data.approximate_member_count);
-          countUp($('[data-discord="online"]', section), data.approximate_presence_count || 0);
-        }
-      } catch { /* hors ligne : la carte reste valable sans les chiffres */ }
-    }, { rootMargin: '800px 0px' });
-    io.observe(section);
+        if (card && typeof data.approximate_member_count === 'number') $('.discord-stats', card).hidden = false;
+        put('discord-members', data.approximate_member_count);
+        put('discord-online', data.approximate_presence_count);
+      });
+    }
   })();
+
+  // Bouton « Faire un don » : affiché seulement si un lien est renseigné dans CONFIG
+  if (/^https:\/\//.test(CONFIG.donate)) {
+    $$('[data-donate]').forEach(el => { el.hidden = false; });
+    $$('[data-donate-link]').forEach(a => { a.href = CONFIG.donate; });
+  }
 
   /* ------------------------------------------------------------------------
      Dernier TikTok : légende, date et chiffres lus dans assets/data/tiktok.json
@@ -965,9 +1019,11 @@ const CONFIG = {
 
   const ready = () => {
     root.classList.add('is-loaded');
-    $('.hero-title').classList.add('is-in');
-    // Petite bulle « Tape-moi ! » si personne n'a encore touché un cube
-    hintTimer = setTimeout(() => { if (heroP < .08 && toast.hidden) hero.classList.add('show-hint'); }, 2600);
+    if (hero) {
+      $('.hero-title').classList.add('is-in');
+      // Petite bulle « Tape-moi ! » si personne n'a encore touché un cube
+      hintTimer = setTimeout(() => { if (heroP < .08 && toast.hidden) hero.classList.add('show-hint'); }, 2600);
+    }
     // Les polices sont chargées : on remesure tout ce qui dépend des hauteurs de texte
     for (const task of resizeTasks) task();
     queue();
