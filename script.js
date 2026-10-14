@@ -117,12 +117,18 @@ const CONFIG = {
 
   /* ------------------------------------------------------------------------
      Cubes de Don't Tap Red : on peut les taper partout sur le site.
-     Bleu et couleurs = points, rouge = perdu. Le score est commun à tout le site.
+     Mêmes points que dans le jeu. Le score est commun à tout le site.
      ------------------------------------------------------------------------ */
-  // Couleur du halo et points rapportés (0 = cube rouge, à ne pas toucher)
+  // Points de 21 à 40, comme les cubes violet et orange du mode Arcade
+  const special = () => 21 + Math.floor(Math.random() * 20);
+  // Couleur du halo et points rapportés (null = cube rouge : game over)
   const CUBE_COLORS = {
-    blue: ['#2997ff', 1], green: ['#30d158', 2], orange: ['#ff9f0a', 3],
-    purple: ['#bf5af2', 5], gold: ['#ffd60a', 10], red: ['#ff375f', 0],
+    blue: ['#2997ff', () => 1],
+    green: ['#30d158', () => 5],
+    purple: ['#bf5af2', special],
+    orange: ['#ff9f0a', () => -special()],
+    gold: ['#ffd60a', () => 50],
+    red: ['#ff375f', null],
   };
   const hero = $('.hero');
   const toast = $('.score-toast');
@@ -172,10 +178,10 @@ const CONFIG = {
     if (c.busy) return;
     clearTimeout(hintTimer);
     hero?.classList.remove('show-hint');
-    const [color, points] = CUBE_COLORS[c.color];
+    const [color, pointsOf] = CUBE_COLORS[c.color];
     c.busy = true;
 
-    if (!points) {
+    if (!pointsOf) {
       const r = c.el.getBoundingClientRect();
       flash.style.setProperty('--fx', `${(r.left + r.width / 2).toFixed(0)}px`);
       flash.style.setProperty('--fy', `${(r.top + r.height / 2).toFixed(0)}px`);
@@ -186,15 +192,17 @@ const CONFIG = {
       c.el.classList.add('is-angry');
       c.root.classList.add('is-hit');
       flash.classList.add('is-on');
+      showScore('GAME OVER ! Score final', score, true);
       score = 0;
-      showScore('Aïe, c’était rouge ! Score', 0, true);
       setTimeout(() => { c.busy = false; }, 600);
       return;
     }
 
-    score += points;
-    showScore('Score', score, false);
-    burst(c, color, `+${points}`);
+    // L'orange retire des points (le score ne descend pas sous 0)
+    const points = pointsOf();
+    score = Math.max(0, score + points);
+    showScore('Score', score, points < 0);
+    burst(c, color, points > 0 ? `+${points}` : `${points}`);
     c.el.classList.remove('is-back');
     c.el.classList.add('is-pop');
     setTimeout(() => {
