@@ -1725,6 +1725,9 @@ body.menu-open .menu-socials li { opacity: 1; translate: none; transition-delay:
 .support-card > p:not(.support-note) { margin-bottom: 26px; }
 .support-card .btn { margin-top: auto; }
 .support-note { color: var(--c-text-3) !important; font-size: 12px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+/* La mention passe au-dessus du bouton : les 3 boutons restent alignés en bas des cartes */
+.support-card .support-note { margin-top: auto; }
+.support-card .support-note + .btn { margin-top: 10px; }
 
 .support-free {
   display: grid;
