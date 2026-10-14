@@ -127,7 +127,7 @@ const CONFIG = {
     green: ['#30d158', () => 5],
     purple: ['#bf5af2', special],
     orange: ['#ff9f0a', () => -special()],
-    gold: ['#ffd60a', () => 100],
+    gold: ['#ffd60a', () => 50],
     red: ['#ff375f', null],
   };
   const hero = $('.hero');
