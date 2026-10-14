@@ -1254,7 +1254,7 @@ body.menu-open .menu-socials li { opacity: 1; translate: none; transition-delay:
   align-items: center;
   gap: clamp(40px, 6vw, 96px);
 }
-.game-badge { display: inline-flex; align-items: center; gap: 14px; margin-bottom: 26px; }
+.game-badge { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 12px 14px; margin-bottom: 26px; }
 .game-badge img { width: 64px; height: 64px; border-radius: 16px; box-shadow: 0 0 0 1px rgba(255, 255, 255, .1), 0 16px 40px -14px rgba(255, 55, 95, .7); }
 .game-badge b { display: block; font-size: 17px; font-weight: 600; }
 .game-badge small { display: block; color: var(--c-text-2); font-size: 14px; }
@@ -1288,6 +1288,22 @@ body.menu-open .menu-socials li { opacity: 1; translate: none; transition-delay:
 .store-btn svg { flex: none; width: 26px; height: 26px; }
 .store-btn small { display: block; font-size: 11px; line-height: 1.1; opacity: .85; }
 .store-btn b { display: block; font-size: 19px; font-weight: 600; line-height: 1.15; letter-spacing: -.02em; }
+.release-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 6px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  background: rgba(255, 214, 10, .1);
+  box-shadow: inset 0 0 0 1px rgba(255, 214, 10, .4);
+  color: #ffd60a;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.release-pill i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #ffd60a; box-shadow: 0 0 10px #ffd60a; animation: blink 2.4s ease-in-out infinite; }
+.release-pill-lg { margin: 22px 0 0; padding: 9px 18px; font-size: 16px; }
 .store-btn-lg { min-width: 210px; padding: 12px 24px 12px 20px; border-radius: 16px; }
 .store-btn-lg svg { width: 30px; height: 30px; }
 .store-btn-lg b { font-size: 22px; }
