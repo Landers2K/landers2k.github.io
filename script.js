@@ -137,10 +137,51 @@ const CONFIG = {
   let toastTimer = 0;
   let hintTimer = 0;
 
+  // Rangs atteints au fil du score, inspirés des titres du jeu
+  const RANKS = [
+    { at: 100, name: 'Bronze', color: '#d08a4e' },
+    { at: 250, name: 'Argent', color: '#d1d5db' },
+    { at: 500, name: 'Or', color: '#ffd60a' },
+    { at: 1000, name: 'LEGEND', color: '#d68cff' },
+  ];
+  const rankOf = s => RANKS.filter(r => s >= r.at).length;
+  // Code cadeau Don't Tap Red débloqué au rang LEGEND (déclaré dans le Google Sheets du jeu)
+  const GIFT_CODE = atob('U0lURTJL');
+  const GIFT_AT = RANKS[RANKS.length - 1].at;
+  const saved = {
+    get(key) { try { return localStorage.getItem(key); } catch { return null; } },
+    set(key, value) { try { localStorage.setItem(key, String(value)); } catch { /* stockage indisponible */ } },
+  };
+  // Record et meilleur rang du visiteur, gardés sur son appareil
+  let best = parseInt(saved.get('l2k-cube-best') || '0', 10) || 0;
+  let bestRank = parseInt(saved.get('l2k-cube-rank') || '0', 10) || 0;
+  let giftUnlocked = saved.get('l2k-gift') === '1';
+
   const showScore = (label, value, lost) => {
     const b = document.createElement('b');
-    b.textContent = value;
-    toast.replaceChildren(`${label} `, b);
+    b.textContent = fmt.format(value);
+    const parts = [`${label} `, b];
+    const rank = rankOf(value);
+    if (rank && !lost) {
+      const chip = document.createElement('span');
+      chip.className = 'score-rank';
+      chip.style.setProperty('--rc', RANKS[rank - 1].color);
+      chip.textContent = RANKS[rank - 1].name;
+      parts.push(chip);
+    }
+    if (best) {
+      const record = document.createElement('span');
+      record.className = 'score-best';
+      record.textContent = value > 0 && value >= best ? 'Nouveau record !' : `Record ${fmt.format(best)}`;
+      parts.push(record);
+    }
+    if (!giftUnlocked) {
+      const goal = document.createElement('span');
+      goal.className = 'score-goal';
+      goal.textContent = `🎁 Cadeau Don’t Tap Red à ${fmt.format(GIFT_AT)} points`;
+      parts.push(goal);
+    }
+    toast.replaceChildren(...parts);
     toast.hidden = false;
     toast.classList.toggle('is-lost', lost);
     toast.classList.remove('is-bump');
@@ -200,9 +241,23 @@ const CONFIG = {
 
     // L'orange retire des points (le score ne descend pas sous 0)
     const points = pointsOf();
+    const before = score;
     score = Math.max(0, score + points);
-    showScore('Score', score, points < 0);
+    if (score > best) {
+      best = score;
+      saved.set('l2k-cube-best', best);
+    }
+    const rank = rankOf(score);
+    const newRank = rank > rankOf(before) && rank > bestRank;
+    showScore(newRank ? 'Nouveau rang ! Score' : 'Score', score, points < 0);
     burst(c, color, points > 0 ? `+${points}` : `${points}`);
+    const unlocking = score >= GIFT_AT && before < GIFT_AT && !giftUnlocked;
+    if (newRank) {
+      bestRank = rank;
+      saved.set('l2k-cube-rank', bestRank);
+      if (!unlocking) confetti();
+    }
+    if (unlocking) unlockGift();
     c.el.classList.remove('is-back');
     c.el.classList.add('is-pop');
     setTimeout(() => {
@@ -211,6 +266,95 @@ const CONFIG = {
       c.busy = false;
     }, 2200 + Math.random() * 1500);
   };
+
+  // Pluie de confettis aux couleurs des cubes (dans la fenêtre du cadeau si elle est ouverte)
+  function confetti(container = document.body) {
+    if (reduced) return;
+    const colors = Object.values(CUBE_COLORS).map(([hex]) => hex);
+    const layer = document.createElement('div');
+    layer.className = 'confetti';
+    layer.setAttribute('aria-hidden', 'true');
+    for (let i = 0; i < 90; i++) {
+      const bit = document.createElement('i');
+      bit.style.cssText = [
+        `left:${(Math.random() * 100).toFixed(1)}%`, `--c:${colors[i % colors.length]}`,
+        `--dx:${((Math.random() - .5) * 260).toFixed(0)}px`, `--dr:${(Math.random() * 900 - 450).toFixed(0)}deg`,
+        `--t:${(1.8 + Math.random() * 1.6).toFixed(2)}s`, `--d:${(Math.random() * .5).toFixed(2)}s`,
+        `--w:${(6 + Math.random() * 7).toFixed(1)}px`,
+      ].join(';');
+      layer.append(bit);
+    }
+    container.append(layer);
+    setTimeout(() => layer.remove(), 4200);
+  }
+
+  /* Fenêtre du code cadeau, rouvrable depuis le bouton 🎁 de la barre du haut */
+  let giftDialog = null;
+  const openGift = () => {
+    if (!giftDialog) {
+      giftDialog = document.createElement('dialog');
+      giftDialog.className = 'gift-modal';
+      giftDialog.setAttribute('aria-labelledby', 'gift-title');
+      giftDialog.innerHTML = `
+        <div class="gift-card">
+          <img class="gift-cube" src="assets/img/cube-gold.png" alt="" width="96" height="96">
+          <p class="gift-rank">Rang LEGEND</p>
+          <h2 id="gift-title">${fmt.format(GIFT_AT)} points, bravo&nbsp;!</h2>
+          <p class="gift-text">Tu as débloqué un code cadeau pour Don’t Tap Red&nbsp;:</p>
+          <div class="gift-code"><span class="gift-code-value"></span><button type="button" class="btn btn-light gift-copy">Copier</button></div>
+          <ul class="gift-rewards">
+            <li><b>1&nbsp;000</b> coins</li>
+            <li><b>1&nbsp;000</b> gems</li>
+            <li><b>1&nbsp;000</b> XP</li>
+          </ul>
+          <p class="gift-how">Dans le jeu&nbsp;: <b>Réglages › CODE CADEAU</b>. Utilisable une fois par joueur.</p>
+          <div class="gift-actions">
+            <a class="btn btn-brand" href="./#jeu" style="--brand:#2997ff">Découvrir le jeu</a>
+            <button type="button" class="btn gift-close">Fermer</button>
+          </div>
+        </div>`;
+      $('.gift-code-value', giftDialog).textContent = GIFT_CODE;
+      const copyBtn = $('.gift-copy', giftDialog);
+      copyBtn.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(GIFT_CODE);
+          copyBtn.textContent = 'Copié !';
+        } catch {
+          // Presse-papiers indisponible : on sélectionne le code pour une copie manuelle
+          getSelection().selectAllChildren($('.gift-code-value', giftDialog));
+        }
+      });
+      $('.gift-close', giftDialog).addEventListener('click', () => giftDialog.close());
+      $('a', giftDialog).addEventListener('click', () => giftDialog.close());
+      giftDialog.addEventListener('click', e => { if (e.target === giftDialog) giftDialog.close(); });
+      document.body.append(giftDialog);
+    }
+    $('.gift-copy', giftDialog).textContent = 'Copier';
+    giftDialog.showModal();
+  };
+
+  const showGiftButton = () => {
+    if ($('.nav-gift')) return;
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'nav-gift';
+    btn.setAttribute('aria-label', 'Mon code cadeau Don’t Tap Red');
+    btn.innerHTML = '<span aria-hidden="true">🎁</span>';
+    btn.addEventListener('click', openGift);
+    $('.nav-actions')?.prepend(btn);
+  };
+
+  const unlockGift = () => {
+    giftUnlocked = true;
+    saved.set('l2k-gift', 1);
+    showGiftButton();
+    setTimeout(() => {
+      openGift();
+      confetti(giftDialog);
+    }, 450);
+  };
+
+  if (giftUnlocked) showGiftButton();
 
   // Crée les cubes d'un calque à partir d'une liste { s: taille, color, z: profondeur, hint }
   const makeCubes = (layer, root, items) => {
