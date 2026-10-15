@@ -970,8 +970,9 @@ const CONFIG = {
         loadScript('https://www.tiktok.com/embed.js');
       },
       youtube(target) {
-        // La playlist « UU… » contient toutes les mises en ligne de la chaîne, la plus récente d'abord.
-        const list = `UU${CONFIG.youtubeChannelId.slice(2)}`;
+        // La playlist « UULF… » contient les vidéos normales de la chaîne, sans les Shorts ni les lives,
+        // la plus récente d'abord.
+        const list = `UULF${CONFIG.youtubeChannelId.slice(2)}`;
         target.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=${list}&rel=0" title="Dernières vidéos YouTube de Landers2K" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
       },
       twitch(target) {
