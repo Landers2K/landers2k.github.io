@@ -297,7 +297,7 @@ const CONFIG = {
       giftDialog.setAttribute('aria-labelledby', 'gift-title');
       giftDialog.innerHTML = `
         <div class="gift-card">
-          <img class="gift-cube" src="assets/img/cube-gold.png" alt="" width="96" height="96">
+          <img class="gift-cube" src="/assets/img/cube-gold.png" alt="" width="96" height="96">
           <p class="gift-rank">Rang LEGEND</p>
           <h2 id="gift-title">${fmt.format(GIFT_AT)} points, bravo&nbsp;!</h2>
           <p class="gift-text">Tu as débloqué un code cadeau pour Don’t Tap Red&nbsp;:</p>
@@ -309,7 +309,7 @@ const CONFIG = {
           </ul>
           <p class="gift-how">Dans le jeu&nbsp;: <b>Réglages › CODE CADEAU</b>. Utilisable une fois par joueur.</p>
           <div class="gift-actions">
-            <a class="btn btn-brand" href="./#jeu" style="--brand:#2997ff">Découvrir le jeu</a>
+            <a class="btn btn-brand" href="/#jeu" style="--brand:#2997ff">Découvrir le jeu</a>
             <button type="button" class="btn gift-close">Fermer</button>
           </div>
         </div>`;
@@ -369,7 +369,7 @@ const CONFIG = {
         `--dur:${(3.2 + (i * .37) % 2).toFixed(2)}s`, `--delay:${(-i * .53).toFixed(2)}s`,
         `--r:${3 + (i % 4) * 1.5}deg`, `--in:${(.35 + i * .06).toFixed(2)}s`,
       ].join(';');
-      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="assets/img/cube-${item.color}.png" alt="" draggable="false"></span>${item.hint ? '<span class="hc-hint">Tape-moi&nbsp;!</span>' : ''}`;
+      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="/assets/img/cube-${item.color}.png" alt="" draggable="false"></span>${item.hint ? '<span class="hc-hint">Tape-moi&nbsp;!</span>' : ''}`;
       layer.append(el);
       const c = Object.assign({ el, layer, root, sign: i % 2 ? 1 : -1, busy: false }, item);
       el.addEventListener('click', () => tapCube(c));
@@ -517,6 +517,8 @@ const CONFIG = {
     // Page Setup
     setup: { colors: ['red', 'green', 'purple', 'blue', 'gold', 'orange'], a: '#ff375f', b: '#30d158', free: [9, 5], top: 74 },
     parts: { colors: ['red', 'green', 'blue', 'purple', 'gold'], a: '#2997ff', b: '#ff9f0a' },
+    // Page 404
+    lost: { colors: ['red', 'blue', 'gold', 'red', 'purple', 'green'], a: '#ff375f', b: '#2997ff', free: [9, 5], top: 74 },
   };
 
   // Tirage pseudo-aléatoire reproductible : les cubes gardent leur place d'une visite à l'autre
@@ -849,7 +851,7 @@ const CONFIG = {
     const getJSON = url => fetch(url, { cache: 'no-cache' }).then(r => (r.ok ? r.json() : null)).catch(() => null);
 
     if (needs('tiktok-')) {
-      getJSON('assets/data/tiktok.json').then(d => {
+      getJSON('/assets/data/tiktok.json').then(d => {
         if (!d) return;
         put('tiktok-followers', d.followers);
         put('tiktok-likes', d.likes);
@@ -899,7 +901,7 @@ const CONFIG = {
     if (!section) return;
     let data;
     try {
-      const res = await fetch('assets/data/tiktok.json', { cache: 'no-cache' });
+      const res = await fetch('/assets/data/tiktok.json', { cache: 'no-cache' });
       if (!res.ok) return;
       data = await res.json();
     } catch { return; }
@@ -911,7 +913,7 @@ const CONFIG = {
 
     const frame = $('[data-embed="tiktok"]', section);
     if (!frame.classList.contains('is-loaded')) frame.dataset.videoId = latest.id;
-    $('.tt-cover', frame).src = `assets/img/tiktok-latest.jpg?v=${latest.id}`;
+    $('.tt-cover', frame).src = `/assets/img/tiktok-latest.jpg?v=${latest.id}`;
     field('link').href = `https://www.tiktok.com/@${encodeURIComponent(CONFIG.tiktok)}/video/${latest.id}`;
 
     const text = String(latest.description || '');
@@ -1059,7 +1061,7 @@ const CONFIG = {
       cube.style.left = `${x.toFixed(0)}px`;
       cube.style.top = `${y.toFixed(0)}px`;
       cube.setAttribute('aria-label', red ? 'Cube rouge, à ne pas toucher' : 'Cube bleu, à toucher');
-      cube.innerHTML = `<img src="assets/img/cube-${red ? 'red' : 'blue'}.png" alt="">`;
+      cube.innerHTML = `<img src="/assets/img/cube-${red ? 'red' : 'blue'}.png" alt="">`;
       cube.addEventListener('click', () => hit(cube, red));
       arena.append(cube);
       setTimeout(() => {

@@ -13,7 +13,10 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ["partenariats.html", "setup.html"]
+PAGES = ["partenariats.html", "setup.html", "404.html"]
+# GitHub affiche 404.html pour n'importe quelle adresse introuvable (même /a/b/c) :
+# ses liens doivent partir de la racine du site.
+ROOT_PAGES = {"404.html"}
 
 # Chaque bloc va de son marqueur de début jusqu'à son marqueur de fin (inclus)
 BLOCKS = [
@@ -35,15 +38,22 @@ def to_home(block: str) -> str:
     return re.sub(r'href="#(?!i-)([\w-]+)"', r'href="./#\1"', block)
 
 
+def to_root(block: str) -> str:
+    # ./#tiktok devient /#tiktok, setup.html devient /setup.html, script.js devient /script.js
+    block = to_home(block)
+    return re.sub(r'(href|src)="(?!https?:|mailto:|tel:|data:|#|/)(?:\./)?', r'\1="/', block)
+
+
 def main() -> None:
     index = (ROOT / "index.html").read_text("utf-8")
     for name in PAGES:
         path = ROOT / name
         page = path.read_text("utf-8")
+        fix = to_root if name in ROOT_PAGES else to_home
         for start, end in BLOCKS:
             a, b = span(index, start, end)
-            pa, pb = span(page, start, end)
-            page = page[:pa] + to_home(index[a:b]) + page[pb:]
+            pa, pb = span(page, start, fix(end))
+            page = page[:pa] + fix(index[a:b]) + page[pb:]
         path.write_text(page, "utf-8")
         print(f"{name} : menu et pied de page à jour")
 
