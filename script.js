@@ -891,6 +891,21 @@ const CONFIG = {
     $$('[data-donate-link]').forEach(a => { a.href = CONFIG.donate; });
   }
 
+  // Boutons « Copier » du kit presse : copient le texte de l'élément visé par data-copy
+  $$('[data-copy]').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const text = $$('p', $(btn.dataset.copy)).map(p => p.textContent.trim()).join('\n\n');
+      try {
+        await navigator.clipboard.writeText(text);
+        btn.textContent = 'Copié ✓';
+        btn.classList.add('is-done');
+      } catch {
+        btn.textContent = 'Sélectionne le texte';
+      }
+      setTimeout(() => { btn.textContent = 'Copier'; btn.classList.remove('is-done'); }, 2200);
+    });
+  });
+
   /* ------------------------------------------------------------------------
      Sortie de Don't Tap Red : compte à rebours, puis « Sortie aujourd'hui »
      le jour J et « Disponible maintenant » les jours suivants
