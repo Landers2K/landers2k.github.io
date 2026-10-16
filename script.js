@@ -26,7 +26,10 @@ const CONFIG = {
   const root = document.documentElement;
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const finePointer = matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const fmt = new Intl.NumberFormat('fr-FR');
+  // Pages en anglais (<html lang="en">) : les textes affichés par ce script passent en anglais
+  const EN = root.lang === 'en';
+  const tr = (fr, en) => (EN ? en : fr);
+  const fmt = new Intl.NumberFormat(EN ? 'en-US' : 'fr-FR');
 
   let vw = innerWidth;
   let vh = innerHeight;
@@ -140,8 +143,8 @@ const CONFIG = {
   // Rangs atteints au fil du score, inspirés des titres du jeu
   const RANKS = [
     { at: 100, name: 'Bronze', color: '#d08a4e' },
-    { at: 250, name: 'Argent', color: '#d1d5db' },
-    { at: 500, name: 'Or', color: '#ffd60a' },
+    { at: 250, name: tr('Argent', 'Silver'), color: '#d1d5db' },
+    { at: 500, name: tr('Or', 'Gold'), color: '#ffd60a' },
     { at: 1000, name: 'LEGEND', color: '#d68cff' },
   ];
   const rankOf = s => RANKS.filter(r => s >= r.at).length;
@@ -172,13 +175,13 @@ const CONFIG = {
     if (best) {
       const record = document.createElement('span');
       record.className = 'score-best';
-      record.textContent = value > 0 && value >= best ? 'Nouveau record !' : `Record ${fmt.format(best)}`;
+      record.textContent = value > 0 && value >= best ? tr('Nouveau record !', 'New record!') : `${tr('Record', 'Best')} ${fmt.format(best)}`;
       parts.push(record);
     }
     if (!giftUnlocked) {
       const goal = document.createElement('span');
       goal.className = 'score-goal';
-      goal.textContent = `🎁 Cadeau Don’t Tap Red à ${fmt.format(GIFT_AT)} points`;
+      goal.textContent = tr(`🎁 Cadeau Don’t Tap Red à ${fmt.format(GIFT_AT)} points`, `🎁 Don’t Tap Red gift at ${fmt.format(GIFT_AT)} points`);
       parts.push(goal);
     }
     toast.replaceChildren(...parts);
@@ -233,7 +236,7 @@ const CONFIG = {
       c.el.classList.add('is-angry');
       c.root.classList.add('is-hit');
       flash.classList.add('is-on');
-      showScore('GAME OVER ! Score final', score, true);
+      showScore(tr('GAME OVER ! Score final', 'GAME OVER! Final score'), score, true);
       score = 0;
       setTimeout(() => { c.busy = false; }, 600);
       return;
@@ -249,7 +252,7 @@ const CONFIG = {
     }
     const rank = rankOf(score);
     const newRank = rank > rankOf(before) && rank > bestRank;
-    showScore(newRank ? 'Nouveau rang ! Score' : 'Score', score, points < 0);
+    showScore(newRank ? tr('Nouveau rang ! Score', 'New rank! Score') : 'Score', score, points < 0);
     burst(c, color, points > 0 ? `+${points}` : `${points}`);
     const unlocking = score >= GIFT_AT && before < GIFT_AT && !giftUnlocked;
     if (newRank) {
@@ -298,19 +301,19 @@ const CONFIG = {
       giftDialog.innerHTML = `
         <div class="gift-card">
           <img class="gift-cube" src="/assets/img/cube-gold.webp" alt="" width="96" height="96">
-          <p class="gift-rank">Rang LEGEND</p>
-          <h2 id="gift-title">${fmt.format(GIFT_AT)} points, bravo&nbsp;!</h2>
-          <p class="gift-text">Tu as débloqué un code cadeau pour Don’t Tap Red&nbsp;:</p>
-          <div class="gift-code"><span class="gift-code-value"></span><button type="button" class="btn btn-light gift-copy">Copier</button></div>
+          <p class="gift-rank">${tr('Rang', 'Rank')} LEGEND</p>
+          <h2 id="gift-title">${fmt.format(GIFT_AT)} ${tr('points, bravo&nbsp;!', 'points, well done!')}</h2>
+          <p class="gift-text">${tr('Tu as débloqué un code cadeau pour Don’t Tap Red&nbsp;:', 'You unlocked a gift code for Don’t Tap Red:')}</p>
+          <div class="gift-code"><span class="gift-code-value"></span><button type="button" class="btn btn-light gift-copy">${tr('Copier', 'Copy')}</button></div>
           <ul class="gift-rewards">
-            <li><b>1&nbsp;000</b> coins</li>
-            <li><b>1&nbsp;000</b> gems</li>
-            <li><b>1&nbsp;000</b> XP</li>
+            <li><b>${fmt.format(1000)}</b> coins</li>
+            <li><b>${fmt.format(1000)}</b> gems</li>
+            <li><b>${fmt.format(1000)}</b> XP</li>
           </ul>
-          <p class="gift-how">Dans le jeu&nbsp;: <b>Réglages › CODE CADEAU</b>. Utilisable une fois par joueur.</p>
+          <p class="gift-how">${tr('Dans le jeu&nbsp;: <b>PARAMÈTRES › CODE CADEAU</b>. Utilisable une fois par joueur.', 'In the game: <b>SETTINGS › GIFT CODE</b>. One use per player.')}</p>
           <div class="gift-actions">
-            <a class="btn btn-brand" href="/#jeu" style="--brand:#2997ff">Découvrir le jeu</a>
-            <button type="button" class="btn gift-close">Fermer</button>
+            <a class="btn btn-brand" href="${tr('/#jeu', '/dont-tap-red/en/')}" style="--brand:#2997ff">${tr('Découvrir le jeu', 'Discover the game')}</a>
+            <button type="button" class="btn gift-close">${tr('Fermer', 'Close')}</button>
           </div>
         </div>`;
       $('.gift-code-value', giftDialog).textContent = GIFT_CODE;
@@ -318,7 +321,7 @@ const CONFIG = {
       copyBtn.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(GIFT_CODE);
-          copyBtn.textContent = 'Copié !';
+          copyBtn.textContent = tr('Copié !', 'Copied!');
         } catch {
           // Presse-papiers indisponible : on sélectionne le code pour une copie manuelle
           getSelection().selectAllChildren($('.gift-code-value', giftDialog));
@@ -329,7 +332,7 @@ const CONFIG = {
       giftDialog.addEventListener('click', e => { if (e.target === giftDialog) giftDialog.close(); });
       document.body.append(giftDialog);
     }
-    $('.gift-copy', giftDialog).textContent = 'Copier';
+    $('.gift-copy', giftDialog).textContent = tr('Copier', 'Copy');
     giftDialog.showModal();
   };
 
@@ -338,7 +341,7 @@ const CONFIG = {
     const btn = document.createElement('button');
     btn.type = 'button';
     btn.className = 'nav-gift';
-    btn.setAttribute('aria-label', 'Mon code cadeau Don’t Tap Red');
+    btn.setAttribute('aria-label', tr('Mon code cadeau Don’t Tap Red', 'My Don’t Tap Red gift code'));
     btn.innerHTML = '<span aria-hidden="true">🎁</span>';
     btn.addEventListener('click', openGift);
     $('.nav-actions')?.prepend(btn);
@@ -369,7 +372,7 @@ const CONFIG = {
         `--dur:${(3.2 + (i * .37) % 2).toFixed(2)}s`, `--delay:${(-i * .53).toFixed(2)}s`,
         `--r:${3 + (i % 4) * 1.5}deg`, `--in:${(.35 + i * .06).toFixed(2)}s`,
       ].join(';');
-      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="/assets/img/cube-${item.color}.webp" alt="" draggable="false"></span>${item.hint ? '<span class="hc-hint">Tape-moi&nbsp;!</span>' : ''}`;
+      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="/assets/img/cube-${item.color}.webp" alt="" draggable="false"></span>${item.hint ? `<span class="hc-hint">${tr('Tape-moi&nbsp;!', 'Tap me!')}</span>` : ''}`;
       layer.append(el);
       const c = Object.assign({ el, layer, root, sign: i % 2 ? 1 : -1, busy: false }, item);
       el.addEventListener('click', () => tapCube(c));
@@ -806,11 +809,11 @@ const CONFIG = {
   const setLive = state => {
     if (liveChip) {
       liveChip.dataset.live = state;
-      liveChip.lastElementChild.textContent = state === 'online' ? 'En live' : state === 'offline' ? 'Hors ligne' : 'Live';
+      liveChip.lastElementChild.textContent = state === 'online' ? tr('En live', 'Live now') : state === 'offline' ? tr('Hors ligne', 'Offline') : 'Live';
     }
     if (liveBadge) {
       liveBadge.dataset.live = state;
-      liveBadge.lastElementChild.textContent = state === 'online' ? 'En direct' : state === 'offline' ? 'Hors ligne' : 'Statut du live';
+      liveBadge.lastElementChild.textContent = state === 'online' ? tr('En direct', 'Live') : state === 'offline' ? tr('Hors ligne', 'Offline') : tr('Statut du live', 'Live status');
     }
   };
   const refreshLive = async () => {
@@ -922,7 +925,8 @@ const CONFIG = {
     const setUnit = (box, key, value, one, many) => {
       const b = $(`[data-cd="${key}"]`, box);
       b.textContent = value;
-      b.nextElementSibling.textContent = Number(value) > 1 ? many : one;
+      // Pluriel : « 0 jour » en français, « 0 days » en anglais
+      b.nextElementSibling.textContent = (EN ? Number(value) !== 1 : Number(value) > 1) ? many : one;
     };
 
     let timer = 0;
@@ -935,22 +939,22 @@ const CONFIG = {
         const m = Math.floor(t / 60) % 60;
         boxes.forEach(box => {
           box.classList.add('is-ready');
-          setUnit(box, 'd', d, 'jour', 'jours');
-          setUnit(box, 'h', pad(h), 'heure', 'heures');
+          setUnit(box, 'd', d, tr('jour', 'day'), tr('jours', 'days'));
+          setUnit(box, 'h', pad(h), tr('heure', 'hour'), tr('heures', 'hours'));
           setUnit(box, 'm', pad(m), 'minute', 'minutes');
-          setUnit(box, 's', pad(t % 60), 'seconde', 'secondes');
+          setUnit(box, 's', pad(t % 60), tr('seconde', 'second'), tr('secondes', 'seconds'));
         });
         pills.filter(p => p.dataset.release === 'countdown')
-          .forEach(p => { p.lastChild.nodeValue = `Disponible dans ${d} j ${pad(h)} h ${pad(m)} min`; });
+          .forEach(p => { p.lastChild.nodeValue = tr(`Disponible dans ${d} j ${pad(h)} h ${pad(m)} min`, `Out in ${d}d ${pad(h)}h ${pad(m)}m`); });
         return;
       }
       clearInterval(timer);
       const today = left > -DAY;
       boxes.forEach(box => {
-        box.innerHTML = '<p class="cd-done">C’est le grand jour&nbsp;: Don’t Tap Red sort aujourd’hui&nbsp;!</p>';
+        box.innerHTML = `<p class="cd-done">${tr('C’est le grand jour&nbsp;: Don’t Tap Red sort aujourd’hui&nbsp;!', 'It’s launch day: Don’t Tap Red is out today!')}</p>`;
         box.hidden = !today;
       });
-      setPills(today ? 'Sortie aujourd’hui !' : 'Disponible maintenant');
+      setPills(today ? tr('Sortie aujourd’hui !', 'Out today!') : tr('Disponible maintenant', 'Available now'));
     };
     tick();
     timer = setInterval(tick, 1000);
@@ -1125,7 +1129,7 @@ const CONFIG = {
       cube.style.setProperty('--s', `${s}px`);
       cube.style.left = `${x.toFixed(0)}px`;
       cube.style.top = `${y.toFixed(0)}px`;
-      cube.setAttribute('aria-label', red ? 'Cube rouge, à ne pas toucher' : 'Cube bleu, à toucher');
+      cube.setAttribute('aria-label', red ? tr('Cube rouge, à ne pas toucher', 'Red cube, don’t tap it') : tr('Cube bleu, à toucher', 'Blue cube, tap it'));
       cube.innerHTML = `<img src="/assets/img/cube-${red ? 'red' : 'blue'}.webp" alt="">`;
       cube.addEventListener('click', () => hit(cube, red));
       arena.append(cube);
@@ -1188,9 +1192,11 @@ const CONFIG = {
         c.dataset.done = '1';
         c.classList.add('is-gone');
       });
-      title.textContent = !timeUp ? 'Perdu, c’était rouge !' : record ? 'Nouveau record !' : 'Temps écoulé !';
-      text.textContent = `Score : ${score}. ${timeUp ? 'Dans le vrai jeu, ça ne fait que commencer.' : 'Dans le vrai jeu, tu as trois vies…'}`;
-      startBtn.textContent = 'Rejouer';
+      title.textContent = !timeUp ? tr('Perdu, c’était rouge !', 'Oops, that was red!') : record ? tr('Nouveau record !', 'New record!') : tr('Temps écoulé !', 'Time’s up!');
+      text.textContent = EN
+        ? `Score: ${score}. ${timeUp ? 'In the real game, this is just the beginning.' : 'In the real game, you get three lives…'}`
+        : `Score : ${score}. ${timeUp ? 'Dans le vrai jeu, ça ne fait que commencer.' : 'Dans le vrai jeu, tu as trois vies…'}`;
+      startBtn.textContent = tr('Rejouer', 'Play again');
       storeLink.hidden = false;
       setTimeout(() => game.classList.remove('is-playing'), timeUp ? 150 : 650);
     };
