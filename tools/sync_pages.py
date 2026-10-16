@@ -13,10 +13,10 @@ import sys
 sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
-PAGES = ["partenariats.html", "setup.html", "404.html"]
-# GitHub affiche 404.html pour n'importe quelle adresse introuvable (même /a/b/c) :
-# ses liens doivent partir de la racine du site.
-ROOT_PAGES = {"404.html"}
+PAGES = ["partenariats.html", "setup.html", "404.html", "dont-tap-red/index.html"]
+# 404.html (affichée pour n'importe quelle adresse introuvable, même /a/b/c) et les pages
+# rangées dans un dossier (/dont-tap-red/) : leurs liens doivent partir de la racine du site.
+ROOT_PAGES = {"404.html", "dont-tap-red/index.html"}
 
 # Chaque bloc va de son marqueur de début jusqu'à son marqueur de fin (inclus)
 BLOCKS = [

@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Don’t Tap Red — le jeu mobile de Landers2K</title>
+  <meta name="description" content="Don’t Tap Red, le jeu de réflexes gratuit de Landers2K sur iPhone et Android : tape les bons cubes, ne touche jamais le rouge. Modes, cubes, codes cadeaux et FAQ.">
+  <meta name="theme-color" content="#050812">
+  <!-- Page dans un dossier (/dont-tap-red/) : tous les chemins partent de la racine du site -->
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="apple-mobile-web-app-title" content="Landers2K">
+  <link rel="canonical" href="https://www.landers2k.com/dont-tap-red/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Landers2K">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:url" content="https://www.landers2k.com/dont-tap-red/">
+  <meta property="og:title" content="Don’t Tap Red — sortie le 20 octobre">
+  <meta property="og:description" content="Le jeu de réflexes gratuit de Landers2K sur iPhone et Android. Une seule règle : ne touche jamais le rouge.">
+  <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@Lndrs2K">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "MobileApplication",
+  "name": "Don't Tap Red",
+  "url": "https://www.landers2k.com/dont-tap-red/",
+  "image": "https://www.landers2k.com/assets/img/dtr-icon.jpg",
+  "description": "Jeu de réflexes gratuit : tape les bons cubes, ne touche jamais le rouge. Quatre modes (Arcade, Rain, Challenge, Chrono), missions, titres, événements et classements.",
+  "operatingSystem": "iOS, Android",
+  "applicationCategory": "GameApplication",
+  "inLanguage": [
+    "fr",
+    "en"
+  ],
+  "datePublished": "2026-10-20",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "EUR"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Landers2K",
+    "url": "https://www.landers2k.com/"
+  },
+  "installUrl": [
+    "https://apps.apple.com/app/id6820198356",
+    "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"
+  ]
+}
+  </script>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body class="subpage page-dtr">
+  <a class="skip-link" href="#main">Aller au contenu</a>
+
+  <!-- Icônes (réutilisées partout via <use>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-twitch" viewBox="0 0 24 24"><path fill="currentColor" d="M11.57 4.71h1.72v5.15h-1.72zm4.72 0H18v5.15h-1.71zM6 0 1.71 4.29v15.42h5.15V24l4.28-4.29h3.43L22.29 12V0zm14.57 11.14-3.43 3.43h-3.43l-3 3v-3H6.86V1.71h13.71z"/></symbol>
+    <symbol id="i-tiktok" viewBox="0 0 24 24"><path fill="currentColor" d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></symbol>
+    <symbol id="i-youtube" viewBox="0 0 24 24"><path fill="currentColor" d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.55 12 3.55 12 3.55s-7.5 0-9.38.5A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14c1.87.5 9.38.5 9.38.5s7.5 0 9.38-.5a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.55 15.57V8.43L15.82 12l-6.27 3.57z"/></symbol>
+    <symbol id="i-discord" viewBox="0 0 24 24"><path fill="currentColor" d="M20.32 4.37a19.8 19.8 0 0 0-4.89-1.52.07.07 0 0 0-.08.04c-.21.38-.44.87-.61 1.25a18.27 18.27 0 0 0-5.49 0 12.64 12.64 0 0 0-.62-1.25.08.08 0 0 0-.08-.04 19.74 19.74 0 0 0-4.88 1.52.07.07 0 0 0-.03.03C.53 9.05-.32 13.58.1 18.06a.08.08 0 0 0 .03.06 19.9 19.9 0 0 0 5.99 3.03.08.08 0 0 0 .09-.03c.46-.63.87-1.3 1.22-1.99a.08.08 0 0 0-.04-.11 13.1 13.1 0 0 1-1.87-.89.08.08 0 0 1-.01-.13l.37-.29a.07.07 0 0 1 .08-.01c3.93 1.79 8.18 1.79 12.06 0a.07.07 0 0 1 .08.01l.37.29a.08.08 0 0 1-.01.13c-.6.35-1.22.65-1.87.89a.08.08 0 0 0-.04.11c.36.7.77 1.36 1.22 1.99a.08.08 0 0 0 .09.03 19.84 19.84 0 0 0 6-3.03.08.08 0 0 0 .03-.06c.5-5.18-.84-9.67-3.55-13.66a.06.06 0 0 0-.03-.03zM8.02 15.33c-1.18 0-2.16-1.09-2.16-2.42s.96-2.42 2.16-2.42c1.21 0 2.18 1.1 2.16 2.42 0 1.33-.96 2.42-2.16 2.42zm7.97 0c-1.18 0-2.15-1.09-2.15-2.42s.95-2.42 2.15-2.42c1.21 0 2.18 1.1 2.16 2.42 0 1.33-.95 2.42-2.16 2.42z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path fill="currentColor" d="M18.9 1.15h3.68l-8.04 9.19L24 22.85h-7.41l-5.8-7.58-6.64 7.58H.47l8.6-9.83L0 1.15h7.59l5.24 6.93zm-1.29 19.5h2.04L6.49 3.24H4.3z"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" d="M5 8h14l-1.1 12.1a1 1 0 0 1-1 .9H7.1a1 1 0 0 1-1-.9zm3 0V6.5a4 4 0 0 1 8 0V8m-6.5 5.5a2.5 2.5 0 0 0 5 0"/></symbol>
+    <symbol id="i-apple" viewBox="0 0 24 24"><path fill="currentColor" d="M12.15 6.9c-.95 0-2.42-1.08-3.96-1.04-2.04.03-3.91 1.18-4.96 3.01-2.12 3.68-.55 9.1 1.52 12.09 1.01 1.45 2.21 3.09 3.79 3.04 1.52-.07 2.09-.99 3.94-.99 1.83 0 2.35.99 3.96.95 1.64-.03 2.68-1.48 3.68-2.95 1.16-1.69 1.64-3.33 1.66-3.42-.04-.01-3.18-1.22-3.22-4.86-.03-3.04 2.48-4.49 2.6-4.56-1.43-2.09-3.62-2.32-4.39-2.38-2-.16-3.68 1.09-4.61 1.09zm3.38-3.07c.84-1.01 1.4-2.43 1.25-3.83-1.21.05-2.66.8-3.53 1.82-.78.9-1.45 2.34-1.27 3.71 1.34.1 2.71-.69 3.55-1.7z"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M3.6 1.1a1.6 1.6 0 0 0-.4 1.07v19.66c0 .41.15.78.4 1.06l10.8-10.9zm11.98 10.1 3.23-3.26L5.05.25a1.56 1.56 0 0 0-1-.2zm0 1.6-10.53 10.97c.33.04.68-.03 1-.21l13.76-7.7zm4.36-4.44-3.33 3.36 3.33 3.36 3.24-1.81c1.1-.62 1.1-2.48 0-3.1z"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><path fill="currentColor" d="M12 21.2 10.6 20C5.4 15.3 2 12.2 2 8.4 2 5.3 4.4 3 7.4 3c1.7 0 3.4.8 4.6 2.1C13.2 3.8 14.9 3 16.6 3 19.6 3 22 5.3 22 8.4c0 3.8-3.4 6.9-8.6 11.6z"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2.6 2.9 6 6.6.8-4.9 4.6 1.3 6.5L12 17.3l-5.9 3.2 1.3-6.5L2.5 9.4l6.6-.8z"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3.5 6.5h17v11h-17zm0 .5 8.5 6.5L20.5 7"/></symbol>
+  </svg>
+
+  <!-- ===================== Barre de navigation flottante ===================== -->
+  <header class="nav" id="top">
+    <div class="nav-bar">
+      <a class="brand" href="/" aria-label="Landers2K, retour à l’accueil">
+        <span class="brand-mark" aria-hidden="true">L2K</span>
+        <span class="brand-name">Landers<b>2K</b></span>
+      </a>
+
+      <nav class="nav-links" aria-label="Navigation principale">
+        <span class="nav-pill" aria-hidden="true"></span>
+        <a href="/#a-propos">À propos</a>
+        <a href="/#tiktok">Vidéos</a>
+        <a href="/#twitch">Live</a>
+        <a href="/#discord">Communauté</a>
+        <a href="/dont-tap-red/">Don’t Tap Red</a>
+        <a href="/#soutenir">Soutenir</a>
+        <a href="/setup.html">Setup</a>
+        <a href="/partenariats.html">Partenariats</a>
+      </nav>
+
+      <div class="nav-actions">
+        <a class="live-chip" href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener" data-live="unknown" aria-label="Statut du live Twitch">
+          <i aria-hidden="true"></i><span>Live</span>
+        </a>
+        <a class="btn-discord" href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener" data-magnetic>
+          <svg aria-hidden="true"><use href="#i-discord"/></svg><span>Discord</span>
+        </a>
+        <button class="nav-burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Ouvrir le menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <span class="nav-progress" aria-hidden="true"></span>
+    </div>
+  </header>
+
+  <!-- Menu mobile -->
+  <div class="menu" id="menu" inert>
+    <nav class="menu-links" aria-label="Menu">
+      <a href="/#liens">Tous mes liens</a>
+      <a href="/#a-propos">À propos</a>
+      <a href="/#tiktok">TikTok</a>
+      <a href="/#youtube">YouTube</a>
+      <a href="/#twitch">Live Twitch</a>
+      <a href="/#discord">Discord</a>
+      <a href="/dont-tap-red/">Don’t Tap Red</a>
+      <a href="/#soutenir">Me soutenir</a>
+      <a href="/setup.html">Mon setup</a>
+      <a href="/partenariats.html">Partenariats</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+    <ul class="menu-socials" aria-label="Réseaux sociaux">
+      <li><a href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener" style="--brand:#9146ff" aria-label="Twitch"><svg><use href="#i-twitch"/></svg></a></li>
+      <li><a href="https://www.tiktok.com/@landers2k" target="_blank" rel="noopener" style="--brand:#fe2c55" aria-label="TikTok"><svg><use href="#i-tiktok"/></svg></a></li>
+      <li><a href="https://www.youtube.com/@xLanders2K" target="_blank" rel="noopener" style="--brand:#ff0033" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+      <li><a href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener" style="--brand:#5865f2" aria-label="Discord"><svg><use href="#i-discord"/></svg></a></li>
+      <li><a href="https://x.com/Lndrs2K" target="_blank" rel="noopener" style="--brand:#e7e9ea" aria-label="X"><svg><use href="#i-x"/></svg></a></li>
+      <li><a href="https://www.lootbar.com/fr/shop/Landers2K" target="_blank" rel="noopener" style="--brand:#ffb300" aria-label="Boutique Lootbar"><svg><use href="#i-bag"/></svg></a></li>
+    </ul>
+  </div>
+
+  <main id="main">
+    <!-- ===================== Don't Tap Red : présentation ===================== -->
+    <section class="game game-page" id="jeu" data-scene="game" aria-labelledby="game-title">
+      <div class="wrap-wide game-intro">
+        <div class="game-copy">
+          <div class="game-badge reveal">
+            <img src="/assets/img/dtr-icon.jpg" alt="" width="64" height="64">
+            <span><b>Mon jeu mobile</b><small>Gratuit · iOS et Android</small></span>
+            <span class="release-pill"><i aria-hidden="true"></i>Sortie le 20 octobre</span>
+          </div>
+          <h1 class="game-title" id="game-title" data-split>Don’t Tap Red.</h1>
+          <p class="game-sub reveal">Un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient&nbsp;: garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge&nbsp;!</p>
+          <div class="store-row reveal">
+            <a class="store-btn" href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener" data-magnetic>
+              <svg aria-hidden="true"><use href="#i-apple"/></svg>
+              <span><small>Télécharger dans</small><b>l’App Store</b></span>
+            </a>
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener" data-magnetic>
+              <svg aria-hidden="true"><use href="#i-play"/></svg>
+              <span><small>Disponible sur</small><b>Google Play</b></span>
+            </a>
+          </div>
+          <p class="game-meta reveal">Gratuit · Achats intégrés facultatifs · Français et anglais</p>
+        </div>
+        <figure class="game-home reveal">
+          <div class="phone phone-tilt" data-tilt>
+            <div class="phone-screen"><img src="/assets/img/dtr-home.jpg" alt="L’écran d’accueil de Don’t Tap Red" loading="lazy" decoding="async"></div>
+          </div>
+          <figcaption>L’accueil du jeu</figcaption>
+        </figure>
+      </div>
+
+      <!-- Objectif + mini-jeu jouable -->
+      <div class="wrap-wide goal" id="essayer">
+        <div class="goal-copy">
+          <p class="kicker reveal">L’objectif</p>
+          <h3 class="goal-title" data-split>Une seule règle.</h3>
+          <ul class="goal-rules" data-stagger>
+            <li><img src="/assets/img/cube-blue.png" alt="" width="56" height="56"><span><b class="is-blue">Tape le bleu</b> pour marquer des points et faire grimper ton combo.</span></li>
+            <li><img src="/assets/img/cube-red.png" alt="" width="56" height="56"><span><b class="is-red">Ne touche jamais le rouge</b>&nbsp;: un seul faux pas et c’est perdu.</span></li>
+          </ul>
+          <p class="goal-hint reveal">Essaie ici, tout de suite&nbsp;: 20&nbsp;secondes pour faire ton meilleur score.</p>
+        </div>
+
+        <div class="mg reveal" aria-label="Mini-jeu Don’t Tap Red">
+          <div class="mg-hud">
+            <span>Score <b class="mg-score">0</b></span>
+            <span>Temps <b class="mg-time">20</b></span>
+            <span>Record <b class="mg-best">0</b></span>
+          </div>
+          <div class="mg-arena"></div>
+          <div class="mg-overlay">
+            <p class="mg-title">Prêt&nbsp;?</p>
+            <p class="mg-text">Tape les cubes bleus, évite les rouges.</p>
+            <button class="btn btn-light mg-start" type="button">Jouer</button>
+            <a class="link-arrow mg-store" href="#telecharger" hidden>Télécharger le vrai jeu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Les cubes ===================== -->
+    <section class="cubes-guide band" id="cubes" data-scene="links" aria-labelledby="cubes-title">
+      <div class="wrap-wide">
+        <header class="section-head">
+          <p class="kicker reveal">Les cubes</p>
+          <h2 class="section-title" id="cubes-title" data-split>Six cubes.<br><span class="muted">Un seul à fuir.</span></h2>
+        </header>
+        <div class="cube-grid" data-stagger>
+          <article class="cube-card" style="--brand:#2997ff">
+            <img src="/assets/img/cube-blue.png" alt="" width="72" height="72" loading="lazy">
+            <p class="cube-pts">+1</p>
+            <h3>Bleu</h3>
+            <p>Ton cube de base. Plus ton combo grimpe, plus il rapporte&nbsp;: jusqu’à +5 par cube.</p>
+          </article>
+          <article class="cube-card" style="--brand:#30d158">
+            <img src="/assets/img/cube-green.png" alt="" width="72" height="72" loading="lazy">
+            <p class="cube-pts">+5</p>
+            <h3>Vert</h3>
+            <p>Un petit bonus à attraper dès qu’il passe sous ton doigt.</p>
+          </article>
+          <article class="cube-card" style="--brand:#bf5af2">
+            <img src="/assets/img/cube-purple.png" alt="" width="72" height="72" loading="lazy">
+            <p class="cube-pts">+21 à +40</p>
+            <h3>Violet</h3>
+            <p>Le gros bonus&nbsp;: un nombre de points tiré au hasard à chaque fois.</p>
+          </article>
+          <article class="cube-card" style="--brand:#ffd60a">
+            <img src="/assets/img/cube-gold.png" alt="" width="72" height="72" loading="lazy">
+            <p class="cube-pts">Jusqu’à +100</p>
+            <h3>Étoile dorée</h3>
+            <p>Le jackpot. Elle est rare, alors ne la laisse pas filer.</p>
+          </article>
+          <article class="cube-card" style="--brand:#ff9f0a">
+            <img src="/assets/img/cube-orange.png" alt="" width="72" height="72" loading="lazy">
+            <p class="cube-pts">−21 à −40</p>
+            <h3>Orange</h3>
+            <p>Le piège qui fait mal&nbsp;: il retire des points à ton score.</p>
+          </article>
+          <article class="cube-card" style="--brand:#ff375f">
+            <img src="/assets/img/cube-red.png" alt="" width="72" height="72" loading="lazy">
+            <p class="cube-pts">Interdit</p>
+            <h3>Rouge</h3>
+            <p>Selon le mode, il te coûte du temps, une vie… ou la partie entière.</p>
+          </article>
+        </div>
+        <p class="kpi-note reveal">Points du mode Arcade. En Challenge, ils grimpent de monde en monde.</p>
+      </div>
+    </section>
+
+    <!-- ===================== Les modes de jeu ===================== -->
+    <section class="modes" id="modes" data-scene="modes" aria-labelledby="modes-title">
+      <header class="wrap-wide section-head">
+        <p class="kicker reveal">Les modes de jeu</p>
+        <h2 class="section-title" id="modes-title" data-split>Quatre façons de jouer.<br><span class="muted">Une seule règle.</span></h2>
+      </header>
+      <div class="wrap-wide scrolly">
+        <div class="scrolly-text">
+          <article class="step" data-glow="#2997ff">
+            <p class="step-kicker"><span>01</span> Arcade</p>
+            <h3>Enchaîne les combos. Bats ton record.</h3>
+            <p>Tape les cubes bleus, fais exploser ton combo et débloque des bonus toujours plus fous&nbsp;: <strong>cubes GEL, BOMBE, x2, vie bonus, étoiles dorées</strong>… Des surprises changent les règles en pleine partie. Atteindras-tu le rang <strong>LEGEND</strong>&nbsp;?</p>
+          </article>
+          <article class="step" data-glow="#ffd60a">
+            <p class="step-kicker"><span>02</span> Rain</p>
+            <h3>Les cubes tombent du ciel.</h3>
+            <p>Attrape les bons cubes <strong>avant qu’ils touchent le sol</strong>, évite les rouges et survis aux événements&nbsp;: éclairs, nuit, tempête… Des défis surprises pendant la partie rapportent encore plus de points.</p>
+          </article>
+          <article class="step" data-glow="#ff375f">
+            <p class="step-kicker"><span>03</span> Challenge</p>
+            <h3>20 mondes à conquérir.</h3>
+            <p>Chaque monde a ses règles et ses pièges. Décroche <strong>3 étoiles</strong> partout, débloque le <strong>mode Difficile</strong> et relève le <strong>Défi du jour</strong>, différent chaque jour.</p>
+          </article>
+          <article class="step" data-glow="#e5e5ea">
+            <p class="step-kicker"><span>04</span> Chrono</p>
+            <h3>60 secondes, pas une de plus.</h3>
+            <p>Pas de vies à gérer&nbsp;: juste un chrono et des cubes. <strong>Enchaîne le plus de bons cubes possible</strong> pour faire exploser ton score avant la fin du temps.</p>
+          </article>
+        </div>
+
+        <div class="scrolly-visual" aria-hidden="true">
+          <div class="phone-glow"></div>
+          <div class="phone">
+            <div class="phone-screen">
+              <img class="screen is-active" src="/assets/img/dtr-arcade.jpg" alt="" loading="lazy" decoding="async">
+              <img class="screen" src="/assets/img/dtr-rain.jpg" alt="" loading="lazy" decoding="async">
+              <img class="screen" src="/assets/img/dtr-challenge.jpg" alt="" loading="lazy" decoding="async">
+              <img class="screen" src="/assets/img/dtr-chrono.jpg" alt="" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Progression ===================== -->
+    <section class="progress band" id="progression" data-scene="progress" aria-labelledby="progress-title">
+      <div class="wrap-wide">
+        <header class="section-head">
+          <p class="kicker reveal">Et ce n’est que le début</p>
+          <h2 class="section-title" id="progress-title" data-split>Missions, titres, événements<br><span class="muted">et récompenses chaque semaine.</span></h2>
+        </header>
+
+        <div class="bento" data-stagger>
+          <article class="tile tile-shot" style="--brand:#ff9f0a" data-tilt>
+            <div class="tile-copy">
+              <p class="tile-kicker">Missions</p>
+              <h3>Toujours un objectif à remplir.</h3>
+              <p>Missions du jour, de la semaine et de chaque mode&nbsp;: de l’XP, des coins et des gems à gagner. Et un cadeau t’attend chaque jour.</p>
+            </div>
+            <div class="tile-visual"><img src="/assets/img/dtr-missions.jpg" alt="L’écran des missions de Don’t Tap Red" loading="lazy" decoding="async"></div>
+          </article>
+
+          <article class="tile tile-titles" style="--brand:#bf5af2" data-tilt>
+            <div class="tile-copy">
+              <p class="tile-kicker">Titres</p>
+              <h3>Plus de 50 titres à débloquer.</h3>
+              <p>Affiche-les à côté de ton pseudo&nbsp;: rang LEGEND en Arcade, titres de Prestige quand tu dépasses le niveau&nbsp;50, titres du mois pour les meilleurs…</p>
+            </div>
+            <div class="tile-visual titles" aria-hidden="true">
+              <span class="title-chip t-gold" style="--i:0">LEGEND</span>
+              <span class="title-chip t-purple" style="--i:1">PRESTIGE 3</span>
+              <span class="title-chip t-blue" style="--i:2">ROI DE NOVEMBRE</span>
+              <span class="title-chip t-rainbow" style="--i:3">PRESTIGE MAX</span>
+            </div>
+          </article>
+
+          <article class="tile tile-shot tile-wide is-flip" style="--brand:#ff375f" data-tilt>
+            <div class="tile-copy">
+              <p class="tile-kicker">Événements</p>
+              <h3>Tous unis contre le Cube Noir.</h3>
+              <p>Un boss géant que tous les joueurs attaquent ensemble&nbsp;: ses points de vie baissent en direct, et chacun est récompensé selon sa place au classement des dégâts. Sans oublier les saisons qui transforment le jeu.</p>
+            </div>
+            <div class="tile-visual"><img src="/assets/img/dtr-cube-noir.jpg" alt="Le boss Cube Noir dans Don’t Tap Red" loading="lazy" decoding="async"></div>
+          </article>
+
+          <article class="tile tile-rank tile-wide" style="--brand:#64d2ff" data-tilt>
+            <div class="tile-copy">
+              <p class="tile-kicker">Classement</p>
+              <h3>Des récompenses chaque semaine et chaque mois.</h3>
+              <p>En Arcade, Rain et Chrono, ton meilleur score compte dans le classement mondial, celui de la semaine et celui du mois. Les récompenses arrivent dans ta boîte aux lettres.</p>
+              <div class="rewards">
+                <div class="reward-col">
+                  <p class="reward-head">Chaque semaine · Top&nbsp;10 de chaque mode</p>
+                  <ul>
+                    <li><span class="rank r1">1<sup>er</sup></span><span>75 gems · 10&nbsp;000 coins</span></li>
+                    <li><span class="rank r2">2<sup>e</sup></span><span>50 gems · 7&nbsp;000 coins</span></li>
+                    <li><span class="rank r3">3<sup>e</sup></span><span>35 gems · 5&nbsp;000 coins</span></li>
+                    <li><span class="rank">4–10<sup>e</sup></span><span>20 gems · 2&nbsp;500 coins</span></li>
+                  </ul>
+                </div>
+                <div class="reward-col">
+                  <p class="reward-head">Chaque mois · dès novembre 2026</p>
+                  <p class="reward-month">Le n°1 de chaque mode gagne le titre <b>« Roi du mois »</b>, à vie, et <b>300 gems</b>. N°1 dans les 3 modes&nbsp;: le titre <span class="grad-text">arc-en-ciel</span> et <b>900 gems</b>.</p>
+                </div>
+              </div>
+            </div>
+            <div class="tile-visual"><img src="/assets/img/dtr-classement.jpg" alt="Le classement mondial de Don’t Tap Red" loading="lazy" decoding="async"></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chiffres du jeu (fiche App Store) -->
+    <section class="stats" data-scene="stats" aria-labelledby="stats-title">
+      <div class="wrap-wide">
+        <header class="section-head center">
+          <h2 class="section-title" id="stats-title" data-split>Un jeu qui ne s’arrête jamais.</h2>
+        </header>
+        <div class="stats-grid" data-stagger>
+          <div class="stat"><p class="stat-num"><span data-count="4">4</span></p><p class="stat-label">modes de jeu&nbsp;: Arcade, Rain, Challenge et Chrono</p></div>
+          <div class="stat"><p class="stat-num"><span data-count="100">100</span>+</p><p class="stat-label">skins à débloquer, dont des skins animés</p></div>
+          <div class="stat"><p class="stat-num"><span data-count="20">20</span></p><p class="stat-label">mondes à conquérir en mode Challenge</p></div>
+          <div class="stat"><p class="stat-num"><span data-count="50">50</span></p><p class="stat-label">niveaux à gravir, puis le Prestige</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Codes cadeaux ===================== -->
+    <section class="gift-codes" id="codes" data-scene="support" aria-labelledby="codes-title">
+      <div class="wrap-wide">
+        <header class="section-head">
+          <p class="kicker reveal">Codes cadeaux</p>
+          <h2 class="section-title" id="codes-title" data-split>Des cadeaux<br><span class="muted">à récupérer.</span></h2>
+        </header>
+        <div class="format-grid is-3" data-stagger>
+          <article class="format-card" style="--brand:#5865f2">
+            <span class="code-step">1</span>
+            <h3>Trouve un code</h3>
+            <p>Rejoins le <a href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener">Discord</a> et suis-moi sur TikTok et Twitch pour ne rater aucun code.</p>
+          </article>
+          <article class="format-card" style="--brand:#bf5af2">
+            <span class="code-step">2</span>
+            <h3>Ouvre les réglages</h3>
+            <p>Dans le jeu, va dans <strong>Réglages</strong>, puis touche <strong>CODE CADEAU</strong>.</p>
+          </article>
+          <article class="format-card" style="--brand:#ffd60a">
+            <span class="code-step">3</span>
+            <h3>Profite</h3>
+            <p>Entre le code&nbsp;: tes coins, gems ou XP arrivent directement sur ton compte.</p>
+          </article>
+        </div>
+        <div class="gift-hunt reveal">
+          <img src="/assets/img/cube-gold.png" alt="" width="84" height="84" loading="lazy">
+          <p><b>Un code est caché sur ce site.</b> Tape les cubes qui flottent sur les pages, en évitant les rouges&nbsp;: à 1&nbsp;000&nbsp;points, un code cadeau se débloque.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== Questions fréquentes ===================== -->
+    <section class="faq band" id="faq" data-scene="about" aria-labelledby="faq-title">
+      <div class="wrap">
+        <header class="section-head center">
+          <p class="kicker reveal">Questions fréquentes</p>
+          <h2 class="section-title" id="faq-title" data-split>Tout ce que tu veux savoir.</h2>
+        </header>
+        <div class="faq-list" data-stagger>
+          <details class="faq-item">
+            <summary>Le jeu est-il gratuit&nbsp;?</summary>
+            <p>Oui. Don’t Tap Red est gratuit sur iPhone et Android. Il contient des publicités, que tu peux supprimer pour toujours avec un achat unique, et des achats facultatifs comme des packs et des skins.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Quand sort le jeu&nbsp;?</summary>
+            <p>Le 20 octobre 2026, sur l’App Store et sur Google Play.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Sur quels appareils et dans quelles langues&nbsp;?</summary>
+            <p>Sur iPhone et sur les téléphones Android. Le jeu est disponible en français et en anglais.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Comment utiliser un code cadeau&nbsp;?</summary>
+            <p>Dans le jeu, va dans Réglages, puis touche CODE CADEAU et entre ton code. La récompense arrive tout de suite sur ton compte.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Comment fonctionnent les classements&nbsp;?</summary>
+            <p>En Arcade, Rain et Chrono, ton meilleur score compte dans le classement mondial, celui de la semaine et celui du mois. Le top&nbsp;10 de chaque mode reçoit des récompenses chaque semaine, directement dans ta boîte aux lettres.</p>
+          </details>
+          <details class="faq-item">
+            <summary>J’ai trouvé un bug ou j’ai une idée&nbsp;: je fais comment&nbsp;?</summary>
+            <p>Écris à <a href="mailto:donttapred.contact@gmail.com">donttapred.contact@gmail.com</a> ou viens en parler sur le <a href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener">Discord</a>.</p>
+          </details>
+          <details class="faq-item">
+            <summary>Et mes données personnelles&nbsp;?</summary>
+            <p>Tout est expliqué dans la <a href="https://sites.google.com/view/donttapred-confidentialite" target="_blank" rel="noopener">politique de confidentialité du jeu</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Téléchargement -->
+    <section class="download" id="telecharger" data-scene="download" aria-labelledby="dl-title">
+      <div class="wrap download-inner">
+        <div class="download-cubes" aria-hidden="true">
+          <img src="/assets/img/cube-blue.png" alt="" width="96" height="96">
+          <img src="/assets/img/cube-red.png" alt="" width="96" height="96">
+        </div>
+        <h2 class="section-title" id="dl-title" data-split>Prêt à relever le défi&nbsp;?</h2>
+        <p class="release-pill release-pill-lg reveal"><i aria-hidden="true"></i>Disponible le 20 octobre</p>
+        <p class="download-sub reveal">Une seule règle&nbsp;: <span class="is-red">don’t tap red</span>. Gratuit sur iPhone et Android.</p>
+        <div class="store-row reveal">
+          <a class="store-btn store-btn-lg" href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener" data-magnetic>
+            <svg aria-hidden="true"><use href="#i-apple"/></svg>
+            <span><small>Télécharger dans</small><b>l’App Store</b></span>
+          </a>
+          <a class="store-btn store-btn-lg" href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener" data-magnetic>
+            <svg aria-hidden="true"><use href="#i-play"/></svg>
+            <span><small>Disponible sur</small><b>Google Play</b></span>
+          </a>
+        </div>
+        <p class="download-support reveal">Une question sur le jeu&nbsp;? <a class="link-arrow" href="mailto:donttapred.contact@gmail.com">donttapred.contact@gmail.com</a></p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== Pied de page ===================== -->
+  <footer class="footer">
+    <div class="wrap-wide">
+      <div class="footer-top">
+        <a class="brand" href="/" aria-label="Landers2K, retour à l’accueil">
+          <span class="brand-mark" aria-hidden="true">L2K</span>
+          <span class="brand-name">Landers<b>2K</b></span>
+        </a>
+        <p class="footer-tagline">Création · Innovation · Communauté</p>
+        <ul class="footer-socials" aria-label="Réseaux sociaux">
+          <li><a href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener" style="--brand:#9146ff" aria-label="Twitch"><svg><use href="#i-twitch"/></svg></a></li>
+          <li><a href="https://www.tiktok.com/@landers2k" target="_blank" rel="noopener" style="--brand:#fe2c55" aria-label="TikTok"><svg><use href="#i-tiktok"/></svg></a></li>
+          <li><a href="https://www.youtube.com/@xLanders2K" target="_blank" rel="noopener" style="--brand:#ff0033" aria-label="YouTube"><svg><use href="#i-youtube"/></svg></a></li>
+          <li><a href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener" style="--brand:#5865f2" aria-label="Discord"><svg><use href="#i-discord"/></svg></a></li>
+          <li><a href="https://x.com/Lndrs2K" target="_blank" rel="noopener" style="--brand:#e7e9ea;--brand-ink:#000" aria-label="X"><svg><use href="#i-x"/></svg></a></li>
+          <li><a href="https://www.lootbar.com/fr/shop/Landers2K" target="_blank" rel="noopener" style="--brand:#ffb300;--brand-ink:#000" aria-label="Boutique Lootbar"><svg><use href="#i-bag"/></svg></a></li>
+        </ul>
+      </div>
+      <nav class="footer-cols" aria-label="Plan du site">
+        <div>
+          <h4>Contenus</h4>
+          <ul>
+            <li><a href="/#tiktok">TikTok</a></li>
+            <li><a href="/#youtube">YouTube</a></li>
+            <li><a href="/#twitch">Live Twitch</a></li>
+            <li><a href="/#discord">Discord</a></li>
+            <li><a href="/setup.html">Mon setup</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Don’t Tap Red</h4>
+          <ul>
+            <li><a href="/dont-tap-red/">Le jeu</a></li>
+            <li><a href="/dont-tap-red/#codes">Codes cadeaux</a></li>
+            <li><a href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener">Google Play</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Aide</h4>
+          <ul>
+            <li><a href="/dont-tap-red/#faq">FAQ du jeu</a></li>
+            <li><a href="mailto:donttapred.contact@gmail.com">Support du jeu</a></li>
+            <li><a href="https://sites.google.com/view/donttapred-confidentialite" target="_blank" rel="noopener">Confidentialité du jeu</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:contact@landers2k.com">contact@landers2k.com</a></li>
+            <li><a href="/partenariats.html">Partenariats</a></li>
+            <li><a href="/#soutenir">Me soutenir</a></li>
+            <li><a href="https://www.lootbar.com/fr/shop/Landers2K" target="_blank" rel="noopener sponsored">Boutique Lootbar</a></li>
+          </ul>
+        </div>
+      </nav>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Landers2K. Tous droits réservés.</p>
+        <p class="footer-note"><a href="/mentions-legales.html">Mentions légales et confidentialité</a> · Les contenus TikTok, YouTube et Twitch ne se chargent qu’après ton accord.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cubes tapés : flash rouge et score commun à tout le site -->
+  <div class="flash" aria-hidden="true"></div>
+  <p class="score-toast" aria-live="polite" hidden></p>
+
+  <script src="/script.js" defer></script>
+  <!-- Cloudflare Web Analytics : statistiques de visite anonymes, sans cookie -->
+  <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9f14b1678c7b4e2984e21cb5473c0fcd"}'></script>
+</body>
+</html>
