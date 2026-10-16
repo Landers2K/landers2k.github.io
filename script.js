@@ -892,6 +892,56 @@ const CONFIG = {
   }
 
   /* ------------------------------------------------------------------------
+     Sortie de Don't Tap Red : compte à rebours, puis « Sortie aujourd'hui »
+     le jour J et « Disponible maintenant » les jours suivants
+     ------------------------------------------------------------------------ */
+  (function release() {
+    const RELEASE = Date.parse('2026-10-20T00:00:00+02:00'); // minuit, heure de Paris
+    const DAY = 864e5;
+    const boxes = $$('[data-countdown]');
+    const pills = $$('[data-release]');
+    if (!boxes.length && !pills.length) return;
+
+    const pad = n => String(n).padStart(2, '0');
+    const setPills = text => pills.forEach(p => { p.lastChild.nodeValue = text; });
+    const setUnit = (box, key, value, one, many) => {
+      const b = $(`[data-cd="${key}"]`, box);
+      b.textContent = value;
+      b.nextElementSibling.textContent = Number(value) > 1 ? many : one;
+    };
+
+    let timer = 0;
+    const tick = () => {
+      const left = RELEASE - Date.now();
+      if (left > 0) {
+        const t = Math.floor(left / 1000);
+        const d = Math.floor(t / 86400);
+        const h = Math.floor(t / 3600) % 24;
+        const m = Math.floor(t / 60) % 60;
+        boxes.forEach(box => {
+          box.hidden = false;
+          setUnit(box, 'd', d, 'jour', 'jours');
+          setUnit(box, 'h', pad(h), 'heure', 'heures');
+          setUnit(box, 'm', pad(m), 'minute', 'minutes');
+          setUnit(box, 's', pad(t % 60), 'seconde', 'secondes');
+        });
+        pills.filter(p => p.dataset.release === 'countdown')
+          .forEach(p => { p.lastChild.nodeValue = `Disponible dans ${d} j ${pad(h)} h ${pad(m)} min`; });
+        return;
+      }
+      clearInterval(timer);
+      const today = left > -DAY;
+      boxes.forEach(box => {
+        box.innerHTML = '<p class="cd-done">C’est le grand jour&nbsp;: Don’t Tap Red sort aujourd’hui&nbsp;!</p>';
+        box.hidden = !today;
+      });
+      setPills(today ? 'Sortie aujourd’hui !' : 'Disponible maintenant');
+    };
+    tick();
+    timer = setInterval(tick, 1000);
+  })();
+
+  /* ------------------------------------------------------------------------
      Dernier TikTok : légende, date et chiffres lus dans assets/data/tiktok.json
      (mis à jour par tools/update_tiktok.py). Sans ce fichier, la page garde
      les valeurs écrites dans le HTML.

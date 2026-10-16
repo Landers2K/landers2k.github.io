@@ -373,10 +373,20 @@
           <div class="game-badge reveal">
             <img src="assets/img/dtr-icon.jpg" alt="" width="64" height="64">
             <span><b>Mon jeu mobile</b><small>Gratuit · iOS et Android</small></span>
-            <span class="release-pill"><i aria-hidden="true"></i>Sortie le 20 octobre</span>
+            <span class="release-pill" data-release><i aria-hidden="true"></i>Sortie le 20 octobre</span>
           </div>
           <h2 class="game-title" id="game-title" data-split>Don’t Tap Red.</h2>
           <p class="game-sub reveal">Un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient&nbsp;: garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge&nbsp;!</p>
+          <!-- Compte à rebours jusqu'à la sortie, géré par script.js (caché sans JavaScript) -->
+          <div class="countdown reveal" data-countdown hidden>
+            <p class="cd-label">Sortie dans</p>
+            <div class="cd-units" role="timer" aria-label="Temps restant avant la sortie du jeu">
+              <span class="cd-unit"><b data-cd="d">0</b><small>jours</small></span>
+              <span class="cd-unit"><b data-cd="h">00</b><small>heures</small></span>
+              <span class="cd-unit"><b data-cd="m">00</b><small>minutes</small></span>
+              <span class="cd-unit"><b data-cd="s">00</b><small>secondes</small></span>
+            </div>
+          </div>
           <div class="store-row reveal">
             <a class="store-btn" href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener" data-magnetic>
               <svg aria-hidden="true"><use href="#i-apple"/></svg>
@@ -562,7 +572,7 @@
           <img src="assets/img/cube-red.png" alt="" width="96" height="96">
         </div>
         <h2 class="section-title" id="dl-title" data-split>Prêt à relever le défi&nbsp;?</h2>
-        <p class="release-pill release-pill-lg reveal"><i aria-hidden="true"></i>Disponible le 20 octobre</p>
+        <p class="release-pill release-pill-lg reveal" data-release="countdown"><i aria-hidden="true"></i>Disponible le 20 octobre</p>
         <p class="download-sub reveal">Une seule règle&nbsp;: <span class="is-red">don’t tap red</span>. Gratuit sur iPhone et Android.</p>
         <div class="store-row reveal">
           <a class="store-btn store-btn-lg" href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener" data-magnetic>
