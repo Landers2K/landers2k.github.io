@@ -297,7 +297,7 @@ const CONFIG = {
       giftDialog.setAttribute('aria-labelledby', 'gift-title');
       giftDialog.innerHTML = `
         <div class="gift-card">
-          <img class="gift-cube" src="/assets/img/cube-gold.png" alt="" width="96" height="96">
+          <img class="gift-cube" src="/assets/img/cube-gold.webp" alt="" width="96" height="96">
           <p class="gift-rank">Rang LEGEND</p>
           <h2 id="gift-title">${fmt.format(GIFT_AT)} points, bravo&nbsp;!</h2>
           <p class="gift-text">Tu as débloqué un code cadeau pour Don’t Tap Red&nbsp;:</p>
@@ -369,7 +369,7 @@ const CONFIG = {
         `--dur:${(3.2 + (i * .37) % 2).toFixed(2)}s`, `--delay:${(-i * .53).toFixed(2)}s`,
         `--r:${3 + (i % 4) * 1.5}deg`, `--in:${(.35 + i * .06).toFixed(2)}s`,
       ].join(';');
-      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="/assets/img/cube-${item.color}.png" alt="" draggable="false"></span>${item.hint ? '<span class="hc-hint">Tape-moi&nbsp;!</span>' : ''}`;
+      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="/assets/img/cube-${item.color}.webp" alt="" draggable="false"></span>${item.hint ? '<span class="hc-hint">Tape-moi&nbsp;!</span>' : ''}`;
       layer.append(el);
       const c = Object.assign({ el, layer, root, sign: i % 2 ? 1 : -1, busy: false }, item);
       el.addEventListener('click', () => tapCube(c));
@@ -876,7 +876,7 @@ const CONFIG = {
         if (card && guild.icon && /^\d+$/.test(guild.id) && /^\w+$/.test(guild.icon)) {
           const img = $('.discord-icon img', card);
           img.onload = () => { img.hidden = false; };
-          img.src = `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png?size=256`;
+          img.src = `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.webp?size=256`;
         }
         if (card && typeof data.approximate_member_count === 'number') $('.discord-stats', card).hidden = false;
         put('discord-members', data.approximate_member_count);
@@ -934,7 +934,7 @@ const CONFIG = {
         const h = Math.floor(t / 3600) % 24;
         const m = Math.floor(t / 60) % 60;
         boxes.forEach(box => {
-          box.hidden = false;
+          box.classList.add('is-ready');
           setUnit(box, 'd', d, 'jour', 'jours');
           setUnit(box, 'h', pad(h), 'heure', 'heures');
           setUnit(box, 'm', pad(m), 'minute', 'minutes');
@@ -1126,7 +1126,7 @@ const CONFIG = {
       cube.style.left = `${x.toFixed(0)}px`;
       cube.style.top = `${y.toFixed(0)}px`;
       cube.setAttribute('aria-label', red ? 'Cube rouge, à ne pas toucher' : 'Cube bleu, à toucher');
-      cube.innerHTML = `<img src="/assets/img/cube-${red ? 'red' : 'blue'}.png" alt="">`;
+      cube.innerHTML = `<img src="/assets/img/cube-${red ? 'red' : 'blue'}.webp" alt="">`;
       cube.addEventListener('click', () => hit(cube, red));
       arena.append(cube);
       setTimeout(() => {

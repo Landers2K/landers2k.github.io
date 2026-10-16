@@ -29,6 +29,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
   <link rel="stylesheet" href="styles.css">
+  <!-- Les cubes animés sont ajoutés par script.js : on les télécharge dès le début -->
+  <link rel="preload" as="image" href="/assets/img/cube-blue.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-red.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-gold.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-green.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-purple.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-orange.webp" type="image/webp">
   <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
@@ -246,7 +253,7 @@
           <div class="tt-frame embed" data-embed="tiktok" data-video-id="7694720980077284641">
             <div class="embed-target"></div>
             <div class="embed-facade tt-facade">
-              <img class="tt-cover" src="assets/img/tiktok-latest.jpg" alt="Miniature de mon dernier TikTok" width="540" height="960" decoding="async">
+              <img class="tt-cover" src="assets/img/tiktok-latest.jpg" alt="Miniature de mon dernier TikTok" width="540" height="960" loading="lazy" decoding="async">
               <button class="tt-play embed-load" type="button" aria-label="Lire mon dernier TikTok">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>
               </button>
@@ -378,7 +385,7 @@
           <h2 class="game-title" id="game-title" data-split>Don’t Tap Red.</h2>
           <p class="game-sub reveal">Un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient&nbsp;: garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge&nbsp;!</p>
           <!-- Compte à rebours jusqu'à la sortie, géré par script.js (caché sans JavaScript) -->
-          <div class="countdown reveal" data-countdown hidden>
+          <div class="countdown reveal" data-countdown>
             <p class="cd-label">Sortie dans</p>
             <div class="cd-units" role="timer" aria-label="Temps restant avant la sortie du jeu">
               <span class="cd-unit"><b data-cd="d">0</b><small>jours</small></span>
@@ -414,8 +421,8 @@
           <p class="kicker reveal">L’objectif</p>
           <h3 class="goal-title" data-split>Une seule règle.</h3>
           <ul class="goal-rules" data-stagger>
-            <li><img src="assets/img/cube-blue.png" alt="" width="56" height="56"><span><b class="is-blue">Tape le bleu</b> pour marquer des points et faire grimper ton combo.</span></li>
-            <li><img src="assets/img/cube-red.png" alt="" width="56" height="56"><span><b class="is-red">Ne touche jamais le rouge</b>&nbsp;: un seul faux pas et c’est perdu.</span></li>
+            <li><img src="assets/img/cube-blue.webp" alt="" width="56" height="56"><span><b class="is-blue">Tape le bleu</b> pour marquer des points et faire grimper ton combo.</span></li>
+            <li><img src="assets/img/cube-red.webp" alt="" width="56" height="56"><span><b class="is-red">Ne touche jamais le rouge</b>&nbsp;: un seul faux pas et c’est perdu.</span></li>
           </ul>
           <p class="goal-hint reveal">Essaie ici, tout de suite&nbsp;: 20&nbsp;secondes pour faire ton meilleur score.</p>
         </div>
@@ -568,8 +575,8 @@
     <section class="download" id="telecharger" data-scene="download" aria-labelledby="dl-title">
       <div class="wrap download-inner">
         <div class="download-cubes" aria-hidden="true">
-          <img src="assets/img/cube-blue.png" alt="" width="96" height="96">
-          <img src="assets/img/cube-red.png" alt="" width="96" height="96">
+          <img src="assets/img/cube-blue.webp" alt="" width="96" height="96">
+          <img src="assets/img/cube-red.webp" alt="" width="96" height="96">
         </div>
         <h2 class="section-title" id="dl-title" data-split>Prêt à relever le défi&nbsp;?</h2>
         <p class="release-pill release-pill-lg reveal" data-release="countdown"><i aria-hidden="true"></i>Disponible le 20 octobre</p>

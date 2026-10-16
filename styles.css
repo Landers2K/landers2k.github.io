@@ -1422,8 +1422,11 @@ body.menu-open .menu-socials li { opacity: 1; translate: none; transition-delay:
 .release-pill i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #ffd60a; box-shadow: 0 0 10px #ffd60a; animation: blink 2.4s ease-in-out infinite; }
 .release-pill-lg { margin: 22px 0 0; padding: 9px 18px; font-size: 16px; font-variant-numeric: tabular-nums; }
 
-/* Compte à rebours avant la sortie */
+/* Compte à rebours avant la sortie : sa place est réservée dès l'affichage (pas de décalage
+   de la page), les chiffres n'apparaissent qu'une fois calculés */
 .countdown { margin-top: 30px; }
+html:not(.js) .countdown { display: none; }
+.countdown:not(.is-ready) .cd-units { visibility: hidden; }
 .cd-label { color: var(--c-text-3); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .cd-units { display: flex; gap: 10px; margin-top: 12px; }
 .cd-unit {

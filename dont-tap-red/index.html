@@ -27,6 +27,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
   <link rel="stylesheet" href="/styles.css">
+  <!-- Les cubes animés sont ajoutés par script.js : on les télécharge dès le début -->
+  <link rel="preload" as="image" href="/assets/img/cube-blue.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-red.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-gold.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-green.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-purple.webp" type="image/webp">
+  <link rel="preload" as="image" href="/assets/img/cube-orange.webp" type="image/webp">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -151,7 +158,7 @@
           <h1 class="game-title" id="game-title" data-split>Don’t Tap Red.</h1>
           <p class="game-sub reveal">Un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient&nbsp;: garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge&nbsp;!</p>
           <!-- Compte à rebours jusqu'à la sortie, géré par script.js (caché sans JavaScript) -->
-          <div class="countdown reveal" data-countdown hidden>
+          <div class="countdown reveal" data-countdown>
             <p class="cd-label">Sortie dans</p>
             <div class="cd-units" role="timer" aria-label="Temps restant avant la sortie du jeu">
               <span class="cd-unit"><b data-cd="d">0</b><small>jours</small></span>
@@ -186,8 +193,8 @@
           <p class="kicker reveal">L’objectif</p>
           <h3 class="goal-title" data-split>Une seule règle.</h3>
           <ul class="goal-rules" data-stagger>
-            <li><img src="/assets/img/cube-blue.png" alt="" width="56" height="56"><span><b class="is-blue">Tape le bleu</b> pour marquer des points et faire grimper ton combo.</span></li>
-            <li><img src="/assets/img/cube-red.png" alt="" width="56" height="56"><span><b class="is-red">Ne touche jamais le rouge</b>&nbsp;: un seul faux pas et c’est perdu.</span></li>
+            <li><img src="/assets/img/cube-blue.webp" alt="" width="56" height="56"><span><b class="is-blue">Tape le bleu</b> pour marquer des points et faire grimper ton combo.</span></li>
+            <li><img src="/assets/img/cube-red.webp" alt="" width="56" height="56"><span><b class="is-red">Ne touche jamais le rouge</b>&nbsp;: un seul faux pas et c’est perdu.</span></li>
           </ul>
           <p class="goal-hint reveal">Essaie ici, tout de suite&nbsp;: 20&nbsp;secondes pour faire ton meilleur score.</p>
         </div>
@@ -218,37 +225,37 @@
         </header>
         <div class="cube-grid" data-stagger>
           <article class="cube-card" style="--brand:#2997ff">
-            <img src="/assets/img/cube-blue.png" alt="" width="72" height="72" loading="lazy">
+            <img src="/assets/img/cube-blue.webp" alt="" width="72" height="72" loading="lazy">
             <p class="cube-pts">+1</p>
             <h3>Bleu</h3>
             <p>Ton cube de base. Plus ton combo grimpe, plus il rapporte&nbsp;: jusqu’à +5 par cube.</p>
           </article>
           <article class="cube-card" style="--brand:#30d158">
-            <img src="/assets/img/cube-green.png" alt="" width="72" height="72" loading="lazy">
+            <img src="/assets/img/cube-green.webp" alt="" width="72" height="72" loading="lazy">
             <p class="cube-pts">+5</p>
             <h3>Vert</h3>
             <p>Un petit bonus à attraper dès qu’il passe sous ton doigt.</p>
           </article>
           <article class="cube-card" style="--brand:#bf5af2">
-            <img src="/assets/img/cube-purple.png" alt="" width="72" height="72" loading="lazy">
+            <img src="/assets/img/cube-purple.webp" alt="" width="72" height="72" loading="lazy">
             <p class="cube-pts">+21 à +40</p>
             <h3>Violet</h3>
             <p>Le gros bonus&nbsp;: un nombre de points tiré au hasard à chaque fois.</p>
           </article>
           <article class="cube-card" style="--brand:#ffd60a">
-            <img src="/assets/img/cube-gold.png" alt="" width="72" height="72" loading="lazy">
+            <img src="/assets/img/cube-gold.webp" alt="" width="72" height="72" loading="lazy">
             <p class="cube-pts">Jusqu’à +100</p>
             <h3>Étoile dorée</h3>
             <p>Le jackpot. Elle est rare, alors ne la laisse pas filer.</p>
           </article>
           <article class="cube-card" style="--brand:#ff9f0a">
-            <img src="/assets/img/cube-orange.png" alt="" width="72" height="72" loading="lazy">
+            <img src="/assets/img/cube-orange.webp" alt="" width="72" height="72" loading="lazy">
             <p class="cube-pts">−21 à −40</p>
             <h3>Orange</h3>
             <p>Le piège qui fait mal&nbsp;: il retire des points à ton score.</p>
           </article>
           <article class="cube-card" style="--brand:#ff375f">
-            <img src="/assets/img/cube-red.png" alt="" width="72" height="72" loading="lazy">
+            <img src="/assets/img/cube-red.webp" alt="" width="72" height="72" loading="lazy">
             <p class="cube-pts">Interdit</p>
             <h3>Rouge</h3>
             <p>Selon le mode, il te coûte du temps, une vie… ou la partie entière.</p>
@@ -410,7 +417,7 @@
           </article>
         </div>
         <div class="gift-hunt reveal">
-          <img src="/assets/img/cube-gold.png" alt="" width="84" height="84" loading="lazy">
+          <img src="/assets/img/cube-gold.webp" alt="" width="84" height="84" loading="lazy">
           <p><b>Un code est caché sur ce site.</b> Tape les cubes qui flottent sur les pages, en évitant les rouges&nbsp;: à 1&nbsp;000&nbsp;points, un code cadeau se débloque.</p>
         </div>
       </div>
@@ -460,8 +467,8 @@
     <section class="download" id="telecharger" data-scene="download" aria-labelledby="dl-title">
       <div class="wrap download-inner">
         <div class="download-cubes" aria-hidden="true">
-          <img src="/assets/img/cube-blue.png" alt="" width="96" height="96">
-          <img src="/assets/img/cube-red.png" alt="" width="96" height="96">
+          <img src="/assets/img/cube-blue.webp" alt="" width="96" height="96">
+          <img src="/assets/img/cube-red.webp" alt="" width="96" height="96">
         </div>
         <h2 class="section-title" id="dl-title" data-split>Prêt à relever le défi&nbsp;?</h2>
         <p class="release-pill release-pill-lg reveal" data-release="countdown"><i aria-hidden="true"></i>Disponible le 20 octobre</p>
