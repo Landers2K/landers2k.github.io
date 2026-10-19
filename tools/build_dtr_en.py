@@ -21,7 +21,7 @@ icons = cut(index, "  <!-- Icônes (réutilisées partout via <use>) -->", "  </
 T = [
     # ---- En-tête du jeu
     ("<b>Mon jeu mobile</b><small>Gratuit · iOS et Android</small>", "<b>My mobile game</b><small>Free · iOS and Android</small>"),
-    ('<i aria-hidden="true"></i>Sortie le 20 octobre</span>', '<i aria-hidden="true"></i>Out October 20</span>'),
+    ('<i aria-hidden="true"></i>Sortie le 23 octobre</span>', '<i aria-hidden="true"></i>Out October 23</span>'),
     ("Un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient&nbsp;: garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge&nbsp;!",
      "A fast-paced reflex game where every second counts. Cubes move, speed up and multiply: keep your cool, chain the right cubes and above all… never touch the red one!"),
     ('<p class="cd-label">Sortie dans</p>', '<p class="cd-label">Out in</p>'),
@@ -138,7 +138,7 @@ T = [
     ("Oui. Don’t Tap Red est gratuit sur iPhone et Android. Il contient des publicités, que tu peux supprimer pour toujours avec un achat unique, et des achats facultatifs comme des packs et des skins.",
      "Yes. Don’t Tap Red is free on iPhone and Android. It contains ads, which you can remove forever with a one-time purchase, plus optional purchases such as packs and skins."),
     ("<summary>Quand sort le jeu&nbsp;?</summary>", "<summary>When does the game come out?</summary>"),
-    ("Le 20 octobre 2026, sur l’App Store et sur Google Play.", "On October 20, 2026, on the App Store and Google Play."),
+    ("Le 23 octobre 2026 à 9&nbsp;h (heure de Paris), sur l’App Store et sur Google Play.", "On October 23, 2026 at 9&nbsp;a.m. Paris time (7&nbsp;a.m. UTC), on the App Store and Google Play."),
     ("<summary>Sur quels appareils et dans quelles langues&nbsp;?</summary>", "<summary>Which devices and languages?</summary>"),
     ("Sur iPhone et sur les téléphones Android. Le jeu est disponible en français et en anglais.", "iPhone and Android phones. The game is available in English and French."),
     ("<summary>Comment utiliser un code cadeau&nbsp;?</summary>", "<summary>How do I use a gift code?</summary>"),
@@ -155,7 +155,7 @@ T = [
      'Everything is explained in the game’s <a href="https://sites.google.com/view/donttapred-confidentialite" target="_blank" rel="noopener">privacy policy</a> (in French).'),
     # ---- Téléchargement
     ("Prêt à relever le défi&nbsp;?", "Ready for the challenge?"),
-    ('<i aria-hidden="true"></i>Disponible le 20 octobre</p>', '<i aria-hidden="true"></i>Available October 20</p>'),
+    ('<i aria-hidden="true"></i>Disponible le 23 octobre</p>', '<i aria-hidden="true"></i>Available October 23</p>'),
     ('Une seule règle&nbsp;: <span class="is-red">don’t tap red</span>. Gratuit sur iPhone et Android.', 'One single rule: <span class="is-red">don’t tap red</span>. Free on iPhone and Android.'),
     ("Une question sur le jeu&nbsp;? <a", "A question about the game? <a"),
     ('Journaliste ou créateur&nbsp;? <a class="link-arrow" href="/dont-tap-red/presse/">Le kit presse du jeu</a>',
@@ -289,7 +289,7 @@ ld = {
     "operatingSystem": "iOS, Android",
     "applicationCategory": "GameApplication",
     "inLanguage": ["en", "fr"],
-    "datePublished": "2026-10-20",
+    "datePublished": "2026-10-23",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
     "author": {"@type": "Person", "name": "Landers2K", "url": "https://www.landers2k.com/"},
     "installUrl": ["https://apps.apple.com/app/id6820198356", "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"],
@@ -316,7 +316,7 @@ head = f"""<!doctype html>
   <meta property="og:site_name" content="Landers2K">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://www.landers2k.com/dont-tap-red/en/">
-  <meta property="og:title" content="Don’t Tap Red — out October 20">
+  <meta property="og:title" content="Don’t Tap Red — out October 23">
   <meta property="og:description" content="The free reflex game by Landers2K for iPhone and Android. One single rule: never touch the red one.">
   <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr-en.jpg">
   <meta property="og:image:width" content="1200">

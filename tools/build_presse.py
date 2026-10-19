@@ -15,7 +15,7 @@ setup = (ROOT / "setup.html").read_text("utf-8")
 FACTS = [
     ("Jeu", "Don’t Tap Red"),
     ("Développeur", "Landers2K, développeur indépendant (France)"),
-    ("Sortie", "20 octobre 2026"),
+    ("Sortie", "23 octobre 2026 à 9 h (heure de Paris)"),
     ("Plateformes", "iPhone (App Store) et Android (Google Play)"),
     ("Prix", "Gratuit, achats intégrés facultatifs"),
     ("Langues", "Français et anglais"),
@@ -25,7 +25,7 @@ FACTS = [
 FACTS_EN = [
     ("Game", "Don't Tap Red"),
     ("Developer", "Landers2K, independent developer (France)"),
-    ("Release date", "October 20, 2026"),
+    ("Release date", "October 23, 2026, 9 a.m. Paris time"),
     ("Platforms", "iPhone (App Store) and Android (Google Play)"),
     ("Price", "Free to play, optional in-app purchases"),
     ("Languages", "French and English"),

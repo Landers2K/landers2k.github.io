@@ -910,11 +910,11 @@ const CONFIG = {
   });
 
   /* ------------------------------------------------------------------------
-     Sortie de Don't Tap Red : compte à rebours, puis « Sortie aujourd'hui »
-     le jour J et « Disponible maintenant » les jours suivants
+     Sortie de Don't Tap Red : compte à rebours jusqu'à l'heure de sortie, puis
+     « Disponible maintenant » (avec un message « grand jour » pendant 24 h)
      ------------------------------------------------------------------------ */
   (function release() {
-    const RELEASE = Date.parse('2026-10-20T00:00:00+02:00'); // minuit, heure de Paris
+    const RELEASE = Date.parse('2026-10-23T09:00:00+02:00'); // 23 octobre à 9 h, heure de Paris
     const DAY = 864e5;
     const boxes = $$('[data-countdown]');
     const pills = $$('[data-release]');
@@ -949,12 +949,12 @@ const CONFIG = {
         return;
       }
       clearInterval(timer);
-      const today = left > -DAY;
+      const launchDay = left > -DAY;
       boxes.forEach(box => {
-        box.innerHTML = `<p class="cd-done">${tr('C’est le grand jour&nbsp;: Don’t Tap Red sort aujourd’hui&nbsp;!', 'It’s launch day: Don’t Tap Red is out today!')}</p>`;
-        box.hidden = !today;
+        box.innerHTML = `<p class="cd-done">${tr('C’est le grand jour&nbsp;: Don’t Tap Red est disponible&nbsp;!', 'It’s launch day: Don’t Tap Red is out now!')}</p>`;
+        box.hidden = !launchDay;
       });
-      setPills(today ? tr('Sortie aujourd’hui !', 'Out today!') : tr('Disponible maintenant', 'Available now'));
+      setPills(tr('Disponible maintenant', 'Available now'));
     };
     tick();
     timer = setInterval(tick, 1000);
