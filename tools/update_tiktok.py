@@ -16,12 +16,15 @@ import json
 import pathlib
 import re
 import sys
+import time
 import urllib.request
 
 ACCOUNT = "landers2k"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "assets" / "data" / "tiktok.json"
 COVER_FILE = ROOT / "assets" / "img" / "tiktok-latest.jpg"
+TRIES, WAIT = 3, 20  # essais auprès de TikTok, et secondes d'attente entre deux essais
+MAX_STALE = datetime.timedelta(days=3)  # au-delà, une panne n'est plus passagère : le robot échoue
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
                   "(KHTML, like Gecko) Chrome/130.0 Safari/537.36",
@@ -39,20 +42,45 @@ def published(video_id: str) -> datetime.datetime:
     return datetime.datetime.fromtimestamp(int(video_id) >> 32, datetime.timezone.utc)
 
 
+def load_videos() -> tuple[dict, list] | None:
+    """Lit le profil et les vidéos publiques ; TikTok refuse parfois de répondre, on réessaie."""
+    for attempt in range(1, TRIES + 1):
+        try:
+            html = fetch(f"https://www.tiktok.com/embed/@{ACCOUNT}?lang=fr").decode("utf-8", "replace")
+            match = re.search(r'<script[^>]*id="__FRONTITY_CONNECT_STATE__"[^>]*>(.*?)</script>', html, re.S)
+            if not match:
+                raise ValueError("données TikTok introuvables dans la page")
+            state = json.loads(match.group(1))
+            page = next(v for k, v in state["source"]["data"].items() if k.startswith("/embed/"))
+            videos = [v for v in page["videoList"] if str(v.get("id", "")).isdigit() and not v.get("privateItem")]
+            if not videos:
+                raise ValueError("aucune vidéo publique trouvée")
+            return page["userInfo"], videos
+        except Exception as error:  # page bloquée, réponse vide, format inattendu…
+            print(f"Essai {attempt}/{TRIES} : {error}", file=sys.stderr)
+            if attempt < TRIES:
+                time.sleep(WAIT)
+    return None
+
+
 def main() -> int:
-    html = fetch(f"https://www.tiktok.com/embed/@{ACCOUNT}?lang=fr").decode("utf-8", "replace")
-    match = re.search(r'<script[^>]*id="__FRONTITY_CONNECT_STATE__"[^>]*>(.*?)</script>', html, re.S)
-    if not match:
-        print("Données TikTok introuvables : la page a peut-être changé.", file=sys.stderr)
+    loaded = load_videos()
+    if loaded is None:
+        # Panne passagère de TikTok : on garde les données actuelles sans faire échouer le robot.
+        # Si rien n'a pu être mis à jour depuis plusieurs jours, la page a sans doute changé : on échoue
+        # pour que GitHub envoie un e-mail.
+        old = json.loads(DATA_FILE.read_text("utf-8")) if DATA_FILE.exists() else {}
+        try:
+            last = datetime.datetime.fromisoformat(old["updated"])
+        except (KeyError, ValueError):
+            last = None
+        if last and datetime.datetime.now(datetime.timezone.utc) - last < MAX_STALE:
+            print(f"::warning::TikTok n'a pas répondu, on garde le dernier TikTok connu (mis à jour le {last:%d/%m %H:%M} UTC).")
+            return 0
+        print("::error::Impossible de lire TikTok depuis plusieurs jours : la page a peut-être changé.")
         return 1
 
-    state = json.loads(match.group(1))
-    page = next(v for k, v in state["source"]["data"].items() if k.startswith("/embed/"))
-    user = page["userInfo"]
-    videos = [v for v in page["videoList"] if str(v.get("id", "")).isdigit() and not v.get("privateItem")]
-    if not videos:
-        print("Aucune vidéo publique trouvée.", file=sys.stderr)
-        return 1
+    user, videos = loaded
 
     latest = max(videos, key=lambda v: int(v["id"]))
     video_id = str(latest["id"])
