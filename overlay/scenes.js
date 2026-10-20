@@ -69,6 +69,66 @@
   tick();
   setInterval(tick, 1000);
 
+  /* ---------------------------------------------------------------- Derniers évènements (scène CHAT)
+     Remplis en direct par Streamlabs : dans OBS, ajouter #token=JETON à la fin de l'adresse, avec le
+     « Jeton API Socket » de Streamlabs (Paramètres › Paramètres de l'API › Jetons API). Placé après le #,
+     le jeton reste dans OBS : il n'est jamais envoyé au site. Les derniers noms sont gardés d'un live à l'autre.
+     ?demo affiche des exemples, sans rien enregistrer. */
+  const slots = [...document.querySelectorAll('[data-last]')];
+  if (slots.length) {
+    const store = {
+      get(k) { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } },
+      set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* stockage indisponible */ } },
+    };
+    const show = (kind, name, detail, fresh, keep = true) => {
+      const el = slots.find(s => s.dataset.last === kind);
+      if (!el || !name) return;
+      const b = document.createElement('b');
+      b.textContent = name;
+      el.replaceChildren(b);
+      if (detail) el.append(Object.assign(document.createElement('span'), { textContent: detail }));
+      if (!fresh) return;
+      el.classList.remove('is-new');
+      void el.offsetWidth;
+      el.classList.add('is-new');
+      if (keep) store.set(`l2k-last-${kind}`, [name, detail]);
+    };
+    for (const el of slots) {
+      const last = store.get(`l2k-last-${el.dataset.last}`);
+      if (last) show(el.dataset.last, last[0], last[1], false);
+    }
+    // Évènement Streamlabs : { type, for, message: [{ name, formatted_amount, months… }] }
+    const handle = (e, keep = true) => {
+      const m = Array.isArray(e.message) ? e.message[0] : e.message;
+      if (!m || !m.name) return;
+      if (e.type === 'donation') {
+        show('donation', m.name, m.formatted_amount || (m.amount ? `${m.amount} ${m.currency || ''}`.trim() : ''), true, keep);
+      } else if (e.type === 'follow' && e.for === 'twitch_account') {
+        show('follow', m.name, '', true, keep);
+      } else if ((e.type === 'subscription' || e.type === 'resub') && e.for === 'twitch_account') {
+        show('subscription', m.name, m.months > 1 ? `${m.months} mois` : '', true, keep);
+      }
+    };
+    const token = new URLSearchParams(location.hash.slice(1)).get('token');
+    if (token) {
+      const lib = document.createElement('script');
+      lib.src = 'https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js';
+      lib.onload = () => {
+        const socket = window.io(`https://sockets.streamlabs.com?token=${encodeURIComponent(token)}`, { transports: ['websocket'] });
+        socket.on('event', e => handle(e));
+      };
+      document.head.append(lib);
+    }
+    if (params.has('demo')) {
+      const demo = [
+        { type: 'follow', for: 'twitch_account', message: [{ name: 'CubeBleu42' }] },
+        { type: 'donation', for: 'streamlabs', message: [{ name: 'LaBatataShow', formatted_amount: '5,00 €' }] },
+        { type: 'subscription', for: 'twitch_account', message: [{ name: 'DontTapRedFan', months: 3 }] },
+      ];
+      demo.forEach((e, i) => setTimeout(() => handle(e, false), 800 + i * 700));
+    }
+  }
+
   /* ---------------------------------------------------------------- Score */
   const scoreEl = $('[data-score]');
   let score = 0;

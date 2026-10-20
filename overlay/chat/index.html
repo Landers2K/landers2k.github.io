@@ -4,34 +4,33 @@
   <meta charset="utf-8">
   <title>Scène « Chat » — Landers2K</title>
   <!-- Scène OBS (source « Navigateur » en 2560 × 1440), à placer TOUT EN BAS des sources de la scène CHAT :
-       les emplacements correspondent à la webcam (81, 177), au chat (1963, 173) et à la capture de jeu (1929, 1030). -->
+       les emplacements correspondent à la webcam (81, 177 · 1820 × 1024), au chat (1962, 177 · 517 × 775) et à la capture de jeu (1962, 1016 · 517 × 291). -->
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500..900&display=swap">
-  <link rel="stylesheet" href="/overlay/scenes.css?v=2">
+  <link rel="stylesheet" href="/overlay/scenes.css?v=3">
 </head>
 <body class="full chat-scene">
   <div class="stage">
     <div class="floor"></div>
     <div class="cubes"></div>
 
-    <!-- Derniers évènements : les textes de Streamlabs s'affichent dans ces barres -->
-    <div class="event" style="left:121px;--c:#bf5af2"><i></i><small>Dernier cheer</small></div>
-    <div class="event" style="left:578px;--c:#2997ff"><i></i><small>Dernier follower</small></div>
-    <div class="event" style="left:1031px;--c:#ffd60a"><i></i><small>Dernier don</small></div>
-    <div class="event" style="left:1484px;--c:#ff375f"><i></i><small>Dernier abonné</small></div>
+    <!-- Derniers évènements, remplis en direct par Streamlabs (voir scenes.js) ; ?demo pour un aperçu -->
+    <div class="event" style="left:81px;--c:#2997ff"><i></i><small>Dernier follower</small><p data-last="follow"><em>—</em></p></div>
+    <div class="event" style="left:698px;--c:#ffd60a"><i></i><small>Dernier don</small><p data-last="donation"><em>—</em></p></div>
+    <div class="event" style="left:1315px;--c:#ff375f"><i></i><small>Dernier abonné</small><p data-last="subscription"><em>—</em></p></div>
 
     <!-- Webcam -->
     <div class="frame" style="left:81px;top:177px;width:1820px;height:1024px;background:#0b0f1f"></div>
-    <!-- Chat (Streamlabs, 380 × 570 × 1,395) -->
-    <div class="frame panel" style="left:1963px;top:173px;width:530px;height:795px"><span class="frame-label">Chat en direct</span></div>
-    <!-- Capture de jeu (2560 × 1440 × 0,228) : étiquette en dessous, la place au-dessus est prise par le chat -->
-    <div class="frame panel" style="left:1929px;top:1030px;width:584px;height:329px"><span class="frame-label is-below">En jeu</span></div>
+    <!-- Colonne de droite, même marge que la gauche (64 px jusqu'au liseré) :
+         chat en (1962, 177) · 517 × 775, capture de jeu en (1962, 1016) · 517 × 291 -->
+    <div class="frame panel" style="left:1962px;top:177px;width:517px;height:775px"><span class="frame-label">Chat en direct</span></div>
+    <div class="frame panel" style="left:1962px;top:1016px;width:517px;height:291px"><span class="frame-label is-below">En jeu</span></div>
 
     <p class="side-label">En discussion</p>
     <div class="socials" data-socials></div>
   </div>
-  <script src="/overlay/scenes.js?v=2"></script>
+  <script src="/overlay/scenes.js?v=3"></script>
 </body>
 </html>
