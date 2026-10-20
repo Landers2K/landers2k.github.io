@@ -100,7 +100,7 @@
 
   // Où les cubes ont le droit d'apparaître : [x1, y1, x2, y2]
   const ZONES = chatScene
-    ? [[110, 1235, 470, 1410], [1540, 1235, 1890, 1410], [1990, 40, 2510, 128], [2530, 200, 2540, 1300]]
+    ? [[110, 1235, 470, 1410], [1540, 1235, 1890, 1410]]
     : [[70, 70, W - 70, H - 70]];
   // Zones à garder libres (textes, score, pastilles du bas)
   const AVOID = chatScene ? [] : [[280, 300, 2280, 1130], [50, 50, 640, 230], [460, 1240, 2100, 1420]];

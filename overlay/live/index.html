@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Scène « Live » — Landers2K</title>
+  <!-- Scène OBS (source « Navigateur » en 2560 × 1440, fond transparent), à placer juste au-dessus de « Camera 2 » dans LIVE :
+       cadre autour de la webcam (1887, 99 · 652 × 367) et bandeau des liens juste en dessous. Pas de cubes : le jeu reste dégagé. -->
+  <meta name="robots" content="noindex">
+  <link rel="stylesheet" href="/overlay/scenes.css">
+</head>
+<body>
+  <div class="stage">
+    <div class="frame" style="left:1887px;top:99px;width:652px;height:367px;box-shadow:none"></div>
+    <!-- Bandeau compact (480 × 90, plus 40 px pour son ombre) agrandi à la largeur de la webcam -->
+    <iframe src="/overlay/?compact" title="Bandeau Landers2K" scrolling="no"
+      style="position:absolute;left:1887px;top:496px;width:480px;height:130px;border:0;background:transparent;transform:scale(1.3583);transform-origin:0 0"></iframe>
+  </div>
+  <script>
+    // Dessinée en 2560 × 1440, adaptée à la taille de la source OBS
+    const stage = document.querySelector('.stage');
+    const fit = () => { stage.style.transform = `scale(${Math.min(innerWidth / 2560, innerHeight / 1440)})`; };
+    addEventListener('resize', fit);
+    fit();
+  </script>
+</body>
+</html>

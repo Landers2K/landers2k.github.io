@@ -44,8 +44,9 @@
       position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
       opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1);
     }
-    .msg.is-on { opacity: 1; transform: none; }
-    .msg.is-off { opacity: 0; transform: translateY(-14px); }
+    /* Le nouveau message arrive une fois l'ancien parti : les textes ne se chevauchent jamais */
+    .msg.is-on { opacity: 1; transform: none; transition-delay: .45s; }
+    .msg.is-off { opacity: 0; transform: translateY(-14px); transition-duration: .4s; }
     .msg small { color: #9ea3b5; font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
     .msg b { margin-top: 2px; font-size: 29px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
     .grad { background: linear-gradient(90deg, #2997ff, #bf5af2 55%, #ff375f); -webkit-background-clip: text; background-clip: text; color: transparent; }
