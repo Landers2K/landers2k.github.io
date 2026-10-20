@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Scène « Alternative » — Landers2K</title>
+  <!-- Scène OBS (source « Navigateur » en 2560 × 1440), à placer TOUT EN BAS des sources de la scène ALTERNATIVE :
+       comme CHAT, mais jeu en grand (81, 177 · 1820 × 1024) et webcam en petit (1962, 1016 · 517 × 291) ; chat en (1962, 177 · 517 × 775). -->
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500..900&display=swap">
+  <link rel="stylesheet" href="/overlay/scenes.css?v=4">
+</head>
+<body class="full chat-scene">
+  <div class="stage">
+    <div class="floor"></div>
+    <div class="cubes"></div>
+
+    <!-- Derniers évènements, remplis en direct par Streamlabs (voir scenes.js) ; ?demo pour un aperçu -->
+    <div class="event" style="left:81px;--c:#2997ff"><i></i><small>Dernier follower</small><p data-last="follow"><em>—</em></p></div>
+    <div class="event" style="left:698px;--c:#ffd60a"><i></i><small>Dernier don</small><p data-last="donation"><em>—</em></p></div>
+    <div class="event" style="left:1315px;--c:#ff375f"><i></i><small>Dernier abonné</small><p data-last="subscription"><em>—</em></p></div>
+
+    <!-- Jeu en grand -->
+    <div class="frame" style="left:81px;top:177px;width:1820px;height:1024px;background:#0b0f1f"></div>
+    <!-- Colonne de droite, même marge que la gauche (64 px jusqu'au liseré) :
+         chat en (1962, 177) · 517 × 775, capture de jeu en (1962, 1016) · 517 × 291 -->
+    <div class="frame panel" style="left:1962px;top:177px;width:517px;height:775px"><span class="frame-label">Chat en direct</span>
+      <!-- Chat Twitch lu en direct par scenes.js (remplace la Fenêtre de chat de Streamlabs) -->
+      <div class="chat-log" data-chat="landers2k"></div>
+    </div>
+    <!-- Webcam en petit -->
+    <div class="frame panel" style="left:1962px;top:1016px;width:517px;height:291px"><span class="frame-label is-below">Webcam</span></div>
+
+    <div class="socials" data-socials></div>
+  </div>
+  <script src="/overlay/scenes.js?v=4"></script>
+</body>
+</html>
