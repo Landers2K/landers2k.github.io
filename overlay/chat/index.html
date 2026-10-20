@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Scène « Chat » — Landers2K</title>
+  <!-- Scène OBS (source « Navigateur » en 2560 × 1440), à placer TOUT EN BAS des sources de la scène CHAT :
+       les emplacements correspondent à la webcam (81, 177), au chat (1976, 243) et à la capture de jeu (1932, 1032). -->
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500..900&display=swap">
+  <link rel="stylesheet" href="/overlay/scenes.css">
+</head>
+<body class="full chat-scene">
+  <div class="stage">
+    <div class="floor"></div>
+    <div class="cubes"></div>
+
+    <!-- Derniers évènements : les textes de Streamlabs s'affichent dans ces barres -->
+    <div class="event" style="left:121px;--c:#bf5af2"><i></i><small>Dernier cheer</small></div>
+    <div class="event" style="left:578px;--c:#2997ff"><i></i><small>Dernier follower</small></div>
+    <div class="event" style="left:1031px;--c:#ffd60a"><i></i><small>Dernier don</small></div>
+    <div class="event" style="left:1484px;--c:#ff375f"><i></i><small>Dernier abonné</small></div>
+
+    <!-- Webcam -->
+    <div class="frame" style="left:81px;top:177px;width:1820px;height:1024px;background:#0b0f1f"></div>
+    <!-- Chat -->
+    <div class="frame panel" style="left:1950px;top:177px;width:560px;height:780px"><span class="frame-label">Chat en direct</span></div>
+    <!-- Capture de jeu -->
+    <div class="frame panel" style="left:1932px;top:1032px;width:579px;height:326px"><span class="frame-label">En jeu</span></div>
+
+    <p class="side-label">En discussion</p>
+    <div class="socials" data-socials></div>
+  </div>
+  <script src="/overlay/scenes.js"></script>
+</body>
+</html>
