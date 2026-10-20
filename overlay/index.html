@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Overlay live — Landers2K</title>
+  <!-- Bandeau pour OBS (source « Navigateur », 760 × 100, fond transparent).
+       Pas de statistiques Cloudflare ici : OBS le charge en continu pendant les lives. -->
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500..800&display=swap">
+  <style>
+    html, body { margin: 0; background: transparent; overflow: hidden; }
+    body { font-family: Inter, -apple-system, "Segoe UI", sans-serif; color: #f5f5f7; }
+    .bar {
+      position: absolute; left: 10px; top: 10px;
+      display: flex; align-items: center; gap: 16px;
+      width: 740px; height: 80px; padding: 0 22px 0 14px; box-sizing: border-box;
+      border-radius: 22px;
+      background: linear-gradient(110deg, rgba(10, 14, 30, .92), rgba(16, 12, 30, .92));
+      box-shadow: inset 0 0 0 1.5px rgba(255, 255, 255, .1), 0 14px 40px -12px rgba(0, 0, 0, .7);
+      overflow: hidden;
+    }
+    /* Liseré dégradé bleu → violet → rouge, comme sur le site */
+    .bar::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1.5px;
+      background: linear-gradient(90deg, #2997ff, #bf5af2, #ff375f, #2997ff);
+      background-size: 300% 100%;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+      animation: flow 8s linear infinite;
+    }
+    @keyframes flow { to { background-position: 300% 0; } }
+    .cube { flex: none; width: 54px; height: 54px; position: relative; }
+    .cube img { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 6px 12px rgba(0, 0, 0, .5)); animation: bob 3s ease-in-out infinite; }
+    .cube img + img { opacity: 0; }
+    .cube.is-red img:first-child { opacity: 0; }
+    .cube.is-red img + img { opacity: 1; }
+    .cube img { transition: opacity .6s ease; }
+    @keyframes bob { 50% { transform: translateY(-4px) rotate(-6deg); } }
+    .msgs { position: relative; flex: 1; height: 100%; }
+    .msg {
+      position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: center;
+      opacity: 0; transform: translateY(14px); transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1);
+    }
+    .msg.is-on { opacity: 1; transform: none; }
+    .msg.is-off { opacity: 0; transform: translateY(-14px); }
+    .msg small { color: #9ea3b5; font-size: 15px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .msg b { margin-top: 2px; font-size: 29px; font-weight: 800; letter-spacing: -.02em; white-space: nowrap; }
+    .grad { background: linear-gradient(90deg, #2997ff, #bf5af2 55%, #ff375f); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .red { color: #ff375f; }
+    .gold { color: #ffd60a; }
+    .num { font-variant-numeric: tabular-nums; }
+  </style>
+</head>
+<body>
+  <div class="bar">
+    <div class="cube" aria-hidden="true">
+      <img src="/assets/img/cube-blue.webp" alt="">
+      <img src="/assets/img/cube-red.webp" alt="">
+    </div>
+    <div class="msgs">
+      <div class="msg"><small>Tous mes liens, mon Discord et mon jeu</small><b><span class="grad">landers2k.com</span></b></div>
+      <div class="msg" data-game><small>Mon jeu mobile · iPhone et Android</small><b>Don’t Tap <span class="red">Red</span> · <span class="num" data-left>sortie le 23 octobre</span></b></div>
+      <div class="msg"><small>Chasse au trésor</small><b>🎁 Un <span class="gold">code cadeau</span> est caché sur landers2k.com</b></div>
+    </div>
+  </div>
+
+  <script>
+    // Messages qui défilent toutes les 8 secondes, et compte à rebours jusqu'à la sortie du jeu
+    const RELEASE = Date.parse('2026-10-23T09:00:00+02:00');
+    const msgs = [...document.querySelectorAll('.msg')];
+    const cube = document.querySelector('.cube');
+    const left = document.querySelector('[data-left]');
+    const pad = n => String(n).padStart(2, '0');
+    let i = 0;
+    msgs[0].classList.add('is-on');
+    setInterval(() => {
+      msgs[i].classList.replace('is-on', 'is-off');
+      const prev = msgs[i];
+      setTimeout(() => prev.classList.remove('is-off'), 800);
+      i = (i + 1) % msgs.length;
+      msgs[i].classList.add('is-on');
+      cube.classList.toggle('is-red', i === 1);
+    }, 8000);
+    const tick = () => {
+      const t = Math.floor((RELEASE - Date.now()) / 1000);
+      if (t <= 0) { left.textContent = 'disponible maintenant !'; return; }
+      const d = Math.floor(t / 86400);
+      left.textContent = `sortie dans ${d ? d + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}`;
+    };
+    tick();
+    setInterval(tick, 1000);
+  </script>
+</body>
+</html>

@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# Bandeau des lives Twitch (chargé par OBS), pas une page du site
+Disallow: /overlay/
 
 Sitemap: https://www.landers2k.com/sitemap.xml
