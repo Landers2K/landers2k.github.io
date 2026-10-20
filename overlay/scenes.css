@@ -137,3 +137,29 @@ body { font-family: Inter, -apple-system, "Segoe UI", sans-serif; color: var(--t
 .chat-scene .social svg { width: 30px; height: 30px; }
 .chat-scene .social small { font-size: 18px; }
 .chat-scene .social b { font-size: 32px; }
+
+/* ---------------------------------------------------------------- Chat Twitch dans le cadre de la scène CHAT */
+.chat-log {
+  position: absolute; inset: 14px 12px;
+  display: flex; flex-direction: column; justify-content: flex-end; gap: 10px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(transparent, #000 70px);
+  mask-image: linear-gradient(transparent, #000 70px);
+}
+.chat-msg {
+  flex: none; padding: 11px 16px 13px 18px; border-radius: 14px;
+  background: rgba(255, 255, 255, .06);
+  box-shadow: inset 4px 0 0 var(--name), inset 0 0 0 1px rgba(255, 255, 255, .06);
+  animation: chat-in .45s cubic-bezier(.2, .8, .2, 1);
+}
+@keyframes chat-in { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+.chat-who { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
+.chat-who b { color: var(--name); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.chat-who i {
+  flex: none; padding: 3px 9px; border-radius: 99px;
+  background: color-mix(in srgb, var(--c) 20%, transparent); color: var(--c);
+  font-size: 14px; font-style: normal; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+}
+.chat-text { margin: 4px 0 0; color: var(--text); font-size: 26px; font-weight: 500; line-height: 1.32; overflow-wrap: anywhere; }
+.chat-msg.is-action .chat-text { color: var(--name); font-style: italic; }
+.chat-text .emote { height: 1.45em; margin: -.25em .06em; vertical-align: middle; }

@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,500..900&display=swap">
-  <link rel="stylesheet" href="/overlay/scenes.css?v=3">
+  <link rel="stylesheet" href="/overlay/scenes.css?v=4">
 </head>
 <body class="full chat-scene">
   <div class="stage">
@@ -25,12 +25,15 @@
     <div class="frame" style="left:81px;top:177px;width:1820px;height:1024px;background:#0b0f1f"></div>
     <!-- Colonne de droite, même marge que la gauche (64 px jusqu'au liseré) :
          chat en (1962, 177) · 517 × 775, capture de jeu en (1962, 1016) · 517 × 291 -->
-    <div class="frame panel" style="left:1962px;top:177px;width:517px;height:775px"><span class="frame-label">Chat en direct</span></div>
+    <div class="frame panel" style="left:1962px;top:177px;width:517px;height:775px"><span class="frame-label">Chat en direct</span>
+      <!-- Chat Twitch lu en direct par scenes.js (remplace la Fenêtre de chat de Streamlabs) -->
+      <div class="chat-log" data-chat="landers2k"></div>
+    </div>
     <div class="frame panel" style="left:1962px;top:1016px;width:517px;height:291px"><span class="frame-label is-below">En jeu</span></div>
 
     <p class="side-label">En discussion</p>
     <div class="socials" data-socials></div>
   </div>
-  <script src="/overlay/scenes.js?v=3"></script>
+  <script src="/overlay/scenes.js?v=4"></script>
 </body>
 </html>

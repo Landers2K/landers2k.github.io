@@ -129,6 +129,115 @@
     }
   }
 
+  /* ---------------------------------------------------------------- Chat Twitch (scène CHAT)
+     Lu en direct sur le chat public de la chaîne, en anonyme : aucun jeton nécessaire.
+     Les messages restent affichés ; les bots et les commandes « ! » sont masqués ; un message
+     supprimé par un modérateur (ou un utilisateur banni) disparaît aussi de l'écran. */
+  const chatLog = $('[data-chat]');
+  if (chatLog) {
+    const CHANNEL = chatLog.dataset.chat;
+    const BOTS = new Set(['nightbot', 'streamelements', 'streamlabs', 'moobot', 'fossabot', 'wizebot', 'sery_bot', 'botrixoficial', 'soundalerts']);
+    const MAX = 40;
+    const PALETTE = ['#5ab0ff', '#d68cff', '#ff6b8a', '#30d158', '#ffd60a', '#ff9f0a', '#64d2ff'];
+    const esc = s => s.replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    // Couleur du pseudo : celle choisie sur Twitch, éclaircie si elle est trop sombre pour le fond nuit
+    const nameColor = (hex, login) => {
+      const m = /^#([0-9a-f]{6})$/i.exec(hex || '');
+      if (!m) return PALETTE[[...login].reduce((n, ch) => n + ch.charCodeAt(0), 0) % PALETTE.length];
+      const [r, g, b] = [0, 2, 4].map(i => parseInt(m[1].slice(i, i + 2), 16));
+      const lum = (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      return lum < 0.45 ? `color-mix(in srgb, #${m[1]} 55%, #fff)` : `#${m[1]}`;
+    };
+    // Émoticônes Twitch : « 25:0-4,12-16/1902:6-10 » (positions en caractères)
+    const withEmotes = (text, emotes) => {
+      const chars = [...text];
+      const marks = [];
+      for (const part of (emotes || '').split('/').filter(Boolean)) {
+        const [id, ranges] = part.split(':');
+        for (const r of ranges.split(',')) {
+          const [a, b] = r.split('-').map(Number);
+          marks.push([a, b, id]);
+        }
+      }
+      marks.sort((x, y) => x[0] - y[0]);
+      let html = '';
+      let at = 0;
+      for (const [a, b, id] of marks) {
+        html += esc(chars.slice(at, a).join(''));
+        html += `<img class="emote" src="https://static-cdn.jtvnw.net/emoticons/v2/${encodeURIComponent(id)}/default/dark/2.0" alt="${esc(chars.slice(a, b + 1).join(''))}">`;
+        at = b + 1;
+      }
+      return html + esc(chars.slice(at).join(''));
+    };
+    const ROLES = [['broadcaster', 'Streamer', '#ff375f'], ['moderator', 'Modo', '#30d158'], ['vip', 'VIP', '#ff6b8a'], ['subscriber', 'Abonné', '#bf5af2']];
+    const parseTags = raw => Object.fromEntries(raw.slice(1).split(';').map(kv => {
+      const i = kv.indexOf('=');
+      return [kv.slice(0, i), kv.slice(i + 1).replace(/\\s/g, ' ').replace(/\\:/g, ';').replace(/\\\\/g, '\\')];
+    }));
+    const addMessage = (tags, login, text) => {
+      if (BOTS.has(login) || text.startsWith('!')) return;
+      let action = false;
+      if (text.startsWith('\u0001ACTION ') && text.endsWith('\u0001')) { text = text.slice(8, -1); action = true; }
+      const badges = (tags.badges || '').split(',').map(b => b.split('/')[0]);
+      const roles = ROLES.filter(([key]) => badges.includes(key))
+        .map(([, label, c]) => `<i style="--c:${c}">${label}</i>`).join('');
+      const color = nameColor(tags.color, login);
+      const el = document.createElement('div');
+      el.className = 'chat-msg' + (action ? ' is-action' : '');
+      el.dataset.id = tags.id || '';
+      el.dataset.user = tags['user-id'] || login;
+      el.style.setProperty('--name', color);
+      el.innerHTML = `<p class="chat-who"><b>${esc(tags['display-name'] || login)}</b>${roles}</p><p class="chat-text">${withEmotes(text, tags.emotes)}</p>`;
+      chatLog.append(el);
+      while (chatLog.children.length > MAX) chatLog.firstElementChild.remove();
+    };
+    const handleLine = line => {
+      const m = /^(@\S+ )?:(\w+)!\S+ PRIVMSG #\S+ :(.*)$/.exec(line);
+      if (m) return addMessage(m[1] ? parseTags(m[1].trim()) : {}, m[2].toLowerCase(), m[3]);
+      const del = /^(@\S+ )?:tmi\.twitch\.tv CLEARMSG #\S+ :/.exec(line);
+      if (del && del[1]) {
+        const id = parseTags(del[1].trim())['target-msg-id'];
+        chatLog.querySelector(`[data-id="${CSS.escape(id || '')}"]`)?.remove();
+        return;
+      }
+      const clear = /^(@\S+ )?:tmi\.twitch\.tv CLEARCHAT #\S+(?: :(\S+))?$/.exec(line);
+      if (clear) {
+        const user = clear[1] && parseTags(clear[1].trim())['target-user-id'];
+        if (!clear[2]) chatLog.replaceChildren();
+        else if (user) chatLog.querySelectorAll(`[data-user="${CSS.escape(user)}"]`).forEach(e => e.remove());
+      }
+    };
+    let retry = 1000;
+    const connect = () => {
+      const irc = new WebSocket('wss://irc-ws.chat.twitch.tv:443');
+      irc.onopen = () => {
+        retry = 1000;
+        irc.send('CAP REQ :twitch.tv/tags twitch.tv/commands');
+        irc.send('PASS SCHMOOPIIE');
+        irc.send(`NICK justinfan${10000 + rnd(80000)}`);   // connexion anonyme, en lecture seule
+        irc.send(`JOIN #${CHANNEL}`);
+      };
+      irc.onmessage = e => {
+        for (const line of String(e.data).split('\r\n')) {
+          if (!line) continue;
+          if (line.startsWith('PING')) irc.send('PONG :tmi.twitch.tv');
+          else handleLine(line);
+        }
+      };
+      irc.onclose = () => { setTimeout(connect, retry); retry = Math.min(retry * 2, 30000); };
+    };
+    connect();
+    if (params.has('demo')) {
+      [
+        '@badges=subscriber/6;color=#1E90FF;display-name=CubeBleu42;emotes=;id=a1;user-id=1 :cubebleu42!cubebleu42@cubebleu42.tmi.twitch.tv PRIVMSG #landers2k :salut le boss ! 🔥',
+        '@badges=moderator/1;color=#00FF7F;display-name=ModoDuLive;emotes=;id=a2;user-id=2 :mododulive!mododulive@mododulive.tmi.twitch.tv PRIVMSG #landers2k :Bienvenue à tous, soyez sympas 😄',
+        '@badges=;color=;display-name=Viewer_Mystere;emotes=25:13-17;id=a3;user-id=3 :viewer_mystere!viewer_mystere@viewer_mystere.tmi.twitch.tv PRIVMSG #landers2k :trop hâte de Kappa jouer à Don\'t Tap Red',
+        '@badges=;color=#8A2BE2;display-name=Nightbot;emotes=;id=a4;user-id=4 :nightbot!nightbot@nightbot.tmi.twitch.tv PRIVMSG #landers2k :message de bot, masqué',
+        '@badges=broadcaster/1;color=#FF4500;display-name=Landers2K;emotes=;id=a5;user-id=5 :landers2k!landers2k@landers2k.tmi.twitch.tv PRIVMSG #landers2k :merci d\'être là ❤️',
+      ].forEach((line, i) => setTimeout(() => handleLine(line), 600 + i * 500));
+    }
+  }
+
   /* ---------------------------------------------------------------- Score */
   const scoreEl = $('[data-score]');
   let score = 0;
