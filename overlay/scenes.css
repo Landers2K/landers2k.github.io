@@ -153,6 +153,7 @@ body { font-family: Inter, -apple-system, "Segoe UI", sans-serif; color: var(--t
   animation: chat-in .45s cubic-bezier(.2, .8, .2, 1);
 }
 @keyframes chat-in { from { opacity: 0; transform: translateY(24px) scale(.97); } }
+.chat-msg.is-old { animation: none; }   /* messages de l'historique : affichés directement */
 .chat-who { display: flex; align-items: center; gap: 8px; margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -.01em; }
 .chat-who b { color: var(--name); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .chat-who i {

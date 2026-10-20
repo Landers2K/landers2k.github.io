@@ -136,6 +136,23 @@
   const chatLog = $('[data-chat]');
   if (chatLog) {
     const CHANNEL = chatLog.dataset.chat;
+    // Historique : les derniers messages sont gardés dans OBS et réaffichés après une actualisation
+    const HISTORY = 'l2k-chat-history';
+    const KEEP = 30;
+    const MAX_AGE = 12 * 3600e3;   // au-delà de 12 h, on repart d'un chat vide (nouveau live)
+    const history = {
+      read() {
+        try { return (JSON.parse(localStorage.getItem(HISTORY)) || []).filter(h => Date.now() - h.t < MAX_AGE); } catch { return []; }
+      },
+      write(list) { try { localStorage.setItem(HISTORY, JSON.stringify(list.slice(-KEEP))); } catch { /* stockage indisponible */ } },
+      add(entry) {
+        const list = this.read();
+        if (entry.tags.id && list.some(h => h.tags.id === entry.tags.id)) return;   // déjà reçu par une autre scène
+        list.push(entry);
+        this.write(list);
+      },
+      remove(test) { this.write(this.read().filter(h => !test(h))); },
+    };
     const BOTS = new Set(['nightbot', 'streamelements', 'streamlabs', 'moobot', 'fossabot', 'wizebot', 'sery_bot', 'botrixoficial', 'soundalerts']);
     const MAX = 40;
     const PALETTE = ['#5ab0ff', '#d68cff', '#ff6b8a', '#30d158', '#ffd60a', '#ff9f0a', '#64d2ff'];
@@ -174,8 +191,12 @@
       const i = kv.indexOf('=');
       return [kv.slice(0, i), kv.slice(i + 1).replace(/\\s/g, ' ').replace(/\\:/g, ';').replace(/\\\\/g, '\\')];
     }));
-    const addMessage = (tags, login, text) => {
+    const addMessage = (tags, login, text, { old = false, keep = true } = {}) => {
       if (BOTS.has(login) || text.startsWith('!')) return;
+      if (!old && keep) {
+        const { id, color, emotes, badges } = tags;
+        history.add({ t: Date.now(), login, text, tags: { id, color, emotes, badges, 'display-name': tags['display-name'], 'user-id': tags['user-id'] } });
+      }
       let action = false;
       if (text.startsWith('\u0001ACTION ') && text.endsWith('\u0001')) { text = text.slice(8, -1); action = true; }
       const badges = (tags.badges || '').split(',').map(b => b.split('/')[0]);
@@ -183,7 +204,7 @@
         .map(([, label, c]) => `<i style="--c:${c}">${label}</i>`).join('');
       const color = nameColor(tags.color, login);
       const el = document.createElement('div');
-      el.className = 'chat-msg' + (action ? ' is-action' : '');
+      el.className = 'chat-msg' + (action ? ' is-action' : '') + (old ? ' is-old' : '');
       el.dataset.id = tags.id || '';
       el.dataset.user = tags['user-id'] || login;
       el.style.setProperty('--name', color);
@@ -191,22 +212,27 @@
       chatLog.append(el);
       while (chatLog.children.length > MAX) chatLog.firstElementChild.remove();
     };
-    const handleLine = line => {
+    const handleLine = (line, keep = true) => {
       const m = /^(@\S+ )?:(\w+)!\S+ PRIVMSG #\S+ :(.*)$/.exec(line);
-      if (m) return addMessage(m[1] ? parseTags(m[1].trim()) : {}, m[2].toLowerCase(), m[3]);
+      if (m) return addMessage(m[1] ? parseTags(m[1].trim()) : {}, m[2].toLowerCase(), m[3], { keep });
       const del = /^(@\S+ )?:tmi\.twitch\.tv CLEARMSG #\S+ :/.exec(line);
       if (del && del[1]) {
         const id = parseTags(del[1].trim())['target-msg-id'];
         chatLog.querySelector(`[data-id="${CSS.escape(id || '')}"]`)?.remove();
+        history.remove(h => h.tags.id === id);
         return;
       }
       const clear = /^(@\S+ )?:tmi\.twitch\.tv CLEARCHAT #\S+(?: :(\S+))?$/.exec(line);
       if (clear) {
         const user = clear[1] && parseTags(clear[1].trim())['target-user-id'];
-        if (!clear[2]) chatLog.replaceChildren();
-        else if (user) chatLog.querySelectorAll(`[data-user="${CSS.escape(user)}"]`).forEach(e => e.remove());
+        if (!clear[2]) { chatLog.replaceChildren(); history.write([]); }
+        else if (user) {
+          chatLog.querySelectorAll(`[data-user="${CSS.escape(user)}"]`).forEach(e => e.remove());
+          history.remove(h => h.tags['user-id'] === user);
+        }
       }
     };
+    for (const h of history.read()) addMessage(h.tags, h.login, h.text, { old: true });
     let retry = 1000;
     const connect = () => {
       const irc = new WebSocket('wss://irc-ws.chat.twitch.tv:443');
@@ -234,7 +260,7 @@
         '@badges=;color=;display-name=Viewer_Mystere;emotes=25:13-17;id=a3;user-id=3 :viewer_mystere!viewer_mystere@viewer_mystere.tmi.twitch.tv PRIVMSG #landers2k :trop hâte de Kappa jouer à Don\'t Tap Red',
         '@badges=;color=#8A2BE2;display-name=Nightbot;emotes=;id=a4;user-id=4 :nightbot!nightbot@nightbot.tmi.twitch.tv PRIVMSG #landers2k :message de bot, masqué',
         '@badges=broadcaster/1;color=#FF4500;display-name=Landers2K;emotes=;id=a5;user-id=5 :landers2k!landers2k@landers2k.tmi.twitch.tv PRIVMSG #landers2k :merci d\'être là ❤️',
-      ].forEach((line, i) => setTimeout(() => handleLine(line), 600 + i * 500));
+      ].forEach((line, i) => setTimeout(() => handleLine(line, false), 600 + i * 500));   // l'aperçu n'est pas gardé
     }
   }
 
