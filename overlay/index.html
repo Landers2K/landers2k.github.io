@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>Overlay live — Landers2K</title>
-  <!-- Bandeau pour OBS (source « Navigateur », 760 × 100, fond transparent).
+  <!-- Bandeau pour OBS (source « Navigateur », fond transparent) :
+       /overlay/ en 760 × 100, ou /overlay/?compact en 480 × 90 (sous la webcam).
        Pas de statistiques Cloudflare ici : OBS le charge en continu pendant les lives. -->
   <meta name="robots" content="noindex">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -51,6 +52,14 @@
     .red { color: #ff375f; }
     .gold { color: #ffd60a; }
     .num { font-variant-numeric: tabular-nums; }
+    /* Version compacte, à la largeur de la webcam : textes courts et plus gros */
+    .short { display: none; }
+    .compact .full { display: none; }
+    .compact .short { display: block; }
+    .compact .bar { left: 8px; top: 8px; width: 464px; height: 74px; gap: 12px; padding: 0 16px 0 10px; border-radius: 18px; }
+    .compact .cube { width: 46px; height: 46px; }
+    .compact .msg small { font-size: 13px; }
+    .compact .msg b { font-size: 27px; }
   </style>
 </head>
 <body>
@@ -59,19 +68,27 @@
       <img src="/assets/img/cube-blue.webp" alt="">
       <img src="/assets/img/cube-red.webp" alt="">
     </div>
-    <div class="msgs">
+    <div class="msgs full">
       <div class="msg"><small>Tous mes liens, mon Discord et mon jeu</small><b><span class="grad">landers2k.com</span></b></div>
-      <div class="msg" data-game><small>Mon jeu mobile · iPhone et Android</small><b>Don’t Tap <span class="red">Red</span> · <span class="num" data-left>sortie le 23 octobre</span></b></div>
+      <div class="msg"><small>Mon jeu mobile · iPhone et Android</small><b>Don’t Tap <span class="red">Red</span> · <span class="num" data-left>sortie le 23 octobre</span></b></div>
       <div class="msg"><small>Chasse au trésor</small><b>🎁 Un <span class="gold">code cadeau</span> est caché sur landers2k.com</b></div>
+    </div>
+    <div class="msgs short">
+      <div class="msg"><small>Tous mes liens</small><b><span class="grad">landers2k.com</span></b></div>
+      <div class="msg"><small>Don’t Tap Red · sortie dans</small><b class="num" data-left-short>3 j 00:00:00</b></div>
+      <div class="msg"><small>🎁 Code cadeau caché sur</small><b><span class="gold">landers2k.com</span></b></div>
     </div>
   </div>
 
   <script>
     // Messages qui défilent toutes les 8 secondes, et compte à rebours jusqu'à la sortie du jeu
     const RELEASE = Date.parse('2026-10-23T09:00:00+02:00');
-    const msgs = [...document.querySelectorAll('.msg')];
+    const compact = new URLSearchParams(location.search).has('compact');
+    document.documentElement.classList.toggle('compact', compact);
+    const msgs = [...document.querySelectorAll(compact ? '.short .msg' : '.full .msg')];
     const cube = document.querySelector('.cube');
     const left = document.querySelector('[data-left]');
+    const leftShort = document.querySelector('[data-left-short]');
     const pad = n => String(n).padStart(2, '0');
     let i = 0;
     msgs[0].classList.add('is-on');
@@ -85,9 +102,16 @@
     }, 8000);
     const tick = () => {
       const t = Math.floor((RELEASE - Date.now()) / 1000);
-      if (t <= 0) { left.textContent = 'disponible maintenant !'; return; }
+      if (t <= 0) {
+        left.textContent = 'disponible maintenant !';
+        leftShort.textContent = 'dispo maintenant !';
+        leftShort.previousElementSibling.textContent = 'Don’t Tap Red · iPhone et Android';
+        return;
+      }
       const d = Math.floor(t / 86400);
-      left.textContent = `sortie dans ${d ? d + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}`;
+      const time = `${d ? d + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}`;
+      left.textContent = `sortie dans ${time}`;
+      leftShort.textContent = time;
     };
     tick();
     setInterval(tick, 1000);
