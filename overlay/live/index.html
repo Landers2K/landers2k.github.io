@@ -14,6 +14,9 @@
     .goals p { margin: 0 0 8px; color: #b8bccb; font-size: 22px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
     .goals i { display: block; height: 34px; margin-bottom: 18px; border-radius: 10px; background: rgba(255, 255, 255, .05); box-shadow: inset 0 0 0 2px color-mix(in srgb, var(--c) 45%, transparent); }
     .goals i:last-child { margin-bottom: 0; }
+    /* Dans OBS, Streamlabs dessine la barre des dons environ 10 px plus bas que celle des followers :
+       le rail des dons descend d'autant (y = 716 au lieu de 708) */
+    .goals i:first-of-type { margin-bottom: 26px; }
   </style>
 </head>
 <body>
