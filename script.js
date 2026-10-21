@@ -979,16 +979,19 @@ const CONFIG = {
   (async function latestTikTok() {
     const section = $('#tiktok');
     if (!section) return;
+    const field = name => $(`[data-tt="${name}"]`, section);
+    const grid = field('recent');
+    // Sans données, on retire les emplacements vides des vidéos récentes (le lien vers TikTok reste).
+    const noRecent = () => { if (grid) grid.hidden = true; };
     let data;
     try {
       const res = await fetch('/assets/data/tiktok.json', { cache: 'no-cache' });
-      if (!res.ok) return;
+      if (!res.ok) return noRecent();
       data = await res.json();
-    } catch { return; }
+    } catch { return noRecent(); }
     const latest = data && data.latest;
-    if (!latest || !/^\d{10,25}$/.test(String(latest.id))) return;
+    if (!latest || !/^\d{10,25}$/.test(String(latest.id))) return noRecent();
 
-    const field = name => $(`[data-tt="${name}"]`, section);
     const compact = new Intl.NumberFormat('fr-FR', { notation: 'compact', maximumFractionDigits: 1 });
 
     const frame = $('[data-embed="tiktok"]', section);
@@ -1010,6 +1013,35 @@ const CONFIG = {
     }
     if (typeof data.followers === 'number') field('followers').textContent = fmt.format(data.followers);
     if (typeof data.likes === 'number') field('likes').textContent = compact.format(data.likes);
+
+    // Mes autres vidéos récentes : miniatures hébergées par le site, lien vers TikTok
+    const recent = (Array.isArray(data.recent) ? data.recent : []).filter(v => v && /^\d{10,25}$/.test(String(v.id)));
+    if (!grid) return;
+    if (!recent.length) return noRecent();
+    const el = (tag, className, text) => Object.assign(document.createElement(tag), className ? { className } : {}, text ? { textContent: text } : {});
+    grid.replaceChildren(...recent.slice(0, 6).map(video => {
+      const caption = String(video.description || '').replace(/#[^\s#]+/g, '').replace(/\s+/g, ' ').trim() || 'TikTok';
+      const views = typeof video.plays === 'number' ? compact.format(video.plays) : '';
+      const link = el('a', 'tt-card');
+      link.href = `https://www.tiktok.com/@${encodeURIComponent(CONFIG.tiktok)}/video/${video.id}`;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.setAttribute('aria-label', views ? `${caption} · ${views} vues, sur TikTok` : `${caption}, sur TikTok`);
+      const thumb = el('span', 'tt-thumb');
+      if (/^assets\/img\/tiktok\/\d{10,25}\.(webp|jpg)$/.test(video.cover || '')) {
+        thumb.append(Object.assign(document.createElement('img'), { src: `/${video.cover}`, alt: '', width: 300, height: 400, loading: 'lazy', decoding: 'async' }));
+      }
+      if (views) {
+        const count = el('span', 'tt-views');
+        count.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>';
+        count.append(views);
+        thumb.append(count);
+      }
+      link.append(thumb, el('span', 'tt-card-text', caption));
+      const item = el('li');
+      item.append(link);
+      return item;
+    }));
   })();
 
   /* ------------------------------------------------------------------------
@@ -1044,12 +1076,6 @@ const CONFIG = {
         const id = box.dataset.videoId;
         if (!/^\d{10,25}$/.test(id || '')) return;
         target.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${id}?music_info=1&description=1&rel=0&autoplay=${play ? 1 : 0}" title="Mon dernier TikTok" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
-      },
-      // Profil TikTok : mes autres vidéos récentes
-      'tiktok-profile'(target) {
-        const u = CONFIG.tiktok;
-        target.innerHTML = `<blockquote class="tiktok-embed" cite="https://www.tiktok.com/@${u}" data-unique-id="${u}" data-embed-type="creator" style="max-width:780px;min-width:288px"><section><a target="_blank" rel="noopener" href="https://www.tiktok.com/@${u}?refer=creator_embed">@${u}</a></section></blockquote>`;
-        loadScript('https://www.tiktok.com/embed.js');
       },
       youtube(target) {
         // La playlist « UULF… » contient les vidéos normales de la chaîne, sans les Shorts ni les lives,

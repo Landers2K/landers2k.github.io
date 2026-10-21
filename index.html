@@ -267,15 +267,11 @@
 
       <div class="wrap tt-more">
         <p class="tt-more-title reveal">Mes autres vidéos récentes</p>
-        <div class="embed tt-profile reveal" data-embed="tiktok-profile">
-          <div class="embed-target"></div>
-          <div class="embed-facade">
-            <span class="facade-ico ico-tiktok"><svg><use href="#i-tiktok"/></svg></span>
-            <p class="facade-title">@landers2k</p>
-            <p class="facade-note">Contenu fourni par TikTok, qui peut déposer des cookies.</p>
-            <button class="btn btn-light embed-load" type="button">Afficher mes vidéos</button>
-          </div>
-        </div>
+        <!-- Rempli depuis assets/data/tiktok.json (miniatures hébergées par le site, aucun cookie TikTok) -->
+        <ul class="tt-recent reveal" data-tt="recent">
+          <li></li><li></li><li></li><li></li><li></li><li></li>
+        </ul>
+        <p class="tt-all reveal"><a class="link-arrow" href="https://www.tiktok.com/@landers2k" target="_blank" rel="noopener">Toutes mes vidéos sur TikTok</a></p>
       </div>
     </section>
 

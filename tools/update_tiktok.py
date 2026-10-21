@@ -3,15 +3,18 @@
 Lit la page publique d'intégration TikTok du compte, repère la vidéo la plus
 récente (les vidéos épinglées, plus anciennes, sont ignorées : l'identifiant
 d'une vidéo TikTok contient sa date de publication), puis écrit :
-  - assets/data/tiktok.json      (vidéo, légende, abonnés, j'aime, vues)
+  - assets/data/tiktok.json      (vidéo, légende, abonnés, j'aime, vues, vidéos récentes)
   - assets/img/tiktok-latest.jpg (miniature, hébergée par le site lui-même)
+  - assets/img/tiktok/<id>.webp  (miniatures 3:4 des autres vidéos récentes)
 
 Usage : python tools/update_tiktok.py
-Bibliothèque standard uniquement. Lancé automatiquement par
+Bibliothèque standard, plus Pillow pour réduire les miniatures (sans Pillow,
+elles sont gardées telles quelles en JPEG). Lancé automatiquement par
 .github/workflows/update-tiktok.yml une fois le site hébergé sur GitHub.
 """
 
 import datetime
+import io
 import json
 import pathlib
 import re
@@ -19,10 +22,18 @@ import sys
 import time
 import urllib.request
 
+try:
+    from PIL import Image, ImageOps
+except ImportError:
+    Image = None
+
 ACCOUNT = "landers2k"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "assets" / "data" / "tiktok.json"
 COVER_FILE = ROOT / "assets" / "img" / "tiktok-latest.jpg"
+THUMB_DIR = ROOT / "assets" / "img" / "tiktok"
+RECENT = 6  # vidéos affichées sous le dernier TikTok
+THUMB_SIZE = (300, 400)  # 3:4, comme la grille d'un profil TikTok
 TRIES, WAIT = 3, 20  # essais auprès de TikTok, et secondes d'attente entre deux essais
 MAX_STALE = datetime.timedelta(days=3)  # au-delà, une panne n'est plus passagère : le robot échoue
 HEADERS = {
@@ -40,6 +51,27 @@ def fetch(url: str) -> bytes:
 def published(video_id: str) -> datetime.datetime:
     # Les 32 bits de poids fort d'un identifiant TikTok = date de publication (secondes Unix).
     return datetime.datetime.fromtimestamp(int(video_id) >> 32, datetime.timezone.utc)
+
+
+def save_thumb(video: dict) -> str | None:
+    """Enregistre la miniature d'une vidéo, une seule fois (elle ne change plus ensuite)."""
+    path = THUMB_DIR / f"{video['id']}.{'webp' if Image else 'jpg'}"
+    if not path.exists():
+        url = video.get("originCoverUrl") or video.get("coverUrl")
+        if not url:
+            return None
+        try:
+            raw = fetch(url)
+        except Exception as error:
+            print(f"Miniature de {video['id']} indisponible : {error}", file=sys.stderr)
+            return None
+        THUMB_DIR.mkdir(parents=True, exist_ok=True)
+        if Image:
+            thumb = ImageOps.fit(Image.open(io.BytesIO(raw)).convert("RGB"), THUMB_SIZE, Image.LANCZOS)
+            thumb.save(path, "WEBP", quality=72, method=6)
+        else:
+            path.write_bytes(raw)
+    return path.relative_to(ROOT).as_posix()
 
 
 def load_videos() -> tuple[dict, list] | None:
@@ -92,6 +124,23 @@ def main() -> int:
             COVER_FILE.parent.mkdir(parents=True, exist_ok=True)
             COVER_FILE.write_bytes(fetch(cover_url))
 
+    # Les vidéos suivantes, de la plus récente à la plus ancienne ; les miniatures qui ne servent plus sont effacées.
+    recent = []
+    for video in sorted(videos, key=lambda v: int(v["id"]), reverse=True)[1:RECENT + 1]:
+        vid = str(video["id"])
+        recent.append({
+            "id": vid,
+            "url": f"https://www.tiktok.com/@{ACCOUNT}/video/{vid}",
+            "description": (video.get("desc") or "").strip(),
+            "plays": video.get("playCount"),
+            "published": published(vid).date().isoformat(),
+            "cover": save_thumb(video),
+        })
+    kept = {item["cover"] for item in recent}
+    for old_thumb in THUMB_DIR.glob("*"):
+        if old_thumb.relative_to(ROOT).as_posix() not in kept:
+            old_thumb.unlink()
+
     plays = [v.get("playCount") or 0 for v in videos]
     data = {
         "account": ACCOUNT,
@@ -109,6 +158,7 @@ def main() -> int:
             "published": published(video_id).date().isoformat(),
             "cover": "assets/img/tiktok-latest.jpg",
         },
+        "recent": recent,
     }
     if {k: v for k, v in old.items() if k != "updated"} == data:
         print(f"Rien de nouveau (dernier TikTok : {video_id}).")
