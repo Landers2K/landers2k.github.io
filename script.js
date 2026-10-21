@@ -1071,11 +1071,28 @@ const CONFIG = {
     };
 
     const loaders = {
-      // Dernier TikTok : lecteur officiel d'une seule vidéo
+      // Dernier TikTok : lecteur officiel d'une seule vidéo. S'il signale une erreur (TikTok limite parfois
+      // les lectures), on remplace son écran noir par la miniature, un lien vers TikTok et « Réessayer ».
       tiktok(target, box, play) {
         const id = box.dataset.videoId;
         if (!/^\d{10,25}$/.test(id || '')) return;
         target.innerHTML = `<iframe src="https://www.tiktok.com/player/v1/${id}?music_info=1&description=1&rel=0&autoplay=${play ? 1 : 0}" title="Mon dernier TikTok" allow="autoplay; fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+        const player = $('iframe', target);
+        const onMessage = e => {
+          if (e.source !== player.contentWindow) return;
+          let msg = e.data;
+          if (typeof msg === 'string') { try { msg = JSON.parse(msg); } catch { return; } }
+          if (!msg || !msg['x-tiktok-player']) return;
+          // 3002 = lecture automatique bloquée par le navigateur : le visiteur peut encore appuyer sur lecture.
+          const failed = msg.type === 'onPlayerError' ? Number(msg.value && msg.value.errorCode) !== 3002
+            : msg.type === 'onError' && Number(msg.value) > 1;
+          if (!failed) return;
+          removeEventListener('message', onMessage);
+          target.innerHTML = `<div class="tt-fallback"><img alt=""><p>${tr('TikTok n’arrive pas à lire la vidéo ici pour le moment.', 'TikTok can’t play the video here right now.')}</p><a class="btn btn-light" href="https://www.tiktok.com/@${encodeURIComponent(CONFIG.tiktok)}/video/${id}" target="_blank" rel="noopener">${tr('Regarder sur TikTok', 'Watch on TikTok')}</a><button class="tt-retry" type="button">${tr('Réessayer', 'Try again')}</button></div>`;
+          $('img', target).src = $('.tt-cover', box).src;
+          $('.tt-retry', target).addEventListener('click', () => loaders.tiktok(target, box, true));
+        };
+        addEventListener('message', onMessage);
       },
       youtube(target) {
         // La playlist « UULF… » contient les vidéos normales de la chaîne, sans les Shorts ni les lives,
