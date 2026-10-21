@@ -20,6 +20,7 @@ icons = cut(index, "  <!-- Icônes (réutilisées partout via <use>) -->", "  </
 
 T = [
     # ---- En-tête du jeu
+    ("https://apps.apple.com/fr/app/dont-tap-red/id6820198356", "https://apps.apple.com/us/app/dont-tap-red/id6820198356"),   # boutique App Store américaine (en anglais)
     ("<b>Mon jeu mobile</b><small>Gratuit · iOS et Android</small>", "<b>My mobile game</b><small>Free · iOS and Android</small>"),
     ('<i aria-hidden="true"></i>Disponible sur iPhone</span>', '<i aria-hidden="true"></i>Out now on iPhone</span>'),
     ("Un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient&nbsp;: garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge&nbsp;!",
@@ -233,7 +234,7 @@ footer = """  <!-- ===================== Pied de page (version anglaise) =======
           <ul>
             <li><a href="#jeu">The game</a></li>
             <li><a href="#codes">Gift codes</a></li>
-            <li><a href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener">App Store</a></li>
+            <li><a href="https://apps.apple.com/us/app/dont-tap-red/id6820198356" target="_blank" rel="noopener">App Store</a></li>
             <li><a href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener">Google Play</a></li>
           </ul>
         </div>
@@ -292,7 +293,7 @@ ld = {
     "datePublished": "2026-10-20",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
     "author": {"@type": "Person", "name": "Landers2K", "url": "https://www.landers2k.com/"},
-    "installUrl": ["https://apps.apple.com/app/id6820198356", "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"],
+    "installUrl": ["https://apps.apple.com/us/app/dont-tap-red/id6820198356", "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"],
 }
 
 head = f"""<!doctype html>

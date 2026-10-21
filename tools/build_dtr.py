@@ -165,7 +165,7 @@ ld = {
     "datePublished": "2026-10-20",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
     "author": {"@type": "Person", "name": "Landers2K", "url": "https://www.landers2k.com/"},
-    "installUrl": ["https://apps.apple.com/app/id6820198356", "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"],
+    "installUrl": ["https://apps.apple.com/fr/app/dont-tap-red/id6820198356", "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"],
 }
 
 title = "Don’t Tap Red — le jeu mobile de Landers2K"

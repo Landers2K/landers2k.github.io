@@ -919,12 +919,16 @@ const CONFIG = {
     const DAY = 864e5;
     const boxes = $$('[data-countdown]');
     const pills = $$('[data-release]');
-    const playButtons = $$('.store-btn[href*="play.google.com"]');
+    const playButtons = $$('a[href*="play.google.com"]');   // boutons des stores, « Noter », pied de page
     if (!boxes.length && !pills.length && !playButtons.length) return;
     const soon = Date.now() < RELEASE;
     playButtons.forEach(a => {
       a.classList.toggle('is-soon', soon);
-      if (soon) { a.dataset.soon = tr('23 oct.', 'Oct 23'); a.setAttribute('aria-disabled', 'true'); a.tabIndex = -1; }
+      if (soon) {
+        if (a.classList.contains('store-btn')) a.dataset.soon = tr('23 oct.', 'Oct 23');
+        a.setAttribute('aria-disabled', 'true');
+        a.tabIndex = -1;
+      }
     });
 
     const pad = n => String(n).padStart(2, '0');

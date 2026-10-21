@@ -85,7 +85,7 @@ fiche += [f"{k}: {v}" for k, v in FACTS_EN]
 fiche += ["Website: https://www.landers2k.com/dont-tap-red/", f"Press contact: {CONTACT}", "",
           "Short description:", SHORT_EN, "", "Long description:", *LONG_EN, "",
           "Liens / Links :",
-          "App Store : https://apps.apple.com/app/id6820198356",
+          "App Store : https://apps.apple.com/fr/app/dont-tap-red/id6820198356",
           "Google Play : https://play.google.com/store/apps/details?id=com.landers2k.donttapred",
           "", "Les visuels peuvent être utilisés librement pour parler du jeu. / Feel free to use these visuals to cover the game.",
           "© 2026 Landers2K"]
@@ -160,7 +160,7 @@ main = f"""  <main id="main">
           </div>
         </div>
         <dl class="press-facts reveal">
-{facts_html}            <div class="press-fact"><dt>Liens</dt><dd><a href="https://apps.apple.com/app/id6820198356" target="_blank" rel="noopener">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener">Google Play</a> · <a href="../">Site du jeu</a></dd></div>
+{facts_html}            <div class="press-fact"><dt>Liens</dt><dd><a href="https://apps.apple.com/fr/app/dont-tap-red/id6820198356" target="_blank" rel="noopener">App Store</a> · <a href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener">Google Play</a> · <a href="../">Site du jeu</a></dd></div>
             <div class="press-fact"><dt>Contact presse</dt><dd><a href="mailto:{CONTACT}">{CONTACT}</a></dd></div>
         </dl>
       </div>
