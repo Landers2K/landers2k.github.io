@@ -15,7 +15,7 @@ setup = (ROOT / "setup.html").read_text("utf-8")
 FACTS = [
     ("Jeu", "Don’t Tap Red"),
     ("Développeur", "Landers2K, développeur indépendant (France)"),
-    ("Sortie", "23 octobre 2026 à 9 h (heure de Paris)"),
+    ("Sortie", "20 octobre 2026 sur iPhone · 23 octobre 2026 sur Android"),
     ("Plateformes", "iPhone (App Store) et Android (Google Play)"),
     ("Prix", "Gratuit, achats intégrés facultatifs"),
     ("Langues", "Français et anglais"),
@@ -25,7 +25,7 @@ FACTS = [
 FACTS_EN = [
     ("Game", "Don't Tap Red"),
     ("Developer", "Landers2K, independent developer (France)"),
-    ("Release date", "October 23, 2026, 9 a.m. Paris time"),
+    ("Release date", "October 20, 2026 on iPhone · October 23, 2026 on Android"),
     ("Platforms", "iPhone (App Store) and Android (Google Play)"),
     ("Price", "Free to play, optional in-app purchases"),
     ("Languages", "French and English"),
@@ -233,6 +233,8 @@ head = f"""<!doctype html>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
+  <!-- Bandeau « Ouvrir dans l’App Store » de Safari sur iPhone -->
+  <meta name="apple-itunes-app" content="app-id=6820198356">
   <meta name="apple-mobile-web-app-title" content="Landers2K">
   <link rel="canonical" href="https://www.landers2k.com/dont-tap-red/presse/">
   <meta property="og:type" content="website">

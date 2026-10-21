@@ -1464,6 +1464,10 @@ html:not(.js) .countdown { display: none; }
   .cd-unit { flex: 1; min-width: 0; padding: 12px 4px 10px; border-radius: 16px; }
   .cd-unit small { font-size: 11px; }
 }
+/* Google Play avant la sortie Android : bouton grisé avec la date */
+.store-btn.is-soon { position: relative; pointer-events: none; }
+.store-btn.is-soon > * { opacity: .45; }
+.store-btn.is-soon::after { content: attr(data-soon); position: absolute; top: -10px; right: -10px; padding: 3px 9px; border-radius: 99px; background: #ffd60a; color: #000; font-size: 11px; font-weight: 800; letter-spacing: .02em; }
 .store-btn-lg { min-width: 210px; padding: 12px 24px 12px 20px; border-radius: 16px; }
 .store-btn-lg svg { width: 30px; height: 30px; }
 .store-btn-lg b { font-size: 22px; }

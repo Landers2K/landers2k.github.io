@@ -8,7 +8,7 @@
 
   const W = 2560;
   const H = 1440;
-  const RELEASE = Date.parse('2026-10-23T09:00:00+02:00'); // sortie de Don't Tap Red, heure de Paris
+  const RELEASE = Date.parse('2026-10-23T09:00:00+02:00'); // sortie Android de Don't Tap Red (déjà sur iPhone), heure de Paris
   const params = new URLSearchParams(location.search);
   const $ = s => document.querySelector(s);
   const stage = $('.stage');
@@ -41,7 +41,7 @@
   const bottom = $('[data-bottom]');
   if (bottom) {
     bottom.innerHTML = '<div class="pill">🌐 <span class="grad">landers2k.com</span></div>'
-      + '<div class="pill"><img src="/assets/img/dtr-icon.jpg" alt="">Don’t Tap <span class="red">Red</span>&nbsp;·&nbsp;<span data-release>sortie le 23 octobre</span></div>';
+      + '<div class="pill"><img src="/assets/img/dtr-icon.jpg" alt="">Don’t Tap <span class="red">Red</span>&nbsp;·&nbsp;<span data-release>Android le 23 octobre</span></div>';
   }
 
   /* ---------------------------------------------------------------- Chronos */
@@ -57,7 +57,7 @@
     if (release) {
       const t = Math.floor((RELEASE - now) / 1000);
       release.innerHTML = t > 0
-        ? `sortie dans <span class="num">${Math.floor(t / 86400) ? Math.floor(t / 86400) + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}</span>`
+        ? `dispo sur iPhone · Android dans <span class="num">${Math.floor(t / 86400) ? Math.floor(t / 86400) + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}</span>`
         : 'disponible sur iPhone et Android';
     }
     if (start && minutes) {
