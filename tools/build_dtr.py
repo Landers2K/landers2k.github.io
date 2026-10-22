@@ -123,7 +123,7 @@ codes = """    <!-- ===================== Codes cadeaux ===================== --
 
 faq_items = [
     ("Le jeu est-il gratuit&nbsp;?", "Oui. Don’t Tap Red est gratuit sur iPhone et Android. Il contient des publicités, que tu peux supprimer pour toujours avec un achat unique, et des achats facultatifs comme des packs et des skins."),
-    ("Quand sort le jeu&nbsp;?", "Il est sorti le 20 octobre 2026 sur iPhone et le 22 octobre 2026 sur Android&nbsp;: il est disponible gratuitement sur l’App Store et sur Google Play."),
+    ("Quand sort le jeu&nbsp;?", "Il est sorti le 21 octobre 2026 sur iPhone et le 22 octobre 2026 sur Android&nbsp;: il est disponible gratuitement sur l’App Store et sur Google Play."),
     ("Sur quels appareils et dans quelles langues&nbsp;?", "Sur iPhone et sur les téléphones Android. Le jeu est disponible en français et en anglais."),
     ("Comment utiliser un code cadeau&nbsp;?", "Dans le jeu, va dans PARAMÈTRES, puis touche CODE CADEAU et entre ton code. La récompense arrive tout de suite sur ton compte."),
     ("Comment fonctionnent les classements&nbsp;?", "En Arcade, Rain et Chrono, ton meilleur score compte dans le classement mondial, celui de la semaine et celui du mois. Le top&nbsp;10 de chaque mode reçoit des récompenses chaque semaine, directement dans ta boîte aux lettres."),
@@ -158,13 +158,14 @@ ld = {
     "name": "Don't Tap Red",
     "url": "https://www.landers2k.com/dont-tap-red/",
     "image": "https://www.landers2k.com/assets/img/dtr-icon.jpg",
-    "description": "Jeu de réflexes gratuit : tape les bons cubes, ne touche jamais le rouge. Quatre modes (Arcade, Rain, Challenge, Chrono), missions, titres, événements et classements.",
+    "description": "Jeu de réflexes gratuit : tape les bons cubes, ne touche jamais le rouge. Cinq modes (Arcade, Rain, Challenge, Chrono, Événement), boss communautaires, missions, titres et classements.",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "GameApplication",
     "inLanguage": ["fr", "en"],
-    "datePublished": "2026-10-20",
+    "datePublished": "2026-10-21",
     "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
     "author": {"@type": "Person", "name": "Landers2K", "url": "https://www.landers2k.com/"},
+    "publisher": {"@type": "Organization", "name": "LNDRS Studio"},
     "installUrl": ["https://apps.apple.com/fr/app/dont-tap-red/id6820198356", "https://play.google.com/store/apps/details?id=com.landers2k.donttapred"],
 }
 
