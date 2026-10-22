@@ -3,13 +3,13 @@
   "followers": 6196,
   "likes": 76400,
   "recentVideos": 13,
-  "recentViews": 262757,
+  "recentViews": 262955,
   "bestViews": 92000,
   "latest": {
     "id": "7698926105402625312",
     "url": "https://www.tiktok.com/@landers2k/video/7698926105402625312",
     "description": "Secteur 4 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 130,
+    "plays": 324,
     "published": "2026-10-21",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7698925581835980065",
       "url": "https://www.tiktok.com/@landers2k/video/7698925581835980065",
       "description": "Secteur 3 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 588,
+      "plays": 591,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698925581835980065.webp"
     },
@@ -42,7 +42,7 @@
       "id": "7696741988330261792",
       "url": "https://www.tiktok.com/@landers2k/video/7696741988330261792",
       "description": "Lancelot P10 sur une single ! 🤪 #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2751,
+      "plays": 2752,
       "published": "2026-10-15",
       "cover": "assets/img/tiktok/7696741988330261792.webp"
     },
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7694720980077284641.webp"
     }
   ],
-  "updated": "2026-10-22T04:41:59+00:00"
+  "updated": "2026-10-22T05:41:20+00:00"
 }
