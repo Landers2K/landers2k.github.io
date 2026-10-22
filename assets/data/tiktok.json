@@ -3,13 +3,13 @@
   "followers": 6196,
   "likes": 76400,
   "recentVideos": 13,
-  "recentViews": 264457,
-  "bestViews": 91900,
+  "recentViews": 264567,
+  "bestViews": 92000,
   "latest": {
     "id": "7698925581835980065",
     "url": "https://www.tiktok.com/@landers2k/video/7698925581835980065",
     "description": "Secteur 3 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 576,
+    "plays": 581,
     "published": "2026-10-21",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7698225429068401953",
       "url": "https://www.tiktok.com/@landers2k/video/7698225429068401953",
       "description": "Secteur 2 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 557,
+      "plays": 558,
       "published": "2026-10-19",
       "cover": "assets/img/tiktok/7698225429068401953.webp"
     },
@@ -26,7 +26,7 @@
       "id": "7698224425103068448",
       "url": "https://www.tiktok.com/@landers2k/video/7698224425103068448",
       "description": "Secteur 1 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1180,
+      "plays": 1181,
       "published": "2026-10-19",
       "cover": "assets/img/tiktok/7698224425103068448.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7696741988330261792",
       "url": "https://www.tiktok.com/@landers2k/video/7696741988330261792",
       "description": "Lancelot P10 sur une single ! 🤪 #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2741,
+      "plays": 2742,
       "published": "2026-10-15",
       "cover": "assets/img/tiktok/7696741988330261792.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7694720980077284641",
       "url": "https://www.tiktok.com/@landers2k/video/7694720980077284641",
       "description": "Estia, notre prochain personnage invoquable à partir du 28/10/26 pour la 2.3 ! Voici à quoi elle ressemble et sa compétence d’aventure 🐧 #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1510,
+      "plays": 1511,
       "published": "2026-10-09",
       "cover": "assets/img/tiktok/7694720980077284641.webp"
     },
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7694719413009829153.webp"
     }
   ],
-  "updated": "2026-10-21T23:40:49+00:00"
+  "updated": "2026-10-22T00:53:36+00:00"
 }
