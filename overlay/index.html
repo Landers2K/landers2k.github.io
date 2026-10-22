@@ -71,26 +71,22 @@
     </div>
     <div class="msgs full">
       <div class="msg"><small>Tous mes liens, mon Discord et mon jeu</small><b><span class="grad">landers2k.com</span></b></div>
-      <div class="msg"><small>Mon jeu mobile · dispo sur iPhone</small><b>Don’t Tap <span class="red">Red</span> · <span class="num" data-left>Android le 23 octobre</span></b></div>
+      <div class="msg"><small>Mon jeu mobile · gratuit</small><b>Don’t Tap <span class="red">Red</span> · <span class="num">dispo sur iPhone et Android&nbsp;!</span></b></div>
       <div class="msg"><small>Chasse au trésor</small><b>🎁 Un <span class="gold">code cadeau</span> est caché sur landers2k.com</b></div>
     </div>
     <div class="msgs short">
       <div class="msg"><small>Tous mes liens</small><b><span class="grad">landers2k.com</span></b></div>
-      <div class="msg"><small>Don’t Tap Red · sur Android dans</small><b class="num" data-left-short>3 j 00:00:00</b></div>
+      <div class="msg"><small>Don’t Tap Red · iPhone et Android</small><b class="num">dispo maintenant&nbsp;!</b></div>
       <div class="msg"><small>🎁 Code cadeau caché sur</small><b><span class="gold">landers2k.com</span></b></div>
     </div>
   </div>
 
   <script>
-    // Messages qui défilent toutes les 8 secondes, et compte à rebours jusqu'à la sortie Android (déjà sur iPhone)
-    const RELEASE = Date.parse('2026-10-23T09:00:00+02:00');
+    // Messages qui défilent toutes les 8 secondes
     const compact = new URLSearchParams(location.search).has('compact');
     document.documentElement.classList.toggle('compact', compact);
     const msgs = [...document.querySelectorAll(compact ? '.short .msg' : '.full .msg')];
     const cube = document.querySelector('.cube');
-    const left = document.querySelector('[data-left]');
-    const leftShort = document.querySelector('[data-left-short]');
-    const pad = n => String(n).padStart(2, '0');
     let i = 0;
     msgs[0].classList.add('is-on');
     setInterval(() => {
@@ -101,21 +97,6 @@
       msgs[i].classList.add('is-on');
       cube.classList.toggle('is-red', i === 1);
     }, 8000);
-    const tick = () => {
-      const t = Math.floor((RELEASE - Date.now()) / 1000);
-      if (t <= 0) {
-        left.textContent = 'dispo sur iPhone et Android !';
-        leftShort.textContent = 'dispo maintenant !';
-        leftShort.previousElementSibling.textContent = 'Don’t Tap Red · iPhone et Android';
-        return;
-      }
-      const d = Math.floor(t / 86400);
-      const time = `${d ? d + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}`;
-      left.textContent = `Android dans ${time}`;
-      leftShort.textContent = time;
-    };
-    tick();
-    setInterval(tick, 1000);
   </script>
 </body>
 </html>

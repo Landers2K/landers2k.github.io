@@ -15,7 +15,7 @@ setup = (ROOT / "setup.html").read_text("utf-8")
 FACTS = [
     ("Jeu", "Don’t Tap Red"),
     ("Développeur", "Landers2K, développeur indépendant (France)"),
-    ("Sortie", "20 octobre 2026 sur iPhone · 23 octobre 2026 sur Android"),
+    ("Sortie", "20 octobre 2026 sur iPhone · 22 octobre 2026 sur Android"),
     ("Plateformes", "iPhone (App Store) et Android (Google Play)"),
     ("Prix", "Gratuit, achats intégrés facultatifs"),
     ("Langues", "Français et anglais"),
@@ -25,7 +25,7 @@ FACTS = [
 FACTS_EN = [
     ("Game", "Don't Tap Red"),
     ("Developer", "Landers2K, independent developer (France)"),
-    ("Release date", "October 20, 2026 on iPhone · October 23, 2026 on Android"),
+    ("Release date", "October 20, 2026 on iPhone · October 22, 2026 on Android"),
     ("Platforms", "iPhone (App Store) and Android (Google Play)"),
     ("Price", "Free to play, optional in-app purchases"),
     ("Languages", "French and English"),
@@ -243,7 +243,7 @@ head = f"""<!doctype html>
   <meta property="og:url" content="https://www.landers2k.com/dont-tap-red/presse/">
   <meta property="og:title" content="Kit presse — Don’t Tap Red">
   <meta property="og:description" content="Fiche du jeu, textes en français et en anglais, visuels en haute définition et contact presse.">
-  <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr.jpg">
+  <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr.jpg?v=2">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">

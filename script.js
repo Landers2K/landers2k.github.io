@@ -910,68 +910,6 @@ const CONFIG = {
   });
 
   /* ------------------------------------------------------------------------
-     Sortie de Don't Tap Red : déjà disponible sur iPhone (20 octobre). Compte à
-     rebours jusqu'à la sortie Android, puis « Disponible maintenant » (avec un
-     message « grand jour » pendant 24 h). D'ici là, le bouton Google Play est grisé.
-     ------------------------------------------------------------------------ */
-  (function release() {
-    const RELEASE = Date.parse('2026-10-23T09:00:00+02:00'); // sortie Android : 23 octobre à 9 h, heure de Paris
-    const DAY = 864e5;
-    const boxes = $$('[data-countdown]');
-    const pills = $$('[data-release]');
-    const playButtons = $$('a[href*="play.google.com"]');   // boutons des stores, « Noter », pied de page
-    if (!boxes.length && !pills.length && !playButtons.length) return;
-    const soon = Date.now() < RELEASE;
-    playButtons.forEach(a => {
-      a.classList.toggle('is-soon', soon);
-      if (soon) {
-        if (a.classList.contains('store-btn')) a.dataset.soon = tr('23 oct.', 'Oct 23');
-        a.setAttribute('aria-disabled', 'true');
-        a.tabIndex = -1;
-      }
-    });
-
-    const pad = n => String(n).padStart(2, '0');
-    const setPills = text => pills.forEach(p => { p.lastChild.nodeValue = text; });
-    const setUnit = (box, key, value, one, many) => {
-      const b = $(`[data-cd="${key}"]`, box);
-      b.textContent = value;
-      // Pluriel : « 0 jour » en français, « 0 days » en anglais
-      b.nextElementSibling.textContent = (EN ? Number(value) !== 1 : Number(value) > 1) ? many : one;
-    };
-
-    let timer = 0;
-    const tick = () => {
-      const left = RELEASE - Date.now();
-      if (left > 0) {
-        const t = Math.floor(left / 1000);
-        const d = Math.floor(t / 86400);
-        const h = Math.floor(t / 3600) % 24;
-        const m = Math.floor(t / 60) % 60;
-        boxes.forEach(box => {
-          box.classList.add('is-ready');
-          setUnit(box, 'd', d, tr('jour', 'day'), tr('jours', 'days'));
-          setUnit(box, 'h', pad(h), tr('heure', 'hour'), tr('heures', 'hours'));
-          setUnit(box, 'm', pad(m), 'minute', 'minutes');
-          setUnit(box, 's', pad(t % 60), tr('seconde', 'second'), tr('secondes', 'seconds'));
-        });
-        pills.filter(p => p.dataset.release === 'countdown')
-          .forEach(p => { p.lastChild.nodeValue = tr(`Android dans ${d} j ${pad(h)} h ${pad(m)} min`, `Android in ${d}d ${pad(h)}h ${pad(m)}m`); });
-        return;
-      }
-      clearInterval(timer);
-      const launchDay = left > -DAY;
-      boxes.forEach(box => {
-        box.innerHTML = `<p class="cd-done">${tr('C’est le grand jour&nbsp;: Don’t Tap Red arrive sur Android&nbsp;!', 'Launch day: Don’t Tap Red is out on Android!')}</p>`;
-        box.hidden = !launchDay;
-      });
-      setPills(tr('Disponible maintenant', 'Available now'));
-    };
-    tick();
-    timer = setInterval(tick, 1000);
-  })();
-
-  /* ------------------------------------------------------------------------
      Dernier TikTok : légende, date et chiffres lus dans assets/data/tiktok.json
      (mis à jour par tools/update_tiktok.py). Sans ce fichier, la page garde
      les valeurs écrites dans le HTML.

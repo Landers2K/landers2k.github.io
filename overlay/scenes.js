@@ -8,7 +8,6 @@
 
   const W = 2560;
   const H = 1440;
-  const RELEASE = Date.parse('2026-10-23T09:00:00+02:00'); // sortie Android de Don't Tap Red (déjà sur iPhone), heure de Paris
   const params = new URLSearchParams(location.search);
   const $ = s => document.querySelector(s);
   const stage = $('.stage');
@@ -41,25 +40,18 @@
   const bottom = $('[data-bottom]');
   if (bottom) {
     bottom.innerHTML = '<div class="pill">🌐 <span class="grad">landers2k.com</span></div>'
-      + '<div class="pill"><img src="/assets/img/dtr-icon.jpg" alt="">Don’t Tap <span class="red">Red</span>&nbsp;·&nbsp;<span data-release>Android le 23 octobre</span></div>';
+      + '<div class="pill"><img src="/assets/img/dtr-icon.jpg" alt="">Don’t Tap <span class="red">Red</span>&nbsp;·&nbsp;dispo sur iPhone et Android</div>';
   }
 
   /* ---------------------------------------------------------------- Chronos */
   const startedAt = Date.now();
   const clock = s => `${s >= 3600 ? Math.floor(s / 3600) + ':' : ''}${pad(Math.floor(s / 60) % 60)}:${pad(s % 60)}`;
-  const release = $('[data-release]');
   const start = $('[data-start]');        // scène COMMENCE : « dans 04:59 » si l'URL contient ?min=5
   const since = $('[data-since]');        // scène PAUSE : « en pause depuis 01:23 »
   const minutes = parseFloat(params.get('min'));
   if (start && !minutes) start.innerHTML = 'dans quelques instants<span class="dots"></span>';
   const tick = () => {
     const now = Date.now();
-    if (release) {
-      const t = Math.floor((RELEASE - now) / 1000);
-      release.innerHTML = t > 0
-        ? `dispo sur iPhone · Android dans <span class="num">${Math.floor(t / 86400) ? Math.floor(t / 86400) + ' j ' : ''}${pad(Math.floor(t / 3600) % 24)}:${pad(Math.floor(t / 60) % 60)}:${pad(t % 60)}</span>`
-        : 'disponible sur iPhone et Android';
-    }
     if (start && minutes) {
       const left = Math.round(minutes * 60 - (now - startedAt) / 1000);
       start.innerHTML = left > 0 ? `dans <b>${clock(left)}</b>` : 'c’est parti&nbsp;!';

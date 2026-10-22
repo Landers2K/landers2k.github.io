@@ -1451,63 +1451,15 @@ html:not(.js) .tt-recent { display: none; }
   margin-left: 6px;
   padding: 6px 12px;
   border-radius: 99px;
-  background: rgba(255, 214, 10, .1);
-  box-shadow: inset 0 0 0 1px rgba(255, 214, 10, .4);
-  color: #ffd60a;
+  background: rgba(48, 209, 88, .1);
+  box-shadow: inset 0 0 0 1px rgba(48, 209, 88, .4);
+  color: #30d158;
   font-size: 13px;
   font-weight: 700;
   white-space: nowrap;
 }
-.release-pill i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #ffd60a; box-shadow: 0 0 10px #ffd60a; animation: blink 2.4s ease-in-out infinite; }
-.release-pill-lg { margin: 22px 0 0; padding: 9px 18px; font-size: 16px; font-variant-numeric: tabular-nums; }
+.release-pill i { flex: none; width: 8px; height: 8px; border-radius: 50%; background: #30d158; box-shadow: 0 0 10px #30d158; animation: blink 2.4s ease-in-out infinite; }
 
-/* Compte à rebours avant la sortie : sa place est réservée dès l'affichage (pas de décalage
-   de la page), les chiffres n'apparaissent qu'une fois calculés */
-.countdown { margin-top: 30px; }
-html:not(.js) .countdown { display: none; }
-.countdown:not(.is-ready) .cd-units { visibility: hidden; }
-.cd-label { color: var(--c-text-3); font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-.cd-units { display: flex; gap: 10px; margin-top: 12px; }
-.cd-unit {
-  display: grid;
-  justify-items: center;
-  min-width: 86px;
-  padding: 14px 10px 12px;
-  border-radius: 18px;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02));
-  box-shadow: inset 0 0 0 1px var(--c-line);
-}
-.cd-unit b {
-  font-family: var(--f-display);
-  font-size: clamp(30px, 3.4vw, 44px);
-  font-weight: 800;
-  line-height: 1;
-  letter-spacing: -.03em;
-  font-variant-numeric: tabular-nums;
-}
-.cd-unit small { margin-top: 7px; color: var(--c-text-3); font-size: 12px; font-weight: 600; }
-.cd-unit:last-child { box-shadow: inset 0 0 0 1px rgba(255, 55, 95, .45), 0 0 34px -12px rgba(255, 55, 95, .7); }
-.cd-unit:last-child b { color: #ff375f; }
-.cd-done {
-  display: inline-block;
-  padding: 12px 20px;
-  border-radius: 16px;
-  background: rgba(255, 214, 10, .1);
-  box-shadow: inset 0 0 0 1px rgba(255, 214, 10, .45);
-  color: #ffd60a;
-  font-size: 18px;
-  font-weight: 700;
-}
-@media (max-width: 600px) {
-  .cd-units { gap: 8px; }
-  .cd-unit { flex: 1; min-width: 0; padding: 12px 4px 10px; border-radius: 16px; }
-  .cd-unit small { font-size: 11px; }
-}
-/* Google Play avant la sortie Android : bouton grisé avec la date */
-a.is-soon { pointer-events: none; opacity: .45; }
-.store-btn.is-soon { position: relative; pointer-events: none; opacity: 1; }
-.store-btn.is-soon > * { opacity: .45; }
-.store-btn.is-soon::after { content: attr(data-soon); position: absolute; top: -10px; right: -10px; padding: 3px 9px; border-radius: 99px; background: #ffd60a; color: #000; font-size: 11px; font-weight: 800; letter-spacing: .02em; }
 .store-btn-lg { min-width: 210px; padding: 12px 24px 12px 20px; border-radius: 16px; }
 .store-btn-lg svg { width: 30px; height: 30px; }
 .store-btn-lg b { font-size: 22px; }
