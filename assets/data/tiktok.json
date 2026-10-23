@@ -3,7 +3,7 @@
   "followers": 6197,
   "likes": 76400,
   "recentVideos": 13,
-  "recentViews": 269786,
+  "recentViews": 259906,
   "bestViews": 92000,
   "latest": {
     "id": "7699308760002612512",
@@ -14,6 +14,14 @@
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
+    {
+      "id": "7698926414413827361",
+      "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
+      "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
+      "plays": 81,
+      "published": "2026-10-21",
+      "cover": "assets/img/tiktok/7698926414413827361.webp"
+    },
     {
       "id": "7698926105402625312",
       "url": "https://www.tiktok.com/@landers2k/video/7698926105402625312",
@@ -53,15 +61,7 @@
       "plays": 2797,
       "published": "2026-10-15",
       "cover": "assets/img/tiktok/7696741988330261792.webp"
-    },
-    {
-      "id": "7696728208363769120",
-      "url": "https://www.tiktok.com/@landers2k/video/7696728208363769120",
-      "description": "Mon Secteur 5 Normal/Classé de la Jonction de l’espace-temps 🔥 #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1510,
-      "published": "2026-10-15",
-      "cover": "assets/img/tiktok/7696728208363769120.webp"
     }
   ],
-  "updated": "2026-10-23T03:42:42+00:00"
+  "updated": "2026-10-23T04:41:42+00:00"
 }
