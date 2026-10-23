@@ -29,7 +29,8 @@ const CONFIG = {
   // Pages en anglais (<html lang="en">) : les textes affichés par ce script passent en anglais
   const EN = root.lang === 'en';
   const tr = (fr, en) => (EN ? en : fr);
-  const fmt = new Intl.NumberFormat(EN ? 'en-US' : 'fr-FR');
+  const LOCALE = EN ? 'en-US' : 'fr-FR';
+  const fmt = new Intl.NumberFormat(LOCALE);
 
   let vw = innerWidth;
   let vh = innerHeight;
@@ -100,17 +101,14 @@ const CONFIG = {
 
   /* ------------------------------------------------------------------------
      Choix de la langue (drapeau dans la barre) : l'autre langue mène à la
-     traduction de la page quand elle existe, sinon à la page anglaise du jeu.
+     traduction de la page (balise hreflang), sinon à l'accueil dans cette langue.
      ------------------------------------------------------------------------ */
   (function language() {
     const box = $('[data-lang]');
     if (!box) return;
     const alt = $(`link[rel="alternate"][hreflang="${EN ? 'fr' : 'en'}"]`);
     const other = $('[data-lang-alt]', box);
-    if (alt && other) {
-      other.href = new URL(alt.href).pathname;
-      $('small', other)?.remove();
-    }
+    if (alt && other) other.href = new URL(alt.href).pathname;
     const current = $('[aria-current]', box);
     if (current) current.href = location.pathname;
     document.addEventListener('click', e => { if (box.open && !box.contains(e.target)) box.open = false; });
@@ -857,7 +855,7 @@ const CONFIG = {
      Sans réseau, les valeurs écrites dans le HTML restent affichées.
      ------------------------------------------------------------------------ */
   (function liveStats() {
-    const compact = new Intl.NumberFormat('fr-FR', { notation: 'compact', maximumFractionDigits: 1 });
+    const compact = new Intl.NumberFormat(LOCALE, { notation: 'compact', maximumFractionDigits: 1 });
     const statIO = new IntersectionObserver(entries => entries.forEach(entry => {
       if (!entry.isIntersecting) return;
       statIO.unobserve(entry.target);
@@ -951,7 +949,7 @@ const CONFIG = {
     const latest = data && data.latest;
     if (!latest || !/^\d{10,25}$/.test(String(latest.id))) return noRecent();
 
-    const compact = new Intl.NumberFormat('fr-FR', { notation: 'compact', maximumFractionDigits: 1 });
+    const compact = new Intl.NumberFormat(LOCALE, { notation: 'compact', maximumFractionDigits: 1 });
 
     const frame = $('[data-embed="tiktok"]', section);
     if (!frame.classList.contains('is-loaded')) frame.dataset.videoId = latest.id;
@@ -968,7 +966,7 @@ const CONFIG = {
     if (/^\d{4}-\d{2}-\d{2}$/.test(latest.published || '')) {
       const date = new Date(`${latest.published}T12:00:00Z`);
       field('published').dateTime = latest.published;
-      field('published').textContent = date.toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+      field('published').textContent = date.toLocaleDateString(LOCALE, { day: 'numeric', month: 'long', year: 'numeric' });
     }
     if (typeof data.followers === 'number') field('followers').textContent = fmt.format(data.followers);
     if (typeof data.likes === 'number') field('likes').textContent = compact.format(data.likes);
@@ -985,7 +983,7 @@ const CONFIG = {
       link.href = `https://www.tiktok.com/@${encodeURIComponent(CONFIG.tiktok)}/video/${video.id}`;
       link.target = '_blank';
       link.rel = 'noopener';
-      link.setAttribute('aria-label', views ? `${caption} · ${views} vues, sur TikTok` : `${caption}, sur TikTok`);
+      link.setAttribute('aria-label', views ? tr(`${caption} · ${views} vues, sur TikTok`, `${caption} · ${views} views, on TikTok`) : tr(`${caption}, sur TikTok`, `${caption}, on TikTok`));
       const thumb = el('span', 'tt-thumb');
       if (/^assets\/img\/tiktok\/\d{10,25}\.(webp|jpg)$/.test(video.cover || '')) {
         thumb.append(Object.assign(document.createElement('img'), { src: `/${video.cover}`, alt: '', width: 300, height: 400, loading: 'lazy', decoding: 'async' }));
@@ -1057,7 +1055,7 @@ const CONFIG = {
         // La playlist « UULF… » contient les vidéos normales de la chaîne, sans les Shorts ni les lives,
         // la plus récente d'abord.
         const list = `UULF${CONFIG.youtubeChannelId.slice(2)}`;
-        target.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=${list}&rel=0" title="Dernières vidéos YouTube de Landers2K" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+        target.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/videoseries?list=${list}&rel=0" title="${tr('Dernières vidéos YouTube de Landers2K', 'Latest YouTube videos from Landers2K')}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
       },
       twitch(target) {
         const host = location.hostname;

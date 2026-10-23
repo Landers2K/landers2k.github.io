@@ -96,23 +96,28 @@
     <symbol id="i-flag-us" viewBox="0 0 19 10" preserveAspectRatio="xMidYMid slice"><path fill="#b22234" d="M0 0h19v10H0z"/><path stroke="#fff" stroke-width=".77" d="M0 1.15h19M0 2.69h19M0 4.23h19M0 5.77h19M0 7.31h19M0 8.85h19"/><path fill="#3c3b6e" d="M0 0h7.6v5.38H0z"/><g fill="#fff"><circle cx="0.95" cy="0.90" r=".38"/><circle cx="2.85" cy="0.90" r=".38"/><circle cx="4.75" cy="0.90" r=".38"/><circle cx="6.65" cy="0.90" r=".38"/><circle cx="0.95" cy="2.10" r=".38"/><circle cx="2.85" cy="2.10" r=".38"/><circle cx="4.75" cy="2.10" r=".38"/><circle cx="6.65" cy="2.10" r=".38"/><circle cx="0.95" cy="3.30" r=".38"/><circle cx="2.85" cy="3.30" r=".38"/><circle cx="4.75" cy="3.30" r=".38"/><circle cx="6.65" cy="3.30" r=".38"/><circle cx="0.95" cy="4.50" r=".38"/><circle cx="2.85" cy="4.50" r=".38"/><circle cx="4.75" cy="4.50" r=".38"/><circle cx="6.65" cy="4.50" r=".38"/></g></symbol>
   </svg>
 
-  <!-- ===================== Navigation (version anglaise) ===================== -->
+  <!-- ===================== Barre de navigation flottante ===================== -->
   <header class="nav" id="top">
     <div class="nav-bar">
-      <a class="brand" href="#jeu" aria-label="Don’t Tap Red, back to top">
+      <a class="brand" href="/en/" aria-label="Landers2K, back to home">
         <span class="brand-mark" aria-hidden="true">L2K</span>
         <span class="brand-name">Landers<b>2K</b></span>
       </a>
+
       <nav class="nav-links" aria-label="Main navigation">
         <span class="nav-pill" aria-hidden="true"></span>
-        <a href="#jeu">The game</a>
-        <a href="#cubes">Cubes</a>
-        <a href="#modes">Modes</a>
-        <a href="#progression">Progress</a>
-        <a href="#codes">Gift codes</a>
-        <a href="#faq">FAQ</a>
+        <a href="/en/#a-propos">About</a>
+        <a href="/en/#tiktok">Videos</a>
+        <a href="/en/#twitch">Live</a>
+        <a href="/en/#discord">Community</a>
+        <a href="/dont-tap-red/en/">Don’t Tap Red</a>
+        <a href="/en/#soutenir">Support</a>
+        <a href="/en/setup.html">Setup</a>
+        <a href="/en/partnerships.html">Partnerships</a>
       </nav>
+
       <div class="nav-actions">
+        <!-- Langue : « English » mène à la traduction de la page (balise hreflang, script.js), sinon à l’accueil anglais -->
         <details class="lang" data-lang>
           <summary class="lang-btn" aria-label="Language: English"><svg class="flag" aria-hidden="true"><use href="#i-flag-us"/></svg><span>EN</span></summary>
           <div class="lang-menu">
@@ -120,6 +125,9 @@
             <a href="/dont-tap-red/en/" hreflang="en" lang="en" aria-current="true"><svg class="flag" aria-hidden="true"><use href="#i-flag-us"/></svg>English</a>
           </div>
         </details>
+        <a class="live-chip" href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener" data-live="unknown" aria-label="Twitch live status">
+          <i aria-hidden="true"></i><span>Live</span>
+        </a>
         <a class="btn-discord" href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener" data-magnetic>
           <svg aria-hidden="true"><use href="#i-discord"/></svg><span>Discord</span>
         </a>
@@ -134,15 +142,17 @@
   <!-- Menu mobile -->
   <div class="menu" id="menu" inert>
     <nav class="menu-links" aria-label="Menu">
-      <a href="#jeu">The game</a>
-      <a href="#essayer">Try it</a>
-      <a href="#cubes">The cubes</a>
-      <a href="#modes">Game modes</a>
-      <a href="#progression">Progress</a>
-      <a href="#codes">Gift codes</a>
-      <a href="#faq">FAQ</a>
-      <a href="/dont-tap-red/" hreflang="fr" lang="fr">Version française</a>
-      <a href="/">Landers2K (French)</a>
+      <a href="/en/#liens">All my links</a>
+      <a href="/en/#a-propos">About</a>
+      <a href="/en/#tiktok">TikTok</a>
+      <a href="/en/#youtube">YouTube</a>
+      <a href="/en/#twitch">Twitch streams</a>
+      <a href="/en/#discord">Discord</a>
+      <a href="/dont-tap-red/en/">Don’t Tap Red</a>
+      <a href="/en/#soutenir">Support me</a>
+      <a href="/en/setup.html">My setup</a>
+      <a href="/en/partnerships.html">Partnerships</a>
+      <a href="/en/#contact">Contact</a>
     </nav>
     <ul class="menu-socials" aria-label="Social networks">
       <li><a href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener" style="--brand:#9146ff" aria-label="Twitch"><svg><use href="#i-twitch"/></svg></a></li>
@@ -488,11 +498,11 @@
     </section>
   </main>
 
-  <!-- ===================== Pied de page (version anglaise) ===================== -->
+  <!-- ===================== Pied de page ===================== -->
   <footer class="footer">
     <div class="wrap-wide">
       <div class="footer-top">
-        <a class="brand" href="/" aria-label="Landers2K website (French)">
+        <a class="brand" href="/en/" aria-label="Landers2K, back to home">
           <span class="brand-mark" aria-hidden="true">L2K</span>
           <span class="brand-name">Landers<b>2K</b></span>
         </a>
@@ -508,10 +518,20 @@
       </div>
       <nav class="footer-cols" aria-label="Site map">
         <div>
+          <h4>Content</h4>
+          <ul>
+            <li><a href="/en/#tiktok">TikTok</a></li>
+            <li><a href="/en/#youtube">YouTube</a></li>
+            <li><a href="/en/#twitch">Twitch streams</a></li>
+            <li><a href="/en/#discord">Discord</a></li>
+            <li><a href="/en/setup.html">My setup</a></li>
+          </ul>
+        </div>
+        <div>
           <h4>Don’t Tap Red</h4>
           <ul>
-            <li><a href="#jeu">The game</a></li>
-            <li><a href="#codes">Gift codes</a></li>
+            <li><a href="/dont-tap-red/en/">The game</a></li>
+            <li><a href="/dont-tap-red/en/#codes">Gift codes</a></li>
             <li><a href="https://apps.apple.com/us/app/dont-tap-red/id6820198356" target="_blank" rel="noopener">App Store</a></li>
             <li><a href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener">Google Play</a></li>
           </ul>
@@ -519,36 +539,30 @@
         <div>
           <h4>Help</h4>
           <ul>
-            <li><a href="#faq">FAQ</a></li>
-            <li><a href="mailto:donttapred.contact@gmail.com">Game support</a></li>
-            <li><a href="https://sites.google.com/view/donttapred-confidentialite" target="_blank" rel="noopener">Privacy policy</a></li>
+            <li><a href="/dont-tap-red/en/#faq">Game FAQ</a></li>
             <li><a href="/dont-tap-red/presse/">Press kit</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4>Landers2K</h4>
-          <ul>
-            <li><a href="/">Website (French)</a></li>
-            <li><a href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener">Twitch</a></li>
-            <li><a href="https://www.tiktok.com/@landers2k" target="_blank" rel="noopener">TikTok</a></li>
-            <li><a href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener">Discord</a></li>
+            <li><a href="mailto:donttapred.contact@gmail.com">Game support</a></li>
+            <li><a href="https://sites.google.com/view/donttapred-confidentialite" target="_blank" rel="noopener">Game privacy</a></li>
           </ul>
         </div>
         <div>
           <h4>Contact</h4>
           <ul>
             <li><a href="mailto:contact@landers2k.com">contact@landers2k.com</a></li>
-            <li><a href="/partenariats.html">Partnerships (French)</a></li>
+            <li><a href="/en/partnerships.html">Partnerships</a></li>
+            <li><a href="/en/#soutenir">Support me</a></li>
+            <li><a href="https://www.lootbar.com/fr/shop/Landers2K" target="_blank" rel="noopener sponsored">Lootbar shop</a></li>
           </ul>
         </div>
       </nav>
       <div class="footer-bottom">
         <p>© <span id="year">2026</span> Landers2K. All rights reserved.</p>
-        <p class="footer-note"><a href="/mentions-legales.html" hreflang="fr">Legal notice and privacy (French)</a></p>
+        <p class="footer-note"><a href="/mentions-legales.html" hreflang="fr">Legal notice and privacy (French)</a> · TikTok, YouTube and Twitch content only loads once you agree.</p>
       </div>
     </div>
   </footer>
 
+  <!-- Cubes tapés : flash rouge et score commun à tout le site -->
   <div class="flash" aria-hidden="true"></div>
   <p class="score-toast" aria-live="polite" hidden></p>
 

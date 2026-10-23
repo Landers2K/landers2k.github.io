@@ -384,7 +384,6 @@ a.link-arrow:hover::after { transform: translateX(4px); }
 .lang-menu a:hover { background: rgba(255, 255, 255, .07); color: var(--c-text); }
 .lang-menu a[aria-current] { color: var(--c-text); }
 .lang-menu a[aria-current]::after { content: ""; width: 7px; height: 12px; margin: -3px 2px 0 auto; border: solid #30d158; border-width: 0 2px 2px 0; transform: rotate(45deg); }
-.lang-menu small { margin-left: auto; padding-left: 12px; color: var(--c-text-3); font-size: 12px; font-weight: 500; }
 
 .btn-discord {
   display: inline-flex;

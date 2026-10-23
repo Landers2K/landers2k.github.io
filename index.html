@@ -15,6 +15,9 @@
   <!-- Aperçu quand le lien est partagé (Discord, X, WhatsApp…).
        Adresse officielle du site : https://www.landers2k.com/ -->
   <link rel="canonical" href="https://www.landers2k.com/">
+  <link rel="alternate" hreflang="fr" href="https://www.landers2k.com/">
+  <link rel="alternate" hreflang="en" href="https://www.landers2k.com/en/">
+  <link rel="alternate" hreflang="x-default" href="https://www.landers2k.com/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Landers2K">
   <meta property="og:locale" content="fr_FR">
@@ -81,12 +84,12 @@
       </nav>
 
       <div class="nav-actions">
-        <!-- Langue : le lien anglais pointe vers la version anglaise de la page quand elle existe (script.js) -->
+        <!-- Langue : « English » mène à la traduction de la page (balise hreflang, script.js), sinon à l’accueil anglais -->
         <details class="lang" data-lang>
           <summary class="lang-btn" aria-label="Langue : français"><svg class="flag" aria-hidden="true"><use href="#i-flag-fr"/></svg><span>FR</span></summary>
           <div class="lang-menu">
             <a href="/" hreflang="fr" lang="fr" aria-current="true"><svg class="flag" aria-hidden="true"><use href="#i-flag-fr"/></svg>Français</a>
-            <a href="/dont-tap-red/en/" hreflang="en" lang="en" data-lang-alt><svg class="flag" aria-hidden="true"><use href="#i-flag-us"/></svg>English<small>Don’t Tap Red</small></a>
+            <a href="/en/" hreflang="en" lang="en" data-lang-alt><svg class="flag" aria-hidden="true"><use href="#i-flag-us"/></svg>English</a>
           </div>
         </details>
         <a class="live-chip" href="https://www.twitch.tv/landers2k" target="_blank" rel="noopener" data-live="unknown" aria-label="Statut du live Twitch">
