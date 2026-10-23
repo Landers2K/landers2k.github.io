@@ -99,6 +99,27 @@ const CONFIG = {
   }
 
   /* ------------------------------------------------------------------------
+     Choix de la langue (drapeau dans la barre) : l'autre langue mène à la
+     traduction de la page quand elle existe, sinon à la page anglaise du jeu.
+     ------------------------------------------------------------------------ */
+  (function language() {
+    const box = $('[data-lang]');
+    if (!box) return;
+    const alt = $(`link[rel="alternate"][hreflang="${EN ? 'fr' : 'en'}"]`);
+    const other = $('[data-lang-alt]', box);
+    if (alt && other) {
+      other.href = new URL(alt.href).pathname;
+      $('small', other)?.remove();
+    }
+    const current = $('[aria-current]', box);
+    if (current) current.href = location.pathname;
+    document.addEventListener('click', e => { if (box.open && !box.contains(e.target)) box.open = false; });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && box.open) { box.open = false; $('summary', box).focus(); }
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
      Apparitions au scroll
      ------------------------------------------------------------------------ */
   $$('[data-stagger]').forEach(parent => {

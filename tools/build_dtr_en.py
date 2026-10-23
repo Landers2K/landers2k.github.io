@@ -182,9 +182,15 @@ nav = """  <!-- ===================== Navigation (version anglaise) ============
         <a href="#progression">Progress</a>
         <a href="#codes">Gift codes</a>
         <a href="#faq">FAQ</a>
-        <a href="/dont-tap-red/" hreflang="fr" lang="fr">Français</a>
       </nav>
       <div class="nav-actions">
+        <details class="lang" data-lang>
+          <summary class="lang-btn" aria-label="Language: English"><svg class="flag" aria-hidden="true"><use href="#i-flag-us"/></svg><span>EN</span></summary>
+          <div class="lang-menu">
+            <a href="/dont-tap-red/" hreflang="fr" lang="fr" data-lang-alt><svg class="flag" aria-hidden="true"><use href="#i-flag-fr"/></svg>Français</a>
+            <a href="/dont-tap-red/en/" hreflang="en" lang="en" aria-current="true"><svg class="flag" aria-hidden="true"><use href="#i-flag-us"/></svg>English</a>
+          </div>
+        </details>
         <a class="btn-discord" href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener" data-magnetic>
           <svg aria-hidden="true"><use href="#i-discord"/></svg><span>Discord</span>
         </a>
