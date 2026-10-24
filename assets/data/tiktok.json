@@ -1,9 +1,9 @@
 {
   "account": "landers2k",
-  "followers": 6231,
-  "likes": 76800,
+  "followers": 6232,
+  "likes": 76900,
   "recentVideos": 11,
-  "recentViews": 252964,
+  "recentViews": 252967,
   "bestViews": 92200,
   "latest": {
     "id": "7699308760002612512",
@@ -18,7 +18,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 935,
+      "plays": 938,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7698224425103068448.webp"
     }
   ],
-  "updated": "2026-10-24T19:35:56+00:00"
+  "updated": "2026-10-24T20:37:50+00:00"
 }
