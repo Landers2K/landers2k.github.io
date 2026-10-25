@@ -55,6 +55,13 @@ FEATURES = [
 ]
 NEWS = "Au lancement, le jeu est en <b>saison Halloween</b> jusqu’au 1<sup>er</sup>&nbsp;novembre&nbsp;: accueil hanté, bonbons à attraper et 6&nbsp;skins exclusifs. Le <b>2&nbsp;novembre</b>, tous les joueurs s’unissent contre le premier boss, <b>Le Cube Noir</b>, puis contre <b>Le Cadeau Piégé</b> en janvier. Nouveau&nbsp;: <b>inviter un ami</b> rapporte 100&nbsp;gems à chacun."
 CONTACT = "donttapred.contact@gmail.com"
+# « Ils en parlent » : un article par ligne, le plus récent en premier
+COVERAGE = [
+    # (média, titre de l'article, date, langue de l'article, lien)
+    ("Fix Gaming Channel", "Fix Stories: I Put My First Game Away for Months — Then Released It", "24 octobre 2026", "en",
+     "https://www.fixgamingchannel.com/dont-tap-red-fix-stories-tony/"),
+]
+LANGS = {"fr": "en français", "en": "en anglais"}
 
 MEDIA_LIST = [
     # (fichier, titre, détail)
@@ -122,6 +129,13 @@ def size(name):
 # ---------------------------------------------------------------- Page
 facts_html = "".join(f"""            <div class="press-fact"><dt>{k}</dt><dd>{v}</dd></div>
 """ for k, v in FACTS)
+coverage_html = "".join(f"""          <li><a class="press-article" href="{url}" target="_blank" rel="noopener" hreflang="{lang}">
+            <span class="press-outlet">{html.escape(outlet)}</span>
+            <b lang="{lang}">{html.escape(title)}</b>
+            <span class="press-meta">{date} · article {LANGS[lang]}</span>
+            <span class="link-arrow">Lire l’article</span>
+          </a></li>
+""" for outlet, title, date, lang, url in COVERAGE)
 features_html = "".join(f"""          <li><b>{t}</b><span>{d}</span></li>
 """ for t, d in FEATURES)
 
@@ -195,6 +209,9 @@ main = f"""  <main id="main">
           <p class="kicker">Actualité</p>
           <p>{NEWS}</p>
         </div>
+        <h3 class="press-sub reveal">Ils en parlent</h3>
+        <ul class="press-coverage" data-stagger>
+{coverage_html}        </ul>
       </div>
     </section>
 
