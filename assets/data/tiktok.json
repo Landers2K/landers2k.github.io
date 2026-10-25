@@ -1,9 +1,9 @@
 {
   "account": "landers2k",
-  "followers": 6235,
+  "followers": 6236,
   "likes": 77500,
   "recentVideos": 11,
-  "recentViews": 253232,
+  "recentViews": 253251,
   "bestViews": 92300,
   "latest": {
     "id": "7699308760002612512",
@@ -18,7 +18,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1021,
+      "plays": 1030,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -26,7 +26,7 @@
       "id": "7698926414413827361",
       "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
       "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 404,
+      "plays": 408,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926414413827361.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7698926105402625312",
       "url": "https://www.tiktok.com/@landers2k/video/7698926105402625312",
       "description": "Secteur 4 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1112,
+      "plays": 1114,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926105402625312.webp"
     },
@@ -42,7 +42,7 @@
       "id": "7698925581835980065",
       "url": "https://www.tiktok.com/@landers2k/video/7698925581835980065",
       "description": "Secteur 3 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 629,
+      "plays": 631,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698925581835980065.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7698225429068401953",
       "url": "https://www.tiktok.com/@landers2k/video/7698225429068401953",
       "description": "Secteur 2 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 586,
+      "plays": 587,
       "published": "2026-10-19",
       "cover": "assets/img/tiktok/7698225429068401953.webp"
     },
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7698224425103068448.webp"
     }
   ],
-  "updated": "2026-10-25T20:37:46+00:00"
+  "updated": "2026-10-25T21:39:23+00:00"
 }
