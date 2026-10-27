@@ -3,13 +3,13 @@
   "followers": 6237,
   "likes": 77500,
   "recentVideos": 11,
-  "recentViews": 250928,
-  "bestViews": 92400,
+  "recentViews": 175635,
+  "bestViews": 67700,
   "latest": {
     "id": "7700989457800908065",
     "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
     "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-    "plays": 259,
+    "plays": 263,
     "published": "2026-10-26",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -26,7 +26,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1058,
+      "plays": 1059,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7698926414413827361",
       "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
       "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 419,
+      "plays": 420,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926414413827361.webp"
     },
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7698225429068401953.webp"
     }
   ],
-  "updated": "2026-10-26T23:39:31+00:00"
+  "updated": "2026-10-27T00:56:32+00:00"
 }
