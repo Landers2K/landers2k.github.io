@@ -1,10 +1,10 @@
 {
   "account": "landers2k",
-  "followers": 6233,
+  "followers": 6232,
   "likes": 77500,
   "recentVideos": 11,
-  "recentViews": 175692,
-  "bestViews": 67700,
+  "recentViews": 251092,
+  "bestViews": 92500,
   "latest": {
     "id": "7700989457800908065",
     "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7698225429068401953.webp"
     }
   ],
-  "updated": "2026-10-28T03:53:28+00:00"
+  "updated": "2026-10-28T04:54:11+00:00"
 }
