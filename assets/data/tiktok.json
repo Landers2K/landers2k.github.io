@@ -3,8 +3,8 @@
   "followers": 6234,
   "likes": 77600,
   "recentVideos": 11,
-  "recentViews": 251424,
-  "bestViews": 92600,
+  "recentViews": 175926,
+  "bestViews": 67700,
   "latest": {
     "id": "7700989457800908065",
     "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
@@ -34,7 +34,7 @@
       "id": "7698926414413827361",
       "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
       "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 434,
+      "plays": 435,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926414413827361.webp"
     },
@@ -42,7 +42,7 @@
       "id": "7698926105402625312",
       "url": "https://www.tiktok.com/@landers2k/video/7698926105402625312",
       "description": "Secteur 4 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1189,
+      "plays": 1190,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926105402625312.webp"
     },
@@ -63,5 +63,5 @@
       "cover": "assets/img/tiktok/7698225429068401953.webp"
     }
   ],
-  "updated": "2026-10-29T02:02:38+00:00"
+  "updated": "2026-10-29T03:54:54+00:00"
 }
