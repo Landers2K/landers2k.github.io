@@ -3,13 +3,13 @@
   "followers": 6234,
   "likes": 77600,
   "recentVideos": 13,
-  "recentViews": 315809,
+  "recentViews": 315870,
   "bestViews": 92700,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 1082,
+    "plays": 1142,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 315,
+      "plays": 316,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -64,8 +64,8 @@
     }
   ],
   "views": {
-    "7702299825097674016": 1082,
-    "7700989457800908065": 315,
+    "7702299825097674016": 1142,
+    "7700989457800908065": 316,
     "7700055901885025569": 58300,
     "7699640445613133089": 6046,
     "7699308760002612512": 12400,
@@ -79,5 +79,5 @@
     "7583012184209378582": 92700
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-10-30T15:02:48+00:00"
+  "updated": "2026-10-30T15:57:44+00:00"
 }
