@@ -3,13 +3,13 @@
   "followers": 6234,
   "likes": 77600,
   "recentVideos": 13,
-  "recentViews": 315114,
+  "recentViews": 315333,
   "bestViews": 92700,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 413,
+    "plays": 614,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 308,
+      "plays": 311,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7699640445613133089",
       "url": "https://www.tiktok.com/@landers2k/video/7699640445613133089",
       "description": "J'ai créé ce jeu tout seul et il est enfin sorti 🎉 Ton avis ? I made this game alone and it's finally out 🎉 What do you think? 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #devsolo #solodev #indiedev #gamedev",
-      "plays": 6044,
+      "plays": 6046,
       "published": "2026-10-22",
       "cover": "assets/img/tiktok/7699640445613133089.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1131,
+      "plays": 1134,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -58,26 +58,26 @@
       "id": "7698926414413827361",
       "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
       "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 439,
+      "plays": 442,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926414413827361.webp"
     }
   ],
   "views": {
-    "7702299825097674016": 413,
-    "7700989457800908065": 308,
+    "7702299825097674016": 614,
+    "7700989457800908065": 311,
     "7700055901885025569": 58300,
-    "7699640445613133089": 6044,
+    "7699640445613133089": 6046,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1131,
-    "7698926414413827361": 439,
-    "7698926105402625312": 1227,
-    "7698925581835980065": 644,
-    "7698225429068401953": 608,
+    "7698926683495140640": 1134,
+    "7698926414413827361": 442,
+    "7698926105402625312": 1232,
+    "7698925581835980065": 645,
+    "7698225429068401953": 609,
     "7620939508799802647": 67700,
     "7619774411234692374": 73200,
     "7583012184209378582": 92700
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-10-30T07:05:23+00:00"
+  "updated": "2026-10-30T08:09:33+00:00"
 }
