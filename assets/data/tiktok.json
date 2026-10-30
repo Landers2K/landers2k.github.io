@@ -2,14 +2,14 @@
   "account": "landers2k",
   "followers": 6234,
   "likes": 77600,
-  "recentVideos": 11,
-  "recentViews": 250529,
+  "recentVideos": 13,
+  "recentViews": 314997,
   "bestViews": 92700,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 179,
+    "plays": 302,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -23,6 +23,22 @@
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
     {
+      "id": "7700055901885025569",
+      "url": "https://www.tiktok.com/@landers2k/video/7700055901885025569",
+      "description": "Bats mon score en Chrono et gagne 50€ ! 5 190 points… qui peut faire mieux ?  50 € au choix : cash, carte Steam, PlayStation ou carte cadeau Jusqu'au lundi 26 octobre à 9 h Un seul gagnant : le plus haut score du classement Chrono mensuel 📲 Don't Tap Red, gratuit sur iPhone et Android, lien en bio ! Participation gratuite, sans achat. Apple et Google ne sont pas partenaires du concours. #donttapred #concours #fyp #pourtoi #giveaway",
+      "plays": 58300,
+      "published": "2026-10-24",
+      "cover": "assets/img/tiktok/7700055901885025569.webp"
+    },
+    {
+      "id": "7699640445613133089",
+      "url": "https://www.tiktok.com/@landers2k/video/7699640445613133089",
+      "description": "J'ai créé ce jeu tout seul et il est enfin sorti 🎉 Ton avis ? I made this game alone and it's finally out 🎉 What do you think? 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #devsolo #solodev #indiedev #gamedev",
+      "plays": 6043,
+      "published": "2026-10-22",
+      "cover": "assets/img/tiktok/7699640445613133089.webp"
+    },
+    {
       "id": "7699308760002612512",
       "url": "https://www.tiktok.com/@landers2k/video/7699308760002612512",
       "description": "Une seule règle : tape le BLEU, évite le ROUGE. Facile ? 😏 One rule: tap the BLUE, avoid the RED. Easy? 😏 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #mobilegame #indiegame  #viral #love",
@@ -34,7 +50,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1128,
+      "plays": 1129,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -45,23 +61,23 @@
       "plays": 439,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926414413827361.webp"
-    },
-    {
-      "id": "7698926105402625312",
-      "url": "https://www.tiktok.com/@landers2k/video/7698926105402625312",
-      "description": "Secteur 4 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1225,
-      "published": "2026-10-21",
-      "cover": "assets/img/tiktok/7698926105402625312.webp"
-    },
-    {
-      "id": "7698925581835980065",
-      "url": "https://www.tiktok.com/@landers2k/video/7698925581835980065",
-      "description": "Secteur 3 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 644,
-      "published": "2026-10-21",
-      "cover": "assets/img/tiktok/7698925581835980065.webp"
     }
   ],
-  "updated": "2026-10-30T05:53:35+00:00"
+  "views": {
+    "7702299825097674016": 302,
+    "7700989457800908065": 307,
+    "7700055901885025569": 58300,
+    "7699640445613133089": 6043,
+    "7699308760002612512": 12400,
+    "7698926683495140640": 1129,
+    "7698926414413827361": 439,
+    "7698926105402625312": 1225,
+    "7698925581835980065": 644,
+    "7698225429068401953": 608,
+    "7620939508799802647": 67700,
+    "7619774411234692374": 73200,
+    "7583012184209378582": 92700
+  },
+  "coverId": "7702299825097674016",
+  "updated": "2026-10-30T06:30:37+00:00"
 }
