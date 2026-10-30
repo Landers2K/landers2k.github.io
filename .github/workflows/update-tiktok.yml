@@ -10,11 +10,19 @@ on:
 permissions:
   contents: write
 
+# Un seul passage à la fois (un lancement à la main pendant un passage planifié attend son tour)
+concurrency:
+  group: update-tiktok
+  cancel-in-progress: false
+
 jobs:
   update:
     runs-on: ubuntu-latest
     steps:
+      # La dernière version du site au démarrage (un passage resté en file d'attente ne part pas d'une version périmée)
       - uses: actions/checkout@v5
+        with:
+          ref: main
       - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
@@ -27,5 +35,7 @@ jobs:
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
             git add -A assets
             git commit -m "Dernier TikTok mis à jour"
+            # Le passage dure maintenant quelques dizaines de secondes : un autre commit a pu arriver entre-temps
+            git pull --rebase --quiet
             git push
           fi
