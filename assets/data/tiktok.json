@@ -3,13 +3,13 @@
   "followers": 6234,
   "likes": 77600,
   "recentVideos": 13,
-  "recentViews": 315870,
+  "recentViews": 315950,
   "bestViews": 92700,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 1142,
+    "plays": 1218,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 316,
+      "plays": 318,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1136,
+      "plays": 1137,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -64,14 +64,14 @@
     }
   ],
   "views": {
-    "7702299825097674016": 1142,
-    "7700989457800908065": 316,
+    "7702299825097674016": 1218,
+    "7700989457800908065": 318,
     "7700055901885025569": 58300,
     "7699640445613133089": 6046,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1136,
+    "7698926683495140640": 1137,
     "7698926414413827361": 442,
-    "7698926105402625312": 1234,
+    "7698926105402625312": 1235,
     "7698925581835980065": 645,
     "7698225429068401953": 609,
     "7620939508799802647": 67700,
@@ -79,5 +79,5 @@
     "7583012184209378582": 92700
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-10-30T15:57:44+00:00"
+  "updated": "2026-10-30T16:55:19+00:00"
 }
