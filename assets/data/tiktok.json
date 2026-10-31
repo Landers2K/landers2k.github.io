@@ -3,13 +3,13 @@
   "followers": 6232,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 316638,
+  "recentViews": 316662,
   "bestViews": 92800,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 1767,
+    "plays": 1788,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 320,
+      "plays": 322,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1161,
+      "plays": 1162,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -64,12 +64,12 @@
     }
   ],
   "views": {
-    "7702299825097674016": 1767,
-    "7700989457800908065": 320,
+    "7702299825097674016": 1788,
+    "7700989457800908065": 322,
     "7700055901885025569": 58300,
     "7699640445613133089": 6046,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1161,
+    "7698926683495140640": 1162,
     "7698926414413827361": 442,
     "7698926105402625312": 1246,
     "7698925581835980065": 647,
@@ -79,5 +79,5 @@
     "7583012184209378582": 92800
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-10-31T12:56:10+00:00"
+  "updated": "2026-10-31T13:51:39+00:00"
 }
