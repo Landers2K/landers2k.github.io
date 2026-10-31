@@ -3,13 +3,13 @@
   "followers": 6232,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 316369,
+  "recentViews": 316377,
   "bestViews": 92700,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 1616,
+    "plays": 1624,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -64,7 +64,7 @@
     }
   ],
   "views": {
-    "7702299825097674016": 1616,
+    "7702299825097674016": 1624,
     "7700989457800908065": 318,
     "7700055901885025569": 58300,
     "7699640445613133089": 6046,
@@ -79,5 +79,5 @@
     "7583012184209378582": 92700
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-10-31T04:53:05+00:00"
+  "updated": "2026-10-31T05:50:13+00:00"
 }
