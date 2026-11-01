@@ -3,13 +3,13 @@
   "followers": 6230,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 317033,
+  "recentViews": 317049,
   "bestViews": 92900,
   "latest": {
     "id": "7702299825097674016",
     "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
     "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 2015,
+    "plays": 2030,
     "published": "2026-10-30",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -50,7 +50,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1173,
+      "plays": 1174,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -64,12 +64,12 @@
     }
   ],
   "views": {
-    "7702299825097674016": 2015,
+    "7702299825097674016": 2030,
     "7700989457800908065": 327,
     "7700055901885025569": 58300,
     "7699640445613133089": 6048,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1173,
+    "7698926683495140640": 1174,
     "7698926414413827361": 445,
     "7698926105402625312": 1266,
     "7698925581835980065": 650,
@@ -79,5 +79,5 @@
     "7583012184209378582": 92900
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-11-01T20:45:03+00:00"
+  "updated": "2026-11-01T22:43:49+00:00"
 }
