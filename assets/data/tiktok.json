@@ -3,7 +3,7 @@
   "followers": 6231,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 317021,
+  "recentViews": 317027,
   "bestViews": 92900,
   "latest": {
     "id": "7702299825097674016",
@@ -18,7 +18,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 326,
+      "plays": 327,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7699640445613133089",
       "url": "https://www.tiktok.com/@landers2k/video/7699640445613133089",
       "description": "J'ai créé ce jeu tout seul et il est enfin sorti 🎉 Ton avis ? I made this game alone and it's finally out 🎉 What do you think? 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #devsolo #solodev #indiedev #gamedev",
-      "plays": 6047,
+      "plays": 6048,
       "published": "2026-10-22",
       "cover": "assets/img/tiktok/7699640445613133089.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1172,
+      "plays": 1173,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     },
@@ -58,20 +58,20 @@
       "id": "7698926414413827361",
       "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
       "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 444,
+      "plays": 445,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926414413827361.webp"
     }
   ],
   "views": {
     "7702299825097674016": 2015,
-    "7700989457800908065": 326,
+    "7700989457800908065": 327,
     "7700055901885025569": 58300,
-    "7699640445613133089": 6047,
+    "7699640445613133089": 6048,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1172,
-    "7698926414413827361": 444,
-    "7698926105402625312": 1258,
+    "7698926683495140640": 1173,
+    "7698926414413827361": 445,
+    "7698926105402625312": 1260,
     "7698925581835980065": 650,
     "7698225429068401953": 609,
     "7620939508799802647": 67700,
@@ -79,5 +79,5 @@
     "7583012184209378582": 92900
   },
   "coverId": "7702299825097674016",
-  "updated": "2026-11-01T15:43:05+00:00"
+  "updated": "2026-11-01T16:45:06+00:00"
 }
