@@ -3,17 +3,25 @@
   "followers": 6229,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 317161,
-  "bestViews": 92900,
+  "recentViews": 317420,
+  "bestViews": 93000,
   "latest": {
-    "id": "7702299825097674016",
-    "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
-    "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-    "plays": 2113,
-    "published": "2026-10-30",
+    "id": "7703559428884204822",
+    "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
+    "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
+    "plays": 724,
+    "published": "2026-11-02",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
+    {
+      "id": "7702299825097674016",
+      "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
+      "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
+      "plays": 2154,
+      "published": "2026-10-30",
+      "cover": "assets/img/tiktok/7702299825097674016.webp"
+    },
     {
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
@@ -50,34 +58,26 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1180,
+      "plays": 1181,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
-    },
-    {
-      "id": "7698926414413827361",
-      "url": "https://www.tiktok.com/@landers2k/video/7698926414413827361",
-      "description": "Secteur 5 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 450,
-      "published": "2026-10-21",
-      "cover": "assets/img/tiktok/7698926414413827361.webp"
     }
   ],
   "views": {
-    "7702299825097674016": 2113,
+    "7703559428884204822": 724,
+    "7702299825097674016": 2154,
     "7700989457800908065": 331,
     "7700055901885025569": 58300,
     "7699640445613133089": 6049,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1180,
+    "7698926683495140640": 1181,
     "7698926414413827361": 450,
-    "7698926105402625312": 1276,
+    "7698926105402625312": 1279,
     "7698925581835980065": 652,
-    "7698225429068401953": 610,
     "7620939508799802647": 67700,
     "7619774411234692374": 73200,
-    "7583012184209378582": 92900
+    "7583012184209378582": 93000
   },
-  "coverId": "7702299825097674016",
-  "updated": "2026-11-02T17:11:27+00:00"
+  "coverId": "7703559428884204822",
+  "updated": "2026-11-02T23:53:53+00:00"
 }
