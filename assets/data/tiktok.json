@@ -3,13 +3,13 @@
   "followers": 6229,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 317420,
+  "recentViews": 317448,
   "bestViews": 93000,
   "latest": {
     "id": "7703559428884204822",
     "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
     "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-    "plays": 724,
+    "plays": 728,
     "published": "2026-11-02",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2154,
+      "plays": 2175,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -58,19 +58,19 @@
       "id": "7698926683495140640",
       "url": "https://www.tiktok.com/@landers2k/video/7698926683495140640",
       "description": "Secteur 6 - EXTRA #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 1181,
+      "plays": 1184,
       "published": "2026-10-21",
       "cover": "assets/img/tiktok/7698926683495140640.webp"
     }
   ],
   "views": {
-    "7703559428884204822": 724,
-    "7702299825097674016": 2154,
+    "7703559428884204822": 728,
+    "7702299825097674016": 2175,
     "7700989457800908065": 331,
     "7700055901885025569": 58300,
     "7699640445613133089": 6049,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1181,
+    "7698926683495140640": 1184,
     "7698926414413827361": 450,
     "7698926105402625312": 1279,
     "7698925581835980065": 652,
@@ -79,5 +79,5 @@
     "7583012184209378582": 93000
   },
   "coverId": "7703559428884204822",
-  "updated": "2026-11-02T23:53:53+00:00"
+  "updated": "2026-11-03T06:46:21+00:00"
 }
