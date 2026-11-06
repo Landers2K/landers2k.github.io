@@ -1,9 +1,9 @@
 {
   "account": "landers2k",
-  "followers": 6222,
+  "followers": 6223,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 317828,
+  "recentViews": 317841,
   "bestViews": 93100,
   "latest": {
     "id": "7703559428884204822",
@@ -18,7 +18,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2373,
+      "plays": 2382,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -42,7 +42,7 @@
       "id": "7699640445613133089",
       "url": "https://www.tiktok.com/@landers2k/video/7699640445613133089",
       "description": "J'ai créé ce jeu tout seul et il est enfin sorti 🎉 Ton avis ? I made this game alone and it's finally out 🎉 What do you think? 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #devsolo #solodev #indiedev #gamedev",
-      "plays": 6053,
+      "plays": 6054,
       "published": "2026-10-22",
       "cover": "assets/img/tiktok/7699640445613133089.webp"
     },
@@ -65,19 +65,19 @@
   ],
   "views": {
     "7703559428884204822": 759,
-    "7702299825097674016": 2373,
+    "7702299825097674016": 2382,
     "7700989457800908065": 341,
     "7700055901885025569": 58300,
-    "7699640445613133089": 6053,
+    "7699640445613133089": 6054,
     "7699308760002612512": 12400,
     "7698926683495140640": 1192,
     "7698926414413827361": 456,
-    "7698926105402625312": 1298,
-    "7698925581835980065": 656,
+    "7698926105402625312": 1300,
+    "7698925581835980065": 657,
     "7620939508799802647": 67700,
     "7619774411234692374": 73200,
     "7583012184209378582": 93100
   },
   "coverId": "7703559428884204822",
-  "updated": "2026-11-06T01:33:18+00:00"
+  "updated": "2026-11-06T09:23:40+00:00"
 }
