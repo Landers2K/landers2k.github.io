@@ -3,13 +3,13 @@
   "followers": 6224,
   "likes": 77700,
   "recentVideos": 13,
-  "recentViews": 317872,
+  "recentViews": 317894,
   "bestViews": 93100,
   "latest": {
     "id": "7703559428884204822",
     "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
     "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-    "plays": 762,
+    "plays": 763,
     "published": "2026-11-02",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2405,
+      "plays": 2422,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -26,7 +26,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 342,
+      "plays": 344,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -64,14 +64,14 @@
     }
   ],
   "views": {
-    "7703559428884204822": 762,
-    "7702299825097674016": 2405,
-    "7700989457800908065": 342,
+    "7703559428884204822": 763,
+    "7702299825097674016": 2422,
+    "7700989457800908065": 344,
     "7700055901885025569": 58300,
     "7699640445613133089": 6054,
     "7699308760002612512": 12400,
     "7698926683495140640": 1193,
-    "7698926414413827361": 456,
+    "7698926414413827361": 458,
     "7698926105402625312": 1302,
     "7698925581835980065": 658,
     "7620939508799802647": 67700,
@@ -79,5 +79,5 @@
     "7583012184209378582": 93100
   },
   "coverId": "7703559428884204822",
-  "updated": "2026-11-06T17:29:35+00:00"
+  "updated": "2026-11-06T23:07:21+00:00"
 }
