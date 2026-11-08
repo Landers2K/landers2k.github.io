@@ -1,15 +1,15 @@
 {
   "account": "landers2k",
-  "followers": 6229,
+  "followers": 6230,
   "likes": 77800,
   "recentVideos": 13,
-  "recentViews": 318924,
-  "bestViews": 93200,
+  "recentViews": 319521,
+  "bestViews": 93300,
   "latest": {
     "id": "7705459943352044822",
     "url": "https://www.tiktok.com/@landers2k/video/7705459943352044822",
     "description": "J'ARRETE 7DSO ET J'AI BESOIN DE VOUS PARLER ! #fyp #sevendeadlysinsorigin #sevendeadlysins #7ds #7dsorigin",
-    "plays": 1434,
+    "plays": 1901,
     "published": "2026-11-07",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7703559428884204822",
       "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
       "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-      "plays": 802,
+      "plays": 808,
       "published": "2026-11-02",
       "cover": "assets/img/tiktok/7703559428884204822.webp"
     },
@@ -26,7 +26,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2500,
+      "plays": 2516,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 357,
+      "plays": 359,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -50,7 +50,7 @@
       "id": "7699640445613133089",
       "url": "https://www.tiktok.com/@landers2k/video/7699640445613133089",
       "description": "J'ai créé ce jeu tout seul et il est enfin sorti 🎉 Ton avis ? I made this game alone and it's finally out 🎉 What do you think? 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #devsolo #solodev #indiedev #gamedev",
-      "plays": 6058,
+      "plays": 6059,
       "published": "2026-10-22",
       "cover": "assets/img/tiktok/7699640445613133089.webp"
     },
@@ -64,20 +64,20 @@
     }
   ],
   "views": {
-    "7705459943352044822": 1434,
-    "7703559428884204822": 802,
-    "7702299825097674016": 2500,
-    "7700989457800908065": 357,
+    "7705459943352044822": 1901,
+    "7703559428884204822": 808,
+    "7702299825097674016": 2516,
+    "7700989457800908065": 359,
     "7700055901885025569": 58300,
-    "7699640445613133089": 6058,
+    "7699640445613133089": 6059,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1208,
-    "7698926414413827361": 462,
-    "7698926105402625312": 1303,
+    "7698926683495140640": 1211,
+    "7698926414413827361": 463,
+    "7698926105402625312": 1304,
     "7620939508799802647": 67700,
     "7619774411234692374": 73200,
-    "7583012184209378582": 93200
+    "7583012184209378582": 93300
   },
   "coverId": "7705459943352044822",
-  "updated": "2026-11-08T07:17:58+00:00"
+  "updated": "2026-11-08T15:11:27+00:00"
 }
