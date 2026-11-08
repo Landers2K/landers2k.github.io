@@ -3,7 +3,7 @@
   "followers": 6230,
   "likes": 77800,
   "recentVideos": 13,
-  "recentViews": 319681,
+  "recentViews": 319695,
   "bestViews": 93300,
   "latest": {
     "id": "7705459943352044822",
@@ -18,7 +18,7 @@
       "id": "7703559428884204822",
       "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
       "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-      "plays": 809,
+      "plays": 813,
       "published": "2026-11-02",
       "cover": "assets/img/tiktok/7703559428884204822.webp"
     },
@@ -26,7 +26,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2520,
+      "plays": 2530,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -65,8 +65,8 @@
   ],
   "views": {
     "7705459943352044822": 2050,
-    "7703559428884204822": 809,
-    "7702299825097674016": 2520,
+    "7703559428884204822": 813,
+    "7702299825097674016": 2530,
     "7700989457800908065": 360,
     "7700055901885025569": 58300,
     "7699640445613133089": 6060,
@@ -79,5 +79,5 @@
     "7583012184209378582": 93300
   },
   "coverId": "7705459943352044822",
-  "updated": "2026-11-08T19:41:37+00:00"
+  "updated": "2026-11-08T23:42:26+00:00"
 }
