@@ -59,7 +59,7 @@ head = f"""<!doctype html>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Don’t Tap Red — the mobile game by Landers2K</title>
-  <meta name="description" content="Don’t Tap Red, the free reflex game by Landers2K for iPhone and Android: tap the right cubes, never touch the red one. Game modes, cubes, gift codes and FAQ.">
+  <meta name="description" content="Don’t Tap Red, the free reflex game by Landers2K for iPhone, iPhone Duo, iPad and Android: tap the right cubes, never touch the red one. Game modes, cubes, gift codes and FAQ.">
   <meta name="theme-color" content="#050812">
   <!-- Version anglaise de /dont-tap-red/, construite par tools/build_dtr_en.py -->
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
@@ -76,8 +76,8 @@ head = f"""<!doctype html>
   <meta property="og:site_name" content="Landers2K">
   <meta property="og:locale" content="en_US">
   <meta property="og:url" content="https://www.landers2k.com/dont-tap-red/en/">
-  <meta property="og:title" content="Don’t Tap Red — out now on iPhone and Android">
-  <meta property="og:description" content="The free reflex game by Landers2K for iPhone and Android. One single rule: never touch the red one.">
+  <meta property="og:title" content="Don’t Tap Red — out now on iPhone, iPhone Duo, iPad and Android">
+  <meta property="og:description" content="The free reflex game by Landers2K for iPhone, iPhone Duo, iPad and Android. One single rule: never touch the red one.">
   <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr-en.jpg?v=4">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">

@@ -60,8 +60,8 @@ COMMUN = [
 ACCUEIL = [
     # ---- En-tête de la page
     ("<title>Landers2K — Créateur de contenu, streamer et développeur de jeux</title>", "<title>Landers2K — Content creator, streamer and game developer</title>"),
-    ("L’univers Landers2K : mes vidéos TikTok et YouTube, mes lives Twitch, le Discord de la communauté et Don’t Tap Red, mon jeu mobile gratuit sur iPhone et Android.",
-     "The Landers2K universe: my TikTok and YouTube videos, my Twitch streams, the community Discord and Don’t Tap Red, my free mobile game for iPhone and Android."),
+    ("L’univers Landers2K : mes vidéos TikTok et YouTube, mes lives Twitch, le Discord de la communauté et Don’t Tap Red, mon jeu mobile gratuit sur iPhone, iPhone Duo, iPad et Android.",
+     "The Landers2K universe: my TikTok and YouTube videos, my Twitch streams, the community Discord and Don’t Tap Red, my free mobile game for iPhone, iPhone Duo, iPad and Android."),
     ('content="Landers2K — Vidéos, lives Twitch et Don’t Tap Red"', 'content="Landers2K — Videos, Twitch streams and Don’t Tap Red"'),
     ("Mes TikToks, mes vidéos YouTube, mes lives Twitch, le Discord de la communauté et Don’t Tap Red, mon jeu mobile gratuit.",
      "My TikToks, YouTube videos, Twitch streams, the community Discord and Don’t Tap Red, my free mobile game."),
@@ -84,6 +84,7 @@ ACCUEIL = [
     ("<small>Le serveur de la communauté</small>", "<small>The community server</small>"),
     ("<small>Ma boutique Landers2K</small>", "<small>My Landers2K shop</small>"),
     ("<small>Disponible sur l’App Store</small>", "<small>Available on the App Store</small>"),
+    ("<b>Don’t Tap Red · iPhone et iPad</b>", "<b>Don’t Tap Red · iPhone &amp; iPad</b>"),
     ("<small>Disponible sur Google Play</small>", "<small>Available on Google Play</small>"),
     ("<b>Me contacter</b>", "<b>Contact me</b>"),
     # ---- À propos
@@ -95,7 +96,7 @@ ACCUEIL = [
     ("<span>le grand saut&nbsp;: le matériel et les ressources pour passer à la vitesse supérieure</span>",
      "<span>the big leap: the gear and resources to take things up a notch</span>"),
     ("<b>3 univers</b><span>des vidéos, des lives et mes propres jeux vidéo</span>", "<b>3 worlds</b><span>videos, live streams and my own video games</span>"),
-    ("<b>1<sup>er</sup> jeu</b><span>Don’t Tap Red, gratuit sur iPhone et Android</span>", "<b>1<sup>st</sup> game</b><span>Don’t Tap Red, free on iPhone and Android</span>"),
+    ("<b>1<sup>er</sup> jeu</b><span>Don’t Tap Red, gratuit sur iPhone, iPhone Duo, iPad et Android</span>", "<b>1<sup>st</sup> game</b><span>Don’t Tap Red, free on iPhone, iPhone Duo, iPad and Android</span>"),
     ("Passionné de gaming et de streaming depuis plus de <strong>10 ans</strong>, j’ai décidé de donner une nouvelle dimension à cette passion en <strong>septembre 2025</strong>, lorsque j’ai enfin pu investir dans le matériel et les ressources nécessaires pour concrétiser mes ambitions.",
      "I’ve been passionate about gaming and streaming for more than <strong>10 years</strong>, and in <strong>September 2025</strong> I decided to take that passion to a new level, when I could finally invest in the gear and resources I needed to make my ambitions real."),
     ("Aujourd’hui, je partage mon univers à travers mes <strong>vidéos sur YouTube et TikTok</strong>, mes <strong>diffusions en direct sur Twitch</strong> et le développement de mes propres jeux vidéo, dont <strong>Don’t Tap Red</strong>, disponible gratuitement sur iOS et Android.",

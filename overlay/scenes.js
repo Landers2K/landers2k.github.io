@@ -40,7 +40,7 @@
   const bottom = $('[data-bottom]');
   if (bottom) {
     bottom.innerHTML = '<div class="pill">🌐 <span class="grad">landers2k.com</span></div>'
-      + '<div class="pill"><img src="/assets/img/dtr-icon.jpg" alt="">Don’t Tap <span class="red">Red</span>&nbsp;·&nbsp;dispo sur iPhone et Android</div>';
+      + '<div class="pill"><img src="/assets/img/dtr-icon.jpg" alt="">Don’t Tap <span class="red">Red</span>&nbsp;·&nbsp;dispo sur iPhone, iPhone Duo, iPad et Android</div>';
   }
 
   /* ---------------------------------------------------------------- Chronos */
