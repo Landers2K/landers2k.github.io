@@ -78,7 +78,7 @@ head = f"""<!doctype html>
   <meta property="og:url" content="https://www.landers2k.com/dont-tap-red/en/">
   <meta property="og:title" content="Don’t Tap Red — out now on iPhone and Android">
   <meta property="og:description" content="The free reflex game by Landers2K for iPhone and Android. One single rule: never touch the red one.">
-  <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr-en.jpg?v=3">
+  <meta property="og:image" content="https://www.landers2k.com/assets/img/partage-dtr-en.jpg?v=4">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
