@@ -17,7 +17,7 @@ FACTS = [
     ("Jeu", "Don’t Tap Red"),
     ("Développeur", "LNDRS Studio, le studio indépendant de Landers2K (France)"),
     ("Sortie", "21 octobre 2026 sur iPhone · 22 octobre 2026 sur Android"),
-    ("Plateformes", "iPhone (App Store) et Android (Google Play)"),
+    ("Plateformes", "iPhone et iPad (App Store), téléphones et tablettes Android (Google Play)"),
     ("Prix", "Gratuit, achats intégrés facultatifs"),
     ("Langues", "Français et anglais"),
     ("Genre", "Arcade, réflexes, jeu occasionnel"),
@@ -27,7 +27,7 @@ FACTS_EN = [
     ("Game", "Don't Tap Red"),
     ("Developer", "LNDRS Studio, Landers2K’s independent studio (France)"),
     ("Release date", "October 21, 2026 on iPhone · October 22, 2026 on Android"),
-    ("Platforms", "iPhone (App Store) and Android (Google Play)"),
+    ("Platforms", "iPhone and iPad (App Store), Android phones and tablets (Google Play)"),
     ("Price", "Free to play, optional in-app purchases"),
     ("Languages", "French and English"),
     ("Genre", "Arcade, reflex, casual"),
@@ -36,15 +36,15 @@ FACTS_EN = [
 SHORT_FR = "Don’t Tap Red est un jeu de réflexes gratuit sur iPhone et Android : tape les cubes bleus, enchaîne les combos… et ne touche jamais le rouge."
 LONG_FR = [
     "Tape le bleu, évite le rouge… facile ? Pas si vite ! Don’t Tap Red est un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient : garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge !",
-    "Cinq modes de jeu (Arcade, Rain, Chrono, Challenge et Événement), des boss géants que tous les joueurs attaquent ensemble à chaque saison, 50 niveaux puis des Prestiges, des classements mondiaux et entre amis, plus de 100 skins et des saisons qui transforment le jeu. Gratuit, avec achats intégrés facultatifs, en français et en anglais.",
+    "Cinq modes de jeu (Arcade, Rain, Chrono, Fusion et Événement), des boss géants que tous les joueurs attaquent ensemble à chaque saison, 50 niveaux puis des Prestiges, des classements mondiaux et entre amis, plus de 100 skins et des saisons qui transforment le jeu. Gratuit, avec achats intégrés facultatifs, en français et en anglais.",
 ]
 SHORT_EN = "Don't Tap Red is a free reflex game for iPhone and Android: tap the blue cubes, build your combo… and never touch the red one."
 LONG_EN = [
     "Tap the blue, avoid the red… easy? Not so fast! Don't Tap Red is a fast-paced reflex game where every second counts. Cubes move, speed up and multiply: keep your cool, chain the right cubes and above all… never touch the red one!",
-    "Five game modes (Arcade, Rain, Chrono, Challenge and Event), giant seasonal bosses that all players attack together, 50 levels followed by Prestige ranks, world and friends leaderboards, 100+ skins and seasons that transform the game. Free to play with optional in-app purchases, available in English and French.",
+    "Five game modes (Arcade, Rain, Chrono, Fusion and Event), giant seasonal bosses that all players attack together, 50 levels followed by Prestige ranks, world and friends leaderboards, 100+ skins and seasons that transform the game. Free to play with optional in-app purchases, available in English and French.",
 ]
 FEATURES = [
-    ("5 modes de jeu", "Arcade, Rain, Chrono, Challenge et Événement&nbsp;: 20&nbsp;mondes avec 3&nbsp;étoiles chacun, un Défi du jour et des boss."),
+    ("5 modes de jeu", "Arcade, Rain, Chrono, Fusion et Événement&nbsp;: des combos, des cubes qui tombent du ciel, 60&nbsp;secondes chrono, un tonneau où fusionner les cubes jusqu’au cube d’or, et des boss."),
     ("Boss communautaires", "À chaque saison, un boss géant que tous les joueurs attaquent ensemble, en direct&nbsp;: Le Cube Noir, puis Le Cadeau Piégé en janvier."),
     ("Niveaux et Prestiges", "50&nbsp;niveaux, puis des Prestiges avec emblèmes et skins exclusifs."),
     ("Classements et amis", "Mondial, de la semaine et du mois, avec des récompenses, et entre amis. Inviter un ami rapporte 100&nbsp;gems à chacun."),
@@ -53,7 +53,7 @@ FEATURES = [
     ("Des saisons", "Halloween, Noël, Saint-Valentin, Pâques&nbsp;: skins et missions en édition limitée."),
     ("Parties rapides", "Quelques minutes suffisent&nbsp;: parfait pour une pause."),
 ]
-NEWS = "Au lancement, le jeu est en <b>saison Halloween</b> jusqu’au 1<sup>er</sup>&nbsp;novembre&nbsp;: accueil hanté, bonbons à attraper et 6&nbsp;skins exclusifs. Le <b>2&nbsp;novembre</b>, tous les joueurs s’unissent contre le premier boss, <b>Le Cube Noir</b>, puis contre <b>Le Cadeau Piégé</b> en janvier. Nouveau&nbsp;: <b>inviter un ami</b> rapporte 100&nbsp;gems à chacun."
+NEWS = "Nouveau dans la <b>version 3.0.2</b>&nbsp;: le mode <b>Fusion</b>, où les cubes tombent dans un tonneau et fusionnent jusqu’au cube d’or sans dépasser la ligne rouge, avec 3&nbsp;bonus (Échanger, Secouer et le marteau Casser). Le jeu arrive aussi sur <b>iPad</b> et s’adapte aux tablettes et aux téléphones pliables, avec <b>24&nbsp;nouveaux skins</b> et un nouvel écran d’accueil. Fusion compte dans les classements mondiaux et les missions. Toujours là&nbsp;: <b>inviter un ami</b> rapporte 100&nbsp;gems à chacun."
 CONTACT = "donttapred.contact@gmail.com"
 # « Ils en parlent » : un article par ligne, le plus récent en premier
 COVERAGE = [
@@ -72,7 +72,7 @@ MEDIA_LIST = [
     ("logo-lndrs-studio.png", "Logo LNDRS Studio", "1036 × 891 · PNG transparent"),
 ]
 SHOTS = [
-    ("capture-1-accueil.png", "Accueil (saison Halloween)"),
+    ("capture-1-accueil.png", "Accueil"),
     ("capture-2-arcade.png", "Mode Arcade"),
     ("capture-3-rain.png", "Mode Rain"),
     ("capture-4-chrono.png", "Mode Chrono"),
@@ -80,6 +80,7 @@ SHOTS = [
     ("capture-6-classement.png", "Classement mondial"),
     ("capture-7-skins.png", "Skins Halloween"),
     ("capture-8-amis.png", "Jouer avec ses amis"),
+    ("capture-9-fusion.png", "Mode Fusion (nouveau)"),
 ]
 VIDEOS = [
     # (fichier, titre, détail) : 1080 × 1920, H.264

@@ -42,7 +42,7 @@ ld = {
     "name": "Don't Tap Red",
     "url": "https://www.landers2k.com/dont-tap-red/en/",
     "image": "https://www.landers2k.com/assets/img/dtr-icon.jpg",
-    "description": "Free reflex game: tap the right cubes, never touch the red one. Five modes (Arcade, Rain, Challenge, Chrono, Event), community bosses, missions, titles and leaderboards.",
+    "description": "Free reflex game: tap the right cubes, never touch the red one. Five modes (Arcade, Rain, Chrono, Fusion, Event), community bosses, missions, titles and leaderboards.",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "GameApplication",
     "inLanguage": ["en", "fr"],

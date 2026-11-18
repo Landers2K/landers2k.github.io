@@ -82,7 +82,7 @@ cubes = """    <!-- ===================== Les cubes ===================== -->
             <p>Selon le mode, il te coûte du temps, une vie… ou la partie entière.</p>
           </article>
         </div>
-        <p class="kpi-note reveal">Points du mode Arcade. En Challenge, ils grimpent de monde en monde.</p>
+        <p class="kpi-note reveal">Points du mode Arcade. En Fusion, tous les cubes se fusionnent, même le rouge.</p>
       </div>
     </section>
 
@@ -122,11 +122,11 @@ codes = """    <!-- ===================== Codes cadeaux ===================== --
 """
 
 faq_items = [
-    ("Le jeu est-il gratuit&nbsp;?", "Oui. Don’t Tap Red est gratuit sur iPhone et Android. Il contient des publicités, que tu peux supprimer pour toujours avec un achat unique, et des achats facultatifs comme des packs et des skins."),
+    ("Le jeu est-il gratuit&nbsp;?", "Oui. Don’t Tap Red est gratuit sur iPhone, iPad et Android. Il contient des publicités, que tu peux supprimer pour toujours avec un achat unique, et des achats facultatifs comme des packs et des skins."),
     ("Quand sort le jeu&nbsp;?", "Il est sorti le 21 octobre 2026 sur iPhone et le 22 octobre 2026 sur Android&nbsp;: il est disponible gratuitement sur l’App Store et sur Google Play."),
-    ("Sur quels appareils et dans quelles langues&nbsp;?", "Sur iPhone et sur les téléphones Android. Le jeu est disponible en français et en anglais."),
+    ("Sur quels appareils et dans quelles langues&nbsp;?", "Sur iPhone, iPad et sur les téléphones et tablettes Android. Le jeu est disponible en français et en anglais."),
     ("Comment utiliser un code cadeau&nbsp;?", "Dans le jeu, va dans PARAMÈTRES, puis touche CODE CADEAU et entre ton code. La récompense arrive tout de suite sur ton compte."),
-    ("Comment fonctionnent les classements&nbsp;?", "En Arcade, Rain et Chrono, ton meilleur score compte dans le classement mondial, celui de la semaine et celui du mois. Le top&nbsp;10 de chaque mode reçoit des récompenses chaque semaine, directement dans ta boîte aux lettres."),
+    ("Comment fonctionnent les classements&nbsp;?", "En Arcade, Rain, Chrono et Fusion, ton meilleur score compte dans le classement mondial, celui de la semaine et celui du mois. Le top&nbsp;10 de chaque mode reçoit des récompenses chaque semaine, directement dans ta boîte aux lettres."),
     ("J’ai trouvé un bug ou j’ai une idée&nbsp;: je fais comment&nbsp;?", 'Écris à <a href="mailto:donttapred.contact@gmail.com">donttapred.contact@gmail.com</a> ou viens en parler sur le <a href="https://discord.gg/uGGmDmts8Y" target="_blank" rel="noopener">Discord</a>.'),
     ("Et mes données personnelles&nbsp;?", 'Tout est expliqué dans la <a href="https://sites.google.com/view/donttapred-confidentialite" target="_blank" rel="noopener">politique de confidentialité du jeu</a>.'),
 ]
@@ -158,7 +158,7 @@ ld = {
     "name": "Don't Tap Red",
     "url": "https://www.landers2k.com/dont-tap-red/",
     "image": "https://www.landers2k.com/assets/img/dtr-icon.jpg",
-    "description": "Jeu de réflexes gratuit : tape les bons cubes, ne touche jamais le rouge. Cinq modes (Arcade, Rain, Challenge, Chrono, Événement), boss communautaires, missions, titres et classements.",
+    "description": "Jeu de réflexes gratuit : tape les bons cubes, ne touche jamais le rouge. Cinq modes (Arcade, Rain, Chrono, Fusion, Événement), boss communautaires, missions, titres et classements.",
     "operatingSystem": "iOS, Android",
     "applicationCategory": "GameApplication",
     "inLanguage": ["fr", "en"],
