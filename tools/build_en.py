@@ -169,7 +169,7 @@ ACCUEIL = [
     ("Chaque abonnement, like ou partage aide mes contenus à être vus par plus de monde.", "Every follow, like or share helps my content reach more people."),
     ("</svg>S’abonner sur YouTube</a>", "</svg>Subscribe on YouTube</a>"),
     ("</svg>Me suivre sur TikTok</a>", "</svg>Follow me on TikTok</a>"),
-    ("</svg>Noter Don’t Tap Red sur iPhone</a>", "</svg>Rate Don’t Tap Red on iPhone</a>"),
+    ("</svg>Noter Don’t Tap Red sur iPhone et iPad</a>", "</svg>Rate Don’t Tap Red on iPhone &amp; iPad</a>"),
     ("</svg>Noter Don’t Tap Red sur Android</a>", "</svg>Rate Don’t Tap Red on Android</a>"),
     # ---- Contact
     ("data-split>Une idée&nbsp;? Écris-moi.</h2>", "data-split>Got an idea? Write to me.</h2>"),

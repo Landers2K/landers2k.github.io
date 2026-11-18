@@ -16,7 +16,7 @@ setup = (ROOT / "setup.html").read_text("utf-8")
 FACTS = [
     ("Jeu", "Don’t Tap Red"),
     ("Développeur", "LNDRS Studio, le studio indépendant de Landers2K (France)"),
-    ("Sortie", "21 octobre 2026 sur iPhone · 22 octobre 2026 sur Android"),
+    ("Sortie", "21 octobre 2026 sur iPhone · 22 octobre 2026 sur Android · 11 novembre 2026 sur iPad et iPhone Duo (version 3.0.2)"),
     ("Plateformes", "iPhone, iPhone Duo et iPad (App Store), téléphones et tablettes Android (Google Play)"),
     ("Prix", "Gratuit, achats intégrés facultatifs"),
     ("Langues", "Français et anglais"),
@@ -26,7 +26,7 @@ FACTS = [
 FACTS_EN = [
     ("Game", "Don't Tap Red"),
     ("Developer", "LNDRS Studio, Landers2K’s independent studio (France)"),
-    ("Release date", "October 21, 2026 on iPhone · October 22, 2026 on Android"),
+    ("Release date", "October 21, 2026 on iPhone · October 22, 2026 on Android · November 11, 2026 on iPad and iPhone Duo (version 3.0.2)"),
     ("Platforms", "iPhone, iPhone Duo and iPad (App Store), Android phones and tablets (Google Play)"),
     ("Price", "Free to play, optional in-app purchases"),
     ("Languages", "French and English"),
