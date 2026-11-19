@@ -1,15 +1,15 @@
 {
   "account": "landers2k",
   "followers": 6218,
-  "likes": 77900,
+  "likes": 78000,
   "recentVideos": 13,
-  "recentViews": 323871,
+  "recentViews": 333427,
   "bestViews": 93900,
   "latest": {
     "id": "7709728385446071585",
     "url": "https://www.tiktok.com/@landers2k/video/7709728385446071585",
     "description": "Mandy hein 👀  #Landers2K  #GTAVI #Mandy #pourtoiii  #fyp",
-    "plays": 4157,
+    "plays": 13700,
     "published": "2026-11-19",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -26,7 +26,7 @@
       "id": "7703559428884204822",
       "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
       "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-      "plays": 870,
+      "plays": 872,
       "published": "2026-11-02",
       "cover": "assets/img/tiktok/7703559428884204822.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2830,
+      "plays": 2838,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -42,7 +42,7 @@
       "id": "7700989457800908065",
       "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
       "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 375,
+      "plays": 377,
       "published": "2026-10-26",
       "cover": "assets/img/tiktok/7700989457800908065.webp"
     },
@@ -64,20 +64,20 @@
     }
   ],
   "views": {
-    "7709728385446071585": 4157,
+    "7709728385446071585": 13700,
     "7705459943352044822": 2265,
-    "7703559428884204822": 870,
-    "7702299825097674016": 2830,
-    "7700989457800908065": 375,
+    "7703559428884204822": 872,
+    "7702299825097674016": 2838,
+    "7700989457800908065": 377,
     "7700055901885025569": 58300,
     "7699640445613133089": 6063,
     "7699308760002612512": 12400,
-    "7698926683495140640": 1237,
+    "7698926683495140640": 1238,
     "7698926414413827361": 474,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 93900
   },
   "coverId": "7709728385446071585",
-  "updated": "2026-11-19T13:04:03+00:00"
+  "updated": "2026-11-19T21:32:22+00:00"
 }
