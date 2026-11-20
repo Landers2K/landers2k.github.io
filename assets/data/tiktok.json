@@ -1,19 +1,27 @@
 {
   "account": "landers2k",
-  "followers": 6217,
-  "likes": 78000,
+  "followers": 6216,
+  "likes": 78100,
   "recentVideos": 13,
-  "recentViews": 339711,
+  "recentViews": 332984,
   "bestViews": 94000,
   "latest": {
-    "id": "7709739422895312160",
-    "url": "https://www.tiktok.com/@landers2k/video/7709739422895312160",
-    "description": "Réaliste comme Insta ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 601,
+    "id": "7709739830338473249",
+    "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
+    "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+    "plays": 561,
     "published": "2026-11-19",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
+    {
+      "id": "7709739422895312160",
+      "url": "https://www.tiktok.com/@landers2k/video/7709739422895312160",
+      "description": "Réaliste comme Insta ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 911,
+      "published": "2026-11-19",
+      "cover": "assets/img/tiktok/7709739422895312160.webp"
+    },
     {
       "id": "7709739222197964064",
       "url": "https://www.tiktok.com/@landers2k/video/7709739222197964064",
@@ -26,7 +34,7 @@
       "id": "7709728385446071585",
       "url": "https://www.tiktok.com/@landers2k/video/7709728385446071585",
       "description": "Mandy hein 👀  #Landers2K  #GTAVI #Mandy #pourtoiii  #fyp",
-      "plays": 19800,
+      "plays": 24600,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709728385446071585.webp"
     },
@@ -50,34 +58,26 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2851,
+      "plays": 2853,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
-    },
-    {
-      "id": "7700989457800908065",
-      "url": "https://www.tiktok.com/@landers2k/video/7700989457800908065",
-      "description": "60 secondes. Ton score en commentaire ⏱️ 60 seconds. Drop your score in the comments ⏱️ 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #donttapred #fyp #devsolo #indiegame #mobilegame",
-      "plays": 377,
-      "published": "2026-10-26",
-      "cover": "assets/img/tiktok/7700989457800908065.webp"
     }
   ],
   "views": {
-    "7709739422895312160": 601,
+    "7709739830338473249": 561,
+    "7709739422895312160": 911,
     "7709739222197964064": 777,
-    "7709728385446071585": 19800,
+    "7709728385446071585": 24600,
     "7705459943352044822": 2658,
     "7703559428884204822": 876,
-    "7702299825097674016": 2851,
+    "7702299825097674016": 2853,
     "7700989457800908065": 377,
     "7700055901885025569": 58300,
     "7699640445613133089": 6071,
-    "7699308760002612512": 12400,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 94000
   },
-  "coverId": "7709739422895312160",
-  "updated": "2026-11-20T11:41:09+00:00"
+  "coverId": "7709739830338473249",
+  "updated": "2026-11-20T20:16:21+00:00"
 }
