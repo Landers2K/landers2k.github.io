@@ -1,24 +1,32 @@
 {
   "account": "landers2k",
-  "followers": 6218,
+  "followers": 6217,
   "likes": 78000,
   "recentVideos": 13,
-  "recentViews": 333427,
+  "recentViews": 337467,
   "bestViews": 93900,
   "latest": {
-    "id": "7709728385446071585",
-    "url": "https://www.tiktok.com/@landers2k/video/7709728385446071585",
-    "description": "Mandy hein 👀  #Landers2K  #GTAVI #Mandy #pourtoiii  #fyp",
-    "plays": 13700,
+    "id": "7709739222197964064",
+    "url": "https://www.tiktok.com/@landers2k/video/7709739222197964064",
+    "description": "Mandy’s mission 🔥👀 #Landers2K  #GTAVI  #Mandy  #pourtoiii  #fyp",
+    "plays": 316,
     "published": "2026-11-19",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
     {
+      "id": "7709728385446071585",
+      "url": "https://www.tiktok.com/@landers2k/video/7709728385446071585",
+      "description": "Mandy hein 👀  #Landers2K  #GTAVI #Mandy #pourtoiii  #fyp",
+      "plays": 17500,
+      "published": "2026-11-19",
+      "cover": "assets/img/tiktok/7709728385446071585.webp"
+    },
+    {
       "id": "7705459943352044822",
       "url": "https://www.tiktok.com/@landers2k/video/7705459943352044822",
       "description": "J'ARRETE 7DSO ET J'AI BESOIN DE VOUS PARLER ! #fyp #sevendeadlysinsorigin #sevendeadlysins #7ds #7dsorigin",
-      "plays": 2265,
+      "plays": 2649,
       "published": "2026-11-07",
       "cover": "assets/img/tiktok/7705459943352044822.webp"
     },
@@ -26,7 +34,7 @@
       "id": "7703559428884204822",
       "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
       "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-      "plays": 872,
+      "plays": 873,
       "published": "2026-11-02",
       "cover": "assets/img/tiktok/7703559428884204822.webp"
     },
@@ -34,7 +42,7 @@
       "id": "7702299825097674016",
       "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
       "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2838,
+      "plays": 2843,
       "published": "2026-10-30",
       "cover": "assets/img/tiktok/7702299825097674016.webp"
     },
@@ -53,31 +61,23 @@
       "plays": 58300,
       "published": "2026-10-24",
       "cover": "assets/img/tiktok/7700055901885025569.webp"
-    },
-    {
-      "id": "7699640445613133089",
-      "url": "https://www.tiktok.com/@landers2k/video/7699640445613133089",
-      "description": "J'ai créé ce jeu tout seul et il est enfin sorti 🎉 Ton avis ? I made this game alone and it's finally out 🎉 What do you think? 📱 iPhone : https://apps.apple.com/app/dont-tap-red/id6820198356 🤖 Android : https://play.google.com/store/apps/details?id=com.landers2k.donttapred #DontTapRed #devsolo #solodev #indiedev #gamedev",
-      "plays": 6063,
-      "published": "2026-10-22",
-      "cover": "assets/img/tiktok/7699640445613133089.webp"
     }
   ],
   "views": {
-    "7709728385446071585": 13700,
-    "7705459943352044822": 2265,
-    "7703559428884204822": 872,
-    "7702299825097674016": 2838,
+    "7709739222197964064": 316,
+    "7709728385446071585": 17500,
+    "7705459943352044822": 2649,
+    "7703559428884204822": 873,
+    "7702299825097674016": 2843,
     "7700989457800908065": 377,
     "7700055901885025569": 58300,
-    "7699640445613133089": 6063,
+    "7699640445613133089": 6071,
     "7699308760002612512": 12400,
     "7698926683495140640": 1238,
-    "7698926414413827361": 474,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 93900
   },
-  "coverId": "7709728385446071585",
-  "updated": "2026-11-19T21:32:22+00:00"
+  "coverId": "7709739222197964064",
+  "updated": "2026-11-20T03:13:57+00:00"
 }
