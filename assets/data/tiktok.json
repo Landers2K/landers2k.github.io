@@ -3,22 +3,30 @@
   "followers": 6214,
   "likes": 78100,
   "recentVideos": 13,
-  "recentViews": 333472,
+  "recentViews": 277648,
   "bestViews": 94000,
   "latest": {
-    "id": "7709740117937720608",
-    "url": "https://www.tiktok.com/@landers2k/video/7709740117937720608",
-    "description": "Je découvre les clignotants dans le jeu 😭😭😭 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 885,
+    "id": "7709740434846747937",
+    "url": "https://www.tiktok.com/@landers2k/video/7709740434846747937",
+    "description": "Valérie Damido sur GTA 🤪 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+    "plays": 328,
     "published": "2026-11-19",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
     {
+      "id": "7709740117937720608",
+      "url": "https://www.tiktok.com/@landers2k/video/7709740117937720608",
+      "description": "Je découvre les clignotants dans le jeu 😭😭😭 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 922,
+      "published": "2026-11-19",
+      "cover": "assets/img/tiktok/7709740117937720608.webp"
+    },
+    {
       "id": "7709739830338473249",
       "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
       "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 817,
+      "plays": 823,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709739830338473249.webp"
     },
@@ -26,7 +34,7 @@
       "id": "7709739422895312160",
       "url": "https://www.tiktok.com/@landers2k/video/7709739422895312160",
       "description": "Réaliste comme Insta ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 922,
+      "plays": 925,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709739422895312160.webp"
     },
@@ -42,7 +50,7 @@
       "id": "7709728385446071585",
       "url": "https://www.tiktok.com/@landers2k/video/7709728385446071585",
       "description": "Mandy hein 👀  #Landers2K  #GTAVI #Mandy #pourtoiii  #fyp",
-      "plays": 30000,
+      "plays": 32100,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709728385446071585.webp"
     },
@@ -53,31 +61,23 @@
       "plays": 2658,
       "published": "2026-11-07",
       "cover": "assets/img/tiktok/7705459943352044822.webp"
-    },
-    {
-      "id": "7703559428884204822",
-      "url": "https://www.tiktok.com/@landers2k/video/7703559428884204822",
-      "description": "Tu tiens combien de temps ? 🔴⬛ La 3.0 de Don't Tap Red est sortie : le CUBE NOIR attaque (tous les joueurs contre lui jusqu'au 9 novembre), 20 fonds animés, 20 effets de tap et le Pass de Novembre 🚀 Jeu gratuit, lien en bio 📲 #donttapred #jeumobile #jeuvideo #indiegame #gaming #mobilegame #devsolo #pourtoi #fyp",
-      "plays": 876,
-      "published": "2026-11-02",
-      "cover": "assets/img/tiktok/7703559428884204822.webp"
     }
   ],
   "views": {
-    "7709740117937720608": 885,
-    "7709739830338473249": 817,
-    "7709739422895312160": 922,
+    "7709740434846747937": 328,
+    "7709740117937720608": 922,
+    "7709739830338473249": 823,
+    "7709739422895312160": 925,
     "7709739222197964064": 777,
-    "7709728385446071585": 30000,
+    "7709728385446071585": 32100,
     "7705459943352044822": 2658,
     "7703559428884204822": 876,
-    "7702299825097674016": 2860,
+    "7702299825097674016": 2862,
     "7700989457800908065": 377,
-    "7700055901885025569": 58300,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 94000
   },
-  "coverId": "7709740117937720608",
-  "updated": "2026-11-21T09:49:23+00:00"
+  "coverId": "7709740434846747937",
+  "updated": "2026-11-21T17:30:34+00:00"
 }
