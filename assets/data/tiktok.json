@@ -1,24 +1,32 @@
 {
   "account": "landers2k",
-  "followers": 6215,
+  "followers": 6214,
   "likes": 78100,
   "recentVideos": 13,
-  "recentViews": 336635,
+  "recentViews": 333472,
   "bestViews": 94000,
   "latest": {
-    "id": "7709739830338473249",
-    "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
-    "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 802,
+    "id": "7709740117937720608",
+    "url": "https://www.tiktok.com/@landers2k/video/7709740117937720608",
+    "description": "Je découvre les clignotants dans le jeu 😭😭😭 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+    "plays": 885,
     "published": "2026-11-19",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
     {
+      "id": "7709739830338473249",
+      "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
+      "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 817,
+      "published": "2026-11-19",
+      "cover": "assets/img/tiktok/7709739830338473249.webp"
+    },
+    {
       "id": "7709739422895312160",
       "url": "https://www.tiktok.com/@landers2k/video/7709739422895312160",
       "description": "Réaliste comme Insta ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 917,
+      "plays": 922,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709739422895312160.webp"
     },
@@ -34,7 +42,7 @@
       "id": "7709728385446071585",
       "url": "https://www.tiktok.com/@landers2k/video/7709728385446071585",
       "description": "Mandy hein 👀  #Landers2K  #GTAVI #Mandy #pourtoiii  #fyp",
-      "plays": 28000,
+      "plays": 30000,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709728385446071585.webp"
     },
@@ -53,31 +61,23 @@
       "plays": 876,
       "published": "2026-11-02",
       "cover": "assets/img/tiktok/7703559428884204822.webp"
-    },
-    {
-      "id": "7702299825097674016",
-      "url": "https://www.tiktok.com/@landers2k/video/7702299825097674016",
-      "description": "La luck a enfin tourné !!! Merceeeee  #Landers2K  #SevenDeadlySinsOrigin  #7DSOrigin  #7dso  #sevendeadlysins",
-      "plays": 2857,
-      "published": "2026-10-30",
-      "cover": "assets/img/tiktok/7702299825097674016.webp"
     }
   ],
   "views": {
-    "7709739830338473249": 802,
-    "7709739422895312160": 917,
+    "7709740117937720608": 885,
+    "7709739830338473249": 817,
+    "7709739422895312160": 922,
     "7709739222197964064": 777,
-    "7709728385446071585": 28000,
+    "7709728385446071585": 30000,
     "7705459943352044822": 2658,
     "7703559428884204822": 876,
-    "7702299825097674016": 2857,
+    "7702299825097674016": 2860,
     "7700989457800908065": 377,
     "7700055901885025569": 58300,
-    "7699640445613133089": 6071,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 94000
   },
-  "coverId": "7709739830338473249",
-  "updated": "2026-11-21T01:34:17+00:00"
+  "coverId": "7709740117937720608",
+  "updated": "2026-11-21T09:49:23+00:00"
 }
