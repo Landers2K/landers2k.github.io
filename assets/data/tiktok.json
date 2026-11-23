@@ -3,22 +3,30 @@
   "followers": 6208,
   "likes": 78200,
   "recentVideos": 13,
-  "recentViews": 286354,
+  "recentViews": 286723,
   "bestViews": 94100,
   "latest": {
-    "id": "7709740434846747937",
-    "url": "https://www.tiktok.com/@landers2k/video/7709740434846747937",
-    "description": "Valérie Damido sur GTA 🤪 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 936,
-    "published": "2026-11-19",
+    "id": "7710480268427021601",
+    "url": "https://www.tiktok.com/@landers2k/video/7710480268427021601",
+    "description": "Un trans sous BBL ??  ##Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+    "plays": 725,
+    "published": "2026-11-21",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
     {
+      "id": "7709740434846747937",
+      "url": "https://www.tiktok.com/@landers2k/video/7709740434846747937",
+      "description": "Valérie Damido sur GTA 🤪 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 942,
+      "published": "2026-11-19",
+      "cover": "assets/img/tiktok/7709740434846747937.webp"
+    },
+    {
       "id": "7709740117937720608",
       "url": "https://www.tiktok.com/@landers2k/video/7709740117937720608",
       "description": "Je découvre les clignotants dans le jeu 😭😭😭 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 960,
+      "plays": 966,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709740117937720608.webp"
     },
@@ -26,7 +34,7 @@
       "id": "7709739830338473249",
       "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
       "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 840,
+      "plays": 847,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709739830338473249.webp"
     },
@@ -34,7 +42,7 @@
       "id": "7709739422895312160",
       "url": "https://www.tiktok.com/@landers2k/video/7709739422895312160",
       "description": "Réaliste comme Insta ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 937,
+      "plays": 939,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709739422895312160.webp"
     },
@@ -53,31 +61,23 @@
       "plays": 40000,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709728385446071585.webp"
-    },
-    {
-      "id": "7705459943352044822",
-      "url": "https://www.tiktok.com/@landers2k/video/7705459943352044822",
-      "description": "J'ARRETE 7DSO ET J'AI BESOIN DE VOUS PARLER ! #fyp #sevendeadlysinsorigin #sevendeadlysins #7ds #7dsorigin",
-      "plays": 2658,
-      "published": "2026-11-07",
-      "cover": "assets/img/tiktok/7705459943352044822.webp"
     }
   ],
   "views": {
-    "7709740434846747937": 936,
-    "7709740117937720608": 960,
-    "7709739830338473249": 840,
-    "7709739422895312160": 937,
+    "7710480268427021601": 725,
+    "7709740434846747937": 942,
+    "7709740117937720608": 966,
+    "7709739830338473249": 847,
+    "7709739422895312160": 939,
     "7709739222197964064": 777,
     "7709728385446071585": 40000,
     "7705459943352044822": 2658,
-    "7703559428884204822": 881,
+    "7703559428884204822": 882,
     "7702299825097674016": 2887,
-    "7700989457800908065": 378,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 94100
   },
-  "coverId": "7709740434846747937",
-  "updated": "2026-11-23T00:52:16+00:00"
+  "coverId": "7710480268427021601",
+  "updated": "2026-11-23T09:03:03+00:00"
 }
