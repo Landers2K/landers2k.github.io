@@ -613,10 +613,12 @@ const CONFIG = {
     const t = reduced ? 0 : (r.top + r.height / 2 - vh / 2) / vh;
     for (const c of sc.cubes) {
       const edge = margin / 2 + c.j * margin * .3;
+      // Marge étroite : le cube rétrécit pour rester dans la marge (sans jamais passer sous 45 %)
+      const fit = c.side ? clamp(2 * (margin - 8 - edge) / c.s, .45, 1) : 1;
       const x = (c.side ? (c.side < 0 ? edge : W - edge) : c.x / 100 * W) + mx * c.z * 30;
       const y = c.y / 100 * H - t * c.z * 160 + my * c.z * 24;
       const rot = t * c.z * 30 * c.sign;
-      c.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${rot.toFixed(1)}deg)`;
+      c.el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${rot.toFixed(1)}deg)${fit < 1 ? ` scale(${fit.toFixed(2)})` : ''}`;
     }
   };
 
@@ -1262,23 +1264,86 @@ const CONFIG = {
      Quoi de neuf : « Nouveau », « Dans 6 jours »… selon la date du jour
      ------------------------------------------------------------------------ */
   (function news() {
+    const list = $('.news-list');
+    if (!list) return;
     const today = startOfDay(new Date());
-    $$('.news-item[data-date]').forEach(item => {
-      const tag = $('.news-tag', item);
-      if (!tag) return;
+    const items = $$('.news-item[data-date]', list).map(item => {
       const [y, m, d] = item.dataset.date.split('-').map(Number);
-      const diff = Math.round((new Date(y, m - 1, d) - today) / DAY);
-      let label = '';
-      if (diff > 30) label = tr('Bientôt', 'Coming soon');
-      else if (diff > 1) label = tr(`Dans ${diff} jours`, `In ${diff} days`);
-      else if (diff === 1) label = tr('Demain', 'Tomorrow');
-      else if (diff === 0) label = tr('Aujourd’hui', 'Today');
-      else if (diff >= -14) label = tr('Nouveau', 'New');
-      if (!label) return;
-      tag.textContent = label;
-      tag.hidden = false;
-      item.classList.add(diff > 0 ? 'is-soon' : 'is-new');
+      const date = new Date(y, m - 1, d);
+      return { item, date, diff: Math.round((date - today) / DAY) };
     });
+    const label = diff => (diff > 30 ? tr('Bientôt', 'Coming soon')
+      : diff > 1 ? tr(`Dans ${diff} jours`, `In ${diff} days`)
+      : diff === 1 ? tr('Demain', 'Tomorrow')
+      : diff === 0 ? tr('Aujourd’hui', 'Today')
+      : diff >= -14 ? tr('Nouveau', 'New') : '');
+    items.forEach(({ item, diff }) => {
+      const tag = $('.news-tag', item);
+      const l = label(diff);
+      if (tag && l) { tag.textContent = l; tag.hidden = false; }
+      item.classList.add(diff >= 0 ? 'is-soon' : 'is-past');
+      if (diff < 0 && diff >= -14) item.classList.add('is-new');
+    });
+
+    // À la une : le prochain événement (sinon la dernière nouveauté)
+    const soon = items.filter(i => i.diff >= 0).sort((a, b) => a.date - b.date);
+    const past = items.filter(i => i.diff < 0).sort((a, b) => b.date - a.date);
+    const top = soon[0] || past[0];
+    const feat = $('[data-news-feature]');
+    if (feat && top) {
+      const { item, date, diff } = top;
+      item.classList.add('is-featured');
+      feat.style.setProperty('--brand', item.style.getPropertyValue('--brand'));
+      const visuals = (item.dataset.visual || '').split(/\s+/).filter(Boolean).slice(0, 3);
+      const vis = document.createElement('div');
+      vis.className = `nf-visual${visuals.length > 1 ? ' is-fan' : ''}`;
+      vis.setAttribute('aria-hidden', 'true');
+      visuals.forEach((src, i) => {
+        const k = i - (visuals.length - 1) / 2;   // -1, 0, 1 : gauche, centre, droite
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        if (/\.png$/.test(src)) img.className = 'is-cut';
+        img.style.cssText = `--x:${k * (vw < 860 ? 70 : 92)}px;--y:${Math.abs(k) * 16}px;--r:${k * 10}deg;--z:${3 - Math.abs(k) * 2};--d:${i * -1.4}s`;
+        vis.append(img);
+      });
+      const when = $('time', item).textContent;
+      const body = document.createElement('div');
+      const kick = diff > 0 ? tr('Prochainement', 'Up next') : diff === 0 ? tr('Aujourd’hui', 'Today') : tr('Dernière nouveauté', 'Latest news');
+      body.innerHTML = `<p class="nf-kicker"></p><h3>${$('h3', item).innerHTML}</h3><p class="nf-text">${$('.news-body > p:not(.news-date)', item).innerHTML}</p>
+        <div class="nf-count" hidden><span><b data-n="d">0</b>${tr('jours', 'days')}</span><span><b data-n="h">0</b>${tr('heures', 'hours')}</span><span><b data-n="m">0</b>min</span></div>
+        <div class="nf-cta"></div>`;
+      $('.nf-kicker', body).textContent = `${kick} · ${when}`;
+      const link = $('.link-arrow', item);
+      if (link) {
+        const btn = link.cloneNode(true);
+        btn.className = 'btn btn-light';
+        $('.nf-cta', body).append(btn);
+      }
+      feat.append(vis, ...body.childNodes);
+      feat.hidden = false;
+      if (diff > 0) {
+        const count = $('.nf-count', feat);
+        count.hidden = false;
+        const pad = n => String(n).padStart(2, '0');
+        const tick = () => {
+          let s = Math.max(0, Math.floor((date - Date.now()) / 1000));
+          $('[data-n="d"]', count).textContent = Math.floor(s / 86400); s %= 86400;
+          $('[data-n="h"]', count).textContent = pad(Math.floor(s / 3600)); s %= 3600;
+          $('[data-n="m"]', count).textContent = pad(Math.floor(s / 60));
+        };
+        tick();
+        setInterval(tick, 20000);
+      }
+    }
+
+    // La frise : « À venir » (le plus proche d'abord), puis « Déjà sorti » (le plus récent d'abord)
+    const group = text => { const li = document.createElement('li'); li.className = 'news-group'; li.textContent = text; return li; };
+    const rest = arr => arr.filter(i => i !== top).map(i => i.item);
+    const s = rest(soon), p = rest(past);
+    if (s.length) list.append(group(tr('À venir', 'Coming up')), ...s);
+    if (p.length) list.append(group(tr('Déjà sorti', 'Already out')), ...p);
+    if (top) list.append(top.item);   // gardée dans la liste, cachée (elle est à la une)
   })();
 
   /* ------------------------------------------------------------------------
