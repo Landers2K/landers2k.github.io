@@ -12,7 +12,7 @@
     {
      "name": "Ophé la bg",
      "score": 17043,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
@@ -68,13 +68,13 @@
     {
      "name": "Ophé la bg",
      "score": 1434,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
      "name": "aN9r1",
      "score": 738,
-     "level": 3,
+     "level": 4,
      "prestige": 0
     },
     {
@@ -102,7 +102,7 @@
     {
      "name": "Ophé la bg",
      "score": 17237,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
@@ -152,13 +152,19 @@
     {
      "name": "Ophé la bg",
      "score": 15256,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
      "name": "aN9r1",
-     "score": 686,
-     "level": 3,
+     "score": 1553,
+     "level": 4,
+     "prestige": 0
+    },
+    {
+     "name": "Paynow",
+     "score": 1128,
+     "level": 5,
      "prestige": 0
     },
     {
@@ -198,7 +204,7 @@
     {
      "name": "Ophé la bg",
      "score": 4607,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
@@ -235,8 +241,8 @@
    "week": [
     {
      "name": "Ophé la bg",
-     "score": 4188,
-     "level": 43,
+     "score": 4562,
+     "level": 45,
      "prestige": 1
     },
     {
@@ -254,7 +260,7 @@
     {
      "name": "aN9r1",
      "score": 2066,
-     "level": 3,
+     "level": 4,
      "prestige": 0
     }
    ]
@@ -270,7 +276,7 @@
     {
      "name": "Ophé la bg",
      "score": 3829,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
@@ -311,8 +317,8 @@
     },
     {
      "name": "Manu",
-     "score": 2152,
-     "level": 2,
+     "score": 2178,
+     "level": 6,
      "prestige": 0
     },
     {
@@ -326,13 +332,19 @@
     {
      "name": "Ophé la bg",
      "score": 2766,
-     "level": 43,
+     "level": 45,
      "prestige": 1
     },
     {
      "name": "Manu",
-     "score": 2152,
-     "level": 2,
+     "score": 2178,
+     "level": 6,
+     "prestige": 0
+    },
+    {
+     "name": "Paynow",
+     "score": 1166,
+     "level": 5,
      "prestige": 0
     },
     {
@@ -344,12 +356,12 @@
     {
      "name": "aN9r1",
      "score": 189,
-     "level": 3,
+     "level": 4,
      "prestige": 0
     }
    ]
   }
  },
  "boss": null,
- "updated": "2026-11-24T04:22+01:00"
+ "updated": "2026-11-24T18:43+01:00"
 }
