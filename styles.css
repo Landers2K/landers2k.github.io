@@ -2534,7 +2534,7 @@ html:not(.js) .tt-recent { display: none; }
 @keyframes dot-pulse { 50% { scale: 1.3; } }
 .news-item.is-featured { display: none; }
 .news-thumb { width: 64px; height: 64px; border-radius: 16px; object-fit: cover; background: #161e33; box-shadow: 0 0 0 1px rgba(255, 255, 255, .08); }
-.news-thumb[src$=".png"] { padding: 6px; object-fit: contain; }
+.news-thumb[src$=".png"], .news-thumb[src$=".avif"] { padding: 4px; object-fit: contain; }
 .news-date { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; color: var(--c-text-3); font-size: 12px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; }
 .news-tag { white-space: nowrap; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--brand) 22%, transparent); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 55%, transparent); color: var(--c-text); font-size: 10px; letter-spacing: .07em; }
 .news-tag[hidden] { display: none; }
@@ -2743,7 +2743,8 @@ html:not(.js) .tt-recent { display: none; }
 @keyframes track-flow { to { background-position: -200% 0; } }
 .pass-track li { position: relative; display: grid; justify-items: center; gap: 4px; text-align: center; }
 .pass-track li::after { content: ""; position: absolute; bottom: -26px; width: 18px; height: 18px; border-radius: 50%; background: var(--c-surface); box-shadow: inset 0 0 0 3px var(--brand), 0 0 14px var(--brand); }
-.pass-skin { position: relative; display: block; width: 100%; aspect-ratio: 1; overflow: hidden; border-radius: 20px; background: #161e33; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .06); }
+.pass-skin { position: relative; display: block; width: 100%; aspect-ratio: 1; }
+.pass-skin > img { filter: drop-shadow(0 10px 18px rgba(0, 0, 0, .45)); }
 .pass-skin-xl { overflow: visible; background: none; box-shadow: none; }
 .pass-skin img { width: 100%; height: 100%; transition: transform .5s var(--ease-out), filter .5s var(--ease); }
 .pass-track li:hover .pass-skin img { transform: scale(1.08) rotate(-3deg); }
@@ -2770,24 +2771,25 @@ html:not(.js) .tt-recent { display: none; }
   background: repeating-conic-gradient(from 0deg, var(--a1) 0deg 7deg, transparent 7deg 18deg, var(--a2) 18deg 25deg, transparent 25deg 36deg);
   -webkit-mask: radial-gradient(circle, #000 20%, transparent 68%);
   mask: radial-gradient(circle, #000 20%, transparent 68%);
-  opacity: .55;
-  animation: aura-spin 24s linear infinite;
+  opacity: .8;
+  animation: aura-spin 12s linear infinite;
 }
 .askin-aura::after { background: radial-gradient(circle, var(--a1) 0%, color-mix(in srgb, var(--a2) 40%, transparent) 30%, transparent 62%); opacity: .6; animation: aura-pulse calc(3s / var(--pulse, 1.6)) ease-in-out infinite; }
 @keyframes aura-spin { to { rotate: 360deg; } }
 @keyframes aura-pulse { 50% { opacity: .95; scale: 1.08; } }
 .askin-tile { position: absolute; inset: 0; }
-.askin-tile > img { width: 100%; height: 100%; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--rim) 70%, transparent)); animation: askin-bob 4s ease-in-out infinite; }
-@keyframes askin-bob { 50% { translate: 0 -4px; } }
+.askin-tile > img { width: 100%; height: 100%; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--rim) 70%, transparent)); animation: askin-bob 4s ease-in-out infinite, askin-glow calc(3s / var(--pulse, 1.6)) ease-in-out infinite; }
+@keyframes askin-glow { 50% { filter: drop-shadow(0 0 26px var(--rim)) brightness(1.12); } }
+@keyframes askin-bob { 50% { translate: 0 -7px; scale: 1.03; } }
 .askin-shine, .askin-flow { position: absolute; inset: 0; pointer-events: none; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; animation: askin-bob 4s ease-in-out infinite; }
-.askin-shine::before { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .85) 47%, rgba(255, 255, 255, .2) 52%, transparent 60%); background-size: 300% 100%; mix-blend-mode: overlay; animation: askin-shine var(--shine, 2.2s) ease-in-out infinite; }
+.askin-shine::before { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .7) 47%, rgba(255, 255, 255, .15) 52%, transparent 60%); background-size: 300% 100%; mix-blend-mode: screen; animation: askin-shine var(--shine, 2.2s) ease-in-out infinite; }
 .askin-shine::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 44%, color-mix(in srgb, var(--glint) 80%, transparent) 50%, transparent 56%); background-size: 300% 100%; mix-blend-mode: screen; opacity: .6; animation: askin-shine var(--shine, 2.2s) ease-in-out calc(var(--shine, 2.2s) / 2.5) infinite; }
 @keyframes askin-shine { 0% { background-position: 120% 0; } 60%, 100% { background-position: -40% 0; } }
 .askin-flow::before { content: ""; position: absolute; inset: 0; background: repeating-linear-gradient(160deg, transparent 0 18px, color-mix(in srgb, var(--flow) 60%, transparent) 22px, transparent 30px 44px); background-size: 200% 200%; mix-blend-mode: screen; opacity: .28; animation: askin-flow 6s linear infinite; }
 @keyframes askin-flow { to { background-position: 100% 100%; } }
 .askin-spark { position: absolute; width: 10%; aspect-ratio: 1; background: var(--c, #fff); clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%); filter: drop-shadow(0 0 4px #fff); opacity: 0; animation: twinkle 2.4s ease-in-out infinite; pointer-events: none; }
 @keyframes twinkle { 0%, 100% { opacity: 0; scale: .2; } 50% { opacity: 1; scale: 1; rotate: 45deg; } }
-.askin-part { position: absolute; left: 50%; top: 55%; width: 5%; aspect-ratio: 1; border-radius: 50%; background: var(--c, #fff); box-shadow: 0 0 8px var(--c, #fff); opacity: 0; pointer-events: none; animation: part-rise 3s ease-out infinite; }
+.askin-part { position: absolute; left: 50%; top: 55%; width: 6%; aspect-ratio: 1; border-radius: 50%; background: var(--c, #fff); box-shadow: 0 0 8px var(--c, #fff); opacity: 0; pointer-events: none; animation: part-rise 3s ease-out infinite; }
 .askin-part.is-star { border-radius: 0; clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
 @keyframes part-rise { 0% { opacity: 0; transform: translate(var(--x0), 0) scale(.6); } 15% { opacity: 1; } 100% { opacity: 0; transform: translate(var(--x1), var(--y1)) scale(1); } }
 .askin.is-spark .askin-part { animation-name: part-spark; animation-duration: 1.6s; }

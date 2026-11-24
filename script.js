@@ -31,6 +31,11 @@ const CONFIG = {
   const tr = (fr, en) => (EN ? en : fr);
   const LOCALE = EN ? 'en-US' : 'fr-FR';
   const fmt = new Intl.NumberFormat(LOCALE);
+  // Images AVIF (skins transparents) : version PNG si le navigateur ne sait pas les lire
+  addEventListener('error', e => {
+    const img = e.target;
+    if (img.tagName === 'IMG' && /\.avif$/.test(img.src)) img.src = img.src.replace(/\.avif$/, '.png');
+  }, true);
   // Noël : du 1er décembre au 2 janvier (ou « ?noel » dans l'adresse pour tester)
   const NOEL = (() => {
     const d = new Date();
@@ -1273,10 +1278,10 @@ const CONFIG = {
   };
   const rand = (a, b) => a + Math.random() * (b - a);
   const animSkin = img => {
-    const m = /\/pass\/(blue_(?:pioneer|poseidon|icedragon|dragon))\.(?:jpg|png)/.exec(img.getAttribute('src') || '');
+    const m = /\/pass\/(blue_(?:pioneer|poseidon|icedragon|dragon))\.(?:avif|png|jpg)/.exec(img.getAttribute('src') || '');
     if (!m || img.closest('.askin')) return;
     const fx = SKIN_FX[m[1]];
-    const src = img.getAttribute('src').replace(/\.jpg$/, '.png');
+    const src = img.currentSrc || img.src;
     const box = document.createElement('span');
     box.className = `askin${fx.spark ? ' is-spark' : ''}`;
     box.setAttribute('aria-hidden', 'true');
@@ -1360,7 +1365,7 @@ const CONFIG = {
         const img = document.createElement('img');
         img.src = src;
         img.alt = '';
-        if (/\.png$/.test(src)) img.className = 'is-cut';
+        if (/\.(png|avif)$/.test(src)) img.className = 'is-cut';
         img.style.cssText = `--x:${k * (vw < 860 ? 70 : 92)}px;--y:${Math.abs(k) * 16}px;--r:${k * 10}deg;--z:${3 - Math.abs(k) * 2};--d:${i * -1.4}s`;
         vis.append(img);
       });
