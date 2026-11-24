@@ -269,5 +269,16 @@ def main() -> int:
     return 0
 
 
+def classement():
+    """Classement de Don't Tap Red : lu au même passage (voir tools/update_classement.py)."""
+    try:
+        import update_classement
+        update_classement.main()
+    except Exception as e:  # noqa: BLE001 — le TikTok ne doit jamais échouer à cause du classement
+        print("Classement non mis à jour :", e, file=sys.stderr)
+
+
 if __name__ == "__main__":
-    sys.exit(main())
+    code = main()
+    classement()
+    sys.exit(code)

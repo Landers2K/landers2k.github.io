@@ -1,0 +1,355 @@
+{
+ "week": "w2969",
+ "modes": {
+  "arcade": {
+   "all": [
+    {
+     "name": "Landers2K",
+     "score": 22992,
+     "level": 41,
+     "prestige": 0
+    },
+    {
+     "name": "Ophé la bg",
+     "score": 17043,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "Taii",
+     "score": 16546,
+     "level": 20,
+     "prestige": 0
+    },
+    {
+     "name": "MLDS",
+     "score": 15611,
+     "level": 20,
+     "prestige": 5
+    },
+    {
+     "name": "bosnawi18",
+     "score": 11509,
+     "level": 28,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR9031",
+     "score": 1625,
+     "level": 9,
+     "prestige": 0
+    },
+    {
+     "name": "Sh",
+     "score": 1550,
+     "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "Dawood77",
+     "score": 1352,
+     "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "Fr3doxx",
+     "score": 1320,
+     "level": 15,
+     "prestige": 0
+    },
+    {
+     "name": "Bhoulia",
+     "score": 1305,
+     "level": 3,
+     "prestige": 1
+    }
+   ],
+   "week": [
+    {
+     "name": "Ophé la bg",
+     "score": 1434,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "aN9r1",
+     "score": 738,
+     "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR6340",
+     "score": 182,
+     "level": 3,
+     "prestige": 0
+    }
+   ]
+  },
+  "rain": {
+   "all": [
+    {
+     "name": "Bhoulia",
+     "score": 19900,
+     "level": 3,
+     "prestige": 1
+    },
+    {
+     "name": "MLDS",
+     "score": 17266,
+     "level": 20,
+     "prestige": 5
+    },
+    {
+     "name": "Ophé la bg",
+     "score": 17237,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "Landers2K",
+     "score": 11083,
+     "level": 41,
+     "prestige": 0
+    },
+    {
+     "name": "clem clem",
+     "score": 11056,
+     "level": 20,
+     "prestige": 0
+    },
+    {
+     "name": "Taii",
+     "score": 8945,
+     "level": 20,
+     "prestige": 0
+    },
+    {
+     "name": "Babulior",
+     "score": 6949,
+     "level": 32,
+     "prestige": 0
+    },
+    {
+     "name": "SNCF",
+     "score": 6681,
+     "level": 2,
+     "prestige": 0
+    },
+    {
+     "name": "Yuraka",
+     "score": 5607,
+     "level": 16,
+     "prestige": 0
+    },
+    {
+     "name": "Neo",
+     "score": 3307,
+     "level": 22,
+     "prestige": 0
+    }
+   ],
+   "week": [
+    {
+     "name": "Ophé la bg",
+     "score": 15256,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "aN9r1",
+     "score": 686,
+     "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR6340",
+     "score": 381,
+     "level": 3,
+     "prestige": 0
+    }
+   ]
+  },
+  "chrono": {
+   "all": [
+    {
+     "name": "Landers2K",
+     "score": 5190,
+     "level": 41,
+     "prestige": 0
+    },
+    {
+     "name": "MLDS",
+     "score": 5184,
+     "level": 20,
+     "prestige": 5
+    },
+    {
+     "name": "bosnawi18",
+     "score": 4979,
+     "level": 28,
+     "prestige": 0
+    },
+    {
+     "name": "Kaïs58fkt",
+     "score": 4767,
+     "level": 13,
+     "prestige": 0
+    },
+    {
+     "name": "Ophé la bg",
+     "score": 4607,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "Babulior",
+     "score": 4601,
+     "level": 32,
+     "prestige": 0
+    },
+    {
+     "name": "Raphus",
+     "score": 4554,
+     "level": 13,
+     "prestige": 0
+    },
+    {
+     "name": "Baji",
+     "score": 4376,
+     "level": 14,
+     "prestige": 0
+    },
+    {
+     "name": "aaaaaaaa",
+     "score": 4369,
+     "level": 4,
+     "prestige": 0
+    },
+    {
+     "name": "Taii",
+     "score": 4314,
+     "level": 20,
+     "prestige": 0
+    }
+   ],
+   "week": [
+    {
+     "name": "Ophé la bg",
+     "score": 4188,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "MLDS",
+     "score": 3547,
+     "level": 20,
+     "prestige": 5
+    },
+    {
+     "name": "JOUEUR6340",
+     "score": 3143,
+     "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "aN9r1",
+     "score": 2066,
+     "level": 3,
+     "prestige": 0
+    }
+   ]
+  },
+  "fusion": {
+   "all": [
+    {
+     "name": "Tony",
+     "score": 4486,
+     "level": 24,
+     "prestige": 0
+    },
+    {
+     "name": "Ophé la bg",
+     "score": 3829,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "Landers2K",
+     "score": 3272,
+     "level": 41,
+     "prestige": 0
+    },
+    {
+     "name": "Bhoulia",
+     "score": 2991,
+     "level": 3,
+     "prestige": 1
+    },
+    {
+     "name": "MLDS",
+     "score": 2966,
+     "level": 20,
+     "prestige": 5
+    },
+    {
+     "name": "Neo",
+     "score": 2901,
+     "level": 22,
+     "prestige": 0
+    },
+    {
+     "name": "Manu33279",
+     "score": 2660,
+     "level": 11,
+     "prestige": 0
+    },
+    {
+     "name": "Babulior",
+     "score": 2417,
+     "level": 32,
+     "prestige": 0
+    },
+    {
+     "name": "Manu",
+     "score": 2152,
+     "level": 2,
+     "prestige": 0
+    },
+    {
+     "name": "Kaiisun",
+     "score": 1880,
+     "level": 9,
+     "prestige": 0
+    }
+   ],
+   "week": [
+    {
+     "name": "Ophé la bg",
+     "score": 2766,
+     "level": 43,
+     "prestige": 1
+    },
+    {
+     "name": "Manu",
+     "score": 2152,
+     "level": 2,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR6340",
+     "score": 575,
+     "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "aN9r1",
+     "score": 189,
+     "level": 3,
+     "prestige": 0
+    }
+   ]
+  }
+ },
+ "boss": null,
+ "updated": "2026-11-24T04:22+01:00"
+}

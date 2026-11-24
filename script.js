@@ -31,6 +31,13 @@ const CONFIG = {
   const tr = (fr, en) => (EN ? en : fr);
   const LOCALE = EN ? 'en-US' : 'fr-FR';
   const fmt = new Intl.NumberFormat(LOCALE);
+  // Noël : du 1er décembre au 2 janvier (ou « ?noel » dans l'adresse pour tester)
+  const NOEL = (() => {
+    const d = new Date();
+    return /[?&]noel\b/.test(location.search) || d.getMonth() === 11 || (d.getMonth() === 0 && d.getDate() <= 2);
+  })();
+  // Image d'un cube : en tenue de Noël pendant les fêtes
+  const cubeSrc = color => (NOEL ? `/assets/img/noel/cube-${color}.png` : `/assets/img/cube-${color}.webp`);
 
   let vw = innerWidth;
   let vh = innerHeight;
@@ -391,7 +398,7 @@ const CONFIG = {
         `--dur:${(3.2 + (i * .37) % 2).toFixed(2)}s`, `--delay:${(-i * .53).toFixed(2)}s`,
         `--r:${3 + (i % 4) * 1.5}deg`, `--in:${(.35 + i * .06).toFixed(2)}s`,
       ].join(';');
-      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="/assets/img/cube-${item.color}.webp" alt="" draggable="false"></span>${item.hint ? `<span class="hc-hint">${tr('Tape-moi&nbsp;!', 'Tap me!')}</span>` : ''}`;
+      el.innerHTML = `<span class="hc-float"><img class="hc-img" src="${cubeSrc(item.color)}" alt="" draggable="false"></span>${item.hint ? `<span class="hc-hint">${tr('Tape-moi&nbsp;!', 'Tap me!')}</span>` : ''}`;
       layer.append(el);
       const c = Object.assign({ el, layer, root, sign: i % 2 ? 1 : -1, busy: false }, item);
       el.addEventListener('click', () => tapCube(c));
@@ -1141,7 +1148,7 @@ const CONFIG = {
       cube.style.left = `${x.toFixed(0)}px`;
       cube.style.top = `${y.toFixed(0)}px`;
       cube.setAttribute('aria-label', red ? tr('Cube rouge, à ne pas toucher', 'Red cube, don’t tap it') : tr('Cube bleu, à toucher', 'Blue cube, tap it'));
-      cube.innerHTML = `<img src="/assets/img/cube-${red ? 'red' : 'blue'}.webp" alt="">`;
+      cube.innerHTML = `<img src="${cubeSrc(red ? 'red' : 'blue')}" alt="">`;
       cube.addEventListener('click', () => hit(cube, red));
       arena.append(cube);
       setTimeout(() => {
@@ -1226,6 +1233,578 @@ const CONFIG = {
     };
 
     startBtn.addEventListener('click', start);
+  })();
+
+  /* ------------------------------------------------------------------------
+     Don't Tap Red : données du jeu lues par le robot (assets/data/classement.json)
+     ------------------------------------------------------------------------ */
+  let gameDataPromise = null;
+  const gameData = () => {
+    if (!gameDataPromise) {
+      gameDataPromise = fetch('/assets/data/classement.json', { cache: 'no-cache' })
+        .then(r => (r.ok ? r.json() : null)).catch(() => null);
+    }
+    return gameDataPromise;
+  };
+  const DAY = 864e5;
+  const startOfDay = d => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+  const monthName = (y, m) => new Intl.DateTimeFormat(LOCALE, { month: 'long' }).format(new Date(y, m, 1));
+  const ago = iso => {
+    const min = Math.max(0, Math.round((Date.now() - new Date(iso).getTime()) / 6e4));
+    if (min < 60) return tr(`il y a ${min} min`, `${min} min ago`);
+    const h = Math.round(min / 60);
+    if (h < 24) return tr(`il y a ${h} h`, `${h} h ago`);
+    const d = Math.round(h / 24);
+    return tr(`il y a ${d} jour${d > 1 ? 's' : ''}`, `${d} day${d > 1 ? 's' : ''} ago`);
+  };
+
+  /* ------------------------------------------------------------------------
+     Quoi de neuf : « Nouveau », « Dans 6 jours »… selon la date du jour
+     ------------------------------------------------------------------------ */
+  (function news() {
+    const today = startOfDay(new Date());
+    $$('.news-item[data-date]').forEach(item => {
+      const tag = $('.news-tag', item);
+      if (!tag) return;
+      const [y, m, d] = item.dataset.date.split('-').map(Number);
+      const diff = Math.round((new Date(y, m - 1, d) - today) / DAY);
+      let label = '';
+      if (diff > 30) label = tr('Bientôt', 'Coming soon');
+      else if (diff > 1) label = tr(`Dans ${diff} jours`, `In ${diff} days`);
+      else if (diff === 1) label = tr('Demain', 'Tomorrow');
+      else if (diff === 0) label = tr('Aujourd’hui', 'Today');
+      else if (diff >= -14) label = tr('Nouveau', 'New');
+      if (!label) return;
+      tag.textContent = label;
+      tag.hidden = false;
+      item.classList.add(diff > 0 ? 'is-soon' : 'is-new');
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
+     Prochain boss : compte à rebours, puis barre de vie en direct pendant
+     la semaine de combat (dégâts lus par le robot du classement)
+     ------------------------------------------------------------------------ */
+  (function bossCountdown() {
+    const box = $('[data-boss-count]');
+    if (!box) return;
+    const start = new Date(box.dataset.start).getTime();
+    const end = new Date(box.dataset.end).getTime();
+    const hp = Number(box.dataset.hp) || 0;
+    const label = $('.boss-count-label', box);
+    const grid = $('.boss-count-grid', box);
+    const live = $('.boss-live', box);
+    const units = { d: $('[data-u="d"]', box), h: $('[data-u="h"]', box), m: $('[data-u="m"]', box), s: $('[data-u="s"]', box) };
+    const pad = n => String(n).padStart(2, '0');
+    let phase = '';
+
+    const showHp = () => gameData().then(data => {
+      const boss = data && data.boss;
+      if (!boss || boss.week !== box.dataset.week || !hp) return;
+      const left = Math.max(0, hp - boss.damage);
+      live.hidden = false;
+      $('.hp-bar span', live).style.setProperty('--hp', (left / hp).toFixed(4));
+      $('.hp-text', live).innerHTML = left > 0
+        ? tr(`<b>${fmt.format(left)} PV</b> restants · ${fmt.format(boss.damage)} dégâts infligés par tous les joueurs`, `<b>${fmt.format(left)} HP</b> left · ${fmt.format(boss.damage)} damage dealt by all players`)
+        : tr('<b>Vaincu !</b> Bravo à tous les joueurs.', '<b>Defeated!</b> Well done, everyone.');
+    });
+
+    const tick = () => {
+      const now = Date.now();
+      const next = now < start ? 'before' : now <= end ? 'live' : 'after';
+      if (next !== phase) {
+        phase = next;
+        label.textContent = phase === 'before' ? tr('Il arrive dans', 'It arrives in')
+          : phase === 'live' ? tr('Combat en cours ! Fin dans', 'Fight in progress! Ends in')
+          : tr('Le combat est terminé', 'The fight is over');
+        grid.hidden = phase === 'after';
+        if (phase !== 'before') showHp();
+      }
+      if (phase === 'after') return;
+      let left = Math.max(0, Math.floor(((phase === 'before' ? start : end) - now) / 1000));
+      units.d.textContent = Math.floor(left / 86400); left %= 86400;
+      units.h.textContent = pad(Math.floor(left / 3600)); left %= 3600;
+      units.m.textContent = pad(Math.floor(left / 60));
+      units.s.textContent = pad(left % 60);
+      setTimeout(tick, 1000 - (Date.now() % 1000));
+    };
+    tick();
+  })();
+
+  /* ------------------------------------------------------------------------
+     Mini-jeu « découpe » : entraînement contre le Cadeau Piégé.
+     On glisse le doigt (ou clic + glisser) pour trancher les cubes lancés.
+     ------------------------------------------------------------------------ */
+  (function sliceGame() {
+    const game = $('.slice');
+    if (!game) return;
+    const canvas = $('.slice-canvas', game);
+    const ctx = canvas.getContext('2d');
+    const dmgEl = $('.slice-dmg', game);
+    const timeEl = $('.slice-time', game);
+    const bestEl = $('.slice-best', game);
+    const title = $('.slice-title', game);
+    const text = $('.slice-text', game);
+    const startBtn = $('.slice-start', game);
+    const hpFill = $('.slice-hp span', game);
+    const hpText = $('.slice-hp-text', game);
+    const KEY = 'l2k-slice-best';
+    const DURATION = 20000;
+    const BOSS_HP = 1000;
+    // Dégâts de chaque cube (comme dans le jeu) et sa fréquence d'apparition
+    const TYPES = { blue: [1, 44], green: [5, 20], purple: [20, 9], gold: [50, 4], red: [-10, 23] };
+    const GLOW = { blue: '#2997ff', green: '#30d158', purple: '#bf5af2', gold: '#ffd60a', red: '#ff375f' };
+    const FONT = getComputedStyle(root).getPropertyValue('--f-display').trim() || 'sans-serif';
+    const imgs = {};
+    Object.keys(TYPES).forEach(c => { imgs[c] = new Image(); imgs[c].src = cubeSrc(c); });
+
+    let best = 0;
+    try { best = parseInt(localStorage.getItem(KEY) || '0', 10) || 0; } catch { /* stockage indisponible */ }
+    bestEl.textContent = fmt.format(best);
+
+    let W = 0, H = 0, dpr = 1;
+    const size = () => {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      W = canvas.clientWidth;
+      H = canvas.clientHeight;
+      canvas.width = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    };
+    size();
+    resizeTasks.push(size);
+
+    let playing = false, dmg = 0, t0 = 0, last = 0, nextSpawn = 0, raf = 0;
+    let cubes = [], halves = [], sparks = [], texts = [], trail = [];
+    let slicing = false, gesture = 0;
+    const progress = () => clamp((performance.now() - t0) / DURATION);
+    const pick = () => {
+      const bonus = progress() * 10;   // un peu plus de bombes au fil du temps
+      const list = Object.entries(TYPES).map(([c, [, w]]) => [c, c === 'red' ? w + bonus : w]);
+      let r = Math.random() * list.reduce((a, [, w]) => a + w, 0);
+      for (const [c, w] of list) { if ((r -= w) <= 0) return c; }
+      return 'blue';
+    };
+
+    const spawnWave = () => {
+      const n = 1 + Math.floor(Math.random() * (1.6 + progress() * 2));
+      const g = H * 1.5;
+      for (let i = 0; i < n; i++) {
+        const s = clamp(W / 8, 52, 80);
+        const x = W * (.15 + Math.random() * .7);
+        const apex = H * (.18 + Math.random() * .3);
+        cubes.push({
+          c: pick(), s, x, y: H + s, g,
+          vx: (W / 2 - x) * (.15 + Math.random() * .35) + (Math.random() - .5) * W * .12,
+          vy: -Math.sqrt(2 * g * (H + s - apex)),
+          r: Math.random() * 6, vr: (Math.random() - .5) * 5, alive: true,
+        });
+      }
+    };
+
+    const updateHp = () => {
+      const left = Math.max(0, BOSS_HP - dmg);
+      hpFill.style.setProperty('--hp', (left / BOSS_HP).toFixed(3));
+      hpText.textContent = tr(`${fmt.format(left)} / ${fmt.format(BOSS_HP)} PV`, `${fmt.format(left)} / ${fmt.format(BOSS_HP)} HP`);
+      dmgEl.textContent = fmt.format(dmg);
+    };
+
+    const hitBoss = () => {
+      game.classList.add('is-hit');
+      clearTimeout(hitBoss.t);
+      hitBoss.t = setTimeout(() => game.classList.remove('is-hit'), 120);
+    };
+
+    const slice = cube => {
+      cube.alive = false;
+      const [value] = TYPES[cube.c];
+      for (const side of [-1, 1]) {
+        halves.push({ ...cube, side, vx: cube.vx + side * 140, vy: Math.min(cube.vy, 0) - 80, vr: cube.vr + side * 4, life: 1 });
+      }
+      for (let i = 0; i < 10; i++) {
+        const a = Math.random() * Math.PI * 2, v = 80 + Math.random() * 220;
+        sparks.push({ x: cube.x, y: cube.y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1, col: GLOW[cube.c] });
+      }
+      if (value < 0) {
+        dmg = Math.max(0, dmg + value);
+        texts.push({ x: cube.x, y: cube.y, txt: `${value}`, col: '#ff375f', life: 1 });
+        game.classList.remove('is-shake');
+        void game.offsetWidth;
+        game.classList.add('is-shake');
+      } else {
+        gesture += 1;
+        const mult = gesture >= 2 ? Math.min(7, gesture) : 1;
+        const add = value * mult;
+        dmg += add;
+        texts.push({ x: cube.x, y: cube.y, txt: `+${add}`, col: '#fff', life: 1 });
+        if (mult > 1) texts.push({ x: cube.x, y: cube.y - 30, txt: `x${mult}`, col: '#ffd60a', life: 1, big: true });
+        hitBoss();
+      }
+      updateHp();
+      if (dmg >= BOSS_HP) end(true);
+    };
+
+    // Segment [a, b] : quels cubes touche-t-il ?
+    const cut = (a, b) => {
+      for (const cube of cubes) {
+        if (!cube.alive) continue;
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const len = dx * dx + dy * dy || 1;
+        const t = clamp(((cube.x - a.x) * dx + (cube.y - a.y) * dy) / len);
+        if (Math.hypot(a.x + t * dx - cube.x, a.y + t * dy - cube.y) < cube.s * .5) slice(cube);
+      }
+    };
+
+    const point = e => {
+      const r = canvas.getBoundingClientRect();
+      return { x: e.clientX - r.left, y: e.clientY - r.top, t: performance.now() };
+    };
+    canvas.addEventListener('pointerdown', e => {
+      if (!playing) return;
+      slicing = true;
+      gesture = 0;
+      trail = [point(e)];
+      try { canvas.setPointerCapture(e.pointerId); } catch { /* ignoré */ }
+      e.preventDefault();
+    });
+    canvas.addEventListener('pointermove', e => {
+      if (!playing || !slicing) return;
+      const p = point(e);
+      const prev = trail[trail.length - 1];
+      trail.push(p);
+      if (prev) cut(prev, p);
+    });
+    const stop = () => { slicing = false; gesture = 0; };
+    canvas.addEventListener('pointerup', stop);
+    canvas.addEventListener('pointercancel', stop);
+
+    const draw = (img, x, y, s, r, clip) => {
+      ctx.save();
+      ctx.translate(x, y);
+      ctx.rotate(r);
+      if (clip) { ctx.beginPath(); ctx.rect(clip < 0 ? -s : 0, -s, s, s * 2); ctx.clip(); }
+      if (img.complete && img.naturalWidth) ctx.drawImage(img, -s / 2, -s / 2, s, s);
+      ctx.restore();
+    };
+
+    const frame = now => {
+      const dt = Math.min(.05, (now - last) / 1000);
+      last = now;
+      if (playing) {
+        const left = Math.max(0, DURATION - (now - t0));
+        timeEl.textContent = Math.ceil(left / 1000);
+        if (left <= 0) { end(false); }
+        else if (now >= nextSpawn) {
+          spawnWave();
+          nextSpawn = now + lerp(950, 520, progress());
+        }
+      }
+      ctx.clearRect(0, 0, W, H);
+      for (const c of cubes) {
+        c.vy += c.g * dt; c.x += c.vx * dt; c.y += c.vy * dt; c.r += c.vr * dt;
+        if (c.alive) draw(imgs[c.c], c.x, c.y, c.s, c.r);
+      }
+      cubes = cubes.filter(c => c.alive && c.y < H + c.s * 2);
+      for (const h of halves) {
+        h.vy += h.g * dt; h.x += h.vx * dt; h.y += h.vy * dt; h.r += h.vr * dt; h.life -= dt * .9;
+        ctx.globalAlpha = clamp(h.life);
+        draw(imgs[h.c], h.x, h.y, h.s, h.r, h.side);
+      }
+      halves = halves.filter(h => h.life > 0 && h.y < H + h.s * 2);
+      for (const p of sparks) {
+        p.x += p.vx * dt; p.y += p.vy * dt; p.vy += 400 * dt; p.life -= dt * 2.2;
+        ctx.globalAlpha = clamp(p.life);
+        ctx.fillStyle = p.col;
+        ctx.fillRect(p.x - 2, p.y - 2, 4, 4);
+      }
+      sparks = sparks.filter(p => p.life > 0);
+      ctx.textAlign = 'center';
+      for (const t of texts) {
+        t.y -= 50 * dt; t.life -= dt * 1.4;
+        ctx.globalAlpha = clamp(t.life);
+        ctx.font = `800 ${t.big ? 30 : 22}px ${FONT}`;
+        ctx.fillStyle = t.col;
+        ctx.shadowColor = 'rgba(0,0,0,.6)'; ctx.shadowBlur = 8;
+        ctx.fillText(t.txt, t.x, t.y);
+        ctx.shadowBlur = 0;
+      }
+      texts = texts.filter(t => t.life > 0);
+      // Traînée lumineuse du geste
+      trail = trail.filter(p => now - p.t < 160);
+      if (trail.length > 1) {
+        ctx.globalAlpha = 1;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        ctx.shadowColor = '#9fd0ff';
+        ctx.shadowBlur = 14;
+        for (let i = 1; i < trail.length; i++) {
+          ctx.lineWidth = 2 + (i / trail.length) * 6;
+          ctx.strokeStyle = `rgba(255,255,255,${(i / trail.length).toFixed(2)})`;
+          ctx.beginPath();
+          ctx.moveTo(trail[i - 1].x, trail[i - 1].y);
+          ctx.lineTo(trail[i].x, trail[i].y);
+          ctx.stroke();
+        }
+        ctx.shadowBlur = 0;
+      }
+      ctx.globalAlpha = 1;
+      if (playing || cubes.length || halves.length || sparks.length || texts.length) raf = requestAnimationFrame(frame);
+      else raf = 0;
+    };
+
+    const end = won => {
+      if (!playing) return;
+      playing = false;
+      slicing = false;
+      cubes.forEach(c => { if (c.alive) { c.alive = false; } });
+      const record = dmg > best;
+      if (record) {
+        best = dmg;
+        bestEl.textContent = fmt.format(best);
+        try { localStorage.setItem(KEY, String(best)); } catch { /* stockage indisponible */ }
+      }
+      const secs = Math.max(1, Math.round((performance.now() - t0) / 1000));
+      title.textContent = won ? tr('Cadeau détruit !', 'Gift destroyed!') : record ? tr('Nouveau record !', 'New record!') : tr('Temps écoulé !', 'Time’s up!');
+      text.textContent = won
+        ? tr(`1 000 dégâts en ${secs} secondes. Tu es prêt pour le 4 janvier !`, `1,000 damage in ${secs} seconds. You’re ready for January 4!`)
+        : tr(`${fmt.format(dmg)} dégâts. Le vrai Cadeau Piégé a 10 milliards de PV… Rendez-vous le 4 janvier, tous ensemble !`,
+             `${fmt.format(dmg)} damage. The real Trapped Gift has 10 billion HP… See you on January 4, all together!`);
+      startBtn.textContent = tr('Rejouer', 'Play again');
+      setTimeout(() => game.classList.remove('is-playing'), 500);
+    };
+
+    const start = () => {
+      size();
+      cubes = []; halves = []; sparks = []; texts = []; trail = [];
+      dmg = 0;
+      updateHp();
+      game.classList.remove('is-shake');
+      game.classList.add('is-playing');
+      playing = true;
+      t0 = last = performance.now();
+      nextSpawn = t0 + 300;
+      if (!raf) raf = requestAnimationFrame(frame);
+    };
+    startBtn.addEventListener('click', start);
+    updateHp();
+  })();
+
+  /* ------------------------------------------------------------------------
+     Pass de saison : onglets. Chaque pass est « en prévente » dès le 21 du
+     mois précédent, « en cours » pendant son mois, puis « terminé ». Avant
+     sa prévente, il reste mystérieux : un seul skin dévoilé, le reste flouté.
+     ------------------------------------------------------------------------ */
+  (function seasonPass() {
+    const tabs = $$('.pass-tab');
+    if (!tabs.length) return;
+    const now = new Date();
+    const panels = tabs.map(tab => $(`#${tab.getAttribute('aria-controls')}`));
+    const states = tabs.map((tab, i) => {
+      const [y, m] = tab.dataset.month.split('-').map(Number);
+      const start = new Date(y, m - 1, 1), end = new Date(y, m, 1), presale = new Date(y, m - 2, 21);
+      const panel = panels[i];
+      const status = $('[data-pass-status]', panel);
+      let state, label, tag = '';
+      if (now >= end) {
+        state = 'ended';
+        label = tr('Terminé', 'Ended');
+      } else if (now >= start) {
+        state = 'live';
+        const days = Math.ceil((end - now) / DAY);
+        label = tr(`En cours · plus que ${days} jour${days > 1 ? 's' : ''}`, `Live now · ${days} day${days > 1 ? 's' : ''} left`);
+        tag = tr('En cours', 'Live');
+      } else if (now >= presale) {
+        state = 'presale';
+        label = tr(`En prévente · dès le 1er ${monthName(y, m - 1)}`, `Presale · from ${monthName(y, m - 1)} 1`);
+        tag = tr('Prévente', 'Presale');
+      } else {
+        state = 'secret';
+        label = tr(`Mystère · révélé le 21 ${monthName(y, m - 2)}`, `Mystery · revealed on ${monthName(y, m - 2)} 21`);
+        tag = tr('Bientôt', 'Soon');
+        panel.classList.add('is-secret');
+        $$('.pass-skins li', panel).forEach((li, k) => {
+          if (k === 0) return;
+          li.classList.add('is-hidden');
+          const b = $('b', li);
+          b.textContent = '???';
+        });
+      }
+      status.textContent = label;
+      if (tag) {
+        const t = document.createElement('span');
+        t.className = 'pass-tab-tag';
+        t.textContent = tag;
+        tab.append(t);
+      }
+      return state;
+    });
+
+    const select = (i, focus) => {
+      tabs.forEach((tab, k) => {
+        const on = k === i;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        panels[k].classList.toggle('is-active', on);
+      });
+      if (focus) tabs[i].focus();
+    };
+    tabs.forEach((tab, i) => {
+      tab.addEventListener('click', () => select(i));
+      tab.addEventListener('keydown', e => {
+        const d = e.key === 'ArrowRight' ? 1 : e.key === 'ArrowLeft' ? -1 : 0;
+        if (!d) return;
+        e.preventDefault();
+        select((i + d + tabs.length) % tabs.length, true);
+      });
+    });
+    // Onglet ouvert au départ : le pass en cours, sinon le prochain, sinon le dernier
+    let first = states.indexOf('live');
+    if (first < 0) first = states.indexOf('presale');
+    if (first < 0) first = states.indexOf('secret');
+    select(first < 0 ? tabs.length - 1 : first);
+    // Liens « Voir le pass » (Quoi de neuf) : ouvrent le bon onglet
+    $$('[data-pass-link]').forEach(link => link.addEventListener('click', () => {
+      const i = tabs.findIndex(t => t.dataset.month === link.dataset.passLink);
+      if (i >= 0) select(i);
+    }));
+  })();
+
+  /* ------------------------------------------------------------------------
+     Classement en direct (top 10 par mode, de toujours ou de la semaine)
+     ------------------------------------------------------------------------ */
+  (function liveRanking() {
+    const box = $('[data-rank]');
+    if (!box) return;
+    const list = $('.rank-list', box);
+    const foot = $('[data-rank-foot]', box);
+    const modeBtns = $$('[data-mode]', box);
+    const periodBtns = $$('[data-period]', box);
+    const NAMES = { arcade: 'Arcade', rain: 'Rain', chrono: 'Chrono', fusion: 'Fusion' };
+    let data = null, mode = 'arcade', period = 'all';
+
+    const empty = msg => {
+      list.innerHTML = '';
+      const li = document.createElement('li');
+      li.className = 'rank-empty';
+      li.textContent = msg;
+      list.append(li);
+    };
+    const render = () => {
+      modeBtns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.mode === mode)));
+      periodBtns.forEach(b => b.setAttribute('aria-selected', String(b.dataset.period === period)));
+      if (!data) return;
+      const rows = (data.modes[mode] || {})[period] || [];
+      if (!rows.length) {
+        empty(period === 'week'
+          ? tr(`Personne n’a encore joué en ${NAMES[mode]} cette semaine. La 1re place t’attend !`, `Nobody has played ${NAMES[mode]} yet this week. First place is waiting for you!`)
+          : tr('Pas encore de score dans ce mode.', 'No scores in this mode yet.'));
+        return;
+      }
+      list.innerHTML = '';
+      rows.forEach((r, i) => {
+        const li = document.createElement('li');
+        li.className = 'rank-row';
+        li.style.setProperty('--i', i);
+        const rank = document.createElement('span');
+        rank.className = `rank${i < 3 ? ` r${i + 1}` : ''}`;
+        rank.textContent = i + 1;
+        const name = document.createElement('span');
+        name.className = 'rank-name';
+        name.textContent = r.name;
+        const lvl = document.createElement('span');
+        lvl.className = `rank-lvl${r.prestige ? ' is-prestige' : ''}`;
+        lvl.textContent = (r.prestige ? `P${r.prestige} · ` : '') + tr(`Niv. ${r.level}`, `Lv. ${r.level}`);
+        const score = document.createElement('span');
+        score.className = 'rank-score';
+        score.textContent = fmt.format(r.score);
+        li.append(rank, name, lvl, score);
+        list.append(li);
+      });
+    };
+    modeBtns.forEach(b => b.addEventListener('click', () => { mode = b.dataset.mode; render(); }));
+    periodBtns.forEach(b => b.addEventListener('click', () => { period = b.dataset.period; render(); }));
+    gameData().then(d => {
+      if (!d || !d.modes) { empty(tr('Le classement n’est pas disponible pour le moment.', 'The leaderboard isn’t available right now.')); return; }
+      data = d;
+      if (d.updated) foot.textContent = tr(`Lu dans le jeu toutes les heures · dernier changement ${ago(d.updated)}`, `Read from the game every hour · last change ${ago(d.updated)}`);
+      render();
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
+     Noël (1er décembre → 2 janvier, ou ?noel dans l'adresse pour tester) :
+     neige, cubes de Noël et petit bandeau
+     ------------------------------------------------------------------------ */
+  (function christmas() {
+    if (!NOEL) return;
+    root.classList.add('is-noel');
+    const now = new Date();
+    const inGame = (now.getMonth() === 11 && now.getDate() >= 20) || now.getMonth() === 0;
+
+    // Petit bandeau (fermé = caché jusqu'au lendemain)
+    const today = now.toDateString();
+    let closed = '';
+    try { closed = localStorage.getItem('l2k-noel-bar') || ''; } catch { /* stockage indisponible */ }
+    if (closed !== today) {
+      const bar = document.createElement('div');
+      bar.className = 'noel-bar';
+      bar.setAttribute('role', 'status');
+      const boss = EN ? '/dont-tap-red/en/#boss' : '/dont-tap-red/#boss';
+      const msg = document.createElement('span');
+      msg.textContent = inGame
+        ? tr('🎄 C’est Noël dans Don’t Tap Red ! ', '🎄 It’s Christmas in Don’t Tap Red! ')
+        : tr('🎄 La saison de Noël arrive dans le jeu le 20 décembre. ', '🎄 Christmas comes to the game on December 20. ');
+      const link = document.createElement('a');
+      link.href = boss;
+      link.textContent = tr('Le boss du 4 janvier', 'The January 4 boss');
+      msg.append(link);
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.setAttribute('aria-label', tr('Fermer', 'Close'));
+      close.textContent = '×';
+      close.addEventListener('click', () => {
+        bar.remove();
+        try { localStorage.setItem('l2k-noel-bar', today); } catch { /* stockage indisponible */ }
+      });
+      bar.append(msg, close);
+      document.body.append(bar);
+    }
+
+    // Neige légère (pas d'animation si l'appareil demande moins de mouvement)
+    if (reduced) return;
+    const c = document.createElement('canvas');
+    c.className = 'snow';
+    c.setAttribute('aria-hidden', 'true');
+    document.body.append(c);
+    const g = c.getContext('2d');
+    let w = 0, h = 0, flakes = [];
+    const fit = () => {
+      w = c.width = innerWidth;
+      h = c.height = innerHeight;
+      const n = Math.round(clamp(w / 18, 30, 80));
+      flakes = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, r: .8 + Math.random() * 2.2, v: 18 + Math.random() * 40, s: Math.random() * 6, a: .35 + Math.random() * .5 }));
+    };
+    fit();
+    resizeTasks.push(fit);
+    let lastT = performance.now();
+    const fall = t => {
+      const dt = Math.min(.05, (t - lastT) / 1000);
+      lastT = t;
+      g.clearRect(0, 0, w, h);
+      for (const f of flakes) {
+        f.y += f.v * dt;
+        f.s += dt;
+        const x = f.x + Math.sin(f.s) * 14;
+        if (f.y > h + 4) { f.y = -4; f.x = Math.random() * w; }
+        g.globalAlpha = f.a;
+        g.fillStyle = '#fff';
+        g.beginPath();
+        g.arc(x, f.y, f.r, 0, Math.PI * 2);
+        g.fill();
+      }
+      requestAnimationFrame(fall);
+    };
+    requestAnimationFrame(fall);
   })();
 
   /* ------------------------------------------------------------------------

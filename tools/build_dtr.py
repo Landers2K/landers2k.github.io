@@ -24,6 +24,10 @@ def absolute(block):
 game = cut(index, "    <!-- ===================== Don't Tap Red : présentation ===================== -->", "    </section>\n")
 modes = cut(index, "    <!-- ===================== Les modes de jeu ===================== -->", "    </section>\n")
 progress = cut(index, "    <!-- ===================== Progression ===================== -->", "    </section>\n")
+news = cut(index, "    <!-- ===================== Quoi de neuf ===================== -->", "    </section>\n")
+boss = cut(index, "    <!-- ===================== Les boss ===================== -->", "    </section>\n")
+season_pass = cut(index, "    <!-- ===================== Pass de saison ===================== -->", "    </section>\n")
+live_rank = cut(index, "    <!-- ===================== Classement en direct ===================== -->", "    </section>\n")
 stats = cut(index, "    <!-- Chiffres du jeu (fiche App Store) -->", "    </section>\n")
 download = cut(index, "    <!-- Téléchargement -->", "    </section>\n")
 
@@ -148,7 +152,7 @@ faq = """    <!-- ===================== Questions fréquentes ==================
 
 """
 
-main = '  <main id="main">\n' + game + "\n" + cubes + modes + "\n" + progress + "\n" + stats + "\n" + codes + faq + download + "  </main>"
+main = '  <main id="main">\n' + game + "\n" + news + cubes + modes + "\n" + boss + season_pass + live_rank + progress + "\n" + stats + "\n" + codes + faq + download + "  </main>"
 main = absolute(main)
 
 # Données structurées pour Google (fiche d'application)
