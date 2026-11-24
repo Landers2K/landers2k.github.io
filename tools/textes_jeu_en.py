@@ -240,7 +240,7 @@ T = [
     ("<b>Lion de jade</b>", "<b>Jade Lion</b>"), ("<b>Phénix impérial</b>", "<b>Imperial Phoenix</b>"), ("<b>Trésor de fortune</b>", "<b>Fortune Treasure</b>"),
     ("<b>Danse du lion</b>", "<b>Lion Dance</b>"), ("<b>Fête des lanternes</b>", "<b>Lantern Festival</b>"), ("<b>Dragon céleste</b>", "<b>Celestial Dragon</b>"),
     ("<small>Niveau 5</small>", "<small>Level 5</small>"), ("<small>Niveau 10</small>", "<small>Level 10</small>"), ("<small>Niveau 15</small>", "<small>Level 15</small>"),
-    ("<small>Niveau 20</small>", "<small>Level 20</small>"), ("<small>Niveau 25</small>", "<small>Level 25</small>"), ("<small>Niveau 30</small>", "<small>Level 30</small>"),
+    ("<small>Niveau 20</small>", "<small>Level 20</small>"), ("<small>Niveau 25</small>", "<small>Level 25</small>"), ("<small>Niveau 30 · animé</small>", "<small>Level 30 · animated</small>"),
     ('aria-label="Les titres du pass"', 'aria-label="The pass titles"'),
     # ---- Classement en direct
     ('<p class="kicker reveal">Classement en direct</p>', '<p class="kicker reveal">Live leaderboard</p>'),
@@ -257,4 +257,11 @@ T = [
     ("Un boss géant que tous les joueurs attaquent ensemble&nbsp;: ses points de vie baissent en direct, et chacun est récompensé selon sa place au classement des dégâts. Le prochain&nbsp;: le Cadeau Piégé, le 4&nbsp;janvier.",
      "A giant boss that all players attack together: its HP drops live, and everyone is rewarded based on their place in the damage ranking. Next up: the Trapped Gift, on January 4."),
     ('href="#boss">Voir les boss</a>', 'href="#boss">See the bosses</a>'),
+    # ---- Refonte des boss
+    ('<span class="saga-stamp">Enfui</span>', '<span class="saga-stamp">Escaped</span>'),
+    ("dégâts infligés</span>", "damage dealt</span>"),
+    ("<span><b>50&nbsp;M</b>PV au départ</span>", "<span><b>50 M</b>starting HP</span>"),
+    ("<span><b>83&nbsp;%</b>de vie restante</span>", "<span><b>83%</b>HP left</span>"),
+    ('<span class="boss-poster-tag">Nouveau boss</span>', '<span class="boss-poster-tag">New boss</span>'),
+    ('aria-label="Les dégâts de chaque cube"', 'aria-label="Damage of each cube"'),
 ]

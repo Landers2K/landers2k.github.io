@@ -581,53 +581,79 @@
           <h2 class="section-title" id="boss-title" data-split>Le Cube Noir s’est enfui.<br><span class="muted">Le Cadeau Piégé arrive.</span></h2>
         </header>
 
-        <article class="saga saga-noir reveal" style="--brand:#8e8e93">
-          <div class="saga-visual"><img src="assets/img/dtr-cube-noir.jpg" alt="Le Cube Noir, le premier boss de Don’t Tap Red" loading="lazy" decoding="async"></div>
-          <div class="saga-copy">
-            <p class="saga-step">Chapitre 1 · Du 2 au 8 novembre 2026</p>
-            <h3>Le Cube Noir</h3>
-            <p>Il a surgi un lundi matin avec <strong>50 millions de PV</strong>. Pendant une semaine, tous les joueurs l’ont frappé ensemble, sans relâche&nbsp;: <strong>8&nbsp;475&nbsp;683 dégâts</strong>. Pas assez. Blessé mais toujours debout, il a profité de la nuit du dimanche pour <strong>s’enfuir</strong>, en emportant son trésor avec lui.</p>
-            <div class="hp" role="img" aria-label="Vie restante du Cube Noir : 83 %">
-              <div class="hp-bar"><span style="--hp:.83"></span></div>
-              <p class="hp-text"><b>41&nbsp;524&nbsp;317&nbsp;PV</b> restants</p>
-            </div>
-            <p class="saga-mini">Ses pires ennemis&nbsp;: <b>MLDS</b>, <b>JOUEUR1015</b> et <b>Bhoulia</b>, plus de 2&nbsp;millions de dégâts chacun.</p>
-          </div>
-        </article>
-
-        <div class="saga-interlude reveal">
-          <p class="saga-step">Chapitre 2 · En attendant son retour</p>
-          <p class="saga-quote">Le Cube Noir rôde quelque part, et il reviendra plus fort. Pour être prêts ce jour-là, il faut s’endurcir&nbsp;: à chaque saison, de nouveaux boss se dressent sur notre route. Chaque combat est un entraînement, chaque dégât nous rapproche de la revanche.</p>
-        </div>
-
-        <div class="boss-next">
-          <figure class="boss-poster reveal"><img src="assets/img/boss-cadeau-affiche.jpg" alt="Le Cadeau Piégé, le nouveau boss de Don’t Tap Red" loading="lazy" decoding="async"></figure>
-          <div class="boss-info">
-            <p class="saga-step reveal">Chapitre 3 · Le nouveau boss</p>
-            <h3 class="boss-name" data-split>Le Cadeau Piégé.</h3>
-            <p class="boss-lead reveal">Sous son papier rouge et ses rubans dorés se cache un monstre aux crocs acérés. Il attaque le <strong>lundi 4 janvier 2027 à 9&nbsp;h</strong>, pour une semaine de combat. Sa vie&nbsp;: <strong>10 milliards de PV</strong>. Il va falloir être nombreux.</p>
-            <div class="boss-count reveal" data-boss-count data-start="2027-01-04T09:00:00+01:00" data-end="2027-01-10T23:59:59+01:00" data-week="w2975" data-hp="10000000000">
-              <p class="boss-count-label">Il arrive dans</p>
-              <div class="boss-count-grid">
-                <span><b data-u="d">--</b>jours</span>
-                <span><b data-u="h">--</b>heures</span>
-                <span><b data-u="m">--</b>min</span>
-                <span><b data-u="s">--</b>sec</span>
+        <ol class="saga-line">
+          <li class="saga-chapter" style="--brand:#8e8e93">
+            <article class="saga saga-noir reveal">
+              <div class="saga-visual">
+                <img src="assets/img/dtr-cube-noir.jpg" alt="Le Cube Noir, le premier boss de Don’t Tap Red" loading="lazy" decoding="async">
+                <span class="saga-stamp">Enfui</span>
               </div>
-              <div class="boss-live" hidden>
-                <div class="hp-bar"><span></span></div>
-                <p class="hp-text"></p>
+              <div class="saga-copy">
+                <p class="saga-step">Chapitre 1 · Du 2 au 8 novembre 2026</p>
+                <h3>Le Cube Noir</h3>
+                <p>Il a surgi un lundi matin avec <strong>50 millions de PV</strong>. Pendant une semaine, tous les joueurs l’ont frappé ensemble, sans relâche&nbsp;: <strong>8&nbsp;475&nbsp;683 dégâts</strong>. Pas assez. Blessé mais toujours debout, il a profité de la nuit du dimanche pour <strong>s’enfuir</strong>, en emportant son trésor avec lui.</p>
+                <div class="saga-stats">
+                  <span><b data-count="8475683">8&nbsp;475&nbsp;683</b>dégâts infligés</span>
+                  <span><b>50&nbsp;M</b>PV au départ</span>
+                  <span><b>83&nbsp;%</b>de vie restante</span>
+                </div>
+                <div class="hp reveal" role="img" aria-label="Vie restante du Cube Noir : 83 %">
+                  <div class="hp-bar"><span style="--hp:.83"></span></div>
+                  <p class="hp-text"><b>41&nbsp;524&nbsp;317&nbsp;PV</b> restants</p>
+                </div>
+                <p class="saga-mini">Ses pires ennemis&nbsp;: <b>MLDS</b>, <b>JOUEUR1015</b> et <b>Bhoulia</b>, plus de 2&nbsp;millions de dégâts chacun.</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="saga-chapter" style="--brand:#bf5af2">
+            <div class="saga-interlude reveal">
+              <p class="saga-step">Chapitre 2 · En attendant son retour</p>
+              <p class="saga-quote">Le Cube Noir rôde quelque part, et il reviendra plus fort. Pour être prêts ce jour-là, il faut s’endurcir&nbsp;: à chaque saison, de nouveaux boss se dressent sur notre route. Chaque combat est un entraînement, chaque dégât nous rapproche de la revanche.</p>
+            </div>
+          </li>
+
+          <li class="saga-chapter is-next" style="--brand:#ff375f">
+            <div class="boss-next">
+              <figure class="boss-poster reveal" data-tilt>
+                <img src="assets/img/boss-cadeau-affiche.jpg" alt="Le Cadeau Piégé, le nouveau boss de Don’t Tap Red" loading="lazy" decoding="async">
+                <span class="boss-poster-tag">Nouveau boss</span>
+              </figure>
+              <div class="boss-info">
+                <p class="saga-step reveal">Chapitre 3 · Le nouveau boss</p>
+                <h3 class="boss-name" data-split>Le Cadeau Piégé.</h3>
+                <p class="boss-lead reveal">Sous son papier rouge et ses rubans dorés se cache un monstre aux crocs acérés. Il attaque le <strong>lundi 4 janvier 2027 à 9&nbsp;h</strong>, pour une semaine de combat. Sa vie&nbsp;: <strong>10 milliards de PV</strong>. Il va falloir être nombreux.</p>
+                <div class="boss-count reveal" data-boss-count data-start="2027-01-04T09:00:00+01:00" data-end="2027-01-10T23:59:59+01:00" data-week="w2975" data-hp="10000000000">
+                  <p class="boss-count-label">Il arrive dans</p>
+                  <div class="boss-count-grid">
+                    <span><b data-u="d">--</b>jours</span>
+                    <span><b data-u="h">--</b>heures</span>
+                    <span><b data-u="m">--</b>min</span>
+                    <span><b data-u="s">--</b>sec</span>
+                  </div>
+                  <div class="boss-live" hidden>
+                    <div class="hp-bar"><span></span></div>
+                    <p class="hp-text"></p>
+                  </div>
+                </div>
+                <div class="boss-dmg" data-stagger aria-label="Les dégâts de chaque cube">
+                  <span style="--brand:#2997ff"><img src="assets/img/cube-blue.webp" alt="" width="52" height="52"><b>+1</b></span>
+                  <span style="--brand:#30d158"><img src="assets/img/cube-green.webp" alt="" width="52" height="52"><b>+5</b></span>
+                  <span style="--brand:#bf5af2"><img src="assets/img/cube-purple.webp" alt="" width="52" height="52"><b>+20</b></span>
+                  <span style="--brand:#ffd60a"><img src="assets/img/cube-gold.webp" alt="" width="52" height="52"><b>+50</b></span>
+                  <span class="is-bomb" style="--brand:#ff375f"><img src="assets/img/cube-red.webp" alt="" width="52" height="52"><b>−10</b></span>
+                </div>
+                <ul class="boss-rules" data-stagger>
+                  <li><b>Tranche</b> les cubes lancés en l’air d’un glissement de doigt&nbsp;: bleu 1 dégât, vert 5, violet 20, jaune 50.</li>
+                  <li><b>Évite les rouges</b>&nbsp;: ce sont des bombes, elles t’enlèvent 10 dégâts.</li>
+                  <li><b>Plusieurs cubes d’un seul geste</b>&nbsp;: les dégâts sont multipliés, jusqu’à x7.</li>
+                  <li><b>Le cube blanc</b>&nbsp;: tranche-le et tout se fige 5 secondes, chaque coup fait plus mal.</li>
+                  <li><b>Les récompenses</b> dépendent de ta place au classement des dégâts&nbsp;: jusqu’à 1&nbsp;000 gems et un titre unique pour le 1er, même si le boss survit.</li>
+                </ul>
               </div>
             </div>
-            <ul class="boss-rules" data-stagger>
-              <li><b>Tranche</b> les cubes lancés en l’air d’un glissement de doigt&nbsp;: bleu 1 dégât, vert 5, violet 20, jaune 50.</li>
-              <li><b>Évite les rouges</b>&nbsp;: ce sont des bombes, elles t’enlèvent 10 dégâts.</li>
-              <li><b>Plusieurs cubes d’un seul geste</b>&nbsp;: les dégâts sont multipliés, jusqu’à x7.</li>
-              <li><b>Le cube blanc</b>&nbsp;: tranche-le et tout se fige 5 secondes, chaque coup fait plus mal.</li>
-              <li><b>Les récompenses</b> dépendent de ta place au classement des dégâts&nbsp;: jusqu’à 1&nbsp;000 gems et un titre unique pour le 1er, même si le boss survit.</li>
-            </ul>
-          </div>
-        </div>
+          </li>
+        </ol>
 
         <div class="slice reveal" aria-label="Mini-jeu : entraînement contre le Cadeau Piégé">
           <div class="slice-hud">
@@ -659,105 +685,125 @@
           <p class="section-lead reveal">Monte les niveaux simplement en jouant&nbsp;: cubes détruits, missions du jour et de la semaine. Le pass gratuit te donne des bonus&nbsp;; le premium débloque les 6 skins du thème, dont un <strong>skin animé au niveau&nbsp;30</strong>, et 6 titres à afficher à côté de ton pseudo. Dès le 21 du mois, le pass suivant est en prévente.</p>
         </header>
         <div class="pass-tabs reveal" role="tablist" aria-label="Les pass de saison">
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2026-11" aria-controls="pass-2026-11" aria-selected="false" data-month="2026-11" style="--brand:#3b82f6"><b>Novembre</b><small>Espace</small></button>
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2026-12" aria-controls="pass-2026-12" aria-selected="false" data-month="2026-12" style="--brand:#facc15"><b>Décembre</b><small>Mythologie</small></button>
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2027-01" aria-controls="pass-2027-01" aria-selected="false" data-month="2027-01" style="--brand:#38bdf8"><b>Janvier</b><small>Royaume de glace</small></button>
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2027-02" aria-controls="pass-2027-02" aria-selected="false" data-month="2027-02" style="--brand:#ef4444"><b>Février</b><small>Nouvel An chinois</small></button>
+          <button class="pass-tab" type="button" role="tab" id="pass-tab-2026-11" aria-controls="pass-2026-11" aria-selected="false" data-month="2026-11" style="--brand:#3b82f6"><img class="pass-tab-img" src="assets/img/pass/blue_pioneer.jpg" alt="" width="44" height="44"><span><b>Novembre</b><small>Espace</small></span></button>
+          <button class="pass-tab" type="button" role="tab" id="pass-tab-2026-12" aria-controls="pass-2026-12" aria-selected="false" data-month="2026-12" style="--brand:#facc15"><img class="pass-tab-img" src="assets/img/pass/blue_poseidon.jpg" alt="" width="44" height="44"><span><b>Décembre</b><small>Mythologie</small></span></button>
+          <button class="pass-tab" type="button" role="tab" id="pass-tab-2027-01" aria-controls="pass-2027-01" aria-selected="false" data-month="2027-01" style="--brand:#38bdf8"><img class="pass-tab-img" src="assets/img/pass/blue_icedragon.jpg" alt="" width="44" height="44"><span><b>Janvier</b><small>Royaume de glace</small></span></button>
+          <button class="pass-tab" type="button" role="tab" id="pass-tab-2027-02" aria-controls="pass-2027-02" aria-selected="false" data-month="2027-02" style="--brand:#ef4444"><img class="pass-tab-img" src="assets/img/pass/blue_dragon.jpg" alt="" width="44" height="44"><span><b>Février</b><small>Nouvel An chinois</small></span></button>
         </div>
         <div class="pass-panel" role="tabpanel" id="pass-2026-11" aria-labelledby="pass-tab-2026-11" data-month="2026-11" style="--brand:#3b82f6">
-          <div class="pass-head">
-            <p class="pass-status" data-pass-status>Pass de novembre</p>
-            <h3>Espace</h3>
-            <p class="pass-desc">Ovni, planète à anneaux, trou noir… Le tout premier pass de Don’t Tap Red, jusqu’à la fusée animée du niveau&nbsp;30.</p>
+          <div class="pass-hero">
+            <span class="pass-skin pass-skin-xl"><img src="assets/img/pass/blue_pioneer.png" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
+            <p class="pass-hero-cap"><b>Fusée</b><small>Niveau 30 · animé</small></p>
           </div>
-          <ol class="pass-skins">
+          <div class="pass-main">
+            <div class="pass-head">
+              <p class="pass-status" data-pass-status>Pass de novembre</p>
+              <h3>Espace</h3>
+              <p class="pass-desc">Ovni, planète à anneaux, trou noir… Le tout premier pass de Don’t Tap Red, jusqu’à la fusée animée du niveau&nbsp;30.</p>
+            </div>
+            <ol class="pass-skins pass-track">
               <li><span class="pass-skin"><img src="assets/img/pass/green_ufo.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Ovni</b><small>Niveau 5</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/purple_rings.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Planète à anneaux</b><small>Niveau 10</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/gold_satellite.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Satellite doré</b><small>Niveau 15</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/orange_mars.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Mars</b><small>Niveau 20</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/red_blackhole.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Trou noir</b><small>Niveau 25</small></li>
-              <li><span class="pass-skin"><img src="assets/img/pass/blue_pioneer.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Fusée</b><small>Niveau 30</small></li>
-          </ol>
-          <ul class="pass-titles" aria-label="Les titres du pass">
-            <li class="pt-vert">EXPLORATEUR</li>
-            <li class="pt-bleu">PIONNIER</li>
-            <li class="pt-violet">ASTRONAUTE</li>
-            <li class="pt-jaune">COMMANDANT</li>
-            <li class="pt-rouge">CONQUÉRANT</li>
-            <li class="pt-blanc">MAÎTRE DU COSMOS</li>
-          </ul>
+            </ol>
+            <ul class="pass-titles" aria-label="Les titres du pass">
+              <li class="pt-vert">EXPLORATEUR</li>
+              <li class="pt-bleu">PIONNIER</li>
+              <li class="pt-violet">ASTRONAUTE</li>
+              <li class="pt-jaune">COMMANDANT</li>
+              <li class="pt-rouge">CONQUÉRANT</li>
+              <li class="pt-blanc">MAÎTRE DU COSMOS</li>
+            </ul>
+          </div>
         </div>
         <div class="pass-panel" role="tabpanel" id="pass-2026-12" aria-labelledby="pass-tab-2026-12" data-month="2026-12" style="--brand:#facc15">
-          <div class="pass-head">
-            <p class="pass-status" data-pass-status>Pass de décembre</p>
-            <h3>Mythologie</h3>
-            <p class="pass-desc">Les dieux de l’Olympe débarquent&nbsp;: Méduse, Pégase, l’éclair de Zeus, le labyrinthe du Minotaure, les portes des Enfers… et le trident de Poséidon animé au niveau&nbsp;30.</p>
-            <p class="pass-teaser">Les dieux de l’Olympe se réveillent… Le pass sera révélé le 21 novembre.</p>
+          <div class="pass-hero">
+            <span class="pass-skin pass-skin-xl"><img src="assets/img/pass/blue_poseidon.png" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
+            <p class="pass-hero-cap"><b>Trident de Poséidon</b><small>Niveau 30 · animé</small></p>
           </div>
-          <ol class="pass-skins">
+          <div class="pass-main">
+            <div class="pass-head">
+              <p class="pass-status" data-pass-status>Pass de décembre</p>
+              <h3>Mythologie</h3>
+              <p class="pass-desc">Les dieux de l’Olympe débarquent&nbsp;: Méduse, Pégase, l’éclair de Zeus, le labyrinthe du Minotaure, les portes des Enfers… et le trident de Poséidon animé au niveau&nbsp;30.</p>
+              <p class="pass-teaser">Les dieux de l’Olympe se réveillent… Le pass sera révélé le 21 novembre.</p>
+            </div>
+            <ol class="pass-skins pass-track">
               <li><span class="pass-skin"><img src="assets/img/pass/green_medusa.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Serpent de la Gorgone</b><small>Niveau 5</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/purple_pegasus.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Pégase</b><small>Niveau 10</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/gold_zeus.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Éclair de Zeus</b><small>Niveau 15</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/orange_minotaur.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Labyrinthe du Minotaure</b><small>Niveau 20</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/red_cerberus.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Portes des Enfers</b><small>Niveau 25</small></li>
-              <li><span class="pass-skin"><img src="assets/img/pass/blue_poseidon.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Trident de Poséidon</b><small>Niveau 30</small></li>
-          </ol>
-          <ul class="pass-titles" aria-label="Les titres du pass">
-            <li class="pt-vert">MORTEL</li>
-            <li class="pt-bleu">DISCIPLE</li>
-            <li class="pt-violet">HÉROS</li>
-            <li class="pt-jaune">OLYMPIEN</li>
-            <li class="pt-rouge">DIVINITÉ</li>
-            <li class="pt-blanc">DEMI-DIEU</li>
-          </ul>
+            </ol>
+            <ul class="pass-titles" aria-label="Les titres du pass">
+              <li class="pt-vert">MORTEL</li>
+              <li class="pt-bleu">DISCIPLE</li>
+              <li class="pt-violet">HÉROS</li>
+              <li class="pt-jaune">OLYMPIEN</li>
+              <li class="pt-rouge">DIVINITÉ</li>
+              <li class="pt-blanc">DEMI-DIEU</li>
+            </ul>
+          </div>
         </div>
         <div class="pass-panel" role="tabpanel" id="pass-2027-01" aria-labelledby="pass-tab-2027-01" data-month="2027-01" style="--brand:#38bdf8">
-          <div class="pass-head">
-            <p class="pass-status" data-pass-status>Pass de janvier</p>
-            <h3>Royaume de glace</h3>
-            <p class="pass-desc">L’hiver s’installe&nbsp;: chouette, château et couronne de glace, renard des neiges, cœur gelé… et un dragon de glace animé au niveau&nbsp;30.</p>
-            <p class="pass-teaser">L’hiver arrive… Un premier skin est déjà dévoilé. Les 5 autres, dont un skin animé, seront révélés le 21 décembre.</p>
+          <div class="pass-hero">
+            <span class="pass-skin pass-skin-xl"><img src="assets/img/pass/blue_icedragon.png" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
+            <p class="pass-hero-cap"><b>Dragon de glace</b><small>Niveau 30 · animé</small></p>
           </div>
-          <ol class="pass-skins">
+          <div class="pass-main">
+            <div class="pass-head">
+              <p class="pass-status" data-pass-status>Pass de janvier</p>
+              <h3>Royaume de glace</h3>
+              <p class="pass-desc">L’hiver s’installe&nbsp;: chouette, château et couronne de glace, renard des neiges, cœur gelé… et un dragon de glace animé au niveau&nbsp;30.</p>
+              <p class="pass-teaser">L’hiver arrive… Un premier skin est déjà dévoilé. Les 5 autres, dont un skin animé, seront révélés le 21 décembre.</p>
+            </div>
+            <ol class="pass-skins pass-track">
               <li><span class="pass-skin"><img src="assets/img/pass/green_iceowl.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Chouette de glace</b><small>Niveau 5</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/purple_icecastle.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Château de glace</b><small>Niveau 10</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/gold_icecrown.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Couronne de givre</b><small>Niveau 15</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/orange_icefox.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Renard de glace</b><small>Niveau 20</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/red_iceheart.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Cœur gelé</b><small>Niveau 25</small></li>
-              <li><span class="pass-skin"><img src="assets/img/pass/blue_icedragon.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Dragon de glace</b><small>Niveau 30</small></li>
-          </ol>
-          <ul class="pass-titles" aria-label="Les titres du pass">
-            <li class="pt-vert">FLOCON</li>
-            <li class="pt-bleu">GIVRÉ</li>
-            <li class="pt-violet">BLIZZARD</li>
-            <li class="pt-jaune">GLACIAL</li>
-            <li class="pt-rouge">ROI DES GLACES</li>
-            <li class="pt-blanc">EMPEREUR GLACÉ</li>
-          </ul>
+            </ol>
+            <ul class="pass-titles" aria-label="Les titres du pass">
+              <li class="pt-vert">FLOCON</li>
+              <li class="pt-bleu">GIVRÉ</li>
+              <li class="pt-violet">BLIZZARD</li>
+              <li class="pt-jaune">GLACIAL</li>
+              <li class="pt-rouge">ROI DES GLACES</li>
+              <li class="pt-blanc">EMPEREUR GLACÉ</li>
+            </ul>
+          </div>
         </div>
         <div class="pass-panel" role="tabpanel" id="pass-2027-02" aria-labelledby="pass-tab-2027-02" data-month="2027-02" style="--brand:#ef4444">
-          <div class="pass-head">
-            <p class="pass-status" data-pass-status>Pass de février</p>
-            <h3>Nouvel An chinois</h3>
-            <p class="pass-desc">Lion de jade, phénix impérial, trésor de fortune, danse du lion, fête des lanternes… et un dragon céleste animé pour fêter la nouvelle année.</p>
-            <p class="pass-teaser">Une grande fête venue d’Asie se prépare… Un premier skin est déjà dévoilé. Les 5 autres seront révélés le 21 janvier.</p>
+          <div class="pass-hero">
+            <span class="pass-skin pass-skin-xl"><img src="assets/img/pass/blue_dragon.png" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
+            <p class="pass-hero-cap"><b>Dragon céleste</b><small>Niveau 30 · animé</small></p>
           </div>
-          <ol class="pass-skins">
+          <div class="pass-main">
+            <div class="pass-head">
+              <p class="pass-status" data-pass-status>Pass de février</p>
+              <h3>Nouvel An chinois</h3>
+              <p class="pass-desc">Lion de jade, phénix impérial, trésor de fortune, danse du lion, fête des lanternes… et un dragon céleste animé pour fêter la nouvelle année.</p>
+              <p class="pass-teaser">Une grande fête venue d’Asie se prépare… Un premier skin est déjà dévoilé. Les 5 autres seront révélés le 21 janvier.</p>
+            </div>
+            <ol class="pass-skins pass-track">
               <li><span class="pass-skin"><img src="assets/img/pass/green_jadelion.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Lion de jade</b><small>Niveau 5</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/purple_phoenix.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Phénix impérial</b><small>Niveau 10</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/gold_fortune.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Trésor de fortune</b><small>Niveau 15</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/orange_liondance.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Danse du lion</b><small>Niveau 20</small></li>
               <li><span class="pass-skin"><img src="assets/img/pass/red_lantern.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Fête des lanternes</b><small>Niveau 25</small></li>
-              <li><span class="pass-skin"><img src="assets/img/pass/blue_dragon.jpg" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Dragon céleste</b><small>Niveau 30</small></li>
-          </ol>
-          <ul class="pass-titles" aria-label="Les titres du pass">
-            <li class="pt-vert">APPRENTI</li>
-            <li class="pt-bleu">GARDIEN DE JADE</li>
-            <li class="pt-violet">MAÎTRE KUNG-FU</li>
-            <li class="pt-jaune">FORTUNE</li>
-            <li class="pt-rouge">EMPEREUR</li>
-            <li class="pt-blanc">DRAGON CÉLESTE</li>
-          </ul>
+            </ol>
+            <ul class="pass-titles" aria-label="Les titres du pass">
+              <li class="pt-vert">APPRENTI</li>
+              <li class="pt-bleu">GARDIEN DE JADE</li>
+              <li class="pt-violet">MAÎTRE KUNG-FU</li>
+              <li class="pt-jaune">FORTUNE</li>
+              <li class="pt-rouge">EMPEREUR</li>
+              <li class="pt-blanc">DRAGON CÉLESTE</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -783,6 +829,7 @@
               <button type="button" role="tab" data-period="week" aria-selected="false">Cette semaine</button>
             </div>
           </div>
+          <div class="podium" data-podium></div>
           <ol class="rank-list" aria-live="polite">
             <li class="rank-empty">Chargement du classement…</li>
           </ol>

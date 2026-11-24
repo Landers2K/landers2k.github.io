@@ -1261,6 +1261,63 @@ const CONFIG = {
   };
 
   /* ------------------------------------------------------------------------
+     Skins animés du niveau 30 des pass : mêmes effets que dans le jeu
+     (skins/skin_fx.gd) — halo de rayons, reflet qui balaie, étincelles,
+     particules qui montent ou jaillissent.
+     ------------------------------------------------------------------------ */
+  const SKIN_FX = {
+    blue_pioneer: { a1: '#3B82F6', a2: '#FDE68A', rim: '#93C5FD', glint: '#FDE68A', shine: 2.0, pulse: 2.0, spark: true, star: true, parts: ['#FFFFFF', '#BFDBFE', '#FDE68A', '#60A5FA'] },
+    blue_poseidon: { a1: '#0EA5E9', a2: '#FDE68A', rim: '#7DD3FC', glint: '#FDE68A', shine: 2.2, pulse: 1.6, flow: '#67E8F9', parts: ['#FFFFFF', '#BAE6FD', '#7DD3FC', '#FDE68A'] },
+    blue_icedragon: { a1: '#0EA5E9', a2: '#FDE68A', rim: '#BAE6FD', glint: '#E0F2FE', shine: 2.0, pulse: 1.6, flow: '#E0F2FE', star: true, parts: ['#FFFFFF', '#E0F2FE', '#7DD3FC'] },
+    blue_dragon: { a1: '#0EA5E9', a2: '#FDE68A', rim: '#93C5FD', glint: '#FDE68A', shine: 2.0, pulse: 1.6, flow: '#93C5FD', star: true, parts: ['#FFFFFF', '#BFDBFE', '#60A5FA', '#FDE68A'] },
+  };
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const animSkin = img => {
+    const m = /\/pass\/(blue_(?:pioneer|poseidon|icedragon|dragon))\.(?:jpg|png)/.exec(img.getAttribute('src') || '');
+    if (!m || img.closest('.askin')) return;
+    const fx = SKIN_FX[m[1]];
+    const src = img.getAttribute('src').replace(/\.jpg$/, '.png');
+    const box = document.createElement('span');
+    box.className = `askin${fx.spark ? ' is-spark' : ''}`;
+    box.setAttribute('aria-hidden', 'true');
+    // Les réglages de place de l'image (éventail « à la une ») passent sur le cadre animé
+    box.style.cssText = `${img.style.cssText};--a1:${fx.a1};--a2:${fx.a2};--rim:${fx.rim};--glint:${fx.glint};--shine:${fx.shine}s;--pulse:${fx.pulse};--flow:${fx.flow || fx.rim}`;
+    img.removeAttribute('style');
+    img.classList.remove('is-cut');
+    img.src = src;
+    img.parentNode.insertBefore(box, img);
+    const aura = document.createElement('span');
+    aura.className = 'askin-aura';
+    const tile = document.createElement('span');
+    tile.className = 'askin-tile';
+    tile.append(img);
+    for (const cls of ['askin-shine', fx.flow ? 'askin-flow' : '']) {
+      if (!cls) continue;
+      const layer = document.createElement('span');
+      layer.className = cls;
+      layer.style.webkitMaskImage = layer.style.maskImage = `url("${src}")`;
+      tile.append(layer);
+    }
+    for (let i = 0; i < 6; i++) {
+      const s = document.createElement('span');
+      s.className = 'askin-spark';
+      s.style.cssText = `left:${rand(14, 78).toFixed(0)}%;top:${rand(12, 76).toFixed(0)}%;--c:${fx.parts[i % fx.parts.length]};animation-delay:${rand(0, 2.4).toFixed(2)}s;animation-duration:${rand(1.8, 3).toFixed(2)}s`;
+      tile.append(s);
+    }
+    box.append(aura, tile);
+    for (let i = 0; i < 12; i++) {
+      const part = document.createElement('span');
+      part.className = `askin-part${fx.star && i % 2 ? ' is-star' : ''}`;
+      const a = rand(0, Math.PI * 2), r = rand(700, 1200);
+      const move = fx.spark
+        ? `--x1:${(Math.cos(a) * r).toFixed(0)}%;--y1:${(Math.sin(a) * r).toFixed(0)}%`
+        : `--x0:${rand(-500, 500).toFixed(0)}%;--x1:${rand(-700, 700).toFixed(0)}%;--y1:${rand(-1600, -900).toFixed(0)}%`;
+      part.style.cssText = `--c:${fx.parts[i % fx.parts.length]};${move};animation-delay:${rand(0, 3).toFixed(2)}s;animation-duration:${rand(fx.spark ? 1.2 : 2.4, fx.spark ? 2 : 3.6).toFixed(2)}s`;
+      box.append(part);
+    }
+  };
+
+  /* ------------------------------------------------------------------------
      Quoi de neuf : « Nouveau », « Dans 6 jours »… selon la date du jour
      ------------------------------------------------------------------------ */
   (function news() {
@@ -1361,6 +1418,14 @@ const CONFIG = {
     const live = $('.boss-live', box);
     const units = { d: $('[data-u="d"]', box), h: $('[data-u="h"]', box), m: $('[data-u="m"]', box), s: $('[data-u="s"]', box) };
     const pad = n => String(n).padStart(2, '0');
+    const set = (el, v) => {
+      v = String(v);
+      if (el.textContent === v) return;
+      el.textContent = v;
+      el.classList.remove('flip');
+      void el.offsetWidth;
+      el.classList.add('flip');
+    };
     let phase = '';
 
     const showHp = () => gameData().then(data => {
@@ -1387,10 +1452,10 @@ const CONFIG = {
       }
       if (phase === 'after') return;
       let left = Math.max(0, Math.floor(((phase === 'before' ? start : end) - now) / 1000));
-      units.d.textContent = Math.floor(left / 86400); left %= 86400;
-      units.h.textContent = pad(Math.floor(left / 3600)); left %= 3600;
-      units.m.textContent = pad(Math.floor(left / 60));
-      units.s.textContent = pad(left % 60);
+      set(units.d, Math.floor(left / 86400)); left %= 86400;
+      set(units.h, pad(Math.floor(left / 3600))); left %= 3600;
+      set(units.m, pad(Math.floor(left / 60)));
+      set(units.s, pad(left % 60));
       setTimeout(tick, 1000 - (Date.now() % 1000));
     };
     tick();
@@ -1687,12 +1752,17 @@ const CONFIG = {
         label = tr(`Mystère · révélé le 21 ${monthName(y, m - 2)}`, `Mystery · revealed on ${monthName(y, m - 2)} 21`);
         tag = tr('Bientôt', 'Soon');
         panel.classList.add('is-secret');
-        $$('.pass-skins li', panel).forEach((li, k) => {
+        tab.classList.add('is-secret');
+        $$('.pass-track li', panel).forEach((li, k) => {
           if (k === 0) return;
           li.classList.add('is-hidden');
-          const b = $('b', li);
-          b.textContent = '???';
+          $('b', li).textContent = '???';
         });
+        const hero = $('.pass-hero', panel);
+        if (hero) {
+          hero.classList.add('is-hidden');
+          $('b', hero).textContent = '???';
+        }
       }
       status.textContent = label;
       if (tag) {
@@ -1727,6 +1797,8 @@ const CONFIG = {
     if (first < 0) first = states.indexOf('presale');
     if (first < 0) first = states.indexOf('secret');
     select(first < 0 ? tabs.length - 1 : first);
+    // Le grand skin de chaque pass et ceux de « à la une » : animés comme dans le jeu
+    $$('.pass-skin-xl img, .news-feature img').forEach(animSkin);
     // Liens « Voir le pass » (Quoi de neuf) : ouvrent le bon onglet
     $$('[data-pass-link]').forEach(link => link.addEventListener('click', () => {
       const i = tabs.findIndex(t => t.dataset.month === link.dataset.passLink);
@@ -1741,13 +1813,17 @@ const CONFIG = {
     const box = $('[data-rank]');
     if (!box) return;
     const list = $('.rank-list', box);
+    const podium = $('[data-podium]', box);
     const foot = $('[data-rank-foot]', box);
+    const CROWN = '<svg class="pod-crown" viewBox="0 0 40 28" aria-hidden="true"><path fill="currentColor" d="M2 8l9 7 9-13 9 13 9-7-4 18H6z"/></svg>';
+    const lvlText = r => (r.prestige ? `P${r.prestige} · ` : '') + tr(`Niv. ${r.level}`, `Lv. ${r.level}`);
     const modeBtns = $$('[data-mode]', box);
     const periodBtns = $$('[data-period]', box);
     const NAMES = { arcade: 'Arcade', rain: 'Rain', chrono: 'Chrono', fusion: 'Fusion' };
     let data = null, mode = 'arcade', period = 'all';
 
     const empty = msg => {
+      podium.innerHTML = '';
       list.innerHTML = '';
       const li = document.createElement('li');
       li.className = 'rank-empty';
@@ -1766,19 +1842,35 @@ const CONFIG = {
         return;
       }
       list.innerHTML = '';
-      rows.forEach((r, i) => {
+      podium.innerHTML = '';
+      // Podium : 2e, 1er, 3e (le 1er au milieu, plus haut)
+      [1, 0, 2].forEach((i, k) => {
+        const r = rows[i];
+        if (!r) { podium.append(document.createElement('span')); return; }
+        const pod = document.createElement('div');
+        pod.className = `pod pod-${i + 1}`;
+        pod.style.setProperty('--d', `${k * 90}ms`);
+        pod.innerHTML = `${i === 0 ? CROWN : ''}<span class="pod-medal">${i + 1}</span><span class="pod-name"></span><span class="pod-lvl"></span><span class="pod-score"></span><span class="pod-step"></span>`;
+        $('.pod-name', pod).textContent = r.name;
+        $('.pod-lvl', pod).textContent = lvlText(r);
+        countUp($('.pod-score', pod), r.score, 1200);
+        podium.append(pod);
+      });
+      list.start = 4;
+      rows.slice(3).forEach((r, k) => {
+        const i = k + 3;
         const li = document.createElement('li');
         li.className = 'rank-row';
-        li.style.setProperty('--i', i);
+        li.style.setProperty('--i', k);
         const rank = document.createElement('span');
-        rank.className = `rank${i < 3 ? ` r${i + 1}` : ''}`;
+        rank.className = 'rank';
         rank.textContent = i + 1;
         const name = document.createElement('span');
         name.className = 'rank-name';
         name.textContent = r.name;
         const lvl = document.createElement('span');
         lvl.className = `rank-lvl${r.prestige ? ' is-prestige' : ''}`;
-        lvl.textContent = (r.prestige ? `P${r.prestige} · ` : '') + tr(`Niv. ${r.level}`, `Lv. ${r.level}`);
+        lvl.textContent = lvlText(r);
         const score = document.createElement('span');
         score.className = 'rank-score';
         score.textContent = fmt.format(r.score);
