@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
-  <link rel="stylesheet" href="styles.css?v=5a4d8627b0">
+  <link rel="stylesheet" href="styles.css?v=a016491c3e">
   <!-- Les cubes animés sont ajoutés par script.js : on les télécharge dès le début -->
   <link rel="preload" as="image" href="/assets/img/cube-blue.webp" type="image/webp">
   <link rel="preload" as="image" href="/assets/img/cube-red.webp" type="image/webp">
@@ -154,6 +154,57 @@
       </div>
     </section>
 
+    <!-- ===================== La machine (illustration animée) ===================== -->
+    <section class="rig" id="machine" data-scene="setup" aria-labelledby="rig-title">
+      <div class="wrap-wide">
+        <header class="section-head">
+          <p class="kicker reveal">La machine</p>
+          <h2 class="section-title" id="rig-title" data-split>Ouvre le boîtier.<br><span class="muted">Touche une pièce pour la découvrir.</span></h2>
+        </header>
+        <div class="rig-grid">
+          <figure class="rig-visual reveal">
+            <svg class="rig-svg" viewBox="0 0 600 540" role="img" aria-labelledby="rig-svg-title">
+              <title id="rig-svg-title">Illustration du PC de Landers2K, avec ses composants numérotés</title>
+              <defs>
+                <linearGradient id="rig-glass" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".09"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+                <linearGradient id="rig-rgb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff375f"/><stop offset=".33" stop-color="#bf5af2"/><stop offset=".66" stop-color="#2997ff"/><stop offset="1" stop-color="#30d158"/></linearGradient>
+                <radialGradient id="rig-glow" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#2997ff" stop-opacity=".35"/><stop offset="1" stop-color="#2997ff" stop-opacity="0"/></radialGradient>
+              </defs>
+              <ellipse cx="300" cy="280" rx="300" ry="250" fill="url(#rig-glow)"/>
+              <rect class="rig-case" x="40" y="24" width="520" height="500" rx="30"/>
+              <rect class="rig-board" x="112" y="62" width="320" height="330" rx="10"/>
+              <g class="rig-traces"><path d="M130 200h60v40h50M130 230h40v60M410 90v80h-40M150 370h120v-20M410 300h-60v40"/></g>
+              <text class="rig-label" x="128" y="88">ROG</text>
+              <path class="rig-tube" d="M265 150 C 300 60, 420 60, 470 110"/>
+              <path class="rig-tube" d="M285 160 C 340 110, 430 150, 470 200"/>
+              <g class="rig-ram"><rect x="346" y="100" width="11" height="118" rx="3"/><rect x="362" y="100" width="11" height="118" rx="3"/></g>
+              <g class="rig-pump" transform="translate(272 168)"><rect x="-42" y="-42" width="84" height="84" rx="16"/><circle r="30" class="pump-lcd"/><circle r="22" class="pump-ring"/><text y="6">L2K</text></g>
+              <rect class="rig-ssd" x="205" y="344" width="120" height="16" rx="3"/><text class="rig-mini" x="214" y="356">990 PRO</text>
+              <g class="rig-gpu"><rect x="104" y="244" width="340" height="86" rx="14"/><g class="fan" transform="translate(178 282)"><circle r="27" class="fan-ring"/><g class="fan-blades"><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(0)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(45)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(90)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(135)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(180)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(225)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(270)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(315)"/></g><circle r="6" class="fan-hub"/></g><g class="fan" transform="translate(274 282)"><circle r="27" class="fan-ring"/><g class="fan-blades"><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(0)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(45)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(90)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(135)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(180)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(225)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(270)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(315)"/></g><circle r="6" class="fan-hub"/></g><g class="fan" transform="translate(370 282)"><circle r="27" class="fan-ring"/><g class="fan-blades"><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(0)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(45)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(90)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(135)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(180)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(225)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(270)"/><path d="M0 0 C 7 -9, 20 -12, 24 -3 C 16 -1, 8 0, 0 0Z" transform="rotate(315)"/></g><circle r="6" class="fan-hub"/></g><text class="rig-mini" x="118" y="323">RTX 5090</text></g>
+              <rect class="rig-rad" x="452" y="58" width="78" height="350" rx="12"/>
+              <g class="fan fan-big" transform="translate(491 120)"><circle r="34" class="fan-ring"/><g class="fan-blades"><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(0)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(45)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(90)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(135)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(180)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(225)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(270)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(315)"/></g><circle r="7" class="fan-hub"/></g><g class="fan fan-big" transform="translate(491 233)"><circle r="34" class="fan-ring"/><g class="fan-blades"><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(0)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(45)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(90)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(135)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(180)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(225)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(270)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(315)"/></g><circle r="7" class="fan-hub"/></g><g class="fan fan-big" transform="translate(491 346)"><circle r="34" class="fan-ring"/><g class="fan-blades"><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(0)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(45)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(90)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(135)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(180)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(225)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(270)"/><path d="M0 0 C 8 -12, 26 -15, 31 -3 C 20 -2, 10 0, 0 0Z" transform="rotate(315)"/></g><circle r="7" class="fan-hub"/></g>
+              <rect class="rig-shroud" x="58" y="414" width="484" height="94" rx="16"/>
+              <g class="rig-screen"><rect x="74" y="428" width="270" height="64" rx="10"/><text x="90" y="455">LANDERS2K</text><text class="rig-mini rig-live" x="90" y="476">● EN DIRECT</text>
+                <g class="rig-bars"><rect x="230" y="440" width="8" height="42" rx="2" style="--i:0"/><rect x="244" y="440" width="8" height="42" rx="2" style="--i:1"/><rect x="258" y="440" width="8" height="42" rx="2" style="--i:2"/><rect x="272" y="440" width="8" height="42" rx="2" style="--i:3"/><rect x="286" y="440" width="8" height="42" rx="2" style="--i:4"/><rect x="300" y="440" width="8" height="42" rx="2" style="--i:5"/><rect x="314" y="440" width="8" height="42" rx="2" style="--i:6"/></g></g>
+              <text class="rig-mini" x="388" y="466">ROG STRIX 1200W</text>
+              <rect x="40" y="24" width="520" height="500" rx="30" fill="url(#rig-glass)" pointer-events="none"/>
+              <a class="hotspot" href="#part-cpu" data-part="cpu" aria-label="Processeur" transform="translate(300 132)"><circle r="15"/><text y="5">1</text></a><a class="hotspot" href="#part-gpu" data-part="gpu" aria-label="Carte graphique" transform="translate(132 252)"><circle r="15"/><text y="5">2</text></a><a class="hotspot" href="#part-mb" data-part="mb" aria-label="Carte mère" transform="translate(150 120)"><circle r="15"/><text y="5">3</text></a><a class="hotspot" href="#part-ram" data-part="ram" aria-label="Mémoire vive" transform="translate(368 92)"><circle r="15"/><text y="5">4</text></a><a class="hotspot" href="#part-ssd" data-part="ssd" aria-label="SSD" transform="translate(346 352)"><circle r="15"/><text y="5">5</text></a><a class="hotspot" href="#part-case" data-part="case" aria-label="Boîtier et son écran" transform="translate(362 440)"><circle r="15"/><text y="5">6</text></a><a class="hotspot" href="#part-psu" data-part="psu" aria-label="Alimentation" transform="translate(524 436)"><circle r="15"/><text y="5">7</text></a><a class="hotspot" href="#part-aio" data-part="aio" aria-label="Watercooling" transform="translate(530 236)"><circle r="15"/><text y="5">8</text></a>
+            </svg>
+          </figure>
+          <ol class="rig-legend" data-stagger>
+              <li><a href="#part-cpu" data-part="cpu"><span class="rig-num">1</span><span><b>Processeur</b><small>AMD Ryzen 9 9950X3D</small></span></a></li>
+              <li><a href="#part-gpu" data-part="gpu"><span class="rig-num">2</span><span><b>Carte graphique</b><small>Gainward GeForce RTX 5090 Phantom</small></span></a></li>
+              <li><a href="#part-mb" data-part="mb"><span class="rig-num">3</span><span><b>Carte mère</b><small>ASUS ROG Crosshair X870E Hero</small></span></a></li>
+              <li><a href="#part-ram" data-part="ram"><span class="rig-num">4</span><span><b>Mémoire vive</b><small>Kingston Fury Beast Black RGB DDR5</small></span></a></li>
+              <li><a href="#part-ssd" data-part="ssd"><span class="rig-num">5</span><span><b>SSD</b><small>Samsung 990 Pro</small></span></a></li>
+              <li><a href="#part-case" data-part="case"><span class="rig-num">6</span><span><b>Boîtier et son écran</b><small>Hyte Y70 Touch Infinite</small></span></a></li>
+              <li><a href="#part-psu" data-part="psu"><span class="rig-num">7</span><span><b>Alimentation</b><small>ASUS ROG Strix 1200P</small></span></a></li>
+              <li><a href="#part-aio" data-part="aio"><span class="rig-num">8</span><span><b>Watercooling</b><small>Lian Li Hydroshift II LCD-C 360R</small></span></a></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== En chiffres ===================== -->
     <section class="kpis-section" data-scene="stats" aria-labelledby="spec-title">
       <div class="wrap-wide">
@@ -199,28 +250,28 @@
 
         <h3 class="parts-group reveal">Le cœur de la machine</h3>
         <div class="parts-grid" data-stagger>
-          <article class="part" style="--brand:#ff375f" data-tilt>
+          <article class="part" id="part-cpu" style="--brand:#ff375f" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-cpu"/></svg></span>
             <p class="part-kind">Processeur</p>
             <h4>AMD Ryzen 9 9950X3D</h4>
             <p class="part-spec">16 cœurs, 32 threads, 4,3 GHz</p>
             <a class="link-arrow" href="https://www.amazon.fr/s?k=AMD+Ryzen+9+9950X3D" target="_blank" rel="noopener">Voir sur Amazon</a>
           </article>
-          <article class="part" style="--brand:#30d158" data-tilt>
+          <article class="part" id="part-gpu" style="--brand:#30d158" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-gpu"/></svg></span>
             <p class="part-kind">Carte graphique</p>
             <h4>Gainward GeForce RTX 5090 Phantom</h4>
             <p class="part-spec">32 Go de GDDR7</p>
             <a class="link-arrow" href="https://www.amazon.fr/s?k=Gainward+GeForce+RTX+5090+Phantom" target="_blank" rel="noopener">Voir sur Amazon</a>
           </article>
-          <article class="part" style="--brand:#ff2a5b" data-tilt>
+          <article class="part" id="part-mb" style="--brand:#ff2a5b" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-board"/></svg></span>
             <p class="part-kind">Carte mère</p>
             <h4>ASUS ROG Crosshair X870E Hero</h4>
             <p class="part-spec">Socket AM5</p>
             <a class="link-arrow" href="https://www.amazon.fr/s?k=ASUS+ROG+Crosshair+X870E+Hero" target="_blank" rel="noopener">Voir sur Amazon</a>
           </article>
-          <article class="part" style="--brand:#bf5af2" data-tilt>
+          <article class="part" id="part-ram" style="--brand:#bf5af2" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-ram"/></svg></span>
             <p class="part-kind">Mémoire vive</p>
             <h4>Kingston Fury Beast Black RGB DDR5</h4>
@@ -231,21 +282,21 @@
 
         <h3 class="parts-group reveal">Stockage</h3>
         <div class="parts-grid is-3" data-stagger>
-          <article class="part" style="--brand:#2997ff" data-tilt>
+          <article class="part" id="part-ssd" style="--brand:#2997ff" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-ssd"/></svg></span>
             <p class="part-kind">SSD</p>
             <h4>Samsung 990 Pro</h4>
             <p class="part-spec">2 To</p>
             <a class="link-arrow" href="https://www.amazon.fr/s?k=Samsung+990+Pro+2+To" target="_blank" rel="noopener">Voir sur Amazon</a>
           </article>
-          <article class="part" style="--brand:#2997ff" data-tilt>
+          <article class="part" id="part-case" style="--brand:#2997ff" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-ssd"/></svg></span>
             <p class="part-kind">SSD</p>
             <h4>Samsung 990 EVO Plus</h4>
             <p class="part-spec">4 To</p>
             <a class="link-arrow" href="https://www.amazon.fr/s?k=Samsung+990+EVO+Plus+4+To" target="_blank" rel="noopener">Voir sur Amazon</a>
           </article>
-          <article class="part" style="--brand:#30d158" data-tilt>
+          <article class="part" id="part-psu" style="--brand:#30d158" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-hdd"/></svg></span>
             <p class="part-kind">Disque dur</p>
             <h4>Seagate IronWolf</h4>
@@ -256,7 +307,7 @@
 
         <h3 class="parts-group reveal">Boîtier, alimentation et refroidissement</h3>
         <div class="parts-grid is-3" data-stagger>
-          <article class="part" style="--brand:#64d2ff" data-tilt>
+          <article class="part" id="part-aio" style="--brand:#64d2ff" data-tilt>
             <span class="part-ico"><svg aria-hidden="true"><use href="#p-case"/></svg></span>
             <p class="part-kind">Boîtier</p>
             <h4>Hyte Y70 Touch Infinite</h4>
@@ -377,7 +428,7 @@
   <div class="flash" aria-hidden="true"></div>
   <p class="score-toast" aria-live="polite" hidden></p>
 
-  <script src="script.js?v=3d38674cf5" defer></script>
+  <script src="script.js?v=0ff5d2afc6" defer></script>
   <!-- Cloudflare Web Analytics : statistiques de visite anonymes, sans cookie -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9f14b1678c7b4e2984e21cb5473c0fcd"}'></script>
 </body>

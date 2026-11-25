@@ -278,7 +278,17 @@ def classement():
         print("Classement non mis à jour :", e, file=sys.stderr)
 
 
+def clips():
+    """Meilleurs clips (les TikToks les plus vus) : au plus une lecture toutes les 6 h (voir tools/update_clips.py)."""
+    try:
+        import update_clips
+        update_clips.main()
+    except Exception as e:  # noqa: BLE001 — le TikTok ne doit jamais échouer à cause des clips
+        print("Meilleurs clips non mis à jour :", e, file=sys.stderr)
+
+
 if __name__ == "__main__":
     code = main()
     classement()
+    clips()
     sys.exit(code)

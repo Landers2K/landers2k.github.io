@@ -1016,6 +1016,79 @@ const CONFIG = {
   })();
 
   /* ------------------------------------------------------------------------
+     TikTok : « Mes meilleurs clips » (les plus vus, assets/data/clips.json)
+     et onglets Meilleurs clips / Les plus récentes
+     ------------------------------------------------------------------------ */
+  (function bestClips() {
+    const list = $('[data-tt-best]');
+    if (!list) return;
+    const tabs = $$('[data-tt-tab]');
+    const panels = { best: list, recent: $('#tt-recent') };
+    const show = name => {
+      tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.ttTab === name)));
+      Object.entries(panels).forEach(([k, el]) => { if (el) el.hidden = k !== name; });
+    };
+    tabs.forEach(b => b.addEventListener('click', () => show(b.dataset.ttTab)));
+
+    const compactFmt = new Intl.NumberFormat(LOCALE, { notation: 'compact', maximumFractionDigits: 1 });
+    const el = (tag, className, text) => Object.assign(document.createElement(tag), className ? { className } : {}, text ? { textContent: text } : {});
+    fetch('/assets/data/clips.json', { cache: 'no-cache' }).then(r => (r.ok ? r.json() : null)).catch(() => null).then(data => {
+      const all = (data && Array.isArray(data.clips) ? data.clips : []).filter(c => c && /^\d{10,25}$/.test(String(c.id)));
+      // Seulement les vrais succès (5 000 vues et plus), au moins 3 vidéos
+      let clips = all.filter(c => c.plays >= 5000);
+      if (clips.length < 3) clips = all.slice(0, 3);
+      if (!clips.length) { show('recent'); tabs.forEach(b => { if (b.dataset.ttTab === 'best') b.hidden = true; }); return; }
+      list.replaceChildren(...clips.map((clip, i) => {
+        const caption = String(clip.description || '').replace(/#[^\s#]+/g, '').replace(/\s+/g, ' ').trim() || 'TikTok';
+        const views = compactFmt.format(clip.plays || 0);
+        const link = el('a', 'tt-card');
+        link.href = `https://www.tiktok.com/@${encodeURIComponent(CONFIG.tiktok)}/video/${clip.id}`;
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.setAttribute('aria-label', tr(`n°${i + 1} : ${caption} · ${views} vues, sur TikTok`, `#${i + 1}: ${caption} · ${views} views, on TikTok`));
+        const thumb = el('span', 'tt-thumb');
+        if (/^assets\/img\/tiktok\/best\/\d{10,25}\.(webp|jpg)$/.test(clip.cover || '')) {
+          thumb.append(Object.assign(document.createElement('img'), { src: `/${clip.cover}`, alt: '', width: 300, height: 400, loading: 'lazy', decoding: 'async' }));
+        }
+        thumb.append(el('span', `tt-rank${i === 0 ? ' is-first' : ''}`, `#${i + 1}`));
+        const count = el('span', 'tt-views tt-views-big');
+        count.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.6-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></svg>';
+        count.append(tr(`${views} vues`, `${views} views`));
+        thumb.append(count);
+        link.append(thumb, el('span', 'tt-card-text', caption));
+        const item = el('li');
+        item.append(link);
+        return item;
+      }));
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
+     Setup : pastilles de l'illustration ↔ légende ↔ cartes des composants
+     ------------------------------------------------------------------------ */
+  (function rig() {
+    const items = $$('[data-part]');
+    if (!items.length) return;
+    const light = (key, on) => items.forEach(el => { if (el.dataset.part === key) el.classList.toggle('is-on', on); });
+    items.forEach(el => {
+      el.addEventListener('mouseenter', () => light(el.dataset.part, true));
+      el.addEventListener('mouseleave', () => light(el.dataset.part, false));
+      el.addEventListener('focus', () => light(el.dataset.part, true));
+      el.addEventListener('blur', () => light(el.dataset.part, false));
+      el.addEventListener('click', e => {
+        const card = document.getElementById(`part-${el.dataset.part}`);
+        if (!card) return;
+        e.preventDefault();
+        card.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'center' });
+        card.classList.remove('is-flash');
+        void card.offsetWidth;
+        card.classList.add('is-flash');
+        setTimeout(() => card.classList.remove('is-flash'), 2200);
+      });
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
      Intégrations TikTok, YouTube et Twitch.
      Rien n'est chargé (ni cookies tiers) avant que le visiteur clique sur
      « Afficher » ; son choix est ensuite mémorisé sur son appareil.
