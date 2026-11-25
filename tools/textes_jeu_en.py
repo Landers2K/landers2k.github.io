@@ -264,4 +264,11 @@ T = [
     ("<span><b>83&nbsp;%</b>de vie restante</span>", "<span><b>83%</b>HP left</span>"),
     ('<span class="boss-poster-tag">Nouveau boss</span>', '<span class="boss-poster-tag">New boss</span>'),
     ('aria-label="Les dégâts de chaque cube"', 'aria-label="Damage of each cube"'),
+    # ---- Sommaire de la page du jeu
+    ('aria-label="Sommaire de la page du jeu"', 'aria-label="Game page contents"'),
+    ('<a class="subnav-link" href="#nouveautes">Nouveautés</a>', '<a class="subnav-link" href="#nouveautes">What’s new</a>'),
+    ('<a class="subnav-link" href="#cubes">Les cubes</a>', '<a class="subnav-link" href="#cubes">Cubes</a>'),
+    ('<a class="subnav-link" href="#classement">Classement</a>', '<a class="subnav-link" href="#classement">Leaderboard</a>'),
+    ('<a class="subnav-link" href="#progression">Progression</a>', '<a class="subnav-link" href="#progression">Progress</a>'),
+    ('<a class="subnav-link subnav-cta" href="#telecharger">Télécharger</a>', '<a class="subnav-link subnav-cta" href="#telecharger">Download</a>'),
 ]

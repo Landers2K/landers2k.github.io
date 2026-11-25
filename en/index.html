@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=55a8d70e8d">
+  <link rel="stylesheet" href="/styles.css?v=5a4d8627b0">
   <!-- Les cubes animés sont ajoutés par script.js : on les télécharge dès le début -->
   <link rel="preload" as="image" href="/assets/img/cube-blue.webp" type="image/webp">
   <link rel="preload" as="image" href="/assets/img/cube-red.webp" type="image/webp">
@@ -235,7 +235,6 @@
 
       <div class="wrap about-quote">
         <blockquote class="reveal"><strong>Landers2K is much more than a gaming channel</strong>: it’s a project that brings together <span class="is-blue">creation</span>, <span class="grad-text">innovation</span> and <span class="is-red">community</span>.</blockquote>
-        <p class="reveal">This site is the heart of that universe: you’ll find my latest videos, my live streams, my games and all the news about my projects.</p>
         <p class="about-sign reveal"><strong>Welcome to the Landers2K universe.</strong></p>
       </div>
     </section>
@@ -385,8 +384,8 @@
       </div>
     </section>
 
-    <!-- ===================== Don't Tap Red : présentation ===================== -->
-    <section class="game" id="jeu" data-scene="game" aria-labelledby="game-title">
+    <!-- ===================== Don't Tap Red : vitrine ===================== -->
+    <section class="game dtr-show" id="jeu" data-scene="game" aria-labelledby="game-title">
       <div class="wrap-wide game-intro">
         <div class="game-copy">
           <div class="game-badge reveal">
@@ -407,7 +406,7 @@
             </a>
           </div>
           <p class="game-meta reveal">Free · Optional in-app purchases · English and French</p>
-          <p class="game-more reveal"><a class="link-arrow" href="/dont-tap-red/en/">All about the game</a></p>
+          <p class="game-more reveal"><a class="btn btn-light btn-lg" href="/dont-tap-red/en/" data-magnetic>Discover the game</a></p>
         </div>
         <figure class="game-home reveal">
           <div class="phone phone-tilt" data-tilt>
@@ -417,533 +416,48 @@
         </figure>
       </div>
 
-      <!-- Objectif + mini-jeu jouable -->
-      <div class="wrap-wide goal">
-        <div class="goal-copy">
-          <p class="kicker reveal">The goal</p>
-          <h3 class="goal-title" data-split>One single rule.</h3>
-          <ul class="goal-rules" data-stagger>
-            <li><img src="/assets/img/cube-blue.webp" alt="" width="56" height="56"><span><b class="is-blue">Tap the blue</b> to score points and grow your combo.</span></li>
-            <li><img src="/assets/img/cube-red.webp" alt="" width="56" height="56"><span><b class="is-red">Never touch the red</b>: one wrong move and it’s over.</span></li>
-          </ul>
-          <p class="goal-hint reveal">Try it right here: 20&nbsp;seconds to set your best score.</p>
-        </div>
 
-        <div class="mg reveal" aria-label="Don’t Tap Red mini-game">
-          <div class="mg-hud">
-            <span>Score <b class="mg-score">0</b></span>
-            <span>Time <b class="mg-time">20</b></span>
-            <span>Best <b class="mg-best">0</b></span>
-          </div>
-          <div class="mg-arena"></div>
-          <div class="mg-overlay">
-            <p class="mg-title">Ready?</p>
-            <p class="mg-text">Tap the blue cubes, avoid the red ones.</p>
-            <button class="btn btn-light mg-start" type="button">Play</button>
-            <a class="link-arrow mg-store" href="#telecharger" hidden>Get the real game</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Quoi de neuf ===================== -->
-    <section class="news" id="nouveautes" data-scene="stats" aria-labelledby="news-title">
-      <div class="wrap-wide">
-        <header class="section-head">
-          <p class="kicker reveal">What’s new?</p>
-          <h2 class="section-title" id="news-title" data-split>The game never stands still.<br><span class="muted">Here’s what’s coming.</span></h2>
-        </header>
-        <div class="news-grid">
-          <article class="news-feature reveal" data-news-feature hidden></article>
-          <ol class="news-list reveal">
-          <li class="news-item" data-date="2027-01-04" data-visual="/assets/img/boss-cadeau.avif" style="--brand:#ff375f">
-            <img class="news-thumb" src="/assets/img/boss-cadeau.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2027-01-04">January 4, 2027</time></p>
-              <h3>The Trapped Gift attacks</h3>
-              <p>A new community boss and a brand-new fight: slicing.</p>
-              <a class="link-arrow" href="#boss">Meet the boss</a>
-            </div>
-          </li>
-          <li class="news-item" data-date="2027-01-01" data-visual="/assets/img/pass/green_iceowl.avif" style="--brand:#38bdf8">
-            <img class="news-thumb" src="/assets/img/pass/green_iceowl.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2027-01-01">January 1, 2027</time></p>
-              <h3>January Pass: Ice Kingdom</h3>
-              <p>6 ice skins, including an animated skin at level 30. Fully revealed on December 21.</p>
-              <a class="link-arrow" href="#pass" data-pass-link="2027-01">See the pass</a>
-            </div>
-          </li>
-          <li class="news-item" data-date="2026-12-20" data-visual="/assets/img/noel/cube-red.png /assets/img/noel/cube-blue.png /assets/img/noel/cube-gold.png" style="--brand:#30d158">
-            <img class="news-thumb" src="/assets/img/noel/cube-red.png" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-12-20">December 20, 2026</time></p>
-              <h3>The Christmas season</h3>
-              <p>The game gets into the Christmas spirit until January 2: a Christmas home screen and a Christmas Originals pack.</p>
-            </div>
-          </li>
-          <li class="news-item" data-date="2026-12-01" data-visual="/assets/img/pass/purple_pegasus.avif /assets/img/pass/blue_poseidon.avif /assets/img/pass/gold_zeus.avif" style="--brand:#ffd60a">
-            <img class="news-thumb" src="/assets/img/pass/purple_pegasus.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-12-01">December 1, 2026</time></p>
-              <h3>December Pass: Mythology</h3>
-              <p>Medusa, Pegasus, Zeus… and Poseidon’s animated trident. On presale since November 21.</p>
-              <a class="link-arrow" href="#pass" data-pass-link="2026-12">See the pass</a>
-            </div>
-          </li>
-          <li class="news-item" data-date="2026-11-21" data-visual="/assets/img/dtr-icon.jpg" style="--brand:#bf5af2">
-            <img class="news-thumb" src="/assets/img/dtr-icon.jpg" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-21">November 21, 2026</time></p>
-              <h3>Version 3.0.3</h3>
-              <p>Next month’s pass on presale from the 21st, and an “I already have an account” button to get your progress back on a new phone.</p>
-            </div>
-          </li>
-          <li class="news-item" data-date="2026-11-11" data-visual="/assets/img/dtr-fusion.jpg" style="--brand:#ff2d92">
-            <img class="news-thumb" src="/assets/img/dtr-fusion.jpg" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-11">November 11, 2026</time></p>
-              <h3>Version 3.0.2: Fusion mode</h3>
-              <p>Fusion mode replaces Challenge, and the game comes to iPad and iPhone Duo, with 24 new skins and a new home screen.</p>
-              <a class="link-arrow" href="#modes">See the modes</a>
-            </div>
-          </li>
-          <li class="news-item" data-date="2026-11-02" data-visual="/assets/img/dtr-cube-noir.jpg" style="--brand:#8e8e93">
-            <img class="news-thumb" src="/assets/img/dtr-cube-noir.jpg" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-02">November 2, 2026</time></p>
-              <h3>The Black Cube escapes</h3>
-              <p>The first community boss held out against every player… and escaped with 83% of its HP. It will be back.</p>
-              <a class="link-arrow" href="#boss">Read the story</a>
-            </div>
-          </li>
-          <li class="news-item" data-date="2026-10-27" data-visual="/assets/img/pass/blue_pioneer.avif /assets/img/pass/purple_rings.avif /assets/img/pass/green_ufo.avif" style="--brand:#2997ff">
-            <img class="news-thumb" src="/assets/img/pass/blue_pioneer.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
-            <div class="news-body">
-              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-10-27">October 2026</time></p>
-              <h3>The Season Pass arrives</h3>
-              <p>30 levels, 6 skins and 6 titles every month, plus the bag, mystery chests and the new shop.</p>
-            </div>
-          </li>
+      <div class="wrap-wide dtr-tiles" data-stagger>
+        <a class="dtr-tile tile-boss" href="/dont-tap-red/en/#boss" style="--brand:#ff375f">
+          <img class="dtr-tile-art" src="/assets/img/boss-cadeau.avif" alt="" width="260" height="260" loading="lazy" decoding="async">
+          <span class="dtr-tile-kicker">Next boss</span>
+          <b class="dtr-tile-title">The Trapped Gift</b>
+          <span class="dtr-tile-sub" data-mini-count data-start="2027-01-04T09:00:00+01:00" data-end="2027-01-10T23:59:59+01:00">January 4, 2027 at 9 a.m.</span>
+          <span class="dtr-tile-go">Meet the boss</span>
+        </a>
+        <a class="dtr-tile tile-pass" href="/dont-tap-red/en/#pass" data-potm style="--brand:#3b82f6">
+          <span class="potm-list">
+              <span class="potm" data-month="2026-11" data-color="#3b82f6">
+                <img src="/assets/img/pass/blue_pioneer.avif" alt="" width="240" height="240" loading="lazy" decoding="async">
+                <span class="dtr-tile-kicker">November pass</span>
+                <b class="dtr-tile-title">Space</b>
+              </span>
+              <span class="potm" data-month="2026-12" data-color="#facc15" hidden>
+                <img src="/assets/img/pass/blue_poseidon.avif" alt="" width="240" height="240" loading="lazy" decoding="async">
+                <span class="dtr-tile-kicker">December pass</span>
+                <b class="dtr-tile-title">Mythology</b>
+              </span>
+              <span class="potm" data-month="2027-01" data-color="#38bdf8" hidden>
+                <img src="/assets/img/pass/blue_icedragon.avif" alt="" width="240" height="240" loading="lazy" decoding="async">
+                <span class="dtr-tile-kicker">January pass</span>
+                <b class="dtr-tile-title">Ice Kingdom</b>
+              </span>
+              <span class="potm" data-month="2027-02" data-color="#ef4444" hidden>
+                <img src="/assets/img/pass/blue_dragon.avif" alt="" width="240" height="240" loading="lazy" decoding="async">
+                <span class="dtr-tile-kicker">February pass</span>
+                <b class="dtr-tile-title">Chinese New Year</b>
+              </span>
+          </span>
+          <span class="dtr-tile-sub" data-potm-status>6 skins including an animated one, 6 titles</span>
+          <span class="dtr-tile-go">See the passes</span>
+        </a>
+        <a class="dtr-tile tile-rank" href="/dont-tap-red/en/#classement" style="--brand:#ffd60a">
+          <span class="dtr-tile-kicker">Live leaderboard · Arcade</span>
+          <ol class="mini-top" data-top3>
+            <li class="mini-top-empty">The best players in the world, updated every hour.</li>
           </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Les modes de jeu ===================== -->
-    <section class="modes" id="modes" data-scene="modes" aria-labelledby="modes-title">
-      <header class="wrap-wide section-head">
-        <p class="kicker reveal">Game modes</p>
-        <h2 class="section-title" id="modes-title" data-split>Four ways to play.<br><span class="muted">One single rule.</span></h2>
-      </header>
-      <div class="wrap-wide scrolly">
-        <div class="scrolly-text">
-          <article class="step" data-glow="#2997ff">
-            <p class="step-kicker"><span>01</span> Arcade</p>
-            <h3>Chain combos. Beat your best.</h3>
-            <p>Tap the blue cubes, make your combo explode and unlock crazier and crazier bonuses: <strong>FREEZE, BOMB, x2, extra life and golden star cubes</strong>… Surprises change the rules mid-game. Can you reach <strong>LEGEND</strong> rank?</p>
-          </article>
-          <article class="step" data-glow="#ffd60a">
-            <p class="step-kicker"><span>02</span> Rain</p>
-            <h3>Cubes fall from the sky.</h3>
-            <p>Catch the right cubes <strong>before they hit the ground</strong>, dodge the red ones and survive the events: lightning, night, storm… Surprise challenges during the game earn you even more points.</p>
-          </article>
-          <article class="step" data-glow="#ff375f">
-            <p class="step-kicker"><span>03</span> Fusion</p>
-            <h3>Merge up to the gold cube.</h3>
-            <p>Drop the cubes into the barrel: two identical cubes merge into a bigger one. Climb all the way to the <strong>gold cube</strong> without crossing the <strong>red line</strong>, with 3 bonuses to get you out of tight spots: <strong>Swap, Shake and the Smash hammer</strong>.</p>
-          </article>
-          <article class="step" data-glow="#e5e5ea">
-            <p class="step-kicker"><span>04</span> Chrono</p>
-            <h3>60 seconds, not one more.</h3>
-            <p>No lives to manage: just a timer and cubes. <strong>Chain as many right cubes as you can</strong> to blow up your score before time runs out.</p>
-          </article>
-        </div>
-
-        <div class="scrolly-visual" aria-hidden="true">
-          <div class="phone-glow"></div>
-          <div class="phone">
-            <div class="phone-screen">
-              <img class="screen is-active" src="/assets/img/dtr-arcade.jpg" alt="" loading="lazy" decoding="async">
-              <img class="screen" src="/assets/img/dtr-rain.jpg" alt="" loading="lazy" decoding="async">
-              <img class="screen" src="/assets/img/dtr-fusion.jpg" alt="" loading="lazy" decoding="async">
-              <img class="screen" src="/assets/img/dtr-chrono.jpg" alt="" loading="lazy" decoding="async">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Les boss ===================== -->
-    <section class="boss band" id="boss" data-scene="progress" aria-labelledby="boss-title">
-      <div class="wrap-wide">
-        <header class="section-head">
-          <p class="kicker reveal">The bosses</p>
-          <h2 class="section-title" id="boss-title" data-split>The Black Cube got away.<br><span class="muted">The Trapped Gift is coming.</span></h2>
-        </header>
-
-        <ol class="saga-line">
-          <li class="saga-chapter" style="--brand:#8e8e93">
-            <article class="saga saga-noir reveal">
-              <div class="saga-visual">
-                <img src="/assets/img/dtr-cube-noir.jpg" alt="The Black Cube, the first Don’t Tap Red boss" loading="lazy" decoding="async">
-                <span class="saga-stamp">Escaped</span>
-              </div>
-              <div class="saga-copy">
-                <p class="saga-step">Chapter 1 · November 2–8, 2026</p>
-                <h3>The Black Cube</h3>
-                <p>It appeared one Monday morning with <strong>50 million HP</strong>. For a whole week, every player hit it together, relentlessly: <strong>8,475,683 damage</strong>. Not enough. Wounded but still standing, it used Sunday night to <strong>escape</strong>, taking its treasure with it.</p>
-                <div class="saga-stats">
-                  <span><b data-count="8475683">8&nbsp;475&nbsp;683</b>damage dealt</span>
-                  <span><b>50 M</b>starting HP</span>
-                  <span><b>83%</b>HP left</span>
-                </div>
-                <div class="hp reveal" role="img" aria-label="The Black Cube’s remaining HP: 83%">
-                  <div class="hp-bar"><span style="--hp:.83"></span></div>
-                  <p class="hp-text"><b>41,524,317 HP</b> left</p>
-                </div>
-                <p class="saga-mini">Its worst enemies: <b>MLDS</b>, <b>JOUEUR1015</b> and <b>Bhoulia</b>, over 2 million damage each.</p>
-              </div>
-            </article>
-          </li>
-
-          <li class="saga-chapter" style="--brand:#bf5af2">
-            <div class="saga-interlude reveal">
-              <p class="saga-step">Chapter 2 · Until it returns</p>
-              <p class="saga-quote">The Black Cube is lurking somewhere, and it will come back stronger. To be ready on that day, we have to toughen up: every season, new bosses stand in our way. Every fight is training, every hit brings us closer to revenge.</p>
-            </div>
-          </li>
-
-          <li class="saga-chapter is-next" style="--brand:#ff375f">
-            <div class="boss-next">
-              <figure class="boss-poster reveal" data-tilt>
-                <img src="/assets/img/boss-cadeau-affiche.jpg" alt="The Trapped Gift, the new Don’t Tap Red boss" loading="lazy" decoding="async">
-                <span class="boss-poster-tag">New boss</span>
-              </figure>
-              <div class="boss-info">
-                <p class="saga-step reveal">Chapter 3 · The new boss</p>
-                <h3 class="boss-name" data-split>The Trapped Gift.</h3>
-                <p class="boss-lead reveal">Under its red wrapping and golden ribbons hides a monster with razor-sharp fangs. It attacks on <strong>Monday, January 4, 2027 at 9 a.m. (Paris time)</strong>, for a week-long fight. Its HP: <strong>10 billion</strong>. We’re going to need a lot of players.</p>
-                <div class="boss-count reveal" data-boss-count data-start="2027-01-04T09:00:00+01:00" data-end="2027-01-10T23:59:59+01:00" data-week="w2975" data-hp="10000000000">
-                  <p class="boss-count-label">It arrives in</p>
-                  <div class="boss-count-grid">
-                    <span><b data-u="d">--</b>days</span>
-                    <span><b data-u="h">--</b>hours</span>
-                    <span><b data-u="m">--</b>min</span>
-                    <span><b data-u="s">--</b>sec</span>
-                  </div>
-                  <div class="boss-live" hidden>
-                    <div class="hp-bar"><span></span></div>
-                    <p class="hp-text"></p>
-                  </div>
-                </div>
-                <div class="boss-dmg" data-stagger aria-label="Damage of each cube">
-                  <span style="--brand:#2997ff"><img src="/assets/img/cube-blue.webp" alt="" width="52" height="52"><b>+1</b></span>
-                  <span style="--brand:#30d158"><img src="/assets/img/cube-green.webp" alt="" width="52" height="52"><b>+5</b></span>
-                  <span style="--brand:#bf5af2"><img src="/assets/img/cube-purple.webp" alt="" width="52" height="52"><b>+20</b></span>
-                  <span style="--brand:#ffd60a"><img src="/assets/img/cube-gold.webp" alt="" width="52" height="52"><b>+50</b></span>
-                  <span class="is-bomb" style="--brand:#ff375f"><img src="/assets/img/cube-red.webp" alt="" width="52" height="52"><b>−10</b></span>
-                </div>
-                <ul class="boss-rules" data-stagger>
-                  <li><b>Slice</b> the cubes thrown in the air with a swipe: blue 1 damage, green 5, purple 20, yellow 50.</li>
-                  <li><b>Avoid the red ones</b>: they’re bombs and take away 10 damage.</li>
-                  <li><b>Several cubes in one swipe</b>: damage is multiplied, up to x7.</li>
-                  <li><b>The white cube</b>: slice it and everything freezes for 5 seconds, every hit hurts more.</li>
-                  <li><b>Rewards</b> depend on your place in the damage ranking: up to 1,000 gems and a unique title for 1st place, even if the boss survives.</li>
-                </ul>
-              </div>
-            </div>
-          </li>
-        </ol>
-
-        <div class="slice reveal" aria-label="Mini-game: training against the Trapped Gift">
-          <div class="slice-hud">
-            <span>Damage <b class="slice-dmg">0</b></span>
-            <span>Time <b class="slice-time">20</b></span>
-            <span>Best <b class="slice-best">0</b></span>
-          </div>
-          <div class="slice-boss">
-            <img src="/assets/img/boss-cadeau.avif" alt="" width="260" height="260">
-            <div class="slice-hp"><span></span></div>
-            <p class="slice-hp-text">1,000 / 1,000 HP</p>
-          </div>
-          <canvas class="slice-canvas"></canvas>
-          <div class="mg-overlay slice-overlay">
-            <p class="mg-title slice-title">Train now!</p>
-            <p class="mg-text slice-text">A training Trapped Gift, 1,000 HP and 20 seconds. Swipe across the cubes to slice them (with a mouse: click and drag), and avoid the red ones.</p>
-            <button class="btn btn-light slice-start" type="button">Start</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Pass de saison ===================== -->
-    <section class="pass" id="pass" data-scene="stats" aria-labelledby="pass-title">
-      <div class="wrap-wide">
-        <header class="section-head">
-          <p class="kicker reveal">Season Pass</p>
-          <h2 class="section-title" id="pass-title" data-split>A new pass every month.<br><span class="muted">6 skins, 6 titles, 30 levels.</span></h2>
-          <p class="section-lead reveal">Level up just by playing: cubes destroyed, daily and weekly missions. The free pass gives you bonuses; premium unlocks the theme’s 6 skins, including an <strong>animated skin at level 30</strong>, and 6 titles to show next to your nickname. From the 21st of each month, the next pass is on presale.</p>
-        </header>
-        <div class="pass-tabs reveal" role="tablist" aria-label="Season passes">
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2026-11" aria-controls="pass-2026-11" aria-selected="false" data-month="2026-11" style="--brand:#3b82f6"><img class="pass-tab-img" src="/assets/img/pass/blue_pioneer.avif" alt="" width="44" height="44"><span><b>November</b><small>Space</small></span></button>
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2026-12" aria-controls="pass-2026-12" aria-selected="false" data-month="2026-12" style="--brand:#facc15"><img class="pass-tab-img" src="/assets/img/pass/blue_poseidon.avif" alt="" width="44" height="44"><span><b>December</b><small>Mythology</small></span></button>
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2027-01" aria-controls="pass-2027-01" aria-selected="false" data-month="2027-01" style="--brand:#38bdf8"><img class="pass-tab-img" src="/assets/img/pass/blue_icedragon.avif" alt="" width="44" height="44"><span><b>January</b><small>Ice Kingdom</small></span></button>
-          <button class="pass-tab" type="button" role="tab" id="pass-tab-2027-02" aria-controls="pass-2027-02" aria-selected="false" data-month="2027-02" style="--brand:#ef4444"><img class="pass-tab-img" src="/assets/img/pass/blue_dragon.avif" alt="" width="44" height="44"><span><b>February</b><small>Chinese New Year</small></span></button>
-        </div>
-        <div class="pass-panel" role="tabpanel" id="pass-2026-11" aria-labelledby="pass-tab-2026-11" data-month="2026-11" style="--brand:#3b82f6">
-          <div class="pass-hero">
-            <span class="pass-skin pass-skin-xl"><img src="/assets/img/pass/blue_pioneer.avif" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
-            <p class="pass-hero-cap"><b>Rocket</b><small>Level 30 · animated</small></p>
-          </div>
-          <div class="pass-main">
-            <div class="pass-head">
-              <p class="pass-status" data-pass-status>November pass</p>
-              <h3>Space</h3>
-              <p class="pass-desc">UFO, ringed planet, black hole… The very first Don’t Tap Red pass, all the way to the animated rocket at level 30.</p>
-            </div>
-            <ol class="pass-skins pass-track">
-              <li><span class="pass-skin"><img src="/assets/img/pass/green_ufo.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>UFO</b><small>Level 5</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/purple_rings.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Ringed Planet</b><small>Level 10</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/gold_satellite.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Golden Satellite</b><small>Level 15</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/orange_mars.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Mars</b><small>Level 20</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/red_blackhole.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Black Hole</b><small>Level 25</small></li>
-            </ol>
-            <ul class="pass-titles" aria-label="The pass titles">
-              <li class="pt-vert">EXPLORATEUR</li>
-              <li class="pt-bleu">PIONNIER</li>
-              <li class="pt-violet">ASTRONAUTE</li>
-              <li class="pt-jaune">COMMANDANT</li>
-              <li class="pt-rouge">CONQUÉRANT</li>
-              <li class="pt-blanc">MAÎTRE DU COSMOS</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pass-panel" role="tabpanel" id="pass-2026-12" aria-labelledby="pass-tab-2026-12" data-month="2026-12" style="--brand:#facc15">
-          <div class="pass-hero">
-            <span class="pass-skin pass-skin-xl"><img src="/assets/img/pass/blue_poseidon.avif" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
-            <p class="pass-hero-cap"><b>Poseidon’s Trident</b><small>Level 30 · animated</small></p>
-          </div>
-          <div class="pass-main">
-            <div class="pass-head">
-              <p class="pass-status" data-pass-status>December pass</p>
-              <h3>Mythology</h3>
-              <p class="pass-desc">The gods of Olympus are here: Medusa, Pegasus, Zeus’s bolt, the Minotaur’s labyrinth, the gates of the Underworld… and Poseidon’s animated trident at level 30.</p>
-              <p class="pass-teaser">The gods of Olympus are waking up… The pass will be revealed on November 21.</p>
-            </div>
-            <ol class="pass-skins pass-track">
-              <li><span class="pass-skin"><img src="/assets/img/pass/green_medusa.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Gorgon Snake</b><small>Level 5</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/purple_pegasus.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Pegasus</b><small>Level 10</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/gold_zeus.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Zeus Bolt</b><small>Level 15</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/orange_minotaur.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Minotaur’s Labyrinth</b><small>Level 20</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/red_cerberus.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Underworld Gates</b><small>Level 25</small></li>
-            </ol>
-            <ul class="pass-titles" aria-label="The pass titles">
-              <li class="pt-vert">MORTEL</li>
-              <li class="pt-bleu">DISCIPLE</li>
-              <li class="pt-violet">HÉROS</li>
-              <li class="pt-jaune">OLYMPIEN</li>
-              <li class="pt-rouge">DIVINITÉ</li>
-              <li class="pt-blanc">DEMI-DIEU</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pass-panel" role="tabpanel" id="pass-2027-01" aria-labelledby="pass-tab-2027-01" data-month="2027-01" style="--brand:#38bdf8">
-          <div class="pass-hero">
-            <span class="pass-skin pass-skin-xl"><img src="/assets/img/pass/blue_icedragon.avif" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
-            <p class="pass-hero-cap"><b>Ice Dragon</b><small>Level 30 · animated</small></p>
-          </div>
-          <div class="pass-main">
-            <div class="pass-head">
-              <p class="pass-status" data-pass-status>January pass</p>
-              <h3>Ice Kingdom</h3>
-              <p class="pass-desc">Winter sets in: an ice owl, castle and crown, an ice fox, a frozen heart… and an animated ice dragon at level 30.</p>
-              <p class="pass-teaser">Winter is coming… One skin is already revealed. The other 5, including an animated one, will be revealed on December 21.</p>
-            </div>
-            <ol class="pass-skins pass-track">
-              <li><span class="pass-skin"><img src="/assets/img/pass/green_iceowl.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Ice Owl</b><small>Level 5</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/purple_icecastle.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Ice Castle</b><small>Level 10</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/gold_icecrown.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Frost Crown</b><small>Level 15</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/orange_icefox.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Ice Fox</b><small>Level 20</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/red_iceheart.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Frozen Heart</b><small>Level 25</small></li>
-            </ol>
-            <ul class="pass-titles" aria-label="The pass titles">
-              <li class="pt-vert">FLOCON</li>
-              <li class="pt-bleu">GIVRÉ</li>
-              <li class="pt-violet">BLIZZARD</li>
-              <li class="pt-jaune">GLACIAL</li>
-              <li class="pt-rouge">ROI DES GLACES</li>
-              <li class="pt-blanc">EMPEREUR GLACÉ</li>
-            </ul>
-          </div>
-        </div>
-        <div class="pass-panel" role="tabpanel" id="pass-2027-02" aria-labelledby="pass-tab-2027-02" data-month="2027-02" style="--brand:#ef4444">
-          <div class="pass-hero">
-            <span class="pass-skin pass-skin-xl"><img src="/assets/img/pass/blue_dragon.avif" alt="" width="240" height="240" loading="lazy" decoding="async"></span>
-            <p class="pass-hero-cap"><b>Celestial Dragon</b><small>Level 30 · animated</small></p>
-          </div>
-          <div class="pass-main">
-            <div class="pass-head">
-              <p class="pass-status" data-pass-status>February pass</p>
-              <h3>Chinese New Year</h3>
-              <p class="pass-desc">Jade lion, imperial phoenix, fortune treasure, lion dance, lantern festival… and an animated celestial dragon to celebrate the new year.</p>
-              <p class="pass-teaser">A big celebration from Asia is on its way… One skin is already revealed. The other 5 will be revealed on January 21.</p>
-            </div>
-            <ol class="pass-skins pass-track">
-              <li><span class="pass-skin"><img src="/assets/img/pass/green_jadelion.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Jade Lion</b><small>Level 5</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/purple_phoenix.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Imperial Phoenix</b><small>Level 10</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/gold_fortune.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Fortune Treasure</b><small>Level 15</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/orange_liondance.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Lion Dance</b><small>Level 20</small></li>
-              <li><span class="pass-skin"><img src="/assets/img/pass/red_lantern.avif" alt="" width="200" height="200" loading="lazy" decoding="async"></span><b>Lantern Festival</b><small>Level 25</small></li>
-            </ol>
-            <ul class="pass-titles" aria-label="The pass titles">
-              <li class="pt-vert">APPRENTI</li>
-              <li class="pt-bleu">GARDIEN DE JADE</li>
-              <li class="pt-violet">MAÎTRE KUNG-FU</li>
-              <li class="pt-jaune">FORTUNE</li>
-              <li class="pt-rouge">EMPEREUR</li>
-              <li class="pt-blanc">DRAGON CÉLESTE</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Classement en direct ===================== -->
-    <section class="live-rank band" id="classement" data-scene="progress" aria-labelledby="rank-title">
-      <div class="wrap">
-        <header class="section-head center">
-          <p class="kicker reveal">Live leaderboard</p>
-          <h2 class="section-title" id="rank-title" data-split>Who’s the best?</h2>
-          <p class="section-lead reveal">The world’s top 10 players, read from the game every hour. Your spot might be right there.</p>
-        </header>
-        <div class="rank-box reveal" data-rank>
-          <div class="rank-controls">
-            <div class="seg" role="tablist" aria-label="Game mode">
-              <button type="button" role="tab" data-mode="arcade" aria-selected="true" style="--brand:#2997ff">Arcade</button>
-              <button type="button" role="tab" data-mode="rain" aria-selected="false" style="--brand:#ffd60a">Rain</button>
-              <button type="button" role="tab" data-mode="chrono" aria-selected="false" style="--brand:#e5e5ea">Chrono</button>
-              <button type="button" role="tab" data-mode="fusion" aria-selected="false" style="--brand:#ff2d92">Fusion</button>
-            </div>
-            <div class="seg seg-small" role="tablist" aria-label="Period">
-              <button type="button" role="tab" data-period="all" aria-selected="true">All time</button>
-              <button type="button" role="tab" data-period="week" aria-selected="false">This week</button>
-            </div>
-          </div>
-          <div class="podium" data-podium></div>
-          <ol class="rank-list" aria-live="polite">
-            <li class="rank-empty">Loading the leaderboard…</li>
-          </ol>
-          <p class="rank-foot" data-rank-foot>Updated every hour from the game.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== Progression ===================== -->
-    <section class="progress band" id="progression" data-scene="progress" aria-labelledby="progress-title">
-      <div class="wrap-wide">
-        <header class="section-head">
-          <p class="kicker reveal">And that’s just the beginning</p>
-          <h2 class="section-title" id="progress-title" data-split>Missions, titles, events<br><span class="muted">and rewards every week.</span></h2>
-        </header>
-
-        <div class="bento" data-stagger>
-          <article class="tile tile-shot" style="--brand:#ff9f0a" data-tilt>
-            <div class="tile-copy">
-              <p class="tile-kicker">Missions</p>
-              <h3>Always a goal to reach.</h3>
-              <p>Daily, weekly and mode missions: XP, coins and gems to earn. And a gift waits for you every day.</p>
-            </div>
-            <div class="tile-visual"><img src="/assets/img/dtr-missions.jpg" alt="The Don’t Tap Red missions screen" loading="lazy" decoding="async"></div>
-          </article>
-
-          <article class="tile tile-titles" style="--brand:#bf5af2" data-tilt>
-            <div class="tile-copy">
-              <p class="tile-kicker">Titles</p>
-              <h3>50+ titles to unlock.</h3>
-              <p>Show them next to your name: LEGEND rank in Arcade, Prestige titles once you pass level&nbsp;50, monthly titles for the best…</p>
-            </div>
-            <div class="tile-visual titles" aria-hidden="true">
-              <span class="title-chip t-gold" style="--i:0">LEGEND</span>
-              <span class="title-chip t-purple" style="--i:1">PRESTIGE 3</span>
-              <span class="title-chip t-blue" style="--i:2">KING OF NOVEMBER</span>
-              <span class="title-chip t-rainbow" style="--i:3">PRESTIGE MAX</span>
-            </div>
-          </article>
-
-          <article class="tile tile-shot tile-wide is-flip" style="--brand:#ff375f" data-tilt>
-            <div class="tile-copy">
-              <p class="tile-kicker">Events</p>
-              <h3>United against the bosses.</h3>
-              <p>A giant boss that all players attack together: its HP drops live, and everyone is rewarded based on their place in the damage ranking. Next up: the Trapped Gift, on January 4.</p>
-              <p class="tile-link"><a class="link-arrow" href="#boss">See the bosses</a></p>
-            </div>
-            <div class="tile-visual"><img src="/assets/img/dtr-cube-noir.jpg" alt="The Black Cube boss in Don’t Tap Red" loading="lazy" decoding="async"></div>
-          </article>
-
-          <article class="tile tile-rank tile-wide" style="--brand:#64d2ff" data-tilt>
-            <div class="tile-copy">
-              <p class="tile-kicker">Leaderboards</p>
-              <h3>Rewards every week and every month.</h3>
-              <p>In Arcade, Rain, Chrono and Fusion, your best score counts in the world, weekly and monthly leaderboards. Rewards land in your mailbox.</p>
-              <div class="rewards">
-                <div class="reward-col">
-                  <p class="reward-head">Every week · Top&nbsp;10 of each mode</p>
-                  <ul>
-                    <li><span class="rank r1">1<sup>st</sup></span><span>75 gems · 10,000 coins</span></li>
-                    <li><span class="rank r2">2<sup>nd</sup></span><span>50 gems · 7,000 coins</span></li>
-                    <li><span class="rank r3">3<sup>rd</sup></span><span>35 gems · 5,000 coins</span></li>
-                    <li><span class="rank">4–10<sup>th</sup></span><span>20 gems · 2,500 coins</span></li>
-                  </ul>
-                </div>
-                <div class="reward-col">
-                  <p class="reward-head">Every month · from November 2026</p>
-                  <p class="reward-month">The #1 of each mode wins the <b>“King of the month”</b> title, forever, and <b>300 gems</b>. #1 in all 4 modes: the <span class="grad-text">rainbow</span> title and <b>900 gems</b>.</p>
-                </div>
-              </div>
-            </div>
-            <div class="tile-visual"><img src="/assets/img/dtr-classement.jpg" alt="The Don’t Tap Red world leaderboard" loading="lazy" decoding="async"></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- Chiffres du jeu (fiche App Store) -->
-    <section class="stats" data-scene="stats" aria-labelledby="stats-title">
-      <div class="wrap-wide">
-        <header class="section-head center">
-          <h2 class="section-title" id="stats-title" data-split>A game that never stops.</h2>
-        </header>
-        <div class="stats-grid" data-stagger>
-          <div class="stat"><p class="stat-num"><span data-count="5">5</span></p><p class="stat-label">game modes: Arcade, Rain, Chrono, Fusion and Event</p></div>
-          <div class="stat"><p class="stat-num"><span data-count="100">100</span>+</p><p class="stat-label">skins to unlock, including animated skins</p></div>
-          <div class="stat"><p class="stat-num"><span data-count="10">10</span></p><p class="stat-label">cubes to merge in Fusion mode, up to the gold cube</p></div>
-          <div class="stat"><p class="stat-num"><span data-count="50">50</span></p><p class="stat-label">levels to climb, then Prestige</p></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Téléchargement -->
-    <section class="download" id="telecharger" data-scene="download" aria-labelledby="dl-title">
-      <div class="wrap download-inner">
-        <div class="download-cubes" aria-hidden="true">
-          <img src="/assets/img/cube-blue.webp" alt="" width="96" height="96">
-          <img src="/assets/img/cube-red.webp" alt="" width="96" height="96">
-        </div>
-        <h2 class="section-title" id="dl-title" data-split>Ready for the challenge?</h2>
-        <p class="download-sub reveal">One single rule: <span class="is-red">don’t tap red</span>. Free on iPhone, iPhone Duo, iPad and Android.</p>
-        <div class="store-row reveal">
-          <a class="store-btn store-btn-lg" href="https://apps.apple.com/us/app/dont-tap-red/id6820198356" target="_blank" rel="noopener" data-magnetic>
-            <svg aria-hidden="true"><use href="#i-apple"/></svg>
-            <span><small>Download on the</small><b>App Store</b></span>
-          </a>
-          <a class="store-btn store-btn-lg" href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener" data-magnetic>
-            <svg aria-hidden="true"><use href="#i-play"/></svg>
-            <span><small>Get it on</small><b>Google Play</b></span>
-          </a>
-        </div>
-        <p class="download-support reveal">A question about the game? <a class="link-arrow" href="mailto:donttapred.contact@gmail.com">donttapred.contact@gmail.com</a></p>
-        <p class="download-press reveal">Journalist or creator? <a class="link-arrow" href="/dont-tap-red/presse/">The press kit (English texts included)</a></p>
+          <span class="dtr-tile-go">See the leaderboard</span>
+        </a>
       </div>
     </section>
 
@@ -1053,6 +567,9 @@
           <h4>Don’t Tap Red</h4>
           <ul>
             <li><a href="/dont-tap-red/en/">The game</a></li>
+            <li><a href="/dont-tap-red/en/#boss">Bosses</a></li>
+            <li><a href="/dont-tap-red/en/#pass">Season passes</a></li>
+            <li><a href="/dont-tap-red/en/#classement">Leaderboard</a></li>
             <li><a href="/dont-tap-red/en/#codes">Gift codes</a></li>
             <li><a href="https://apps.apple.com/us/app/dont-tap-red/id6820198356" target="_blank" rel="noopener">App Store</a></li>
             <li><a href="https://play.google.com/store/apps/details?id=com.landers2k.donttapred" target="_blank" rel="noopener">Google Play</a></li>
@@ -1088,7 +605,7 @@
   <div class="flash" aria-hidden="true"></div>
   <p class="score-toast" aria-live="polite" hidden></p>
 
-  <script src="/script.js?v=c8dea62dfe" defer></script>
+  <script src="/script.js?v=3d38674cf5" defer></script>
   <!-- Cloudflare Web Analytics : statistiques de visite anonymes, sans cookie -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9f14b1678c7b4e2984e21cb5473c0fcd"}'></script>
 </body>

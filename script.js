@@ -1812,6 +1812,95 @@ const CONFIG = {
   })();
 
   /* ------------------------------------------------------------------------
+     Accueil : vitrine Don't Tap Red (prochain boss, pass du mois, top 3)
+     ------------------------------------------------------------------------ */
+  (function dtrShow() {
+    const pad = n => String(n).padStart(2, '0');
+    const count = $('[data-mini-count]');
+    if (count) {
+      const start = new Date(count.dataset.start).getTime();
+      const end = new Date(count.dataset.end).getTime();
+      const tick = () => {
+        const now = Date.now();
+        if (now < start) {
+          let s = Math.floor((start - now) / 1000);
+          const d = Math.floor(s / 86400); s %= 86400;
+          const h = Math.floor(s / 3600), m = Math.floor((s % 3600) / 60);
+          count.innerHTML = tr(`Dans <b>${d}</b> j <b>${pad(h)}</b> h <b>${pad(m)}</b> min`, `In <b>${d}</b>d <b>${pad(h)}</b>h <b>${pad(m)}</b>m`);
+        } else if (now <= end) {
+          count.textContent = tr('Combat en cours ! Viens le frapper.', 'Fight in progress! Come and hit it.');
+        } else {
+          count.textContent = tr('Le combat est terminé.', 'The fight is over.');
+        }
+      };
+      tick();
+      setInterval(tick, 30000);
+    }
+
+    // Pass du mois : celui du mois en cours (sinon le prochain), avec son skin animé
+    const tile = $('[data-potm]');
+    if (tile) {
+      const items = $$('.potm', tile);
+      const now = new Date();
+      const key = `${now.getFullYear()}-${pad(now.getMonth() + 1)}`;
+      const cur = items.find(i => i.dataset.month === key) || items.find(i => i.dataset.month > key) || items[items.length - 1];
+      items.forEach(i => { i.hidden = i !== cur; });
+      tile.style.setProperty('--brand', cur.dataset.color);
+      const [y, m] = cur.dataset.month.split('-').map(Number);
+      const startM = new Date(y, m - 1, 1), endM = new Date(y, m, 1);
+      const status = $('[data-potm-status]', tile);
+      if (now >= startM && now < endM) {
+        const days = Math.ceil((endM - now) / DAY);
+        let txt = tr(`En cours · plus que ${days} jour${days > 1 ? 's' : ''}`, `Live now · ${days} day${days > 1 ? 's' : ''} left`);
+        const next = items[items.indexOf(cur) + 1];
+        if (next && now.getDate() >= 21) txt += tr(` · ${$('b', next).textContent} en prévente`, ` · ${$('b', next).textContent} on presale`);
+        status.textContent = txt;
+      } else if (now < startM) {
+        status.textContent = tr(`Dès le 1er ${monthName(y, m - 1)}`, `From ${monthName(y, m - 1)} 1`);
+      }
+      animSkin($('img', cur));
+    }
+
+    // Top 3 mondial en Arcade
+    const top = $('[data-top3]');
+    if (top) {
+      gameData().then(d => {
+        const list = d && d.modes && d.modes.arcade && d.modes.arcade.all;
+        if (!list || !list.length) return;
+        top.innerHTML = '';
+        list.slice(0, 3).forEach((r, i) => {
+          const li = document.createElement('li');
+          li.innerHTML = `<span class="rank r${i + 1}">${i + 1}</span><span class="mini-name"></span><span class="mini-score"></span>`;
+          $('.mini-name', li).textContent = r.name;
+          $('.mini-score', li).textContent = fmt.format(r.score);
+          top.append(li);
+        });
+      });
+    }
+  })();
+
+  /* ------------------------------------------------------------------------
+     Page du jeu : le sommaire collant suit la section affichée
+     ------------------------------------------------------------------------ */
+  (function subnav() {
+    const bar = $('.subnav-bar');
+    if (!bar) return;
+    const links = $$('a[href^="#"]', bar);
+    const byId = new Map(links.map(a => [a.getAttribute('href').slice(1), a]));
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const link = byId.get(entry.target.id);
+        links.forEach(l => l.classList.toggle('is-active', l === link));
+        if (link && bar.scrollWidth > bar.clientWidth) {
+          bar.scrollTo({ left: link.offsetLeft - (bar.clientWidth - link.offsetWidth) / 2, behavior: reduced ? 'auto' : 'smooth' });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+    byId.forEach((link, id) => { const section = document.getElementById(id); if (section) io.observe(section); });
+  })();
+
+  /* ------------------------------------------------------------------------
      Classement en direct (top 10 par mode, de toujours ou de la semaine)
      ------------------------------------------------------------------------ */
   (function liveRanking() {

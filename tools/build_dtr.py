@@ -8,6 +8,7 @@ import pathlib, re, json
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 index = (ROOT / "index.html").read_text("utf-8")
 setup = (ROOT / "setup.html").read_text("utf-8")
+jeu = (ROOT / "src" / "jeu.html").read_text("utf-8")   # sections du jeu (plus sur l'accueil)
 
 
 def cut(text, start, end):
@@ -21,15 +22,15 @@ def absolute(block):
 
 
 # Sections reprises de l'accueil
-game = cut(index, "    <!-- ===================== Don't Tap Red : présentation ===================== -->", "    </section>\n")
-modes = cut(index, "    <!-- ===================== Les modes de jeu ===================== -->", "    </section>\n")
-progress = cut(index, "    <!-- ===================== Progression ===================== -->", "    </section>\n")
-news = cut(index, "    <!-- ===================== Quoi de neuf ===================== -->", "    </section>\n")
-boss = cut(index, "    <!-- ===================== Les boss ===================== -->", "    </section>\n")
-season_pass = cut(index, "    <!-- ===================== Pass de saison ===================== -->", "    </section>\n")
-live_rank = cut(index, "    <!-- ===================== Classement en direct ===================== -->", "    </section>\n")
-stats = cut(index, "    <!-- Chiffres du jeu (fiche App Store) -->", "    </section>\n")
-download = cut(index, "    <!-- Téléchargement -->", "    </section>\n")
+game = cut(jeu, "    <!-- ===================== Don't Tap Red : présentation ===================== -->", "    </section>\n")
+modes = cut(jeu, "    <!-- ===================== Les modes de jeu ===================== -->", "    </section>\n")
+progress = cut(jeu, "    <!-- ===================== Progression ===================== -->", "    </section>\n")
+news = cut(jeu, "    <!-- ===================== Quoi de neuf ===================== -->", "    </section>\n")
+boss = cut(jeu, "    <!-- ===================== Les boss ===================== -->", "    </section>\n")
+season_pass = cut(jeu, "    <!-- ===================== Pass de saison ===================== -->", "    </section>\n")
+live_rank = cut(jeu, "    <!-- ===================== Classement en direct ===================== -->", "    </section>\n")
+stats = cut(jeu, "    <!-- Chiffres du jeu (fiche App Store) -->", "    </section>\n")
+download = cut(jeu, "    <!-- Téléchargement -->", "    </section>\n")
 
 # En-tête de page : le titre devient le h1, la section passe sous la barre de navigation
 game = game.replace('<section class="game" id="jeu"', '<section class="game game-page" id="jeu"')
@@ -152,7 +153,26 @@ faq = """    <!-- ===================== Questions fréquentes ==================
 
 """
 
-main = '  <main id="main">\n' + game + "\n" + news + cubes + modes + "\n" + boss + season_pass + live_rank + progress + "\n" + stats + "\n" + codes + faq + download + "  </main>"
+# Sommaire collant de la page du jeu (le lien actif suit la section affichée, voir script.js)
+subnav = """    <!-- ===================== Sommaire du jeu ===================== -->
+    <nav class="subnav" aria-label="Sommaire de la page du jeu">
+      <div class="subnav-bar">
+        <a class="subnav-link" href="#nouveautes">Nouveautés</a>
+        <a class="subnav-link" href="#cubes">Les cubes</a>
+        <a class="subnav-link" href="#modes">Modes</a>
+        <a class="subnav-link" href="#boss">Boss</a>
+        <a class="subnav-link" href="#pass">Pass</a>
+        <a class="subnav-link" href="#classement">Classement</a>
+        <a class="subnav-link" href="#progression">Progression</a>
+        <a class="subnav-link" href="#codes">Codes</a>
+        <a class="subnav-link" href="#faq">FAQ</a>
+        <a class="subnav-link subnav-cta" href="#telecharger">Télécharger</a>
+      </div>
+    </nav>
+
+"""
+
+main = '  <main id="main">\n' + game + "\n" + subnav + news + cubes + modes + "\n" + boss + season_pass + live_rank + progress + "\n" + stats + "\n" + codes + faq + download + "  </main>"
 main = absolute(main)
 
 # Données structurées pour Google (fiche d'application)

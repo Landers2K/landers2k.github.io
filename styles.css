@@ -2893,3 +2893,64 @@ html:not(.js) .tt-recent { display: none; }
 .nf-visual .askin { grid-area: 1 / 1; width: 150px; height: 150px; z-index: var(--z, 1); transform: translate(var(--x, 0), var(--y, 0)) rotate(var(--r, 0deg)); animation: nf-float 5s ease-in-out infinite; animation-delay: var(--d, 0s); }
 .nf-visual .askin img { grid-area: auto; position: static; width: 100%; height: 100%; border-radius: 0; background: none; box-shadow: none; transform: none; animation: askin-bob 4s ease-in-out infinite; }
 @media (max-width: 860px) { .nf-visual .askin { width: 120px; height: 120px; } }
+
+/* ==========================================================================
+   Accueil : vitrine Don't Tap Red (3 tuiles vivantes)
+   ========================================================================== */
+.dtr-show { padding-bottom: clamp(80px, 10vw, 130px); }
+.dtr-tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; margin-top: clamp(44px, 6vw, 80px); }
+.dtr-tile {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 6px;
+  min-height: 300px;
+  padding: 26px;
+  overflow: hidden;
+  border-radius: var(--r-card);
+  background: radial-gradient(90% 70% at 100% 0%, color-mix(in srgb, var(--brand) 26%, transparent), transparent 65%), var(--c-surface);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 30%, var(--c-line));
+  color: var(--c-text);
+  text-decoration: none;
+  transition: translate .5s var(--ease-out), box-shadow .35s var(--ease);
+}
+.dtr-tile * { text-decoration: none; }
+.dtr-tile:hover { translate: 0 -6px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--brand) 65%, transparent), 0 30px 70px -30px var(--brand); }
+.dtr-tile-art, .tile-pass .askin, .tile-pass .potm > img { position: absolute; z-index: -1; right: 14px; top: 14px; width: 140px; height: 140px; transition: scale .5s var(--ease-out); }
+.dtr-tile-art { filter: drop-shadow(0 16px 30px rgba(220, 38, 38, .55)); animation: chip-float 5s ease-in-out infinite; }
+.dtr-tile:hover .dtr-tile-art, .tile-pass:hover .askin { scale: 1.08; }
+.dtr-tile-kicker { color: var(--brand); font-size: 12px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.dtr-tile-title { font-family: var(--f-display); font-size: clamp(24px, 2.4vw, 30px); font-weight: 800; line-height: 1.1; letter-spacing: -.02em; }
+.dtr-tile-sub { color: var(--c-text-2); font-size: 15px; }
+.dtr-tile-sub b { color: var(--c-text); font-family: var(--f-display); font-size: 22px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.dtr-tile-go { margin-top: 10px; color: var(--brand); font-size: 15px; font-weight: 700; }
+.dtr-tile-go::after { content: " ›"; display: inline-block; transition: translate .3s var(--ease-out); }
+.dtr-tile:hover .dtr-tile-go::after { translate: 4px 0; }
+.potm { display: flex; flex-direction: column; gap: 6px; }
+.potm[hidden] { display: none; }
+.tile-rank { justify-content: flex-start; }
+.mini-top { display: grid; gap: 8px; margin: 14px 0 auto; }
+.mini-top li { display: grid; grid-template-columns: 40px minmax(0, 1fr) auto; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 12px; background: rgba(5, 8, 18, .5); }
+.mini-top li:first-child { background: linear-gradient(90deg, rgba(255, 214, 10, .16), rgba(5, 8, 18, .5) 70%); }
+.mini-top .rank { min-width: 0; padding: 2px 6px; }
+.mini-top .mini-name { overflow: hidden; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
+.mini-top .mini-score { font-family: var(--f-display); font-weight: 800; font-variant-numeric: tabular-nums; }
+.mini-top-empty { display: block !important; color: var(--c-text-3); background: none !important; padding: 0 !important; }
+@media (max-width: 860px) { .dtr-tiles { grid-template-columns: minmax(0, 1fr); } .dtr-tile { min-height: 240px; } }
+
+/* ==========================================================================
+   Page du jeu : sommaire collant
+   ========================================================================== */
+.subnav { position: sticky; top: 80px; z-index: 45; display: flex; justify-content: center; margin: -20px 0 0; padding: 0 var(--gutter); pointer-events: none; transition: top .4s var(--ease); }
+body:has(.nav.is-hidden) .subnav { top: 12px; }
+.subnav-bar { display: flex; gap: 2px; max-width: 100%; overflow-x: auto; padding: 5px; border-radius: 16px; background: rgba(10, 14, 28, .82); -webkit-backdrop-filter: blur(16px) saturate(1.4); backdrop-filter: blur(16px) saturate(1.4); box-shadow: inset 0 0 0 1px var(--c-line), 0 14px 40px -18px #000; pointer-events: auto; scrollbar-width: none; }
+.subnav-bar::-webkit-scrollbar { display: none; }
+.subnav-link { flex: none; text-decoration: none; padding: 8px 14px; border-radius: 11px; color: var(--c-text-2); font-size: 14px; font-weight: 600; white-space: nowrap; transition: background .25s var(--ease), color .25s var(--ease); }
+.subnav-link:hover { color: var(--c-text); }
+.subnav-link.is-active { background: var(--c-surface-2); box-shadow: inset 0 -2px 0 var(--c-red); color: var(--c-text); }
+.subnav-link.subnav-cta { margin-left: 4px; background: var(--c-red); color: #fff; }
+.subnav-link.subnav-cta:hover { box-shadow: 0 8px 24px -8px var(--c-red); }
+.subnav ~ section { scroll-margin-top: 140px; }
+@media (max-width: 734px) { .subnav { top: 72px; } .subnav-link { padding: 7px 11px; font-size: 13px; } }
