@@ -222,7 +222,7 @@ def main() -> int:
         })
     kept = {item["cover"] for item in recent}
     for old_thumb in THUMB_DIR.glob("*"):
-        if old_thumb.relative_to(ROOT).as_posix() not in kept:
+        if old_thumb.is_file() and old_thumb.relative_to(ROOT).as_posix() not in kept:
             old_thumb.unlink()
 
     if cover:

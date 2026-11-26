@@ -7,7 +7,7 @@ des 6 plus vues (ses vues restent celles de la dernière lecture).
 
 Écrit :
   - assets/data/clips.json            (les 6 vidéos, dans l'ordre des vues)
-  - assets/img/tiktok/best/<id>.webp  (miniatures 3:4 ; .jpg si Pillow n'est pas installé)
+  - assets/img/clips/<id>.webp  (miniatures 3:4 ; .jpg si Pillow n'est pas installé)
 
 Usage : python tools/update_clips.py   (au plus une lecture de TikTok toutes les 6 heures)
 Lancé à la fin de tools/update_tiktok.py (robot horaire .github/workflows/update-tiktok.yml).
@@ -28,7 +28,7 @@ except ImportError:
 ACCOUNT = "landers2k"
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DATA_FILE = ROOT / "assets" / "data" / "clips.json"
-THUMB_DIR = ROOT / "assets" / "img" / "tiktok" / "best"
+THUMB_DIR = ROOT / "assets" / "img" / "clips"
 KEEP = 6
 EVERY = datetime.timedelta(hours=6)
 THUMB_SIZE = (300, 400)
@@ -111,7 +111,7 @@ def main():
     keep = {c.get("cover") for c in best}
     if THUMB_DIR.exists():
         for f in THUMB_DIR.iterdir():
-            if f.relative_to(ROOT).as_posix() not in keep:
+            if f.is_file() and f.relative_to(ROOT).as_posix() not in keep:
                 f.unlink()
 
     data = {"clips": best}

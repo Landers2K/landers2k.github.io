@@ -1047,7 +1047,7 @@ const CONFIG = {
         link.rel = 'noopener';
         link.setAttribute('aria-label', tr(`n°${i + 1} : ${caption} · ${views} vues, sur TikTok`, `#${i + 1}: ${caption} · ${views} views, on TikTok`));
         const thumb = el('span', 'tt-thumb');
-        if (/^assets\/img\/tiktok\/best\/\d{10,25}\.(webp|jpg)$/.test(clip.cover || '')) {
+        if (/^assets\/img\/clips\/\d{10,25}\.(webp|jpg)$/.test(clip.cover || '')) {
           thumb.append(Object.assign(document.createElement('img'), { src: `/${clip.cover}`, alt: '', width: 300, height: 400, loading: 'lazy', decoding: 'async' }));
         }
         thumb.append(el('span', `tt-rank${i === 0 ? ' is-first' : ''}`, `#${i + 1}`));
