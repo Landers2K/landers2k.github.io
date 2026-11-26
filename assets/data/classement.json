@@ -6,14 +6,14 @@
     {
      "name": "Landers2K",
      "score": 22992,
-     "level": 41,
+     "level": 43,
      "prestige": 0
     },
     {
      "name": "Ophé la bg",
      "score": 17043,
-     "level": 47,
-     "prestige": 1
+     "level": 2,
+     "prestige": 2
     },
     {
      "name": "Taii",
@@ -60,16 +60,16 @@
     {
      "name": "Bhoulia",
      "score": 1305,
-     "level": 3,
+     "level": 14,
      "prestige": 1
     }
    ],
    "week": [
     {
      "name": "Ophé la bg",
-     "score": 1989,
-     "level": 47,
-     "prestige": 1
+     "score": 7295,
+     "level": 2,
+     "prestige": 2
     },
     {
      "name": "aN9r1",
@@ -90,7 +90,7 @@
     {
      "name": "Bhoulia",
      "score": 19900,
-     "level": 3,
+     "level": 14,
      "prestige": 1
     },
     {
@@ -102,13 +102,13 @@
     {
      "name": "Ophé la bg",
      "score": 17237,
-     "level": 47,
-     "prestige": 1
+     "level": 2,
+     "prestige": 2
     },
     {
      "name": "Landers2K",
      "score": 11083,
-     "level": 41,
+     "level": 43,
      "prestige": 0
     },
     {
@@ -152,13 +152,31 @@
     {
      "name": "Ophé la bg",
      "score": 15256,
-     "level": 47,
+     "level": 2,
+     "prestige": 2
+    },
+    {
+     "name": "Bhoulia",
+     "score": 14979,
+     "level": 14,
      "prestige": 1
     },
     {
      "name": "Yuraka",
      "score": 9784,
      "level": 19,
+     "prestige": 0
+    },
+    {
+     "name": "Landers2K",
+     "score": 7419,
+     "level": 43,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR9947",
+     "score": 1704,
+     "level": 3,
      "prestige": 0
     },
     {
@@ -192,7 +210,7 @@
     {
      "name": "Landers2K",
      "score": 5190,
-     "level": 41,
+     "level": 43,
      "prestige": 0
     },
     {
@@ -216,8 +234,8 @@
     {
      "name": "Ophé la bg",
      "score": 4607,
-     "level": 47,
-     "prestige": 1
+     "level": 2,
+     "prestige": 2
     },
     {
      "name": "Babulior",
@@ -254,8 +272,14 @@
     {
      "name": "Ophé la bg",
      "score": 4562,
-     "level": 47,
-     "prestige": 1
+     "level": 2,
+     "prestige": 2
+    },
+    {
+     "name": "Landers2K",
+     "score": 3723,
+     "level": 43,
+     "prestige": 0
     },
     {
      "name": "MLDS",
@@ -274,6 +298,12 @@
      "score": 2066,
      "level": 4,
      "prestige": 0
+    },
+    {
+     "name": "JOUEUR9947",
+     "score": 2000,
+     "level": 3,
+     "prestige": 0
     }
    ]
   },
@@ -286,21 +316,27 @@
      "prestige": 0
     },
     {
+     "name": "Manu",
+     "score": 4427,
+     "level": 16,
+     "prestige": 0
+    },
+    {
      "name": "Ophé la bg",
      "score": 3829,
-     "level": 47,
-     "prestige": 1
+     "level": 2,
+     "prestige": 2
     },
     {
      "name": "Landers2K",
      "score": 3272,
-     "level": 41,
+     "level": 43,
      "prestige": 0
     },
     {
      "name": "Bhoulia",
      "score": 2991,
-     "level": 3,
+     "level": 14,
      "prestige": 1
     },
     {
@@ -322,12 +358,6 @@
      "prestige": 0
     },
     {
-     "name": "Manu",
-     "score": 2418,
-     "level": 11,
-     "prestige": 0
-    },
-    {
      "name": "Babulior",
      "score": 2417,
      "level": 32,
@@ -342,15 +372,21 @@
    ],
    "week": [
     {
-     "name": "Ophé la bg",
-     "score": 3370,
-     "level": 47,
-     "prestige": 1
+     "name": "Manu",
+     "score": 4427,
+     "level": 16,
+     "prestige": 0
     },
     {
-     "name": "Manu",
-     "score": 2418,
-     "level": 11,
+     "name": "Ophé la bg",
+     "score": 3370,
+     "level": 2,
+     "prestige": 2
+    },
+    {
+     "name": "Landers2K",
+     "score": 2223,
+     "level": 43,
      "prestige": 0
     },
     {
@@ -363,6 +399,12 @@
      "name": "Paynow",
      "score": 1166,
      "level": 5,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR9947",
+     "score": 1140,
+     "level": 3,
      "prestige": 0
     },
     {
@@ -381,5 +423,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-25T13:53+01:00"
+ "updated": "2026-11-26T17:52+01:00"
 }
