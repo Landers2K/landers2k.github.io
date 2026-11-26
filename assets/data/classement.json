@@ -6,8 +6,8 @@
     {
      "name": "Landers2K",
      "score": 22992,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "Ophé la bg",
@@ -108,8 +108,8 @@
     {
      "name": "Landers2K",
      "score": 11083,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "clem clem",
@@ -170,8 +170,8 @@
     {
      "name": "Landers2K",
      "score": 7419,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "JOUEUR9947",
@@ -210,8 +210,8 @@
     {
      "name": "Landers2K",
      "score": 5190,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "MLDS",
@@ -278,8 +278,8 @@
     {
      "name": "Landers2K",
      "score": 3723,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "MLDS",
@@ -330,8 +330,8 @@
     {
      "name": "Landers2K",
      "score": 3272,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "Bhoulia",
@@ -386,8 +386,8 @@
     {
      "name": "Landers2K",
      "score": 2223,
-     "level": 43,
-     "prestige": 0
+     "level": 1,
+     "prestige": 1
     },
     {
      "name": "Yuraka",
@@ -423,5 +423,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-27T00:27+01:00"
+ "updated": "2026-11-27T00:28+01:00"
 }
