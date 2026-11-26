@@ -3,7 +3,7 @@
   "followers": 6207,
   "likes": 78300,
   "recentVideos": 13,
-  "recentViews": 284747,
+  "recentViews": 284749,
   "bestViews": 94300,
   "latest": {
     "id": "7710481652413238561",
@@ -26,7 +26,7 @@
       "id": "7710480268427021601",
       "url": "https://www.tiktok.com/@landers2k/video/7710480268427021601",
       "description": "Un trans sous BBL ??  ##Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 767,
+      "plays": 768,
       "published": "2026-11-21",
       "cover": "assets/img/tiktok/7710480268427021601.webp"
     },
@@ -34,7 +34,7 @@
       "id": "7709740434846747937",
       "url": "https://www.tiktok.com/@landers2k/video/7709740434846747937",
       "description": "Valérie Damido sur GTA 🤪 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 962,
+      "plays": 963,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709740434846747937.webp"
     },
@@ -66,8 +66,8 @@
   "views": {
     "7710481652413238561": 715,
     "7710481333428030752": 696,
-    "7710480268427021601": 767,
-    "7709740434846747937": 962,
+    "7710480268427021601": 768,
+    "7709740434846747937": 963,
     "7709740117937720608": 973,
     "7709739830338473249": 858,
     "7709739422895312160": 941,
@@ -79,5 +79,5 @@
     "7583012184209378582": 94300
   },
   "coverId": "7710481652413238561",
-  "updated": "2026-11-26T23:28:16+00:00"
+  "updated": "2026-11-26T23:52:33+00:00"
 }
