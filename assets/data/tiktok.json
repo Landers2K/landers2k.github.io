@@ -3,17 +3,25 @@
   "followers": 6207,
   "likes": 78300,
   "recentVideos": 13,
-  "recentViews": 284753,
+  "recentViews": 242368,
   "bestViews": 94300,
   "latest": {
-    "id": "7710481652413238561",
-    "url": "https://www.tiktok.com/@landers2k/video/7710481652413238561",
-    "description": "Uber dans GTA VI ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 717,
+    "id": "7710481983146691872",
+    "url": "https://www.tiktok.com/@landers2k/video/7710481983146691872",
+    "description": "Jason serait Clark Kent ??  #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+    "plays": 688,
     "published": "2026-11-21",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
+    {
+      "id": "7710481652413238561",
+      "url": "https://www.tiktok.com/@landers2k/video/7710481652413238561",
+      "description": "Uber dans GTA VI ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 717,
+      "published": "2026-11-21",
+      "cover": "assets/img/tiktok/7710481652413238561.webp"
+    },
     {
       "id": "7710481333428030752",
       "url": "https://www.tiktok.com/@landers2k/video/7710481333428030752",
@@ -21,6 +29,22 @@
       "plays": 696,
       "published": "2026-11-21",
       "cover": "assets/img/tiktok/7710481333428030752.webp"
+    },
+    {
+      "id": "7710480962135575840",
+      "url": "https://www.tiktok.com/@landers2k/video/7710480962135575840",
+      "description": "Cette mission en folie, n’ouvrez pas toutes les portes hein 👀🔞 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 742,
+      "published": "2026-11-21",
+      "cover": "assets/img/tiktok/7710480962135575840.webp"
+    },
+    {
+      "id": "7710480634333957408",
+      "url": "https://www.tiktok.com/@landers2k/video/7710480634333957408",
+      "description": "Il est vraiment incroyable ce jeu de fou 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 647,
+      "published": "2026-11-21",
+      "cover": "assets/img/tiktok/7710480634333957408.webp"
     },
     {
       "id": "7710480268427021601",
@@ -31,53 +55,29 @@
       "cover": "assets/img/tiktok/7710480268427021601.webp"
     },
     {
-      "id": "7709740434846747937",
-      "url": "https://www.tiktok.com/@landers2k/video/7709740434846747937",
-      "description": "Valérie Damido sur GTA 🤪 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 963,
+      "id": "7709740958270639393",
+      "url": "https://www.tiktok.com/@landers2k/video/7709740958270639393",
+      "description": "Parce qu’il en faut pour vous mesdames 🫠 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 14,
       "published": "2026-11-19",
-      "cover": "assets/img/tiktok/7709740434846747937.webp"
-    },
-    {
-      "id": "7709740117937720608",
-      "url": "https://www.tiktok.com/@landers2k/video/7709740117937720608",
-      "description": "Je découvre les clignotants dans le jeu 😭😭😭 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 973,
-      "published": "2026-11-19",
-      "cover": "assets/img/tiktok/7709740117937720608.webp"
-    },
-    {
-      "id": "7709739830338473249",
-      "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
-      "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 860,
-      "published": "2026-11-19",
-      "cover": "assets/img/tiktok/7709739830338473249.webp"
-    },
-    {
-      "id": "7709739422895312160",
-      "url": "https://www.tiktok.com/@landers2k/video/7709739422895312160",
-      "description": "Réaliste comme Insta ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 941,
-      "published": "2026-11-19",
-      "cover": "assets/img/tiktok/7709739422895312160.webp"
+      "cover": "assets/img/tiktok/7709740958270639393.webp"
     }
   ],
   "views": {
+    "7710481983146691872": 688,
     "7710481652413238561": 717,
     "7710481333428030752": 696,
+    "7710480962135575840": 742,
+    "7710480634333957408": 647,
     "7710480268427021601": 768,
+    "7709740958270639393": 14,
     "7709740434846747937": 963,
     "7709740117937720608": 973,
     "7709739830338473249": 860,
-    "7709739422895312160": 941,
-    "7709739222197964064": 777,
-    "7709728385446071585": 40100,
-    "7705459943352044822": 2658,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 94300
   },
-  "coverId": "7710481652413238561",
-  "updated": "2026-11-27T10:43:15+00:00"
+  "coverId": "7710481983146691872",
+  "updated": "2026-11-27T11:13:14+00:00"
 }
