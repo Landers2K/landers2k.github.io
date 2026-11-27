@@ -2011,6 +2011,9 @@ const CONFIG = {
       }
     };
     const isRevealed = ev => now >= firstStart(ev);
+    // Dernière ouverture d'un événement passé (l'année d'avant la prochaine)
+    const lastStart = ev => { const d = nextStart(ev); d.setFullYear(d.getFullYear() - 1); return d; };
+    const monthYear = date => { const s = date.toLocaleDateString(LOCALE, { month: 'long', year: 'numeric' }); return s[0].toUpperCase() + s.slice(1); };
     const longDate = date => date.toLocaleDateString(LOCALE, { day: 'numeric', month: 'long', ...(date.getFullYear() !== now.getFullYear() ? { year: 'numeric' } : {}) }).replace(/^1 /, EN ? '1 ' : '1er ');
     const NOTES = {
       classic: tr('Avec les coins gagnés en jouant. Plus un skin est cher, plus il brille quand tu le touches.', 'With the coins you earn by playing. The pricier the skin, the more it shines when you tap it.'),
@@ -2064,8 +2067,9 @@ const CONFIG = {
       if (!data) return;
       const nodes = [];
       if (tab === 'event') {
-        // Événement en cours d'abord, puis du plus proche au plus lointain
-        Object.entries(data.events).sort(([, a], [, b]) => (isLive(b) - isLive(a)) || (nextStart(a) - nextStart(b))).forEach(([id, ev]) => {
+        // Événement en cours d'abord, puis les événements déjà passés, puis les prochains du plus proche au plus lointain
+        const rank = ev => (isLive(ev) ? 0 : isRevealed(ev) ? 1 : 2);
+        Object.entries(data.events).sort(([, a], [, b]) => (rank(a) - rank(b)) || (nextStart(a) - nextStart(b))).forEach(([id, ev]) => {
           const list = data.skins.filter(s => s.event === id && byColor(s));
           if (!list.length) return;
           const live = isLive(ev);
@@ -2080,7 +2084,7 @@ const CONFIG = {
           when.textContent = live
             ? tr(`En ce moment, jusqu’au ${longDate(endOf(ev))}`, `Live now, until ${longDate(endOf(ev))}`)
             : revealed
-              ? tr(`Revient le ${longDate(nextStart(ev))}`, `Back on ${longDate(nextStart(ev))}`)
+              ? tr(`Événement terminé · ${monthYear(lastStart(ev))}`, `Event over · ${monthYear(lastStart(ev))}`)
               : tr(`Dès le ${longDate(nextStart(ev))} · ${list.length} skins mystère`, `From ${longDate(nextStart(ev))} · ${list.length} mystery skins`);
           head.append(title, when);
           nodes.push(head, ...list.map(s => card(s, !revealed)));
