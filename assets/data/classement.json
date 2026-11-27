@@ -6,7 +6,7 @@
     {
      "name": "Landers2K",
      "score": 22992,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -72,6 +72,12 @@
      "prestige": 2
     },
     {
+     "name": "Landers2K",
+     "score": 2567,
+     "level": 2,
+     "prestige": 1
+    },
+    {
      "name": "aN9r1",
      "score": 738,
      "level": 4,
@@ -114,7 +120,7 @@
     {
      "name": "Landers2K",
      "score": 11083,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -176,7 +182,7 @@
     {
      "name": "Landers2K",
      "score": 7419,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -222,7 +228,7 @@
     {
      "name": "Landers2K",
      "score": 5190,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -290,7 +296,7 @@
     {
      "name": "Landers2K",
      "score": 3723,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -348,7 +354,7 @@
     {
      "name": "Landers2K",
      "score": 3272,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -404,7 +410,7 @@
     {
      "name": "Landers2K",
      "score": 2223,
-     "level": 1,
+     "level": 2,
      "prestige": 1
     },
     {
@@ -447,5 +453,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-27T13:43+01:00"
+ "updated": "2026-11-27T14:13+01:00"
 }
