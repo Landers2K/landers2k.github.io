@@ -2060,7 +2060,7 @@ const CONFIG = {
     const render = () => {
       tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.skinTab === tab)));
       colors.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.skinColor === color)));
-      note.textContent = NOTES[tab];
+      note.textContent = `${NOTES[tab]} ${tr('Touche un skin pour voir son animation.', 'Tap a skin to see its animation.')}`;
       if (!data) return;
       const nodes = [];
       if (tab === 'event') {
@@ -2107,6 +2107,68 @@ const CONFIG = {
       });
       render();
     });
+  })();
+
+  /* ------------------------------------------------------------------------
+     Animation au toucher des skins : la planche dessinée du jeu (4 x 4 images,
+     0,62 s, 1,25 fois la taille du cube, comme skins/skin_tap_anim.gd).
+     Galerie, pistes et grands skins des pass, « à la une ». Jamais sur un skin mystère.
+     ------------------------------------------------------------------------ */
+  (function tapAnims() {
+    const TIME = 620, SCALE = 1.25;
+    let taps = null;
+    const tapList = () => taps || (taps = fetch('/assets/data/skins.json', { cache: 'no-cache' })
+      .then(r => (r.ok ? r.json() : null)).then(d => new Set((d && d.taps) || [])).catch(() => new Set()));
+    const sheets = {};
+    const sheet = id => sheets[id] || (sheets[id] = new Promise(resolve => {
+      const im = new Image();
+      im.onload = () => resolve(im.src);
+      im.onerror = () => resolve(null);
+      im.src = `/assets/img/tap/${id}.avif`;
+    }));
+    const HOLDERS = '.skin-card, .pass-track li, .pass-skin-xl, .nf-visual .askin, .nf-visual img';
+    const play = (target, id) => sheet(id).then(src => {
+      if (!src || target.classList.contains('is-tapped')) return;
+      const r = target.getBoundingClientRect();
+      const size = r.width * SCALE;
+      const fx = document.createElement('div');
+      fx.className = 'tap-fx';
+      fx.setAttribute('aria-hidden', 'true');
+      fx.style.cssText = `left:${(r.left + r.width / 2 - size / 2).toFixed(1)}px;top:${(r.top + r.height / 2 - size / 2).toFixed(1)}px;width:${size.toFixed(1)}px;height:${size.toFixed(1)}px;background-image:url("${src}")`;
+      document.body.append(fx);
+      target.classList.remove('tap-back');
+      target.classList.add('is-tapped');
+      const t0 = performance.now();
+      const step = now => {
+        const f = Math.min(15, Math.floor(((now - t0) / TIME) * 16));
+        fx.style.backgroundPosition = `${((f % 4) * 100) / 3}% ${(Math.floor(f / 4) * 100) / 3}%`;
+        if (now - t0 < TIME) { requestAnimationFrame(step); return; }
+        fx.remove();
+        target.classList.remove('is-tapped');
+        void target.offsetWidth;
+        target.classList.add('tap-back');
+      };
+      requestAnimationFrame(step);
+    });
+    document.addEventListener('click', e => {
+      const holder = e.target.closest(HOLDERS);
+      if (!holder || holder.closest('a, .is-hidden')) return;
+      const img = holder.matches('img') ? holder : $('img', holder);
+      const m = img && /\/(?:skins|pass)\/(\w+)\.(?:avif|png|jpg)/.exec(img.getAttribute('src') || img.src || '');
+      if (!m) return;
+      const target = holder.matches('img, .askin') ? holder : ($('.skin-img, .askin, .pass-skin', holder) || holder);
+      tapList().then(set => { if (set.has(m[1])) play(target, m[1]); });
+    });
+    // Les animations des skins visibles se chargent à l'avance quand le visiteur survole (ordinateur)
+    if (finePointer) {
+      document.addEventListener('pointerover', e => {
+        const holder = e.target.closest && e.target.closest(HOLDERS);
+        if (!holder || holder.closest('a, .is-hidden')) return;
+        const img = holder.matches('img') ? holder : $('img', holder);
+        const m = img && /\/(?:skins|pass)\/(\w+)\.(?:avif|png|jpg)/.exec(img.getAttribute('src') || '');
+        if (m) tapList().then(set => { if (set.has(m[1])) sheet(m[1]); });
+      });
+    }
   })();
 
   /* ------------------------------------------------------------------------

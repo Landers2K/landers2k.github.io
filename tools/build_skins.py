@@ -3,6 +3,8 @@
 Lit ~/Documents/Don't Tap Red/skins/skin_catalog.gd (sur le Mac de Tony) et écrit :
   - assets/data/skins.json     (skins de la boutique, Originals, skins d'événement, dates des événements)
   - assets/img/skins/<id>.avif (images transparentes 160 px, fabriquées par .claude/outils_partage/avif.swift)
+  - assets/img/tap/<id>.avif   (animation au toucher : planche dessinée 4 x 4 images, 512 px, skins/tap_sheets/ du jeu)
+    pour les skins de la galerie ET ceux des pass ; la liste est dans skins.json (« taps »)
 
 Ne prend pas les skins de pass (section Pass de saison) ni de Prestige (récompenses, pas en vente).
 Usage : python3 tools/build_skins.py   (à relancer quand le jeu ajoute des skins), puis tools/build_all.py
@@ -17,6 +19,9 @@ GAME = pathlib.Path.home() / "Documents" / "Don't Tap Red"
 CATALOG = GAME / "skins" / "skin_catalog.gd"
 OUT_JSON = ROOT / "assets" / "data" / "skins.json"
 OUT_IMG = ROOT / "assets" / "img" / "skins"
+OUT_TAP = ROOT / "assets" / "img" / "tap"
+SHEETS = GAME / "skins" / "tap_sheets"
+TAP_SIZE, TAP_QUALITY = 512, 0.5
 AVIF_SRC = ROOT / ".claude" / "outils_partage" / "avif.swift"
 AVIF_BIN = pathlib.Path("/tmp") / "landers2k_avif"
 SIZE, QUALITY = 160, 0.55
@@ -68,13 +73,29 @@ def main():
         if f.relative_to(ROOT).as_posix() not in kept:
             f.unlink()
 
-    data = {"events": {e: events[e] for e in event_order if e in events}, "skins": skins}
+    # Animations au toucher : skins de la galerie + skins des pass
+    OUT_TAP.mkdir(parents=True, exist_ok=True)
+    wanted = {s["id"] for s in skins} | set(re.findall(r'"id": "(\w+)", "color": "\w+", "tier": "pass"', text))
+    taps = []
+    for sid in sorted(wanted):
+        sheet = SHEETS / f"{sid}.png"
+        if not sheet.exists():
+            continue
+        out = OUT_TAP / f"{sid}.avif"
+        if not out.exists() or out.stat().st_mtime < sheet.stat().st_mtime:
+            subprocess.run([str(AVIF_BIN), str(sheet), str(out), str(TAP_SIZE), str(TAP_QUALITY)], check=True, capture_output=True)
+        taps.append(sid)
+    for f in OUT_TAP.glob("*.avif"):
+        if f.stem not in taps:
+            f.unlink()
+
+    data = {"events": {e: events[e] for e in event_order if e in events}, "skins": skins, "taps": taps}
     OUT_JSON.write_text(json.dumps(data, ensure_ascii=False, separators=(",", ":")) + "\n", "utf-8")
     count = {}
     for s in skins:
         key = f"{s['tier']}{'/' + s['event'] if s['event'] else ''}"
         count[key] = count.get(key, 0) + 1
-    print(len(skins), "skins :", count)
+    print(len(skins), "skins :", count, "|", len(taps), "animations au toucher")
 
 
 if __name__ == "__main__":

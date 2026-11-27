@@ -3055,3 +3055,10 @@ body:has(.nav.is-hidden) .subnav { top: 12px; }
 .skin-group span { color: var(--c-text-3); font-size: 13px; }
 .skin-group .is-live { color: #30d158; font-weight: 700; }
 @media (max-width: 520px) { .skins-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .skin-card b { font-size: 12px; } .skin-colors { width: 100%; justify-content: space-between; } }
+
+/* Animation au toucher des skins (planche dessinée du jeu) */
+.tap-fx { position: fixed; z-index: 85; background-repeat: no-repeat; background-size: 400% 400%; pointer-events: none; }
+.skin-card:not(.is-hidden), .pass-track li:not(.is-hidden), .pass-hero:not(.is-hidden) .pass-skin-xl, .nf-visual .askin, .nf-visual img { cursor: pointer; }
+.is-tapped { opacity: 0 !important; transition: opacity .06s linear; }
+.tap-back { animation: tap-back .45s var(--spring); }
+@keyframes tap-back { from { opacity: 0; scale: .35; } }
