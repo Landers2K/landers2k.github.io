@@ -31,7 +31,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&display=swap">
-  <link rel="stylesheet" href="/styles.css?v=a016491c3e">
+  <link rel="stylesheet" href="/styles.css?v=0f677df45c">
   <!-- Les cubes animés sont ajoutés par script.js : on les télécharge dès le début -->
   <link rel="preload" as="image" href="/assets/img/cube-blue.webp" type="image/webp">
   <link rel="preload" as="image" href="/assets/img/cube-red.webp" type="image/webp">
@@ -234,6 +234,7 @@
         <a class="subnav-link" href="#modes">Modes</a>
         <a class="subnav-link" href="#boss">Boss</a>
         <a class="subnav-link" href="#pass">Pass</a>
+        <a class="subnav-link" href="#skins">Skins</a>
         <a class="subnav-link" href="#classement">Leaderboard</a>
         <a class="subnav-link" href="#progression">Progress</a>
         <a class="subnav-link" href="#codes">Codes</a>
@@ -284,6 +285,24 @@
               <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-12-01">December 1, 2026</time></p>
               <h3>December Pass: Mythology</h3>
               <p>Medusa, Pegasus, Zeus… and Poseidon’s animated trident. On presale since November 21.</p>
+              <a class="link-arrow" href="#pass" data-pass-link="2026-12">See the pass</a>
+            </div>
+          </li>
+          <li class="news-item" data-date="2026-11-27" data-visual="/assets/img/skins/purple_kraken.avif /assets/img/skins/blue_storm.avif /assets/img/skins/orange_dragon.avif" style="--brand:#ff9f0a">
+            <img class="news-thumb" src="/assets/img/skins/blue_storm.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
+            <div class="news-body">
+              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-27">November 27, 2026</time></p>
+              <h3>Version 3.1: an animation for every skin</h3>
+              <p>Every skin now has its own hand-drawn animation when you tap a cube. Tap effects leave the STYLE shop: players who bought some are refunded automatically.</p>
+              <a class="link-arrow" href="#skins">See the skins</a>
+            </div>
+          </li>
+          <li class="news-item" data-date="2026-11-25" data-visual="/assets/img/pass/blue_poseidon.avif" style="--brand:#0ea5e9">
+            <img class="news-thumb" src="/assets/img/pass/blue_poseidon.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
+            <div class="news-body">
+              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-25">November 25, 2026</time></p>
+              <h3>Version 3.0.5</h3>
+              <p>The Season Pass gets a new look every month, the presale shows the colors of the next pass, and your progress syncs between your iPhone and iPad with the same account.</p>
               <a class="link-arrow" href="#pass" data-pass-link="2026-12">See the pass</a>
             </div>
           </li>
@@ -651,6 +670,37 @@
         </div>
       </div>
     </section>
+    <!-- ===================== Skins à débloquer ===================== -->
+    <section class="skins band" id="skins" data-scene="progress" aria-labelledby="skins-title">
+      <div class="wrap-wide">
+        <header class="section-head">
+          <p class="kicker reveal">Skins to unlock</p>
+          <h2 class="section-title" id="skins-title" data-split>Over 150 skins.<br><span class="muted">Each with its own animation.</span></h2>
+          <p class="section-lead reveal">Customize every one of your cubes: classic skins with the coins you earn by playing, animated premium skins with gems, the Originals pack, and seasonal skins you can only get during their event. Since version 3.1, <strong>every skin has its own hand-drawn animation</strong> when you tap a cube.</p>
+        </header>
+        <div class="skins-ui reveal" data-skins>
+          <div class="skins-controls">
+            <div class="seg" role="tablist" aria-label="Skin type">
+              <button type="button" role="tab" data-skin-tab="classic" aria-selected="true" style="--brand:#ffd60a">Classic</button>
+              <button type="button" role="tab" data-skin-tab="premium" aria-selected="false" style="--brand:#64d2ff">Premium</button>
+              <button type="button" role="tab" data-skin-tab="original" aria-selected="false" style="--brand:#ff375f">Originals</button>
+              <button type="button" role="tab" data-skin-tab="event" aria-selected="false" style="--brand:#30d158">Events</button>
+            </div>
+            <div class="skin-colors" role="group" aria-label="Cube color">
+              <button type="button" data-skin-color="all" aria-pressed="true">All</button>
+              <button type="button" data-skin-color="blue" aria-pressed="false" aria-label="Blue" style="--c:#2997ff"></button>
+              <button type="button" data-skin-color="red" aria-pressed="false" aria-label="Red" style="--c:#ff375f"></button>
+              <button type="button" data-skin-color="green" aria-pressed="false" aria-label="Green" style="--c:#30d158"></button>
+              <button type="button" data-skin-color="purple" aria-pressed="false" aria-label="Purple" style="--c:#bf5af2"></button>
+              <button type="button" data-skin-color="orange" aria-pressed="false" aria-label="Orange" style="--c:#ff9f0a"></button>
+              <button type="button" data-skin-color="yellow" aria-pressed="false" aria-label="Yellow" style="--c:#ffd60a"></button>
+            </div>
+          </div>
+          <p class="skins-note" data-skins-note></p>
+          <div class="skins-grid" data-skins-grid aria-live="polite"><p class="rank-empty">Loading skins…</p></div>
+        </div>
+      </div>
+    </section>
     <!-- ===================== Classement en direct ===================== -->
     <section class="live-rank band" id="classement" data-scene="progress" aria-labelledby="rank-title">
       <div class="wrap">
@@ -757,7 +807,7 @@
         </header>
         <div class="stats-grid" data-stagger>
           <div class="stat"><p class="stat-num"><span data-count="5">5</span></p><p class="stat-label">game modes: Arcade, Rain, Chrono, Fusion and Event</p></div>
-          <div class="stat"><p class="stat-num"><span data-count="100">100</span>+</p><p class="stat-label">skins to unlock, including animated skins</p></div>
+          <div class="stat"><p class="stat-num"><span data-count="150">150</span>+</p><p class="stat-label">skins to unlock, each with its own animation</p></div>
           <div class="stat"><p class="stat-num"><span data-count="10">10</span></p><p class="stat-label">cubes to merge in Fusion mode, up to the gold cube</p></div>
           <div class="stat"><p class="stat-num"><span data-count="50">50</span></p><p class="stat-label">levels to climb, then Prestige</p></div>
         </div>
@@ -931,7 +981,7 @@
   <div class="flash" aria-hidden="true"></div>
   <p class="score-toast" aria-live="polite" hidden></p>
 
-  <script src="/script.js?v=61529d9e30" defer></script>
+  <script src="/script.js?v=11243ab084" defer></script>
   <!-- Cloudflare Web Analytics : statistiques de visite anonymes, sans cookie -->
   <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "9f14b1678c7b4e2984e21cb5473c0fcd"}'></script>
 </body>

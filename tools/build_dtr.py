@@ -29,6 +29,7 @@ news = cut(jeu, "    <!-- ===================== Quoi de neuf ===================
 boss = cut(jeu, "    <!-- ===================== Les boss ===================== -->", "    </section>\n")
 season_pass = cut(jeu, "    <!-- ===================== Pass de saison ===================== -->", "    </section>\n")
 live_rank = cut(jeu, "    <!-- ===================== Classement en direct ===================== -->", "    </section>\n")
+skins = cut(jeu, "    <!-- ===================== Skins à débloquer ===================== -->", "    </section>\n")
 stats = cut(jeu, "    <!-- Chiffres du jeu (fiche App Store) -->", "    </section>\n")
 download = cut(jeu, "    <!-- Téléchargement -->", "    </section>\n")
 
@@ -162,6 +163,7 @@ subnav = """    <!-- ===================== Sommaire du jeu =====================
         <a class="subnav-link" href="#modes">Modes</a>
         <a class="subnav-link" href="#boss">Boss</a>
         <a class="subnav-link" href="#pass">Pass</a>
+        <a class="subnav-link" href="#skins">Skins</a>
         <a class="subnav-link" href="#classement">Classement</a>
         <a class="subnav-link" href="#progression">Progression</a>
         <a class="subnav-link" href="#codes">Codes</a>
@@ -172,7 +174,7 @@ subnav = """    <!-- ===================== Sommaire du jeu =====================
 
 """
 
-main = '  <main id="main">\n' + game + "\n" + subnav + news + cubes + modes + "\n" + boss + season_pass + live_rank + progress + "\n" + stats + "\n" + codes + faq + download + "  </main>"
+main = '  <main id="main">\n' + game + "\n" + subnav + news + cubes + modes + "\n" + boss + season_pass + skins + live_rank + progress + "\n" + stats + "\n" + codes + faq + download + "  </main>"
 main = absolute(main)
 
 # Données structurées pour Google (fiche d'application)

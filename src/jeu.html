@@ -107,6 +107,24 @@
               <a class="link-arrow" href="#pass" data-pass-link="2026-12">Voir le pass</a>
             </div>
           </li>
+          <li class="news-item" data-date="2026-11-27" data-visual="/assets/img/skins/purple_kraken.avif /assets/img/skins/blue_storm.avif /assets/img/skins/orange_dragon.avif" style="--brand:#ff9f0a">
+            <img class="news-thumb" src="assets/img/skins/blue_storm.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
+            <div class="news-body">
+              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-27">27 novembre 2026</time></p>
+              <h3>Version 3.1&nbsp;: une animation par skin</h3>
+              <p>Chaque skin a maintenant sa propre animation dessinée quand tu touches un cube. Les effets de tap quittent la boutique STYLE&nbsp;: ceux qui en avaient acheté sont remboursés automatiquement.</p>
+              <a class="link-arrow" href="#skins">Voir les skins</a>
+            </div>
+          </li>
+          <li class="news-item" data-date="2026-11-25" data-visual="/assets/img/pass/blue_poseidon.avif" style="--brand:#0ea5e9">
+            <img class="news-thumb" src="assets/img/pass/blue_poseidon.avif" alt="" width="64" height="64" loading="lazy" decoding="async">
+            <div class="news-body">
+              <p class="news-date"><span class="news-tag" hidden></span><time datetime="2026-11-25">25 novembre 2026</time></p>
+              <h3>Version 3.0.5</h3>
+              <p>Le Pass de saison change de décor chaque mois, la prévente prend les couleurs du pass suivant, et ta progression se synchronise entre ton iPhone et ton iPad avec le même compte.</p>
+              <a class="link-arrow" href="#pass" data-pass-link="2026-12">Voir le pass</a>
+            </div>
+          </li>
           <li class="news-item" data-date="2026-11-21" data-visual="/assets/img/dtr-icon.jpg" style="--brand:#bf5af2">
             <img class="news-thumb" src="assets/img/dtr-icon.jpg" alt="" width="64" height="64" loading="lazy" decoding="async">
             <div class="news-body">
@@ -425,6 +443,38 @@
       </div>
     </section>
 
+    <!-- ===================== Skins à débloquer ===================== -->
+    <section class="skins band" id="skins" data-scene="progress" aria-labelledby="skins-title">
+      <div class="wrap-wide">
+        <header class="section-head">
+          <p class="kicker reveal">Skins à débloquer</p>
+          <h2 class="section-title" id="skins-title" data-split>Plus de 150 skins.<br><span class="muted">Chacun avec son animation.</span></h2>
+          <p class="section-lead reveal">Personnalise chacun de tes cubes&nbsp;: skins classiques avec les coins gagnés en jouant, skins premium animés avec les gems, pack Originals, et des skins de saison qu’on ne trouve que pendant leur événement. Depuis la version 3.1, <strong>chaque skin a sa propre animation dessinée</strong> quand tu touches un cube.</p>
+        </header>
+        <div class="skins-ui reveal" data-skins>
+          <div class="skins-controls">
+            <div class="seg" role="tablist" aria-label="Type de skins">
+              <button type="button" role="tab" data-skin-tab="classic" aria-selected="true" style="--brand:#ffd60a">Classiques</button>
+              <button type="button" role="tab" data-skin-tab="premium" aria-selected="false" style="--brand:#64d2ff">Premium</button>
+              <button type="button" role="tab" data-skin-tab="original" aria-selected="false" style="--brand:#ff375f">Originals</button>
+              <button type="button" role="tab" data-skin-tab="event" aria-selected="false" style="--brand:#30d158">Événements</button>
+            </div>
+            <div class="skin-colors" role="group" aria-label="Couleur des cubes">
+              <button type="button" data-skin-color="all" aria-pressed="true">Toutes</button>
+              <button type="button" data-skin-color="blue" aria-pressed="false" aria-label="Bleus" style="--c:#2997ff"></button>
+              <button type="button" data-skin-color="red" aria-pressed="false" aria-label="Rouges" style="--c:#ff375f"></button>
+              <button type="button" data-skin-color="green" aria-pressed="false" aria-label="Verts" style="--c:#30d158"></button>
+              <button type="button" data-skin-color="purple" aria-pressed="false" aria-label="Violets" style="--c:#bf5af2"></button>
+              <button type="button" data-skin-color="orange" aria-pressed="false" aria-label="Oranges" style="--c:#ff9f0a"></button>
+              <button type="button" data-skin-color="yellow" aria-pressed="false" aria-label="Jaunes" style="--c:#ffd60a"></button>
+            </div>
+          </div>
+          <p class="skins-note" data-skins-note></p>
+          <div class="skins-grid" data-skins-grid aria-live="polite"><p class="rank-empty">Chargement des skins…</p></div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== Classement en direct ===================== -->
     <section class="live-rank band" id="classement" data-scene="progress" aria-labelledby="rank-title">
       <div class="wrap">
@@ -532,7 +582,7 @@
         </header>
         <div class="stats-grid" data-stagger>
           <div class="stat"><p class="stat-num"><span data-count="5">5</span></p><p class="stat-label">modes de jeu&nbsp;: Arcade, Rain, Chrono, Fusion et Événement</p></div>
-          <div class="stat"><p class="stat-num"><span data-count="100">100</span>+</p><p class="stat-label">skins à débloquer, dont des skins animés</p></div>
+          <div class="stat"><p class="stat-num"><span data-count="150">150</span>+</p><p class="stat-label">skins à débloquer, chacun avec son animation</p></div>
           <div class="stat"><p class="stat-num"><span data-count="10">10</span></p><p class="stat-label">cubes à fusionner en mode Fusion, jusqu’au cube d’or</p></div>
           <div class="stat"><p class="stat-num"><span data-count="50">50</span></p><p class="stat-label">niveaux à gravir, puis le Prestige</p></div>
         </div>

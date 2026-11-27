@@ -95,7 +95,7 @@ T = [
     # ---- Chiffres
     ("Un jeu qui ne s’arrête jamais.", "A game that never stops."),
     ("modes de jeu&nbsp;: Arcade, Rain, Chrono, Fusion et Événement", "game modes: Arcade, Rain, Chrono, Fusion and Event"),
-    ("skins à débloquer, dont des skins animés", "skins to unlock, including animated skins"),
+    ("skins à débloquer, chacun avec son animation", "skins to unlock, each with its own animation"),
     ("cubes à fusionner en mode Fusion, jusqu’au cube d’or", "cubes to merge in Fusion mode, up to the gold cube"),
     ("niveaux à gravir, puis le Prestige", "levels to climb, then Prestige"),
     # ---- Codes cadeaux
@@ -271,4 +271,27 @@ T = [
     ('<a class="subnav-link" href="#classement">Classement</a>', '<a class="subnav-link" href="#classement">Leaderboard</a>'),
     ('<a class="subnav-link" href="#progression">Progression</a>', '<a class="subnav-link" href="#progression">Progress</a>'),
     ('<a class="subnav-link subnav-cta" href="#telecharger">Télécharger</a>', '<a class="subnav-link subnav-cta" href="#telecharger">Download</a>'),
+    # ---- Skins à débloquer
+    ('<p class="kicker reveal">Skins à débloquer</p>', '<p class="kicker reveal">Skins to unlock</p>'),
+    ('Plus de 150 skins.<br><span class="muted">Chacun avec son animation.</span>', 'Over 150 skins.<br><span class="muted">Each with its own animation.</span>'),
+    ("Personnalise chacun de tes cubes&nbsp;: skins classiques avec les coins gagnés en jouant, skins premium animés avec les gems, pack Originals, et des skins de saison qu’on ne trouve que pendant leur événement. Depuis la version 3.1, <strong>chaque skin a sa propre animation dessinée</strong> quand tu touches un cube.",
+     "Customize every one of your cubes: classic skins with the coins you earn by playing, animated premium skins with gems, the Originals pack, and seasonal skins you can only get during their event. Since version 3.1, <strong>every skin has its own hand-drawn animation</strong> when you tap a cube."),
+    ('aria-label="Type de skins"', 'aria-label="Skin type"'),
+    ('data-skin-tab="classic" aria-selected="true" style="--brand:#ffd60a">Classiques</button>', 'data-skin-tab="classic" aria-selected="true" style="--brand:#ffd60a">Classic</button>'),
+    ('data-skin-tab="event" aria-selected="false" style="--brand:#30d158">Événements</button>', 'data-skin-tab="event" aria-selected="false" style="--brand:#30d158">Events</button>'),
+    ('aria-label="Couleur des cubes"', 'aria-label="Cube color"'),
+    ('data-skin-color="all" aria-pressed="true">Toutes</button>', 'data-skin-color="all" aria-pressed="true">All</button>'),
+    ('aria-label="Bleus"', 'aria-label="Blue"'), ('aria-label="Rouges"', 'aria-label="Red"'), ('aria-label="Verts"', 'aria-label="Green"'),
+    ('aria-label="Violets"', 'aria-label="Purple"'), ('aria-label="Oranges"', 'aria-label="Orange"'), ('aria-label="Jaunes"', 'aria-label="Yellow"'),
+    ('<p class="rank-empty">Chargement des skins…</p>', '<p class="rank-empty">Loading skins…</p>'),
+    ('<a class="subnav-link" href="#skins">Skins</a>', '<a class="subnav-link" href="#skins">Skins</a>'),
+    # ---- Nouveautés 3.0.5 et 3.1
+    ('>27 novembre 2026</time>', '>November 27, 2026</time>'),
+    ("<h3>Version 3.1&nbsp;: une animation par skin</h3>", "<h3>Version 3.1: an animation for every skin</h3>"),
+    ("<p>Chaque skin a maintenant sa propre animation dessinée quand tu touches un cube. Les effets de tap quittent la boutique STYLE&nbsp;: ceux qui en avaient acheté sont remboursés automatiquement.</p>",
+     "<p>Every skin now has its own hand-drawn animation when you tap a cube. Tap effects leave the STYLE shop: players who bought some are refunded automatically.</p>"),
+    ('href="#skins">Voir les skins</a>', 'href="#skins">See the skins</a>'),
+    ('>25 novembre 2026</time>', '>November 25, 2026</time>'),
+    ("<p>Le Pass de saison change de décor chaque mois, la prévente prend les couleurs du pass suivant, et ta progression se synchronise entre ton iPhone et ton iPad avec le même compte.</p>",
+     "<p>The Season Pass gets a new look every month, the presale shows the colors of the next pass, and your progress syncs between your iPhone and iPad with the same account.</p>"),
 ]

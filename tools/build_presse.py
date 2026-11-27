@@ -36,19 +36,19 @@ FACTS_EN = [
 SHORT_FR = "Don’t Tap Red est un jeu de réflexes gratuit sur iPhone, iPhone Duo, iPad et Android : tape les cubes bleus, enchaîne les combos… et ne touche jamais le rouge."
 LONG_FR = [
     "Tape le bleu, évite le rouge… facile ? Pas si vite ! Don’t Tap Red est un jeu de réflexes nerveux où chaque seconde compte. Les cubes bougent, accélèrent, se multiplient : garde ton sang-froid, enchaîne les bons cubes et surtout… ne touche jamais le rouge !",
-    "Cinq modes de jeu (Arcade, Rain, Chrono, Fusion et Événement), des boss géants que tous les joueurs attaquent ensemble à chaque saison, 50 niveaux puis des Prestiges, des classements mondiaux et entre amis, plus de 100 skins et des saisons qui transforment le jeu. Gratuit, avec achats intégrés facultatifs, en français et en anglais.",
+    "Cinq modes de jeu (Arcade, Rain, Chrono, Fusion et Événement), des boss géants que tous les joueurs attaquent ensemble à chaque saison, 50 niveaux puis des Prestiges, des classements mondiaux et entre amis, plus de 150 skins et des saisons qui transforment le jeu. Gratuit, avec achats intégrés facultatifs, en français et en anglais.",
 ]
 SHORT_EN = "Don't Tap Red is a free reflex game for iPhone, iPhone Duo, iPad and Android: tap the blue cubes, build your combo… and never touch the red one."
 LONG_EN = [
     "Tap the blue, avoid the red… easy? Not so fast! Don't Tap Red is a fast-paced reflex game where every second counts. Cubes move, speed up and multiply: keep your cool, chain the right cubes and above all… never touch the red one!",
-    "Five game modes (Arcade, Rain, Chrono, Fusion and Event), giant seasonal bosses that all players attack together, 50 levels followed by Prestige ranks, world and friends leaderboards, 100+ skins and seasons that transform the game. Free to play with optional in-app purchases, available in English and French.",
+    "Five game modes (Arcade, Rain, Chrono, Fusion and Event), giant seasonal bosses that all players attack together, 50 levels followed by Prestige ranks, world and friends leaderboards, 150+ skins and seasons that transform the game. Free to play with optional in-app purchases, available in English and French.",
 ]
 FEATURES = [
     ("5 modes de jeu", "Arcade, Rain, Chrono, Fusion et Événement&nbsp;: des combos, des cubes qui tombent du ciel, 60&nbsp;secondes chrono, un tonneau où fusionner les cubes jusqu’au cube d’or, et des boss."),
     ("Boss communautaires", "À chaque saison, un boss géant que tous les joueurs attaquent ensemble, en direct&nbsp;: Le Cube Noir, puis Le Cadeau Piégé en janvier."),
     ("Niveaux et Prestiges", "50&nbsp;niveaux, puis des Prestiges avec emblèmes et skins exclusifs."),
     ("Classements et amis", "Mondial, de la semaine et du mois, avec des récompenses, et entre amis. Inviter un ami rapporte 100&nbsp;gems à chacun."),
-    ("Plus de 100 skins", "Néon, glace, lave, galaxie, diamant… dont des skins animés."),
+    ("Plus de 150 skins", "Néon, glace, lave, galaxie, diamant… chacun avec sa propre animation dessinée quand on touche un cube."),
     ("Missions et titres", "Missions du jour et de la semaine, plus de 50&nbsp;titres et un cadeau chaque jour."),
     ("Des saisons", "Halloween, Noël, Saint-Valentin, Pâques&nbsp;: skins et missions en édition limitée."),
     ("Parties rapides", "Quelques minutes suffisent&nbsp;: parfait pour une pause."),

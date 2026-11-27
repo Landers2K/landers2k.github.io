@@ -1974,6 +1974,129 @@ const CONFIG = {
   })();
 
   /* ------------------------------------------------------------------------
+     Skins à débloquer (assets/data/skins.json, construit par tools/build_skins.py)
+     Les skins d'un événement restent floutés tant que l'événement n'a pas commencé.
+     ------------------------------------------------------------------------ */
+  (function skinGallery() {
+    const box = $('[data-skins]');
+    if (!box) return;
+    const grid = $('[data-skins-grid]', box);
+    const note = $('[data-skins-note]', box);
+    const tabs = $$('[data-skin-tab]', box);
+    const colors = $$('[data-skin-color]', box);
+    const COLOR = { blue: '#2997ff', red: '#ff375f', green: '#30d158', purple: '#bf5af2', orange: '#ff9f0a', yellow: '#ffd60a' };
+    const pad = n => String(n).padStart(2, '0');
+    const now = new Date();
+    const today = `${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+    const isLive = ev => (ev.start <= ev.end ? today >= ev.start && today <= ev.end : today >= ev.start || today <= ev.end);
+    const nextStart = ev => {
+      const [m, d] = ev.start.split('-').map(Number);
+      let date = new Date(now.getFullYear(), m - 1, d);
+      if (date < startOfDay(now)) date = new Date(now.getFullYear() + 1, m - 1, d);
+      return date;
+    };
+    const endOf = ev => {
+      const [m, d] = ev.end.split('-').map(Number);
+      let date = new Date(now.getFullYear(), m - 1, d);
+      if (date < startOfDay(now)) date = new Date(now.getFullYear() + 1, m - 1, d);
+      return date;
+    };
+    const longDate = date => date.toLocaleDateString(LOCALE, { day: 'numeric', month: 'long', ...(date.getFullYear() !== now.getFullYear() ? { year: 'numeric' } : {}) }).replace(/^1 /, EN ? '1 ' : '1er ');
+    const NOTES = {
+      classic: tr('Avec les coins gagnés en jouant. Plus un skin est cher, plus il brille quand tu le touches.', 'With the coins you earn by playing. The pricier the skin, the more it shines when you tap it.'),
+      premium: tr('Avec les gems. Des skins animés en permanence : halo, reflets et particules.', 'With gems. Skins that are always animated: halo, shine and particles.'),
+      original: tr('Les cubes du jeu en version exclusive, dans le Legend Starter Pack.', 'The game’s cubes in an exclusive version, in the Legend Starter Pack.'),
+      event: tr('En vente seulement pendant leur événement. Les prochains restent mystérieux jusque-là !', 'Only on sale during their event. The next ones stay a mystery until then!'),
+    };
+    let data = null, tab = 'classic', color = 'all';
+
+    const price = s => {
+      const span = document.createElement('span');
+      span.className = `skin-price is-${s.tier}`;
+      if (s.tier === 'classic' || s.tier === 'premium') {
+        const icon = document.createElement('img');
+        icon.src = s.tier === 'premium' ? '/assets/img/ico-gem.avif' : '/assets/img/ico-coin.avif';
+        icon.alt = s.tier === 'premium' ? 'gems' : 'coins';
+        icon.width = icon.height = 16;
+        span.append(icon, fmt.format(s.price));
+      } else if (s.tier === 'free') {
+        span.textContent = tr('Gratuit · missions', 'Free · missions');
+      } else {
+        span.textContent = s.event ? tr('Pack Originals', 'Originals pack') : 'Legend Starter Pack';
+      }
+      return span;
+    };
+    const card = (s, hidden) => {
+      const fig = document.createElement('figure');
+      fig.className = `skin-card${hidden ? ' is-hidden' : ''}`;
+      fig.style.setProperty('--sc', COLOR[s.color] || '#2997ff');
+      const pic = document.createElement('span');
+      pic.className = 'skin-img';
+      const img = document.createElement('img');
+      img.src = `/${s.img}`;
+      img.alt = hidden ? '' : s.name;
+      img.width = img.height = 160;
+      img.loading = 'lazy';
+      img.decoding = 'async';
+      pic.append(img);
+      const cap = document.createElement('figcaption');
+      const name = document.createElement('b');
+      name.textContent = hidden ? '???' : s.name;
+      cap.append(name, price(s));
+      fig.append(pic, cap);
+      return fig;
+    };
+    const byColor = s => color === 'all' || s.color === color;
+    const render = () => {
+      tabs.forEach(b => b.setAttribute('aria-selected', String(b.dataset.skinTab === tab)));
+      colors.forEach(b => b.setAttribute('aria-pressed', String(b.dataset.skinColor === color)));
+      note.textContent = NOTES[tab];
+      if (!data) return;
+      const nodes = [];
+      if (tab === 'event') {
+        // Événement en cours d'abord, puis du plus proche au plus lointain
+        Object.entries(data.events).sort(([, a], [, b]) => (isLive(b) - isLive(a)) || (nextStart(a) - nextStart(b))).forEach(([id, ev]) => {
+          const list = data.skins.filter(s => s.event === id && byColor(s));
+          if (!list.length) return;
+          const live = isLive(ev);
+          const head = document.createElement('div');
+          head.className = 'skin-group';
+          head.style.setProperty('--ec', ev.color);
+          const title = document.createElement('b');
+          title.textContent = EN ? ev.name_en : ev.name;
+          const when = document.createElement('span');
+          when.className = live ? 'is-live' : '';
+          when.textContent = live
+            ? tr(`En ce moment, jusqu’au ${longDate(endOf(ev))}`, `Live now, until ${longDate(endOf(ev))}`)
+            : tr(`Dès le ${longDate(nextStart(ev))} · ${list.length} skins mystère`, `From ${longDate(nextStart(ev))} · ${list.length} mystery skins`);
+          head.append(title, when);
+          nodes.push(head, ...list.map(s => card(s, !live)));
+        });
+      } else {
+        data.skins.filter(s => s.tier === tab && !s.event && byColor(s))
+          .sort((a, b) => a.price - b.price)
+          .forEach(s => nodes.push(card(s, false)));
+      }
+      grid.replaceChildren(...nodes);
+    };
+    tabs.forEach(b => b.addEventListener('click', () => { tab = b.dataset.skinTab; render(); }));
+    colors.forEach(b => b.addEventListener('click', () => { color = b.dataset.skinColor; render(); }));
+    render();
+    fetch('/assets/data/skins.json', { cache: 'no-cache' }).then(r => (r.ok ? r.json() : null)).catch(() => null).then(d => {
+      if (!d || !Array.isArray(d.skins)) { grid.textContent = tr('Les skins ne sont pas disponibles pour le moment.', 'Skins aren’t available right now.'); return; }
+      data = d;
+      // Nombre de skins sur chaque onglet
+      tabs.forEach(b => {
+        const n = d.skins.filter(s => (b.dataset.skinTab === 'event' ? s.event : s.tier === b.dataset.skinTab && !s.event)).length;
+        const small = document.createElement('small');
+        small.textContent = n;
+        b.append(' ', small);
+      });
+      render();
+    });
+  })();
+
+  /* ------------------------------------------------------------------------
      Classement en direct (top 10 par mode, de toujours ou de la semaine)
      ------------------------------------------------------------------------ */
   (function liveRanking() {

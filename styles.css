@@ -3018,3 +3018,40 @@ body:has(.nav.is-hidden) .subnav { top: 12px; }
 @media (max-width: 860px) { .rig-grid { grid-template-columns: minmax(0, 1fr); } .rig-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 520px) { .rig-legend { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 6px; } .rig-legend a { gap: 8px; padding: 8px 10px; } .rig-legend small { display: none; } .rig-legend b { font-size: 13px; } .rig-num { width: 24px; height: 24px; font-size: 13px; } }
 @media (prefers-reduced-motion: reduce) { .rig-svg * { animation: none !important; } }
+
+/* ==========================================================================
+   Page du jeu : skins à débloquer
+   ========================================================================== */
+.skins { padding: clamp(90px, 11vw, 150px) 0; }
+.skins-ui { padding: clamp(16px, 2.4vw, 26px); border-radius: var(--r-card); background: var(--c-surface); box-shadow: inset 0 0 0 1px var(--c-line); }
+.skins-controls { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+.skins-controls .seg small { margin-left: 2px; color: var(--c-text-3); font-size: 12px; }
+.skin-colors { display: flex; align-items: center; gap: 6px; padding: 4px; border-radius: 14px; background: var(--c-bg-alt); box-shadow: inset 0 0 0 1px var(--c-line); }
+.skin-colors button { width: 30px; height: 30px; border: 0; border-radius: 9px; background: var(--c); cursor: pointer; opacity: .45; transition: opacity .2s var(--ease), box-shadow .2s var(--ease); }
+.skin-colors button:hover { opacity: .8; }
+.skin-colors button[aria-pressed="true"] { opacity: 1; box-shadow: 0 0 0 2px var(--c-bg-alt), 0 0 0 4px var(--c, var(--c-text)); }
+.skin-colors button[data-skin-color="all"] { width: auto; padding: 0 12px; background: none; color: var(--c-text-2); font: inherit; font-size: 14px; font-weight: 600; opacity: 1; }
+.skin-colors button[data-skin-color="all"][aria-pressed="true"] { background: var(--c-surface-2); color: var(--c-text); box-shadow: none; }
+.skins-note { margin: 0 0 16px; color: var(--c-text-3); font-size: 14px; }
+.skins-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(116px, 1fr)); gap: 12px; min-height: 200px; }
+.skin-card { display: grid; justify-items: center; align-content: start; gap: 6px; padding: 12px 8px 10px; border-radius: 18px; background: radial-gradient(80% 60% at 50% 32%, color-mix(in srgb, var(--sc) 20%, transparent), transparent 70%), var(--c-bg-alt); box-shadow: inset 0 0 0 1px var(--c-line); text-align: center; animation: pass-in .35s var(--ease-out) both; transition: translate .35s var(--ease-out), box-shadow .25s var(--ease); }
+.skin-card:hover { translate: 0 -3px; box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--sc) 55%, transparent); }
+.skin-img { position: relative; display: block; width: 100%; aspect-ratio: 1; }
+.skin-img img { width: 100%; height: 100%; filter: drop-shadow(0 8px 14px rgba(0, 0, 0, .5)); transition: transform .4s var(--ease-out), filter .4s var(--ease); }
+.skin-card:hover .skin-img img { transform: scale(1.08) rotate(-4deg); }
+.skin-card figcaption { display: grid; gap: 3px; }
+.skin-card b { font-size: 13px; line-height: 1.2; }
+.skin-price { display: inline-flex; align-items: center; justify-content: center; gap: 4px; color: #ffd60a; font-size: 12px; font-weight: 700; font-variant-numeric: tabular-nums; }
+.skin-price img { width: 16px; height: 16px; }
+.skin-price.is-premium { color: #64d2ff; }
+.skin-price.is-original { color: #ff8fa3; }
+.skin-price.is-free { color: #8ff0a8; }
+.skin-card.is-hidden .skin-img img { filter: blur(10px) brightness(.5) saturate(1.5); transform: scale(1.1); }
+.skin-card.is-hidden .skin-img::after { content: "?"; position: absolute; inset: 0; display: grid; place-items: center; color: #fff; font-family: var(--f-display); font-size: 34px; font-weight: 800; text-shadow: 0 0 18px var(--sc); }
+.skin-card.is-hidden b { filter: blur(4px); user-select: none; }
+.skin-group { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-top: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--c-line); }
+.skin-group:first-child { margin-top: 0; }
+.skin-group b { color: var(--ec); font-family: var(--f-display); font-size: 22px; font-weight: 800; letter-spacing: -.02em; }
+.skin-group span { color: var(--c-text-3); font-size: 13px; }
+.skin-group .is-live { color: #30d158; font-weight: 700; }
+@media (max-width: 520px) { .skins-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; } .skin-card b { font-size: 12px; } .skin-colors { width: 100%; justify-content: space-between; } }
