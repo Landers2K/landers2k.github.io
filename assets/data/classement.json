@@ -78,6 +78,12 @@
      "prestige": 0
     },
     {
+     "name": "JOUEUR8604",
+     "score": 469,
+     "level": 3,
+     "prestige": 0
+    },
+    {
      "name": "JOUEUR6340",
      "score": 182,
      "level": 3,
@@ -183,6 +189,12 @@
      "name": "aN9r1",
      "score": 1553,
      "level": 4,
+     "prestige": 0
+    },
+    {
+     "name": "JOUEUR8604",
+     "score": 1214,
+     "level": 3,
      "prestige": 0
     },
     {
@@ -304,6 +316,12 @@
      "score": 2000,
      "level": 3,
      "prestige": 0
+    },
+    {
+     "name": "JOUEUR8604",
+     "score": 550,
+     "level": 3,
+     "prestige": 0
     }
    ]
   },
@@ -318,7 +336,7 @@
     {
      "name": "Manu",
      "score": 4427,
-     "level": 16,
+     "level": 17,
      "prestige": 0
     },
     {
@@ -374,7 +392,7 @@
     {
      "name": "Manu",
      "score": 4427,
-     "level": 16,
+     "level": 17,
      "prestige": 0
     },
     {
@@ -414,6 +432,12 @@
      "prestige": 0
     },
     {
+     "name": "JOUEUR8604",
+     "score": 228,
+     "level": 3,
+     "prestige": 0
+    },
+    {
      "name": "aN9r1",
      "score": 189,
      "level": 4,
@@ -423,5 +447,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-27T00:28+01:00"
+ "updated": "2026-11-27T11:43+01:00"
 }

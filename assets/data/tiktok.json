@@ -3,13 +3,13 @@
   "followers": 6207,
   "likes": 78300,
   "recentVideos": 13,
-  "recentViews": 284750,
+  "recentViews": 284753,
   "bestViews": 94300,
   "latest": {
     "id": "7710481652413238561",
     "url": "https://www.tiktok.com/@landers2k/video/7710481652413238561",
     "description": "Uber dans GTA VI ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 715,
+    "plays": 717,
     "published": "2026-11-21",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -50,7 +50,7 @@
       "id": "7709739830338473249",
       "url": "https://www.tiktok.com/@landers2k/video/7709739830338473249",
       "description": "Meilleur que NBA2K27 🔥 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 859,
+      "plays": 860,
       "published": "2026-11-19",
       "cover": "assets/img/tiktok/7709739830338473249.webp"
     },
@@ -64,12 +64,12 @@
     }
   ],
   "views": {
-    "7710481652413238561": 715,
+    "7710481652413238561": 717,
     "7710481333428030752": 696,
     "7710480268427021601": 768,
     "7709740434846747937": 963,
     "7709740117937720608": 973,
-    "7709739830338473249": 859,
+    "7709739830338473249": 860,
     "7709739422895312160": 941,
     "7709739222197964064": 777,
     "7709728385446071585": 40100,
@@ -79,5 +79,5 @@
     "7583012184209378582": 94300
   },
   "coverId": "7710481652413238561",
-  "updated": "2026-11-27T08:29:23+00:00"
+  "updated": "2026-11-27T10:43:15+00:00"
 }
