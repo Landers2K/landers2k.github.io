@@ -2001,12 +2001,22 @@ const CONFIG = {
       if (date < startOfDay(now)) date = new Date(now.getFullYear() + 1, m - 1, d);
       return date;
     };
+    // Un événement déjà ouvert au moins une fois depuis la sortie du jeu (21 octobre 2026) reste dévoilé pour toujours
+    const LAUNCH = new Date(2026, 9, 21);
+    const firstStart = ev => {
+      const [sm, sd] = ev.start.split('-').map(Number), [em, ed] = ev.end.split('-').map(Number);
+      for (let y = LAUNCH.getFullYear(); ; y++) {
+        const end = new Date(ev.start <= ev.end ? y : y + 1, em - 1, ed);
+        if (end >= LAUNCH) return new Date(y, sm - 1, sd);
+      }
+    };
+    const isRevealed = ev => now >= firstStart(ev);
     const longDate = date => date.toLocaleDateString(LOCALE, { day: 'numeric', month: 'long', ...(date.getFullYear() !== now.getFullYear() ? { year: 'numeric' } : {}) }).replace(/^1 /, EN ? '1 ' : '1er ');
     const NOTES = {
       classic: tr('Avec les coins gagnés en jouant. Plus un skin est cher, plus il brille quand tu le touches.', 'With the coins you earn by playing. The pricier the skin, the more it shines when you tap it.'),
       premium: tr('Avec les gems. Des skins animés en permanence : halo, reflets et particules.', 'With gems. Skins that are always animated: halo, shine and particles.'),
       original: tr('Les cubes du jeu en version exclusive, dans le Legend Starter Pack.', 'The game’s cubes in an exclusive version, in the Legend Starter Pack.'),
-      event: tr('En vente seulement pendant leur événement. Les prochains restent mystérieux jusque-là !', 'Only on sale during their event. The next ones stay a mystery until then!'),
+      event: tr('En vente seulement pendant leur événement. Ceux des événements à venir restent mystérieux jusqu’à leur première ouverture !', 'Only on sale during their event. Skins from upcoming events stay a mystery until they first open!'),
     };
     let data = null, tab = 'classic', color = 'all';
 
@@ -2059,6 +2069,7 @@ const CONFIG = {
           const list = data.skins.filter(s => s.event === id && byColor(s));
           if (!list.length) return;
           const live = isLive(ev);
+          const revealed = live || isRevealed(ev);
           const head = document.createElement('div');
           head.className = 'skin-group';
           head.style.setProperty('--ec', ev.color);
@@ -2068,9 +2079,11 @@ const CONFIG = {
           when.className = live ? 'is-live' : '';
           when.textContent = live
             ? tr(`En ce moment, jusqu’au ${longDate(endOf(ev))}`, `Live now, until ${longDate(endOf(ev))}`)
-            : tr(`Dès le ${longDate(nextStart(ev))} · ${list.length} skins mystère`, `From ${longDate(nextStart(ev))} · ${list.length} mystery skins`);
+            : revealed
+              ? tr(`Revient le ${longDate(nextStart(ev))}`, `Back on ${longDate(nextStart(ev))}`)
+              : tr(`Dès le ${longDate(nextStart(ev))} · ${list.length} skins mystère`, `From ${longDate(nextStart(ev))} · ${list.length} mystery skins`);
           head.append(title, when);
-          nodes.push(head, ...list.map(s => card(s, !live)));
+          nodes.push(head, ...list.map(s => card(s, !revealed)));
         });
       } else {
         data.skins.filter(s => s.tier === tab && !s.event && byColor(s))
