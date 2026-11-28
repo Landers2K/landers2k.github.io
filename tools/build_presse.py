@@ -53,7 +53,7 @@ FEATURES = [
     ("Des saisons", "Halloween, Noël, Saint-Valentin, Pâques&nbsp;: skins et missions en édition limitée."),
     ("Parties rapides", "Quelques minutes suffisent&nbsp;: parfait pour une pause."),
 ]
-NEWS = "Nouveau dans la <b>version 3.0.2</b>&nbsp;: le mode <b>Fusion</b>, où les cubes tombent dans un tonneau et fusionnent jusqu’au cube d’or sans dépasser la ligne rouge, avec 3&nbsp;bonus (Échanger, Secouer et le marteau Casser). Le jeu arrive aussi sur <b>iPad</b> et s’adapte aux tablettes et aux téléphones pliables, dont l’iPhone Duo ouvert comme fermé, avec <b>24&nbsp;nouveaux skins</b> et un nouvel écran d’accueil. Fusion compte dans les classements mondiaux et les missions. Toujours là&nbsp;: <b>inviter un ami</b> rapporte 100&nbsp;gems à chacun."
+NEWS = "Nouveau dans la <b>version 3.1</b>&nbsp;: <b>chaque skin a sa propre animation dessinée</b> quand on touche un cube, plus de 150&nbsp;animations au total. Les effets de tap quittent la boutique STYLE et ceux qui en avaient acheté sont remboursés automatiquement. Depuis la 3.0.5, le Pass de saison change de décor chaque mois et la progression se synchronise entre iPhone et iPad. Toujours là&nbsp;: le mode <b>Fusion</b> (3.0.2), le jeu sur <b>iPad</b> et <b>iPhone Duo</b>, et <b>inviter un ami</b> rapporte 100&nbsp;gems à chacun."
 CONTACT = "donttapred.contact@gmail.com"
 # « Ils en parlent » : un article par ligne, le plus récent en premier
 COVERAGE = [
