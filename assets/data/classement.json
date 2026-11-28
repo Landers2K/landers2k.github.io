@@ -12,7 +12,7 @@
     {
      "name": "Ophé la bg",
      "score": 17043,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -68,7 +68,7 @@
     {
      "name": "Ophé la bg",
      "score": 7295,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -102,7 +102,7 @@
     {
      "name": "Ophé la bg",
      "score": 20548,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -164,7 +164,7 @@
     {
      "name": "Ophé la bg",
      "score": 20548,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -252,7 +252,7 @@
     {
      "name": "Ophé la bg",
      "score": 4607,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -296,7 +296,7 @@
     {
      "name": "Ophé la bg",
      "score": 4562,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -348,7 +348,7 @@
     {
      "name": "Ophé la bg",
      "score": 3829,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -404,7 +404,7 @@
     {
      "name": "Ophé la bg",
      "score": 3370,
-     "level": 14,
+     "level": 18,
      "prestige": 2
     },
     {
@@ -453,5 +453,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-28T13:47+01:00"
+ "updated": "2026-11-28T14:17+01:00"
 }
