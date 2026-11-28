@@ -342,7 +342,7 @@
     {
      "name": "Manu",
      "score": 4427,
-     "level": 22,
+     "level": 23,
      "prestige": 0
     },
     {
@@ -398,7 +398,7 @@
     {
      "name": "Manu",
      "score": 4427,
-     "level": 22,
+     "level": 23,
      "prestige": 0
     },
     {
@@ -453,5 +453,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-27T17:43+01:00"
+ "updated": "2026-11-28T11:25+01:00"
 }

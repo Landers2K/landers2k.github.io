@@ -3,17 +3,25 @@
   "followers": 6206,
   "likes": 78300,
   "recentVideos": 13,
-  "recentViews": 244216,
+  "recentViews": 243508,
   "bestViews": 94300,
   "latest": {
-    "id": "7712870826290400545",
-    "url": "https://www.tiktok.com/@landers2k/video/7712870826290400545",
-    "description": "Trop de wesh dans la vidéo mais vas-y, des putains d’Aliens dans le jeu aussi 🛸 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 2689,
+    "id": "7712871231292198183",
+    "url": "https://www.tiktok.com/@landers2k/video/7712871231292198183",
+    "description": "J’étais dans un putain de vaisseau spatial 🛸  #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+    "plays": 266,
     "published": "2026-11-27",
     "cover": "assets/img/tiktok-latest.jpg"
   },
   "recent": [
+    {
+      "id": "7712870826290400545",
+      "url": "https://www.tiktok.com/@landers2k/video/7712870826290400545",
+      "description": "Trop de wesh dans la vidéo mais vas-y, des putains d’Aliens dans le jeu aussi 🛸 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
+      "plays": 2689,
+      "published": "2026-11-27",
+      "cover": "assets/img/tiktok/7712870826290400545.webp"
+    },
     {
       "id": "7710481983146691872",
       "url": "https://www.tiktok.com/@landers2k/video/7710481983146691872",
@@ -26,7 +34,7 @@
       "id": "7710481652413238561",
       "url": "https://www.tiktok.com/@landers2k/video/7710481652413238561",
       "description": "Uber dans GTA VI ? 👀 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 720,
+      "plays": 721,
       "published": "2026-11-21",
       "cover": "assets/img/tiktok/7710481652413238561.webp"
     },
@@ -53,31 +61,23 @@
       "plays": 647,
       "published": "2026-11-21",
       "cover": "assets/img/tiktok/7710480634333957408.webp"
-    },
-    {
-      "id": "7710480268427021601",
-      "url": "https://www.tiktok.com/@landers2k/video/7710480268427021601",
-      "description": "Un trans sous BBL ??  ##Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 770,
-      "published": "2026-11-21",
-      "cover": "assets/img/tiktok/7710480268427021601.webp"
     }
   ],
   "views": {
+    "7712871231292198183": 266,
     "7712870826290400545": 2689,
     "7710481983146691872": 694,
-    "7710481652413238561": 720,
+    "7710481652413238561": 721,
     "7710481333428030752": 700,
     "7710480962135575840": 742,
     "7710480634333957408": 647,
     "7710480268427021601": 770,
     "7709740958270639393": 14,
     "7709740434846747937": 965,
-    "7709740117937720608": 975,
     "7620939508799802647": 67700,
     "7619774411234692374": 73300,
     "7583012184209378582": 94300
   },
-  "coverId": "7712870826290400545",
-  "updated": "2026-11-28T00:44:09+00:00"
+  "coverId": "7712871231292198183",
+  "updated": "2026-11-28T10:25:56+00:00"
 }
