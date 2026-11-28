@@ -3,13 +3,13 @@
   "followers": 6205,
   "likes": 78300,
   "recentVideos": 13,
-  "recentViews": 246643,
+  "recentViews": 247631,
   "bestViews": 94400,
   "latest": {
     "id": "7712871231292198183",
     "url": "https://www.tiktok.com/@landers2k/video/7712871231292198183",
     "description": "J’étais dans un putain de vaisseau spatial 🛸  #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 345,
+    "plays": 347,
     "published": "2026-11-27",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -18,7 +18,7 @@
       "id": "7712870826290400545",
       "url": "https://www.tiktok.com/@landers2k/video/7712870826290400545",
       "description": "Trop de wesh dans la vidéo mais vas-y, des putains d’Aliens dans le jeu aussi 🛸 #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-      "plays": 5641,
+      "plays": 6627,
       "published": "2026-11-27",
       "cover": "assets/img/tiktok/7712870826290400545.webp"
     },
@@ -64,8 +64,8 @@
     }
   ],
   "views": {
-    "7712871231292198183": 345,
-    "7712870826290400545": 5641,
+    "7712871231292198183": 347,
+    "7712870826290400545": 6627,
     "7710481983146691872": 696,
     "7710481652413238561": 721,
     "7710481333428030752": 700,
@@ -79,5 +79,5 @@
     "7583012184209378582": 94400
   },
   "coverId": "7712871231292198183",
-  "updated": "2026-11-28T17:07:35+00:00"
+  "updated": "2026-11-28T17:37:44+00:00"
 }
