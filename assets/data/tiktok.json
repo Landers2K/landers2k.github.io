@@ -3,13 +3,13 @@
   "followers": 6206,
   "likes": 78300,
   "recentVideos": 13,
-  "recentViews": 246223,
+  "recentViews": 246229,
   "bestViews": 94300,
   "latest": {
     "id": "7712871231292198183",
     "url": "https://www.tiktok.com/@landers2k/video/7712871231292198183",
     "description": "J’étais dans un putain de vaisseau spatial 🛸  #Landers2K  #GTAVI  #pourtoiii  #fyp  #GTA6",
-    "plays": 310,
+    "plays": 316,
     "published": "2026-11-27",
     "cover": "assets/img/tiktok-latest.jpg"
   },
@@ -64,7 +64,7 @@
     }
   ],
   "views": {
-    "7712871231292198183": 310,
+    "7712871231292198183": 316,
     "7712870826290400545": 5357,
     "7710481983146691872": 696,
     "7710481652413238561": 721,
@@ -79,5 +79,5 @@
     "7583012184209378582": 94300
   },
   "coverId": "7712871231292198183",
-  "updated": "2026-11-28T13:17:10+00:00"
+  "updated": "2026-11-28T13:47:11+00:00"
 }
