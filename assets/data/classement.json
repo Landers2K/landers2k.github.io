@@ -90,6 +90,12 @@
      "prestige": 0
     },
     {
+     "name": "Davut kaan",
+     "score": 198,
+     "level": 9,
+     "prestige": 0
+    },
+    {
      "name": "JOUEUR6340",
      "score": 182,
      "level": 3,
@@ -211,8 +217,8 @@
     },
     {
      "name": "Davut kaan",
-     "score": 946,
-     "level": 5,
+     "score": 1110,
+     "level": 9,
      "prestige": 0
     },
     {
@@ -321,6 +327,12 @@
      "name": "JOUEUR9947",
      "score": 2000,
      "level": 3,
+     "prestige": 0
+    },
+    {
+     "name": "Davut kaan",
+     "score": 1761,
+     "level": 9,
      "prestige": 0
     },
     {
@@ -453,5 +465,5 @@
   }
  },
  "boss": null,
- "updated": "2026-11-28T17:37+01:00"
+ "updated": "2026-11-28T18:07+01:00"
 }
